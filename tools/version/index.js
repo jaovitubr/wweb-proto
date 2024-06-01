@@ -13,10 +13,9 @@ try {
     if (isDowngrade(env.WA_VERSION, version)) {
         // prevent downgrade
         stdout.write(env.WA_VERSION);
-        return;
+    } else {
+        stdout.write(version);
     }
-
-    stdout.write(version);
 } catch (error) {
     console.error(error);
     exit(1);
