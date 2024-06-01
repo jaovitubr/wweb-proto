@@ -1,8 +1,6 @@
 #!/bin/bash
 
-OUT=$OUT_DIR/javascript
-
-cd $OUT
+cd $OUT_DIR/javascript
 
 npm i
 npm publish --provenance --access public
