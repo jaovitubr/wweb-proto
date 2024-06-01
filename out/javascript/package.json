@@ -1,0 +1,21 @@
+{
+  "name": "wweb-proto",
+  "description": "WhatsApp Web Protocol Buffers",
+  "version": "2.3000.0",
+  "private": false,
+  "main": "index.js",
+  "keywords": [
+    "whatsapp",
+    "protobuf",
+    "typescript"
+  ],
+  "author": "João Vitor Machado",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaovitubr/wweb-proto.git"
+  },
+  "dependencies": {
+    "protobufjs": "^7.3.0"
+  }
+}

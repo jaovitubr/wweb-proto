@@ -1,0 +1,6 @@
+syntax = "proto2";
+
+message ChatLockSettings {
+	optional bool hideLockedChats = 1;
+	optional UserPassword secretCode = 2;
+}

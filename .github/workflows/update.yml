@@ -1,0 +1,102 @@
+name: Check for Update
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Set up environment
+        run: |
+          mkdir -p out
+
+          WA_VERSION=$(cat out/.version)
+          WA_PROTO_MD5=$(cat out/proto/.md5)
+
+          echo "WA_VERSION=$WA_VERSION" >> $GITHUB_ENV
+          echo "WA_PROTO_MD5=$WA_PROTO_MD5" >> $GITHUB_ENV
+
+          echo "Current WhatsApp Web version: $WA_VERSION"
+          echo "Current proto md5: $WA_PROTO_MD5"
+
+      - name: Get latest WhatsApp Web version
+        run: |
+          NEWEST_WA_VERSION=$(node tools/version)
+
+          echo $NEWEST_WA_VERSION > out/.version
+          echo "NEWEST_WA_VERSION=$NEWEST_WA_VERSION" >> $GITHUB_ENV
+
+          echo "Newest WhatsApp Web version: $NEWEST_WA_VERSION"
+
+      - name: Check if update is needed
+        run: |
+          if [[ "${{ env.WA_VERSION }}" == "${{ env.NEWEST_WA_VERSION }}" ]]; then
+            echo "Versions are the same."
+          else
+            echo "Versions are different."
+            echo "update_needed=true" >> $GITHUB_ENV
+          fi
+
+      - name: Install dependencies
+        if: env.update_needed == 'true'
+        run: |
+          npm i -g protobufjs-cli
+          cd tools/scraper && npm i
+
+      - name: Scrap proto files
+        if: env.update_needed == 'true'
+        run: |
+          node tools/scraper
+          NEWEST_WA_PROTO_MD5=$(cat out/proto/.md5)
+
+          echo "NEWEST_WA_PROTO_MD5=$NEWEST_WA_PROTO_MD5" >> $GITHUB_ENV
+          echo "Newest proto md5: $NEWEST_WA_PROTO_MD5"
+        env:
+          OUT_DIR: ${{ github.workspace }}/out/proto
+
+      - name: Check if package update is needed
+        run: |
+          if [[ "${{ env.WA_PROTO_MD5 }}" == "${{ env.NEWEST_WA_PROTO_MD5 }}" ]]; then
+            echo "Versions are the same."
+          else
+            echo "Versions are different."
+            echo "package_update_needed=true" >> $GITHUB_ENV
+          fi
+
+      - name: Generate packages
+        if: env.package_update_needed == 'true'
+        run: ./generate.sh
+        working-directory: tools/packager
+        env:
+          OUT_DIR: ${{ github.workspace }}/out
+
+      - name: Publish packages
+        if: env.package_update_needed == 'true'
+        run: ./publish.sh
+        working-directory: tools/packager
+        env:
+          OUT_DIR: ${{ github.workspace }}/out
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Commit changes
+        if: env.update_needed == 'true'
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: WhatsApp Web v${{ env.NEWEST_WA_VERSION }}
+          tagging_message: "v${{ env.NEWEST_WA_VERSION }}"
