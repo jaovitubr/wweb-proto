@@ -24,7 +24,7 @@ jobs:
 
       - name: Set up environment
         run: |
-          mkdir -p out
+          mkdir -p out/packages
 
           WA_VERSION=$(cat out/.version)
           WA_PROTO_MD5=$(cat out/proto/.md5)
@@ -84,14 +84,14 @@ jobs:
         run: ./generate.sh
         working-directory: tools/packager
         env:
-          OUT_DIR: ${{ github.workspace }}/out
+          OUT_DIR: ${{ github.workspace }}/out/packages
 
       - name: Publish packages
         if: env.package_update_needed == 'true'
         run: ./publish.sh
         working-directory: tools/packager
         env:
-          OUT_DIR: ${{ github.workspace }}/out
+          OUT_DIR: ${{ github.workspace }}/out/packages
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Commit changes
