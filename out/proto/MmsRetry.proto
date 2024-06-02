@@ -1,9 +1,9 @@
-syntax = "proto2";
+syntax = "proto3";
 
 message MediaRetryNotification {
-	optional string stanzaId = 1;
-	optional string directPath = 2;
-	optional ResultType result = 3;
+	string stanzaId = 1;
+	string directPath = 2;
+	ResultType result = 3;
 
 	enum ResultType {
 		GENERAL_ERROR = 0;
@@ -14,5 +14,5 @@ message MediaRetryNotification {
 }
 
 message ServerErrorReceipt {
-	optional string stanzaId = 1;
+	string stanzaId = 1;
 }

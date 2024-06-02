@@ -1,11 +1,11 @@
-syntax = "proto2";
+syntax = "proto3";
 
 message DeviceProps {
-	optional string os = 1;
-	optional AppVersion version = 2;
-	optional PlatformType platformType = 3;
-	optional bool requireFullSync = 4;
-	optional HistorySyncConfig historySyncConfig = 5;
+	string os = 1;
+	AppVersion version = 2;
+	PlatformType platformType = 3;
+	bool requireFullSync = 4;
+	HistorySyncConfig historySyncConfig = 5;
 
 	enum PlatformType {
 		UNKNOWN = 0;
@@ -35,23 +35,23 @@ message DeviceProps {
 	}
 
 	message HistorySyncConfig {
-		optional uint32 fullSyncDaysLimit = 1;
-		optional uint32 fullSyncSizeMbLimit = 2;
-		optional uint32 storageQuotaMb = 3;
-		optional bool inlineInitialPayloadInE2EeMsg = 4;
-		optional uint32 recentSyncDaysLimit = 5;
-		optional bool supportCallLogHistory = 6;
-		optional bool supportBotUserAgentChatHistory = 7;
-		optional bool supportCagReactionsAndPolls = 8;
-		optional bool supportBizHostedMsg = 9;
-		optional bool supportRecentSyncChunkMessageCountTuning = 10;
+		uint32 fullSyncDaysLimit = 1;
+		uint32 fullSyncSizeMbLimit = 2;
+		uint32 storageQuotaMb = 3;
+		bool inlineInitialPayloadInE2EeMsg = 4;
+		uint32 recentSyncDaysLimit = 5;
+		bool supportCallLogHistory = 6;
+		bool supportBotUserAgentChatHistory = 7;
+		bool supportCagReactionsAndPolls = 8;
+		bool supportBizHostedMsg = 9;
+		bool supportRecentSyncChunkMessageCountTuning = 10;
 	}
 
 	message AppVersion {
-		optional uint32 primary = 1;
-		optional uint32 secondary = 2;
-		optional uint32 tertiary = 3;
-		optional uint32 quaternary = 4;
-		optional uint32 quinary = 5;
+		uint32 primary = 1;
+		uint32 secondary = 2;
+		uint32 tertiary = 3;
+		uint32 quaternary = 4;
+		uint32 quinary = 5;
 	}
 }

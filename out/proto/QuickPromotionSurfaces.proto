@@ -1,4 +1,4 @@
-syntax = "proto2";
+syntax = "proto3";
 
 message QP {
 	enum FilterResult {
@@ -27,12 +27,12 @@ message QP {
 	message Filter {
 		required string filterName = 1;
 		repeated QP.FilterParameters parameters = 2;
-		optional QP.FilterResult filterResult = 3;
+		QP.FilterResult filterResult = 3;
 		required QP.FilterClientNotSupportedConfig clientNotSupportedConfig = 4;
 	}
 
 	message FilterParameters {
-		optional string key = 1;
-		optional string value = 2;
+		string key = 1;
+		string value = 2;
 	}
 }

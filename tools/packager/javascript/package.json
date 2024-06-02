@@ -3,12 +3,12 @@
   "description": "WhatsApp Web Protocol Buffers",
   "version": "{{WA_VERSION}}",
   "private": false,
-  "main": "./index.cjs",
+  "main": "./index.js",
   "module": "./index.mjs",
   "exports": {
     ".": {
-      "import": "./index.mjs",
-      "require": "./index.cjs"
+      "require": "./index.js",
+      "import": "./index.mjs"
     }
   },
   "keywords": [

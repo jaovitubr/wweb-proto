@@ -1,36 +1,36 @@
-syntax = "proto2";
+syntax = "proto3";
 
 message LocalizedName {
-	optional string lg = 1;
-	optional string lc = 2;
-	optional string verifiedName = 3;
+	string lg = 1;
+	string lc = 2;
+	string verifiedName = 3;
 }
 
 message VerifiedNameCertificate {
-	optional bytes details = 1;
-	optional bytes signature = 2;
-	optional bytes serverSignature = 3;
+	bytes details = 1;
+	bytes signature = 2;
+	bytes serverSignature = 3;
 
 	message Details {
-		optional uint64 serial = 1;
-		optional string issuer = 2;
-		optional string verifiedName = 4;
+		uint64 serial = 1;
+		string issuer = 2;
+		string verifiedName = 4;
 		repeated LocalizedName localizedNames = 8;
-		optional uint64 issueTime = 10;
+		uint64 issueTime = 10;
 	}
 }
 
 message BizAccountPayload {
-	optional VerifiedNameCertificate vnameCert = 1;
-	optional bytes bizAcctLinkInfo = 2;
+	VerifiedNameCertificate vnameCert = 1;
+	bytes bizAcctLinkInfo = 2;
 }
 
 message BizAccountLinkInfo {
-	optional uint64 whatsappBizAcctFbid = 1;
-	optional string whatsappAcctNumber = 2;
-	optional uint64 issueTime = 3;
-	optional HostStorageType hostStorage = 4;
-	optional AccountType accountType = 5;
+	uint64 whatsappBizAcctFbid = 1;
+	string whatsappAcctNumber = 2;
+	uint64 issueTime = 3;
+	HostStorageType hostStorage = 4;
+	AccountType accountType = 5;
 
 	enum AccountType {
 		ENTERPRISE = 0;
@@ -43,14 +43,14 @@ message BizAccountLinkInfo {
 }
 
 message BizIdentityInfo {
-	optional VerifiedLevelValue vlevel = 1;
-	optional VerifiedNameCertificate vnameCert = 2;
-	optional bool signed = 3;
-	optional bool revoked = 4;
-	optional HostStorageType hostStorage = 5;
-	optional ActualActorsType actualActors = 6;
-	optional uint64 privacyModeTs = 7;
-	optional uint64 featureControls = 8;
+	VerifiedLevelValue vlevel = 1;
+	VerifiedNameCertificate vnameCert = 2;
+	bool signed = 3;
+	bool revoked = 4;
+	HostStorageType hostStorage = 5;
+	ActualActorsType actualActors = 6;
+	uint64 privacyModeTs = 7;
+	uint64 featureControls = 8;
 
 	enum ActualActorsType {
 		SELF = 0;

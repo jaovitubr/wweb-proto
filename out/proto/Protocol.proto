@@ -1,8 +1,8 @@
-syntax = "proto2";
+syntax = "proto3";
 
 message MessageKey {
-	optional string remoteJid = 1;
-	optional bool fromMe = 2;
-	optional string id = 3;
-	optional string participant = 4;
+	string remoteJid = 1;
+	bool fromMe = 2;
+	string id = 3;
+	string participant = 4;
 }

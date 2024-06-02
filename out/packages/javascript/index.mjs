@@ -1,14 +1,12 @@
-"use strict";
+import * as $protobuf from "protobufjs/minimal";
 
-var $protobuf = require("protobufjs/minimal"), $Reader = $protobuf.Reader, $Writer = $protobuf.Writer, $util = $protobuf.util, $root = $protobuf.roots.default || ($protobuf.roots.default = {});
-
-$root.ADVEncryptionType = function() {
+const $Reader = $protobuf.Reader, $Writer = $protobuf.Writer, $util = $protobuf.util, $root = $protobuf.roots.default || ($protobuf.roots.default = {}), ADVEncryptionType = $root.ADVEncryptionType = (() => {
     var valuesById = {}, values = Object.create(valuesById);
     return values[valuesById[0] = "E2EE"] = 0, values[valuesById[1] = "HOSTED"] = 1, 
     values;
-}(), $root.ADVKeyIndexList = function() {
+})(), ADVKeyIndexList = $root.ADVKeyIndexList = (() => {
     function ADVKeyIndexList(properties) {
-        if (this.validIndexes = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (this.validIndexes = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return ADVKeyIndexList.prototype.rawId = 0, ADVKeyIndexList.prototype.timestamp = $util.Long ? $util.Long.fromBits(0, 0, !0) : 0, 
     ADVKeyIndexList.prototype.currentIndex = 0, ADVKeyIndexList.prototype.validIndexes = $util.emptyArray, 
@@ -20,7 +18,7 @@ $root.ADVEncryptionType = function() {
         null != message.currentIndex && Object.hasOwnProperty.call(message, "currentIndex") && writer.uint32(24).uint32(message.currentIndex), 
         null != message.validIndexes && message.validIndexes.length) {
             writer.uint32(34).fork();
-            for (var i = 0; i < message.validIndexes.length; ++i) writer.uint32(message.validIndexes[i]);
+            for (let i = 0; i < message.validIndexes.length; ++i) writer.uint32(message.validIndexes[i]);
             writer.ldelim();
         }
         return null != message.accountType && Object.hasOwnProperty.call(message, "accountType") && writer.uint32(40).int32(message.accountType), 
@@ -67,7 +65,7 @@ $root.ADVEncryptionType = function() {
         if (null != message.currentIndex && message.hasOwnProperty("currentIndex") && !$util.isInteger(message.currentIndex)) return "currentIndex: integer expected";
         if (null != message.validIndexes && message.hasOwnProperty("validIndexes")) {
             if (!Array.isArray(message.validIndexes)) return "validIndexes: array expected";
-            for (var i = 0; i < message.validIndexes.length; ++i) if (!$util.isInteger(message.validIndexes[i])) return "validIndexes: integer[] expected";
+            for (let i = 0; i < message.validIndexes.length; ++i) if (!$util.isInteger(message.validIndexes[i])) return "validIndexes: integer[] expected";
         }
         if (null != message.accountType && message.hasOwnProperty("accountType")) switch (message.accountType) {
           default:
@@ -85,7 +83,7 @@ $root.ADVEncryptionType = function() {
         object.validIndexes) {
             if (!Array.isArray(object.validIndexes)) throw TypeError(".ADVKeyIndexList.validIndexes: array expected");
             message.validIndexes = [];
-            for (var i = 0; i < object.validIndexes.length; ++i) message.validIndexes[i] = object.validIndexes[i] >>> 0;
+            for (let i = 0; i < object.validIndexes.length; ++i) message.validIndexes[i] = object.validIndexes[i] >>> 0;
         }
         switch (object.accountType) {
           default:
@@ -113,7 +111,7 @@ $root.ADVEncryptionType = function() {
         null != message.currentIndex && message.hasOwnProperty("currentIndex") && (object.currentIndex = message.currentIndex), 
         message.validIndexes && message.validIndexes.length) {
             object.validIndexes = [];
-            for (var j = 0; j < message.validIndexes.length; ++j) object.validIndexes[j] = message.validIndexes[j];
+            for (let j = 0; j < message.validIndexes.length; ++j) object.validIndexes[j] = message.validIndexes[j];
         }
         return null != message.accountType && message.hasOwnProperty("accountType") && (object.accountType = options.enums !== String || void 0 === $root.ADVEncryptionType[message.accountType] ? message.accountType : $root.ADVEncryptionType[message.accountType]), 
         object;
@@ -122,9 +120,9 @@ $root.ADVEncryptionType = function() {
     }, ADVKeyIndexList.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/ADVKeyIndexList";
     }, ADVKeyIndexList;
-}(), $root.ADVSignedKeyIndexList = function() {
+})(), ADVSignedKeyIndexList = $root.ADVSignedKeyIndexList = (() => {
     function ADVSignedKeyIndexList(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return ADVSignedKeyIndexList.prototype.details = $util.newBuffer([]), ADVSignedKeyIndexList.prototype.accountSignature = $util.newBuffer([]), 
     ADVSignedKeyIndexList.prototype.accountSignatureKey = $util.newBuffer([]), ADVSignedKeyIndexList.create = function(properties) {
@@ -186,9 +184,9 @@ $root.ADVEncryptionType = function() {
     }, ADVSignedKeyIndexList.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/ADVSignedKeyIndexList";
     }, ADVSignedKeyIndexList;
-}(), $root.ADVDeviceIdentity = function() {
+})(), ADVDeviceIdentity = $root.ADVDeviceIdentity = (() => {
     function ADVDeviceIdentity(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return ADVDeviceIdentity.prototype.rawId = 0, ADVDeviceIdentity.prototype.timestamp = $util.Long ? $util.Long.fromBits(0, 0, !0) : 0, 
     ADVDeviceIdentity.prototype.keyIndex = 0, ADVDeviceIdentity.prototype.accountType = 0, 
@@ -304,9 +302,9 @@ $root.ADVEncryptionType = function() {
     }, ADVDeviceIdentity.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/ADVDeviceIdentity";
     }, ADVDeviceIdentity;
-}(), $root.ADVSignedDeviceIdentity = function() {
+})(), ADVSignedDeviceIdentity = $root.ADVSignedDeviceIdentity = (() => {
     function ADVSignedDeviceIdentity(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return ADVSignedDeviceIdentity.prototype.details = $util.newBuffer([]), ADVSignedDeviceIdentity.prototype.accountSignatureKey = $util.newBuffer([]), 
     ADVSignedDeviceIdentity.prototype.accountSignature = $util.newBuffer([]), ADVSignedDeviceIdentity.prototype.deviceSignature = $util.newBuffer([]), 
@@ -378,9 +376,9 @@ $root.ADVEncryptionType = function() {
     }, ADVSignedDeviceIdentity.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/ADVSignedDeviceIdentity";
     }, ADVSignedDeviceIdentity;
-}(), $root.ADVSignedDeviceIdentityHMAC = function() {
+})(), ADVSignedDeviceIdentityHMAC = $root.ADVSignedDeviceIdentityHMAC = (() => {
     function ADVSignedDeviceIdentityHMAC(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return ADVSignedDeviceIdentityHMAC.prototype.details = $util.newBuffer([]), 
     ADVSignedDeviceIdentityHMAC.prototype.hmac = $util.newBuffer([]), ADVSignedDeviceIdentityHMAC.prototype.accountType = 0, 
@@ -463,12 +461,12 @@ $root.ADVEncryptionType = function() {
     }, ADVSignedDeviceIdentityHMAC.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/ADVSignedDeviceIdentityHMAC";
     }, ADVSignedDeviceIdentityHMAC;
-}(), $root.NoiseCertificate = function() {
+})(), NoiseCertificate = $root.NoiseCertificate = (() => {
     function NoiseCertificate(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function Details(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return NoiseCertificate.prototype.details = $util.newBuffer([]), NoiseCertificate.prototype.signature = $util.newBuffer([]), 
     NoiseCertificate.create = function(properties) {
@@ -592,15 +590,15 @@ $root.ADVEncryptionType = function() {
     }, Details.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/NoiseCertificate.Details";
     }, Details), NoiseCertificate;
-}(), $root.CertChain = function() {
+})(), CertChain = $root.CertChain = (() => {
     function CertChain(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function NoiseCertificate(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function Details(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return CertChain.prototype.leaf = null, CertChain.prototype.intermediate = null, 
     CertChain.create = function(properties) {
@@ -633,9 +631,14 @@ $root.ADVEncryptionType = function() {
         return reader instanceof $Reader || (reader = new $Reader(reader)), this.decode(reader, reader.uint32());
     }, CertChain.verify = function(message) {
         if ("object" != typeof message || null === message) return "object expected";
-        var error;
-        if (null != message.leaf && message.hasOwnProperty("leaf") && (error = $root.CertChain.NoiseCertificate.verify(message.leaf))) return "leaf." + error;
-        if (null != message.intermediate && message.hasOwnProperty("intermediate") && (error = $root.CertChain.NoiseCertificate.verify(message.intermediate))) return "intermediate." + error;
+        if (null != message.leaf && message.hasOwnProperty("leaf")) {
+            var error = $root.CertChain.NoiseCertificate.verify(message.leaf);
+            if (error) return "leaf." + error;
+        }
+        if (null != message.intermediate && message.hasOwnProperty("intermediate")) {
+            let error = $root.CertChain.NoiseCertificate.verify(message.intermediate);
+            if (error) return "intermediate." + error;
+        }
         return null;
     }, CertChain.fromObject = function(object) {
         if (object instanceof $root.CertChain) return object;
@@ -766,12 +769,16 @@ $root.ADVEncryptionType = function() {
         null != object.notAfter && ($util.Long ? (message.notAfter = $util.Long.fromValue(object.notAfter)).unsigned = !0 : "string" == typeof object.notAfter ? message.notAfter = parseInt(object.notAfter, 10) : "number" == typeof object.notAfter ? message.notAfter = object.notAfter : "object" == typeof object.notAfter && (message.notAfter = new $util.LongBits(object.notAfter.low >>> 0, object.notAfter.high >>> 0).toNumber(!0))), 
         message);
     }, Details.toObject = function(message, options) {
+        options = options || {};
         var long, object = {};
-        return (options = options || {}).defaults && (object.serial = 0, object.issuerSerial = 0, 
-        options.bytes === String ? object.key = "" : (object.key = [], options.bytes !== Array && (object.key = $util.newBuffer(object.key))), 
+        if (options.defaults) if (object.serial = 0, object.issuerSerial = 0, options.bytes === String ? object.key = "" : (object.key = [], 
+        options.bytes !== Array && (object.key = $util.newBuffer(object.key))), 
         $util.Long ? (long = new $util.Long(0, 0, !0), object.notBefore = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.notBefore = options.longs === String ? "0" : 0, 
-        $util.Long ? (long = new $util.Long(0, 0, !0), object.notAfter = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.notAfter = options.longs === String ? "0" : 0), 
-        null != message.serial && message.hasOwnProperty("serial") && (object.serial = message.serial), 
+        $util.Long) {
+            let long = new $util.Long(0, 0, !0);
+            object.notAfter = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+        } else object.notAfter = options.longs === String ? "0" : 0;
+        return null != message.serial && message.hasOwnProperty("serial") && (object.serial = message.serial), 
         null != message.issuerSerial && message.hasOwnProperty("issuerSerial") && (object.issuerSerial = message.issuerSerial), 
         null != message.key && message.hasOwnProperty("key") && (object.key = options.bytes === String ? $util.base64.encode(message.key, 0, message.key.length) : options.bytes === Array ? Array.prototype.slice.call(message.key) : message.key), 
         null != message.notBefore && message.hasOwnProperty("notBefore") && ("number" == typeof message.notBefore ? object.notBefore = options.longs === String ? String(message.notBefore) : message.notBefore : object.notBefore = options.longs === String ? $util.Long.prototype.toString.call(message.notBefore) : options.longs === Number ? new $util.LongBits(message.notBefore.low >>> 0, message.notBefore.high >>> 0).toNumber(!0) : message.notBefore), 
@@ -782,9 +789,9 @@ $root.ADVEncryptionType = function() {
     }, Details.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/CertChain.NoiseCertificate.Details";
     }, Details), NoiseCertificate), CertChain;
-}(), $root.ChatLockSettings = function() {
+})(), ChatLockSettings = $root.ChatLockSettings = (() => {
     function ChatLockSettings(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return ChatLockSettings.prototype.hideLockedChats = !1, ChatLockSettings.prototype.secretCode = null, 
     ChatLockSettings.create = function(properties) {
@@ -843,16 +850,16 @@ $root.ADVEncryptionType = function() {
     }, ChatLockSettings.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/ChatLockSettings";
     }, ChatLockSettings;
-}(), $root.DeviceProps = function() {
+})(), DeviceProps = $root.DeviceProps = (() => {
     function DeviceProps(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     var valuesById, values;
     function HistorySyncConfig(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function AppVersion(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return DeviceProps.prototype.os = "", DeviceProps.prototype.version = null, 
     DeviceProps.prototype.platformType = 0, DeviceProps.prototype.requireFullSync = !1, 
@@ -902,8 +909,10 @@ $root.ADVEncryptionType = function() {
     }, DeviceProps.verify = function(message) {
         if ("object" != typeof message || null === message) return "object expected";
         if (null != message.os && message.hasOwnProperty("os") && !$util.isString(message.os)) return "os: string expected";
-        var error;
-        if (null != message.version && message.hasOwnProperty("version") && (error = $root.DeviceProps.AppVersion.verify(message.version))) return "version." + error;
+        if (null != message.version && message.hasOwnProperty("version")) {
+            var error = $root.DeviceProps.AppVersion.verify(message.version);
+            if (error) return "version." + error;
+        }
         if (null != message.platformType && message.hasOwnProperty("platformType")) switch (message.platformType) {
           default:
             return "platformType: enum value expected";
@@ -934,7 +943,10 @@ $root.ADVEncryptionType = function() {
           case 23:
         }
         if (null != message.requireFullSync && message.hasOwnProperty("requireFullSync") && "boolean" != typeof message.requireFullSync) return "requireFullSync: boolean expected";
-        if (null != message.historySyncConfig && message.hasOwnProperty("historySyncConfig") && (error = $root.DeviceProps.HistorySyncConfig.verify(message.historySyncConfig))) return "historySyncConfig." + error;
+        if (null != message.historySyncConfig && message.hasOwnProperty("historySyncConfig")) {
+            let error = $root.DeviceProps.HistorySyncConfig.verify(message.historySyncConfig);
+            if (error) return "historySyncConfig." + error;
+        }
         return null;
     }, DeviceProps.fromObject = function(object) {
         if (object instanceof $root.DeviceProps) return object;
@@ -1275,9 +1287,9 @@ $root.ADVEncryptionType = function() {
     }, AppVersion.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/DeviceProps.AppVersion";
     }, AppVersion), DeviceProps;
-}(), $root.DeviceCapabilities = function() {
+})(), DeviceCapabilities = $root.DeviceCapabilities = (() => {
     function DeviceCapabilities(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     var valuesById, values;
     return DeviceCapabilities.prototype.chatLockSupportLevel = 0, DeviceCapabilities.create = function(properties) {
@@ -1342,189 +1354,189 @@ $root.ADVEncryptionType = function() {
     }, DeviceCapabilities.ChatLockSupportLevel = (valuesById = {}, (values = Object.create(valuesById))[valuesById[0] = "NONE"] = 0, 
     values[valuesById[1] = "MINIMAL"] = 1, values[valuesById[2] = "FULL"] = 2, values), 
     DeviceCapabilities;
-}(), $root.KeepType = function() {
+})(), KeepType = $root.KeepType = (() => {
     var valuesById = {}, values = Object.create(valuesById);
     return values[valuesById[0] = "UNKNOWN"] = 0, values[valuesById[1] = "KEEP_FOR_ALL"] = 1, 
     values[valuesById[2] = "UNDO_KEEP_FOR_ALL"] = 2, values;
-}(), $root.Message = function() {
+})(), Message = $root.Message = (() => {
     function Message(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     var values, valuesById;
     function AlbumMessage(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function MessageHistoryBundle(properties) {
-        if (this.participants = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (this.participants = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function EncEventResponseMessage(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function EventMessage(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function CommentMessage(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function EncCommentMessage(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function EncReactionMessage(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function KeepInChatMessage(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function PollVoteMessage(properties) {
-        if (this.selectedOptions = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (this.selectedOptions = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function PollEncValue(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function PollUpdateMessageMetadata(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function PollUpdateMessage(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function PollCreationMessage(properties) {
-        if (this.options = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (this.options = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function Option(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function StickerSyncRMRMessage(properties) {
-        if (this.filehash = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (this.filehash = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function ReactionMessage(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function FutureProofMessage(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function DeviceSentMessage(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function RequestPhoneNumberMessage(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function NewsletterAdminInviteMessage(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function ProductMessage(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function ProductSnapshot(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function CatalogSnapshot(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function TemplateButtonReplyMessage(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function TemplateMessage(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function StickerMessage(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function LiveLocationMessage(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function CancelPaymentRequestMessage(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function DeclinePaymentRequestMessage(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function RequestPaymentMessage(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function SendPaymentMessage(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function ContactsArrayMessage(properties) {
-        if (this.contacts = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (this.contacts = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function InitialSecurityNotificationSettingSync(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function PeerDataOperationRequestResponseMessage(properties) {
-        if (this.peerDataOperationResult = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (this.peerDataOperationResult = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function PeerDataOperationResult(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function WaffleNonceFetchResponse(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function PlaceholderMessageResendResponse(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function LinkPreviewResponse(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function LinkPreviewHighQualityThumbnail(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function PeerDataOperationRequestMessage(properties) {
         if (this.requestStickerReupload = [], this.requestUrlPreview = [], this.placeholderMessageResendRequest = [], 
-        properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function PlaceholderMessageResendRequest(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function HistorySyncOnDemandRequest(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function RequestUrlPreview(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function RequestStickerReupload(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function AppStateFatalExceptionNotification(properties) {
-        if (this.collectionNames = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (this.collectionNames = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function AppStateSyncKeyRequest(properties) {
-        if (this.keyIds = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (this.keyIds = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function AppStateSyncKeyShare(properties) {
-        if (this.keys = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (this.keys = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function AppStateSyncKeyData(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function AppStateSyncKeyFingerprint(properties) {
-        if (this.deviceIndexes = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (this.deviceIndexes = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function AppStateSyncKeyId(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function AppStateSyncKey(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function Chat(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function Call(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function AudioMessage(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function DocumentMessage(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function LocationMessage(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function ContactMessage(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function SenderKeyDistributionMessage(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return Message.prototype.conversation = "", Message.prototype.senderKeyDistributionMessage = null, 
     Message.prototype.imageMessage = null, Message.prototype.contactMessage = null, 
@@ -1926,75 +1938,278 @@ $root.ADVEncryptionType = function() {
     }, Message.verify = function(message) {
         if ("object" != typeof message || null === message) return "object expected";
         if (null != message.conversation && message.hasOwnProperty("conversation") && !$util.isString(message.conversation)) return "conversation: string expected";
-        var error;
-        if (null != message.senderKeyDistributionMessage && message.hasOwnProperty("senderKeyDistributionMessage") && (error = $root.Message.SenderKeyDistributionMessage.verify(message.senderKeyDistributionMessage))) return "senderKeyDistributionMessage." + error;
-        if (null != message.imageMessage && message.hasOwnProperty("imageMessage") && (error = $root.Message.ImageMessage.verify(message.imageMessage))) return "imageMessage." + error;
-        if (null != message.contactMessage && message.hasOwnProperty("contactMessage") && (error = $root.Message.ContactMessage.verify(message.contactMessage))) return "contactMessage." + error;
-        if (null != message.locationMessage && message.hasOwnProperty("locationMessage") && (error = $root.Message.LocationMessage.verify(message.locationMessage))) return "locationMessage." + error;
-        if (null != message.extendedTextMessage && message.hasOwnProperty("extendedTextMessage") && (error = $root.Message.ExtendedTextMessage.verify(message.extendedTextMessage))) return "extendedTextMessage." + error;
-        if (null != message.documentMessage && message.hasOwnProperty("documentMessage") && (error = $root.Message.DocumentMessage.verify(message.documentMessage))) return "documentMessage." + error;
-        if (null != message.audioMessage && message.hasOwnProperty("audioMessage") && (error = $root.Message.AudioMessage.verify(message.audioMessage))) return "audioMessage." + error;
-        if (null != message.videoMessage && message.hasOwnProperty("videoMessage") && (error = $root.Message.VideoMessage.verify(message.videoMessage))) return "videoMessage." + error;
-        if (null != message.call && message.hasOwnProperty("call") && (error = $root.Message.Call.verify(message.call))) return "call." + error;
-        if (null != message.chat && message.hasOwnProperty("chat") && (error = $root.Message.Chat.verify(message.chat))) return "chat." + error;
-        if (null != message.protocolMessage && message.hasOwnProperty("protocolMessage") && (error = $root.Message.ProtocolMessage.verify(message.protocolMessage))) return "protocolMessage." + error;
-        if (null != message.contactsArrayMessage && message.hasOwnProperty("contactsArrayMessage") && (error = $root.Message.ContactsArrayMessage.verify(message.contactsArrayMessage))) return "contactsArrayMessage." + error;
-        if (null != message.highlyStructuredMessage && message.hasOwnProperty("highlyStructuredMessage") && (error = $root.Message.HighlyStructuredMessage.verify(message.highlyStructuredMessage))) return "highlyStructuredMessage." + error;
-        if (null != message.fastRatchetKeySenderKeyDistributionMessage && message.hasOwnProperty("fastRatchetKeySenderKeyDistributionMessage") && (error = $root.Message.SenderKeyDistributionMessage.verify(message.fastRatchetKeySenderKeyDistributionMessage))) return "fastRatchetKeySenderKeyDistributionMessage." + error;
-        if (null != message.sendPaymentMessage && message.hasOwnProperty("sendPaymentMessage") && (error = $root.Message.SendPaymentMessage.verify(message.sendPaymentMessage))) return "sendPaymentMessage." + error;
-        if (null != message.liveLocationMessage && message.hasOwnProperty("liveLocationMessage") && (error = $root.Message.LiveLocationMessage.verify(message.liveLocationMessage))) return "liveLocationMessage." + error;
-        if (null != message.requestPaymentMessage && message.hasOwnProperty("requestPaymentMessage") && (error = $root.Message.RequestPaymentMessage.verify(message.requestPaymentMessage))) return "requestPaymentMessage." + error;
-        if (null != message.declinePaymentRequestMessage && message.hasOwnProperty("declinePaymentRequestMessage") && (error = $root.Message.DeclinePaymentRequestMessage.verify(message.declinePaymentRequestMessage))) return "declinePaymentRequestMessage." + error;
-        if (null != message.cancelPaymentRequestMessage && message.hasOwnProperty("cancelPaymentRequestMessage") && (error = $root.Message.CancelPaymentRequestMessage.verify(message.cancelPaymentRequestMessage))) return "cancelPaymentRequestMessage." + error;
-        if (null != message.templateMessage && message.hasOwnProperty("templateMessage") && (error = $root.Message.TemplateMessage.verify(message.templateMessage))) return "templateMessage." + error;
-        if (null != message.stickerMessage && message.hasOwnProperty("stickerMessage") && (error = $root.Message.StickerMessage.verify(message.stickerMessage))) return "stickerMessage." + error;
-        if (null != message.groupInviteMessage && message.hasOwnProperty("groupInviteMessage") && (error = $root.Message.GroupInviteMessage.verify(message.groupInviteMessage))) return "groupInviteMessage." + error;
-        if (null != message.templateButtonReplyMessage && message.hasOwnProperty("templateButtonReplyMessage") && (error = $root.Message.TemplateButtonReplyMessage.verify(message.templateButtonReplyMessage))) return "templateButtonReplyMessage." + error;
-        if (null != message.productMessage && message.hasOwnProperty("productMessage") && (error = $root.Message.ProductMessage.verify(message.productMessage))) return "productMessage." + error;
-        if (null != message.deviceSentMessage && message.hasOwnProperty("deviceSentMessage") && (error = $root.Message.DeviceSentMessage.verify(message.deviceSentMessage))) return "deviceSentMessage." + error;
-        if (null != message.messageContextInfo && message.hasOwnProperty("messageContextInfo") && (error = $root.MessageContextInfo.verify(message.messageContextInfo))) return "messageContextInfo." + error;
-        if (null != message.listMessage && message.hasOwnProperty("listMessage") && (error = $root.Message.ListMessage.verify(message.listMessage))) return "listMessage." + error;
-        if (null != message.viewOnceMessage && message.hasOwnProperty("viewOnceMessage") && (error = $root.Message.FutureProofMessage.verify(message.viewOnceMessage))) return "viewOnceMessage." + error;
-        if (null != message.orderMessage && message.hasOwnProperty("orderMessage") && (error = $root.Message.OrderMessage.verify(message.orderMessage))) return "orderMessage." + error;
-        if (null != message.listResponseMessage && message.hasOwnProperty("listResponseMessage") && (error = $root.Message.ListResponseMessage.verify(message.listResponseMessage))) return "listResponseMessage." + error;
-        if (null != message.ephemeralMessage && message.hasOwnProperty("ephemeralMessage") && (error = $root.Message.FutureProofMessage.verify(message.ephemeralMessage))) return "ephemeralMessage." + error;
-        if (null != message.invoiceMessage && message.hasOwnProperty("invoiceMessage") && (error = $root.Message.InvoiceMessage.verify(message.invoiceMessage))) return "invoiceMessage." + error;
-        if (null != message.buttonsMessage && message.hasOwnProperty("buttonsMessage") && (error = $root.Message.ButtonsMessage.verify(message.buttonsMessage))) return "buttonsMessage." + error;
-        if (null != message.buttonsResponseMessage && message.hasOwnProperty("buttonsResponseMessage") && (error = $root.Message.ButtonsResponseMessage.verify(message.buttonsResponseMessage))) return "buttonsResponseMessage." + error;
-        if (null != message.paymentInviteMessage && message.hasOwnProperty("paymentInviteMessage") && (error = $root.Message.PaymentInviteMessage.verify(message.paymentInviteMessage))) return "paymentInviteMessage." + error;
-        if (null != message.interactiveMessage && message.hasOwnProperty("interactiveMessage") && (error = $root.Message.InteractiveMessage.verify(message.interactiveMessage))) return "interactiveMessage." + error;
-        if (null != message.reactionMessage && message.hasOwnProperty("reactionMessage") && (error = $root.Message.ReactionMessage.verify(message.reactionMessage))) return "reactionMessage." + error;
-        if (null != message.stickerSyncRmrMessage && message.hasOwnProperty("stickerSyncRmrMessage") && (error = $root.Message.StickerSyncRMRMessage.verify(message.stickerSyncRmrMessage))) return "stickerSyncRmrMessage." + error;
-        if (null != message.interactiveResponseMessage && message.hasOwnProperty("interactiveResponseMessage") && (error = $root.Message.InteractiveResponseMessage.verify(message.interactiveResponseMessage))) return "interactiveResponseMessage." + error;
-        if (null != message.pollCreationMessage && message.hasOwnProperty("pollCreationMessage") && (error = $root.Message.PollCreationMessage.verify(message.pollCreationMessage))) return "pollCreationMessage." + error;
-        if (null != message.pollUpdateMessage && message.hasOwnProperty("pollUpdateMessage") && (error = $root.Message.PollUpdateMessage.verify(message.pollUpdateMessage))) return "pollUpdateMessage." + error;
-        if (null != message.keepInChatMessage && message.hasOwnProperty("keepInChatMessage") && (error = $root.Message.KeepInChatMessage.verify(message.keepInChatMessage))) return "keepInChatMessage." + error;
-        if (null != message.documentWithCaptionMessage && message.hasOwnProperty("documentWithCaptionMessage") && (error = $root.Message.FutureProofMessage.verify(message.documentWithCaptionMessage))) return "documentWithCaptionMessage." + error;
-        if (null != message.requestPhoneNumberMessage && message.hasOwnProperty("requestPhoneNumberMessage") && (error = $root.Message.RequestPhoneNumberMessage.verify(message.requestPhoneNumberMessage))) return "requestPhoneNumberMessage." + error;
-        if (null != message.viewOnceMessageV2 && message.hasOwnProperty("viewOnceMessageV2") && (error = $root.Message.FutureProofMessage.verify(message.viewOnceMessageV2))) return "viewOnceMessageV2." + error;
-        if (null != message.encReactionMessage && message.hasOwnProperty("encReactionMessage") && (error = $root.Message.EncReactionMessage.verify(message.encReactionMessage))) return "encReactionMessage." + error;
-        if (null != message.editedMessage && message.hasOwnProperty("editedMessage") && (error = $root.Message.FutureProofMessage.verify(message.editedMessage))) return "editedMessage." + error;
-        if (null != message.viewOnceMessageV2Extension && message.hasOwnProperty("viewOnceMessageV2Extension") && (error = $root.Message.FutureProofMessage.verify(message.viewOnceMessageV2Extension))) return "viewOnceMessageV2Extension." + error;
-        if (null != message.pollCreationMessageV2 && message.hasOwnProperty("pollCreationMessageV2") && (error = $root.Message.PollCreationMessage.verify(message.pollCreationMessageV2))) return "pollCreationMessageV2." + error;
-        if (null != message.scheduledCallCreationMessage && message.hasOwnProperty("scheduledCallCreationMessage") && (error = $root.Message.ScheduledCallCreationMessage.verify(message.scheduledCallCreationMessage))) return "scheduledCallCreationMessage." + error;
-        if (null != message.groupMentionedMessage && message.hasOwnProperty("groupMentionedMessage") && (error = $root.Message.FutureProofMessage.verify(message.groupMentionedMessage))) return "groupMentionedMessage." + error;
-        if (null != message.pinInChatMessage && message.hasOwnProperty("pinInChatMessage") && (error = $root.Message.PinInChatMessage.verify(message.pinInChatMessage))) return "pinInChatMessage." + error;
-        if (null != message.pollCreationMessageV3 && message.hasOwnProperty("pollCreationMessageV3") && (error = $root.Message.PollCreationMessage.verify(message.pollCreationMessageV3))) return "pollCreationMessageV3." + error;
-        if (null != message.scheduledCallEditMessage && message.hasOwnProperty("scheduledCallEditMessage") && (error = $root.Message.ScheduledCallEditMessage.verify(message.scheduledCallEditMessage))) return "scheduledCallEditMessage." + error;
-        if (null != message.ptvMessage && message.hasOwnProperty("ptvMessage") && (error = $root.Message.VideoMessage.verify(message.ptvMessage))) return "ptvMessage." + error;
-        if (null != message.botInvokeMessage && message.hasOwnProperty("botInvokeMessage") && (error = $root.Message.FutureProofMessage.verify(message.botInvokeMessage))) return "botInvokeMessage." + error;
-        if (null != message.callLogMesssage && message.hasOwnProperty("callLogMesssage") && (error = $root.Message.CallLogMessage.verify(message.callLogMesssage))) return "callLogMesssage." + error;
-        if (null != message.messageHistoryBundle && message.hasOwnProperty("messageHistoryBundle") && (error = $root.Message.MessageHistoryBundle.verify(message.messageHistoryBundle))) return "messageHistoryBundle." + error;
-        if (null != message.encCommentMessage && message.hasOwnProperty("encCommentMessage") && (error = $root.Message.EncCommentMessage.verify(message.encCommentMessage))) return "encCommentMessage." + error;
-        if (null != message.bcallMessage && message.hasOwnProperty("bcallMessage") && (error = $root.Message.BCallMessage.verify(message.bcallMessage))) return "bcallMessage." + error;
-        if (null != message.lottieStickerMessage && message.hasOwnProperty("lottieStickerMessage") && (error = $root.Message.FutureProofMessage.verify(message.lottieStickerMessage))) return "lottieStickerMessage." + error;
-        if (null != message.eventMessage && message.hasOwnProperty("eventMessage") && (error = $root.Message.EventMessage.verify(message.eventMessage))) return "eventMessage." + error;
-        if (null != message.encEventResponseMessage && message.hasOwnProperty("encEventResponseMessage") && (error = $root.Message.EncEventResponseMessage.verify(message.encEventResponseMessage))) return "encEventResponseMessage." + error;
-        if (null != message.commentMessage && message.hasOwnProperty("commentMessage") && (error = $root.Message.CommentMessage.verify(message.commentMessage))) return "commentMessage." + error;
-        if (null != message.newsletterAdminInviteMessage && message.hasOwnProperty("newsletterAdminInviteMessage") && (error = $root.Message.NewsletterAdminInviteMessage.verify(message.newsletterAdminInviteMessage))) return "newsletterAdminInviteMessage." + error;
-        if (null != message.placeholderMessage && message.hasOwnProperty("placeholderMessage") && (error = $root.Message.PlaceholderMessage.verify(message.placeholderMessage))) return "placeholderMessage." + error;
-        if (null != message.secretEncryptedMessage && message.hasOwnProperty("secretEncryptedMessage") && (error = $root.Message.SecretEncryptedMessage.verify(message.secretEncryptedMessage))) return "secretEncryptedMessage." + error;
-        if (null != message.albumMessage && message.hasOwnProperty("albumMessage") && (error = $root.Message.AlbumMessage.verify(message.albumMessage))) return "albumMessage." + error;
+        if (null != message.senderKeyDistributionMessage && message.hasOwnProperty("senderKeyDistributionMessage")) {
+            var error = $root.Message.SenderKeyDistributionMessage.verify(message.senderKeyDistributionMessage);
+            if (error) return "senderKeyDistributionMessage." + error;
+        }
+        if (null != message.imageMessage && message.hasOwnProperty("imageMessage")) {
+            let error = $root.Message.ImageMessage.verify(message.imageMessage);
+            if (error) return "imageMessage." + error;
+        }
+        if (null != message.contactMessage && message.hasOwnProperty("contactMessage")) {
+            let error = $root.Message.ContactMessage.verify(message.contactMessage);
+            if (error) return "contactMessage." + error;
+        }
+        if (null != message.locationMessage && message.hasOwnProperty("locationMessage")) {
+            let error = $root.Message.LocationMessage.verify(message.locationMessage);
+            if (error) return "locationMessage." + error;
+        }
+        if (null != message.extendedTextMessage && message.hasOwnProperty("extendedTextMessage")) {
+            let error = $root.Message.ExtendedTextMessage.verify(message.extendedTextMessage);
+            if (error) return "extendedTextMessage." + error;
+        }
+        if (null != message.documentMessage && message.hasOwnProperty("documentMessage")) {
+            let error = $root.Message.DocumentMessage.verify(message.documentMessage);
+            if (error) return "documentMessage." + error;
+        }
+        if (null != message.audioMessage && message.hasOwnProperty("audioMessage")) {
+            let error = $root.Message.AudioMessage.verify(message.audioMessage);
+            if (error) return "audioMessage." + error;
+        }
+        if (null != message.videoMessage && message.hasOwnProperty("videoMessage")) {
+            let error = $root.Message.VideoMessage.verify(message.videoMessage);
+            if (error) return "videoMessage." + error;
+        }
+        if (null != message.call && message.hasOwnProperty("call")) {
+            let error = $root.Message.Call.verify(message.call);
+            if (error) return "call." + error;
+        }
+        if (null != message.chat && message.hasOwnProperty("chat")) {
+            let error = $root.Message.Chat.verify(message.chat);
+            if (error) return "chat." + error;
+        }
+        if (null != message.protocolMessage && message.hasOwnProperty("protocolMessage")) {
+            let error = $root.Message.ProtocolMessage.verify(message.protocolMessage);
+            if (error) return "protocolMessage." + error;
+        }
+        if (null != message.contactsArrayMessage && message.hasOwnProperty("contactsArrayMessage")) {
+            let error = $root.Message.ContactsArrayMessage.verify(message.contactsArrayMessage);
+            if (error) return "contactsArrayMessage." + error;
+        }
+        if (null != message.highlyStructuredMessage && message.hasOwnProperty("highlyStructuredMessage")) {
+            let error = $root.Message.HighlyStructuredMessage.verify(message.highlyStructuredMessage);
+            if (error) return "highlyStructuredMessage." + error;
+        }
+        if (null != message.fastRatchetKeySenderKeyDistributionMessage && message.hasOwnProperty("fastRatchetKeySenderKeyDistributionMessage")) {
+            let error = $root.Message.SenderKeyDistributionMessage.verify(message.fastRatchetKeySenderKeyDistributionMessage);
+            if (error) return "fastRatchetKeySenderKeyDistributionMessage." + error;
+        }
+        if (null != message.sendPaymentMessage && message.hasOwnProperty("sendPaymentMessage")) {
+            let error = $root.Message.SendPaymentMessage.verify(message.sendPaymentMessage);
+            if (error) return "sendPaymentMessage." + error;
+        }
+        if (null != message.liveLocationMessage && message.hasOwnProperty("liveLocationMessage")) {
+            let error = $root.Message.LiveLocationMessage.verify(message.liveLocationMessage);
+            if (error) return "liveLocationMessage." + error;
+        }
+        if (null != message.requestPaymentMessage && message.hasOwnProperty("requestPaymentMessage")) {
+            let error = $root.Message.RequestPaymentMessage.verify(message.requestPaymentMessage);
+            if (error) return "requestPaymentMessage." + error;
+        }
+        if (null != message.declinePaymentRequestMessage && message.hasOwnProperty("declinePaymentRequestMessage")) {
+            let error = $root.Message.DeclinePaymentRequestMessage.verify(message.declinePaymentRequestMessage);
+            if (error) return "declinePaymentRequestMessage." + error;
+        }
+        if (null != message.cancelPaymentRequestMessage && message.hasOwnProperty("cancelPaymentRequestMessage")) {
+            let error = $root.Message.CancelPaymentRequestMessage.verify(message.cancelPaymentRequestMessage);
+            if (error) return "cancelPaymentRequestMessage." + error;
+        }
+        if (null != message.templateMessage && message.hasOwnProperty("templateMessage")) {
+            let error = $root.Message.TemplateMessage.verify(message.templateMessage);
+            if (error) return "templateMessage." + error;
+        }
+        if (null != message.stickerMessage && message.hasOwnProperty("stickerMessage")) {
+            let error = $root.Message.StickerMessage.verify(message.stickerMessage);
+            if (error) return "stickerMessage." + error;
+        }
+        if (null != message.groupInviteMessage && message.hasOwnProperty("groupInviteMessage")) {
+            let error = $root.Message.GroupInviteMessage.verify(message.groupInviteMessage);
+            if (error) return "groupInviteMessage." + error;
+        }
+        if (null != message.templateButtonReplyMessage && message.hasOwnProperty("templateButtonReplyMessage")) {
+            let error = $root.Message.TemplateButtonReplyMessage.verify(message.templateButtonReplyMessage);
+            if (error) return "templateButtonReplyMessage." + error;
+        }
+        if (null != message.productMessage && message.hasOwnProperty("productMessage")) {
+            let error = $root.Message.ProductMessage.verify(message.productMessage);
+            if (error) return "productMessage." + error;
+        }
+        if (null != message.deviceSentMessage && message.hasOwnProperty("deviceSentMessage")) {
+            let error = $root.Message.DeviceSentMessage.verify(message.deviceSentMessage);
+            if (error) return "deviceSentMessage." + error;
+        }
+        if (null != message.messageContextInfo && message.hasOwnProperty("messageContextInfo")) {
+            let error = $root.MessageContextInfo.verify(message.messageContextInfo);
+            if (error) return "messageContextInfo." + error;
+        }
+        if (null != message.listMessage && message.hasOwnProperty("listMessage")) {
+            let error = $root.Message.ListMessage.verify(message.listMessage);
+            if (error) return "listMessage." + error;
+        }
+        if (null != message.viewOnceMessage && message.hasOwnProperty("viewOnceMessage")) {
+            let error = $root.Message.FutureProofMessage.verify(message.viewOnceMessage);
+            if (error) return "viewOnceMessage." + error;
+        }
+        if (null != message.orderMessage && message.hasOwnProperty("orderMessage")) {
+            let error = $root.Message.OrderMessage.verify(message.orderMessage);
+            if (error) return "orderMessage." + error;
+        }
+        if (null != message.listResponseMessage && message.hasOwnProperty("listResponseMessage")) {
+            let error = $root.Message.ListResponseMessage.verify(message.listResponseMessage);
+            if (error) return "listResponseMessage." + error;
+        }
+        if (null != message.ephemeralMessage && message.hasOwnProperty("ephemeralMessage")) {
+            let error = $root.Message.FutureProofMessage.verify(message.ephemeralMessage);
+            if (error) return "ephemeralMessage." + error;
+        }
+        if (null != message.invoiceMessage && message.hasOwnProperty("invoiceMessage")) {
+            let error = $root.Message.InvoiceMessage.verify(message.invoiceMessage);
+            if (error) return "invoiceMessage." + error;
+        }
+        if (null != message.buttonsMessage && message.hasOwnProperty("buttonsMessage")) {
+            let error = $root.Message.ButtonsMessage.verify(message.buttonsMessage);
+            if (error) return "buttonsMessage." + error;
+        }
+        if (null != message.buttonsResponseMessage && message.hasOwnProperty("buttonsResponseMessage")) {
+            let error = $root.Message.ButtonsResponseMessage.verify(message.buttonsResponseMessage);
+            if (error) return "buttonsResponseMessage." + error;
+        }
+        if (null != message.paymentInviteMessage && message.hasOwnProperty("paymentInviteMessage")) {
+            let error = $root.Message.PaymentInviteMessage.verify(message.paymentInviteMessage);
+            if (error) return "paymentInviteMessage." + error;
+        }
+        if (null != message.interactiveMessage && message.hasOwnProperty("interactiveMessage")) {
+            let error = $root.Message.InteractiveMessage.verify(message.interactiveMessage);
+            if (error) return "interactiveMessage." + error;
+        }
+        if (null != message.reactionMessage && message.hasOwnProperty("reactionMessage")) {
+            let error = $root.Message.ReactionMessage.verify(message.reactionMessage);
+            if (error) return "reactionMessage." + error;
+        }
+        if (null != message.stickerSyncRmrMessage && message.hasOwnProperty("stickerSyncRmrMessage")) {
+            let error = $root.Message.StickerSyncRMRMessage.verify(message.stickerSyncRmrMessage);
+            if (error) return "stickerSyncRmrMessage." + error;
+        }
+        if (null != message.interactiveResponseMessage && message.hasOwnProperty("interactiveResponseMessage")) {
+            let error = $root.Message.InteractiveResponseMessage.verify(message.interactiveResponseMessage);
+            if (error) return "interactiveResponseMessage." + error;
+        }
+        if (null != message.pollCreationMessage && message.hasOwnProperty("pollCreationMessage")) {
+            let error = $root.Message.PollCreationMessage.verify(message.pollCreationMessage);
+            if (error) return "pollCreationMessage." + error;
+        }
+        if (null != message.pollUpdateMessage && message.hasOwnProperty("pollUpdateMessage")) {
+            let error = $root.Message.PollUpdateMessage.verify(message.pollUpdateMessage);
+            if (error) return "pollUpdateMessage." + error;
+        }
+        if (null != message.keepInChatMessage && message.hasOwnProperty("keepInChatMessage")) {
+            let error = $root.Message.KeepInChatMessage.verify(message.keepInChatMessage);
+            if (error) return "keepInChatMessage." + error;
+        }
+        if (null != message.documentWithCaptionMessage && message.hasOwnProperty("documentWithCaptionMessage")) {
+            let error = $root.Message.FutureProofMessage.verify(message.documentWithCaptionMessage);
+            if (error) return "documentWithCaptionMessage." + error;
+        }
+        if (null != message.requestPhoneNumberMessage && message.hasOwnProperty("requestPhoneNumberMessage")) {
+            let error = $root.Message.RequestPhoneNumberMessage.verify(message.requestPhoneNumberMessage);
+            if (error) return "requestPhoneNumberMessage." + error;
+        }
+        if (null != message.viewOnceMessageV2 && message.hasOwnProperty("viewOnceMessageV2")) {
+            let error = $root.Message.FutureProofMessage.verify(message.viewOnceMessageV2);
+            if (error) return "viewOnceMessageV2." + error;
+        }
+        if (null != message.encReactionMessage && message.hasOwnProperty("encReactionMessage")) {
+            let error = $root.Message.EncReactionMessage.verify(message.encReactionMessage);
+            if (error) return "encReactionMessage." + error;
+        }
+        if (null != message.editedMessage && message.hasOwnProperty("editedMessage")) {
+            let error = $root.Message.FutureProofMessage.verify(message.editedMessage);
+            if (error) return "editedMessage." + error;
+        }
+        if (null != message.viewOnceMessageV2Extension && message.hasOwnProperty("viewOnceMessageV2Extension")) {
+            let error = $root.Message.FutureProofMessage.verify(message.viewOnceMessageV2Extension);
+            if (error) return "viewOnceMessageV2Extension." + error;
+        }
+        if (null != message.pollCreationMessageV2 && message.hasOwnProperty("pollCreationMessageV2")) {
+            let error = $root.Message.PollCreationMessage.verify(message.pollCreationMessageV2);
+            if (error) return "pollCreationMessageV2." + error;
+        }
+        if (null != message.scheduledCallCreationMessage && message.hasOwnProperty("scheduledCallCreationMessage")) {
+            let error = $root.Message.ScheduledCallCreationMessage.verify(message.scheduledCallCreationMessage);
+            if (error) return "scheduledCallCreationMessage." + error;
+        }
+        if (null != message.groupMentionedMessage && message.hasOwnProperty("groupMentionedMessage")) {
+            let error = $root.Message.FutureProofMessage.verify(message.groupMentionedMessage);
+            if (error) return "groupMentionedMessage." + error;
+        }
+        if (null != message.pinInChatMessage && message.hasOwnProperty("pinInChatMessage")) {
+            let error = $root.Message.PinInChatMessage.verify(message.pinInChatMessage);
+            if (error) return "pinInChatMessage." + error;
+        }
+        if (null != message.pollCreationMessageV3 && message.hasOwnProperty("pollCreationMessageV3")) {
+            let error = $root.Message.PollCreationMessage.verify(message.pollCreationMessageV3);
+            if (error) return "pollCreationMessageV3." + error;
+        }
+        if (null != message.scheduledCallEditMessage && message.hasOwnProperty("scheduledCallEditMessage")) {
+            let error = $root.Message.ScheduledCallEditMessage.verify(message.scheduledCallEditMessage);
+            if (error) return "scheduledCallEditMessage." + error;
+        }
+        if (null != message.ptvMessage && message.hasOwnProperty("ptvMessage")) {
+            let error = $root.Message.VideoMessage.verify(message.ptvMessage);
+            if (error) return "ptvMessage." + error;
+        }
+        if (null != message.botInvokeMessage && message.hasOwnProperty("botInvokeMessage")) {
+            let error = $root.Message.FutureProofMessage.verify(message.botInvokeMessage);
+            if (error) return "botInvokeMessage." + error;
+        }
+        if (null != message.callLogMesssage && message.hasOwnProperty("callLogMesssage")) {
+            let error = $root.Message.CallLogMessage.verify(message.callLogMesssage);
+            if (error) return "callLogMesssage." + error;
+        }
+        if (null != message.messageHistoryBundle && message.hasOwnProperty("messageHistoryBundle")) {
+            let error = $root.Message.MessageHistoryBundle.verify(message.messageHistoryBundle);
+            if (error) return "messageHistoryBundle." + error;
+        }
+        if (null != message.encCommentMessage && message.hasOwnProperty("encCommentMessage")) {
+            let error = $root.Message.EncCommentMessage.verify(message.encCommentMessage);
+            if (error) return "encCommentMessage." + error;
+        }
+        if (null != message.bcallMessage && message.hasOwnProperty("bcallMessage")) {
+            let error = $root.Message.BCallMessage.verify(message.bcallMessage);
+            if (error) return "bcallMessage." + error;
+        }
+        if (null != message.lottieStickerMessage && message.hasOwnProperty("lottieStickerMessage")) {
+            let error = $root.Message.FutureProofMessage.verify(message.lottieStickerMessage);
+            if (error) return "lottieStickerMessage." + error;
+        }
+        if (null != message.eventMessage && message.hasOwnProperty("eventMessage")) {
+            let error = $root.Message.EventMessage.verify(message.eventMessage);
+            if (error) return "eventMessage." + error;
+        }
+        if (null != message.encEventResponseMessage && message.hasOwnProperty("encEventResponseMessage")) {
+            let error = $root.Message.EncEventResponseMessage.verify(message.encEventResponseMessage);
+            if (error) return "encEventResponseMessage." + error;
+        }
+        if (null != message.commentMessage && message.hasOwnProperty("commentMessage")) {
+            let error = $root.Message.CommentMessage.verify(message.commentMessage);
+            if (error) return "commentMessage." + error;
+        }
+        if (null != message.newsletterAdminInviteMessage && message.hasOwnProperty("newsletterAdminInviteMessage")) {
+            let error = $root.Message.NewsletterAdminInviteMessage.verify(message.newsletterAdminInviteMessage);
+            if (error) return "newsletterAdminInviteMessage." + error;
+        }
+        if (null != message.placeholderMessage && message.hasOwnProperty("placeholderMessage")) {
+            let error = $root.Message.PlaceholderMessage.verify(message.placeholderMessage);
+            if (error) return "placeholderMessage." + error;
+        }
+        if (null != message.secretEncryptedMessage && message.hasOwnProperty("secretEncryptedMessage")) {
+            let error = $root.Message.SecretEncryptedMessage.verify(message.secretEncryptedMessage);
+            if (error) return "secretEncryptedMessage." + error;
+        }
+        if (null != message.albumMessage && message.hasOwnProperty("albumMessage")) {
+            let error = $root.Message.AlbumMessage.verify(message.albumMessage);
+            if (error) return "albumMessage." + error;
+        }
         return null;
     }, Message.fromObject = function(object) {
         if (object instanceof $root.Message) return object;
@@ -2411,7 +2626,7 @@ $root.ADVEncryptionType = function() {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/Message.AlbumMessage";
     }, AlbumMessage), Message.PlaceholderMessage = function() {
         function PlaceholderMessage(properties) {
-            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         var valuesById, values;
         return PlaceholderMessage.prototype.type = 0, PlaceholderMessage.create = function(properties) {
@@ -2459,7 +2674,7 @@ $root.ADVEncryptionType = function() {
         values), PlaceholderMessage;
     }(), Message.BCallMessage = function() {
         function BCallMessage(properties) {
-            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         var valuesById, values;
         return BCallMessage.prototype.sessionId = "", BCallMessage.prototype.mediaType = 0, 
@@ -2573,7 +2788,7 @@ $root.ADVEncryptionType = function() {
         null != message.directPath && Object.hasOwnProperty.call(message, "directPath") && writer.uint32(58).string(message.directPath), 
         null != message.mediaKeyTimestamp && Object.hasOwnProperty.call(message, "mediaKeyTimestamp") && writer.uint32(64).int64(message.mediaKeyTimestamp), 
         null != message.contextInfo && Object.hasOwnProperty.call(message, "contextInfo") && $root.ContextInfo.encode(message.contextInfo, writer.uint32(74).fork()).ldelim(), 
-        null != message.participants && message.participants.length) for (var i = 0; i < message.participants.length; ++i) writer.uint32(82).string(message.participants[i]);
+        null != message.participants && message.participants.length) for (let i = 0; i < message.participants.length; ++i) writer.uint32(82).string(message.participants[i]);
         return writer;
     }, MessageHistoryBundle.encodeDelimited = function(message, writer) {
         return this.encode(message, writer).ldelim();
@@ -2636,7 +2851,7 @@ $root.ADVEncryptionType = function() {
         }
         if (null != message.participants && message.hasOwnProperty("participants")) {
             if (!Array.isArray(message.participants)) return "participants: array expected";
-            for (var i = 0; i < message.participants.length; ++i) if (!$util.isString(message.participants[i])) return "participants: string[] expected";
+            for (let i = 0; i < message.participants.length; ++i) if (!$util.isString(message.participants[i])) return "participants: string[] expected";
         }
         return null;
     }, MessageHistoryBundle.fromObject = function(object) {
@@ -2655,7 +2870,7 @@ $root.ADVEncryptionType = function() {
         if (object.participants) {
             if (!Array.isArray(object.participants)) throw TypeError(".Message.MessageHistoryBundle.participants: array expected");
             message.participants = [];
-            for (var i = 0; i < object.participants.length; ++i) message.participants[i] = String(object.participants[i]);
+            for (let i = 0; i < object.participants.length; ++i) message.participants[i] = String(object.participants[i]);
         }
         return message;
     }, MessageHistoryBundle.toObject = function(message, options) {
@@ -2677,7 +2892,7 @@ $root.ADVEncryptionType = function() {
         null != message.contextInfo && message.hasOwnProperty("contextInfo") && (object.contextInfo = $root.ContextInfo.toObject(message.contextInfo, options)), 
         message.participants && message.participants.length) {
             object.participants = [];
-            for (var j = 0; j < message.participants.length; ++j) object.participants[j] = message.participants[j];
+            for (let j = 0; j < message.participants.length; ++j) object.participants[j] = message.participants[j];
         }
         return object;
     }, MessageHistoryBundle.prototype.toJSON = function() {
@@ -2686,11 +2901,11 @@ $root.ADVEncryptionType = function() {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/Message.MessageHistoryBundle";
     }, MessageHistoryBundle), Message.CallLogMessage = function() {
         function CallLogMessage(properties) {
-            if (this.participants = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (this.participants = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         var valuesById, values;
         function CallParticipant(properties) {
-            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         return CallLogMessage.prototype.isVideo = !1, CallLogMessage.prototype.callOutcome = 0, 
         CallLogMessage.prototype.durationSecs = $util.Long ? $util.Long.fromBits(0, 0, !1) : 0, 
@@ -2702,7 +2917,7 @@ $root.ADVEncryptionType = function() {
             null != message.callOutcome && Object.hasOwnProperty.call(message, "callOutcome") && writer.uint32(16).int32(message.callOutcome), 
             null != message.durationSecs && Object.hasOwnProperty.call(message, "durationSecs") && writer.uint32(24).int64(message.durationSecs), 
             null != message.callType && Object.hasOwnProperty.call(message, "callType") && writer.uint32(32).int32(message.callType), 
-            null != message.participants && message.participants.length) for (var i = 0; i < message.participants.length; ++i) $root.Message.CallLogMessage.CallParticipant.encode(message.participants[i], writer.uint32(42).fork()).ldelim();
+            null != message.participants && message.participants.length) for (let i = 0; i < message.participants.length; ++i) $root.Message.CallLogMessage.CallParticipant.encode(message.participants[i], writer.uint32(42).fork()).ldelim();
             return writer;
         }, CallLogMessage.encodeDelimited = function(message, writer) {
             return this.encode(message, writer).ldelim();
@@ -2767,7 +2982,7 @@ $root.ADVEncryptionType = function() {
             }
             if (null != message.participants && message.hasOwnProperty("participants")) {
                 if (!Array.isArray(message.participants)) return "participants: array expected";
-                for (var i = 0; i < message.participants.length; ++i) {
+                for (let i = 0; i < message.participants.length; ++i) {
                     var error = $root.Message.CallLogMessage.CallParticipant.verify(message.participants[i]);
                     if (error) return "participants." + error;
                 }
@@ -2844,7 +3059,7 @@ $root.ADVEncryptionType = function() {
             if (object.participants) {
                 if (!Array.isArray(object.participants)) throw TypeError(".Message.CallLogMessage.participants: array expected");
                 message.participants = [];
-                for (var i = 0; i < object.participants.length; ++i) {
+                for (let i = 0; i < object.participants.length; ++i) {
                     if ("object" != typeof object.participants[i]) throw TypeError(".Message.CallLogMessage.participants: object expected");
                     message.participants[i] = $root.Message.CallLogMessage.CallParticipant.fromObject(object.participants[i]);
                 }
@@ -2861,7 +3076,7 @@ $root.ADVEncryptionType = function() {
             null != message.callType && message.hasOwnProperty("callType") && (object.callType = options.enums !== String || void 0 === $root.Message.CallLogMessage.CallType[message.callType] ? message.callType : $root.Message.CallLogMessage.CallType[message.callType]), 
             message.participants && message.participants.length) {
                 object.participants = [];
-                for (var j = 0; j < message.participants.length; ++j) object.participants[j] = $root.Message.CallLogMessage.CallParticipant.toObject(message.participants[j], options);
+                for (let j = 0; j < message.participants.length; ++j) object.participants[j] = $root.Message.CallLogMessage.CallParticipant.toObject(message.participants[j], options);
             }
             return object;
         }, CallLogMessage.prototype.toJSON = function() {
@@ -2984,7 +3199,7 @@ $root.ADVEncryptionType = function() {
         }, CallParticipant), CallLogMessage;
     }(), Message.ScheduledCallEditMessage = function() {
         function ScheduledCallEditMessage(properties) {
-            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         var valuesById, values;
         return ScheduledCallEditMessage.prototype.key = null, ScheduledCallEditMessage.prototype.editType = 0, 
@@ -3067,7 +3282,7 @@ $root.ADVEncryptionType = function() {
         values[valuesById[1] = "CANCEL"] = 1, values), ScheduledCallEditMessage;
     }(), Message.ScheduledCallCreationMessage = function() {
         function ScheduledCallCreationMessage(properties) {
-            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         var valuesById, values;
         return ScheduledCallCreationMessage.prototype.scheduledTimestampMs = $util.Long ? $util.Long.fromBits(0, 0, !1) : 0, 
@@ -3161,7 +3376,7 @@ $root.ADVEncryptionType = function() {
         values), ScheduledCallCreationMessage;
     }(), Message.EventResponseMessage = function() {
         function EventResponseMessage(properties) {
-            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         var valuesById, values;
         return EventResponseMessage.prototype.response = 0, EventResponseMessage.prototype.timestampMs = $util.Long ? $util.Long.fromBits(0, 0, !1) : 0, 
@@ -3392,12 +3607,17 @@ $root.ADVEncryptionType = function() {
         return reader instanceof $Reader || (reader = new $Reader(reader)), this.decode(reader, reader.uint32());
     }, EventMessage.verify = function(message) {
         if ("object" != typeof message || null === message) return "object expected";
-        var error;
-        if (null != message.contextInfo && message.hasOwnProperty("contextInfo") && (error = $root.ContextInfo.verify(message.contextInfo))) return "contextInfo." + error;
+        if (null != message.contextInfo && message.hasOwnProperty("contextInfo")) {
+            var error = $root.ContextInfo.verify(message.contextInfo);
+            if (error) return "contextInfo." + error;
+        }
         if (null != message.isCanceled && message.hasOwnProperty("isCanceled") && "boolean" != typeof message.isCanceled) return "isCanceled: boolean expected";
         if (null != message.name && message.hasOwnProperty("name") && !$util.isString(message.name)) return "name: string expected";
         if (null != message.description && message.hasOwnProperty("description") && !$util.isString(message.description)) return "description: string expected";
-        if (null != message.location && message.hasOwnProperty("location") && (error = $root.Message.LocationMessage.verify(message.location))) return "location." + error;
+        if (null != message.location && message.hasOwnProperty("location")) {
+            let error = $root.Message.LocationMessage.verify(message.location);
+            if (error) return "location." + error;
+        }
         return null != message.joinLink && message.hasOwnProperty("joinLink") && !$util.isString(message.joinLink) ? "joinLink: string expected" : null != message.startTime && message.hasOwnProperty("startTime") && !($util.isInteger(message.startTime) || message.startTime && $util.isInteger(message.startTime.low) && $util.isInteger(message.startTime.high)) ? "startTime: integer|Long expected" : null != message.endTime && message.hasOwnProperty("endTime") && !($util.isInteger(message.endTime) || message.endTime && $util.isInteger(message.endTime.low) && $util.isInteger(message.endTime.high)) ? "endTime: integer|Long expected" : null != message.extraGuestsAllowed && message.hasOwnProperty("extraGuestsAllowed") && "boolean" != typeof message.extraGuestsAllowed ? "extraGuestsAllowed: boolean expected" : null;
     }, EventMessage.fromObject = function(object) {
         if (object instanceof $root.Message.EventMessage) return object;
@@ -3419,11 +3639,17 @@ $root.ADVEncryptionType = function() {
         message;
     }, EventMessage.toObject = function(message, options) {
         var long, object = {};
-        return (options = options || {}).defaults && (object.contextInfo = null, 
-        object.isCanceled = !1, object.name = "", object.description = "", object.location = null, 
-        object.joinLink = "", $util.Long ? (long = new $util.Long(0, 0, !1), object.startTime = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.startTime = options.longs === String ? "0" : 0, 
-        $util.Long ? (long = new $util.Long(0, 0, !1), object.endTime = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.endTime = options.longs === String ? "0" : 0, 
-        object.extraGuestsAllowed = !1), null != message.contextInfo && message.hasOwnProperty("contextInfo") && (object.contextInfo = $root.ContextInfo.toObject(message.contextInfo, options)), 
+        if ((options = options || {}).defaults) {
+            if (object.contextInfo = null, object.isCanceled = !1, object.name = "", 
+            object.description = "", object.location = null, object.joinLink = "", 
+            $util.Long ? (long = new $util.Long(0, 0, !1), object.startTime = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.startTime = options.longs === String ? "0" : 0, 
+            $util.Long) {
+                let long = new $util.Long(0, 0, !1);
+                object.endTime = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+            } else object.endTime = options.longs === String ? "0" : 0;
+            object.extraGuestsAllowed = !1;
+        }
+        return null != message.contextInfo && message.hasOwnProperty("contextInfo") && (object.contextInfo = $root.ContextInfo.toObject(message.contextInfo, options)), 
         null != message.isCanceled && message.hasOwnProperty("isCanceled") && (object.isCanceled = message.isCanceled), 
         null != message.name && message.hasOwnProperty("name") && (object.name = message.name), 
         null != message.description && message.hasOwnProperty("description") && (object.description = message.description), 
@@ -3468,9 +3694,14 @@ $root.ADVEncryptionType = function() {
         return reader instanceof $Reader || (reader = new $Reader(reader)), this.decode(reader, reader.uint32());
     }, CommentMessage.verify = function(message) {
         if ("object" != typeof message || null === message) return "object expected";
-        var error;
-        if (null != message.message && message.hasOwnProperty("message") && (error = $root.Message.verify(message.message))) return "message." + error;
-        if (null != message.targetMessageKey && message.hasOwnProperty("targetMessageKey") && (error = $root.MessageKey.verify(message.targetMessageKey))) return "targetMessageKey." + error;
+        if (null != message.message && message.hasOwnProperty("message")) {
+            var error = $root.Message.verify(message.message);
+            if (error) return "message." + error;
+        }
+        if (null != message.targetMessageKey && message.hasOwnProperty("targetMessageKey")) {
+            let error = $root.MessageKey.verify(message.targetMessageKey);
+            if (error) return "targetMessageKey." + error;
+        }
         return null;
     }, CommentMessage.fromObject = function(object) {
         if (object instanceof $root.Message.CommentMessage) return object;
@@ -3628,7 +3859,7 @@ $root.ADVEncryptionType = function() {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/Message.EncReactionMessage";
     }, EncReactionMessage), Message.PinInChatMessage = function() {
         function PinInChatMessage(properties) {
-            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         var valuesById, values;
         return PinInChatMessage.prototype.key = null, PinInChatMessage.prototype.type = 0, 
@@ -3819,7 +4050,7 @@ $root.ADVEncryptionType = function() {
     PollVoteMessage.create = function(properties) {
         return new PollVoteMessage(properties);
     }, PollVoteMessage.encode = function(message, writer) {
-        if (writer = writer || $Writer.create(), null != message.selectedOptions && message.selectedOptions.length) for (var i = 0; i < message.selectedOptions.length; ++i) writer.uint32(10).bytes(message.selectedOptions[i]);
+        if (writer = writer || $Writer.create(), null != message.selectedOptions && message.selectedOptions.length) for (let i = 0; i < message.selectedOptions.length; ++i) writer.uint32(10).bytes(message.selectedOptions[i]);
         return writer;
     }, PollVoteMessage.encodeDelimited = function(message, writer) {
         return this.encode(message, writer).ldelim();
@@ -3837,7 +4068,7 @@ $root.ADVEncryptionType = function() {
         if ("object" != typeof message || null === message) return "object expected";
         if (null != message.selectedOptions && message.hasOwnProperty("selectedOptions")) {
             if (!Array.isArray(message.selectedOptions)) return "selectedOptions: array expected";
-            for (var i = 0; i < message.selectedOptions.length; ++i) if (!(message.selectedOptions[i] && "number" == typeof message.selectedOptions[i].length || $util.isString(message.selectedOptions[i]))) return "selectedOptions: buffer[] expected";
+            for (let i = 0; i < message.selectedOptions.length; ++i) if (!(message.selectedOptions[i] && "number" == typeof message.selectedOptions[i].length || $util.isString(message.selectedOptions[i]))) return "selectedOptions: buffer[] expected";
         }
         return null;
     }, PollVoteMessage.fromObject = function(object) {
@@ -3846,7 +4077,7 @@ $root.ADVEncryptionType = function() {
         if (object.selectedOptions) {
             if (!Array.isArray(object.selectedOptions)) throw TypeError(".Message.PollVoteMessage.selectedOptions: array expected");
             message.selectedOptions = [];
-            for (var i = 0; i < object.selectedOptions.length; ++i) "string" == typeof object.selectedOptions[i] ? $util.base64.decode(object.selectedOptions[i], message.selectedOptions[i] = $util.newBuffer($util.base64.length(object.selectedOptions[i])), 0) : 0 <= object.selectedOptions[i].length && (message.selectedOptions[i] = object.selectedOptions[i]);
+            for (let i = 0; i < object.selectedOptions.length; ++i) "string" == typeof object.selectedOptions[i] ? $util.base64.decode(object.selectedOptions[i], message.selectedOptions[i] = $util.newBuffer($util.base64.length(object.selectedOptions[i])), 0) : 0 <= object.selectedOptions[i].length && (message.selectedOptions[i] = object.selectedOptions[i]);
         }
         return message;
     }, PollVoteMessage.toObject = function(message, options) {
@@ -3854,7 +4085,7 @@ $root.ADVEncryptionType = function() {
         if (((options = options || {}).arrays || options.defaults) && (object.selectedOptions = []), 
         message.selectedOptions && message.selectedOptions.length) {
             object.selectedOptions = [];
-            for (var j = 0; j < message.selectedOptions.length; ++j) object.selectedOptions[j] = options.bytes === String ? $util.base64.encode(message.selectedOptions[j], 0, message.selectedOptions[j].length) : options.bytes === Array ? Array.prototype.slice.call(message.selectedOptions[j]) : message.selectedOptions[j];
+            for (let j = 0; j < message.selectedOptions.length; ++j) object.selectedOptions[j] = options.bytes === String ? $util.base64.encode(message.selectedOptions[j], 0, message.selectedOptions[j].length) : options.bytes === Array ? Array.prototype.slice.call(message.selectedOptions[j]) : message.selectedOptions[j];
         }
         return object;
     }, PollVoteMessage.prototype.toJSON = function() {
@@ -3978,10 +4209,18 @@ $root.ADVEncryptionType = function() {
         return reader instanceof $Reader || (reader = new $Reader(reader)), this.decode(reader, reader.uint32());
     }, PollUpdateMessage.verify = function(message) {
         if ("object" != typeof message || null === message) return "object expected";
-        var error;
-        if (null != message.pollCreationMessageKey && message.hasOwnProperty("pollCreationMessageKey") && (error = $root.MessageKey.verify(message.pollCreationMessageKey))) return "pollCreationMessageKey." + error;
-        if (null != message.vote && message.hasOwnProperty("vote") && (error = $root.Message.PollEncValue.verify(message.vote))) return "vote." + error;
-        if (null != message.metadata && message.hasOwnProperty("metadata") && (error = $root.Message.PollUpdateMessageMetadata.verify(message.metadata))) return "metadata." + error;
+        if (null != message.pollCreationMessageKey && message.hasOwnProperty("pollCreationMessageKey")) {
+            var error = $root.MessageKey.verify(message.pollCreationMessageKey);
+            if (error) return "pollCreationMessageKey." + error;
+        }
+        if (null != message.vote && message.hasOwnProperty("vote")) {
+            let error = $root.Message.PollEncValue.verify(message.vote);
+            if (error) return "vote." + error;
+        }
+        if (null != message.metadata && message.hasOwnProperty("metadata")) {
+            let error = $root.Message.PollUpdateMessageMetadata.verify(message.metadata);
+            if (error) return "metadata." + error;
+        }
         return null != message.senderTimestampMs && message.hasOwnProperty("senderTimestampMs") && !($util.isInteger(message.senderTimestampMs) || message.senderTimestampMs && $util.isInteger(message.senderTimestampMs.low) && $util.isInteger(message.senderTimestampMs.high)) ? "senderTimestampMs: integer|Long expected" : null;
     }, PollUpdateMessage.fromObject = function(object) {
         if (object instanceof $root.Message.PollUpdateMessage) return object;
@@ -4022,7 +4261,7 @@ $root.ADVEncryptionType = function() {
     }, PollCreationMessage.encode = function(message, writer) {
         if (writer = writer || $Writer.create(), null != message.encKey && Object.hasOwnProperty.call(message, "encKey") && writer.uint32(10).bytes(message.encKey), 
         null != message.name && Object.hasOwnProperty.call(message, "name") && writer.uint32(18).string(message.name), 
-        null != message.options && message.options.length) for (var i = 0; i < message.options.length; ++i) $root.Message.PollCreationMessage.Option.encode(message.options[i], writer.uint32(26).fork()).ldelim();
+        null != message.options && message.options.length) for (let i = 0; i < message.options.length; ++i) $root.Message.PollCreationMessage.Option.encode(message.options[i], writer.uint32(26).fork()).ldelim();
         return null != message.selectableOptionsCount && Object.hasOwnProperty.call(message, "selectableOptionsCount") && writer.uint32(32).uint32(message.selectableOptionsCount), 
         null != message.contextInfo && Object.hasOwnProperty.call(message, "contextInfo") && $root.ContextInfo.encode(message.contextInfo, writer.uint32(42).fork()).ldelim(), 
         writer;
@@ -4067,11 +4306,16 @@ $root.ADVEncryptionType = function() {
         if (null != message.name && message.hasOwnProperty("name") && !$util.isString(message.name)) return "name: string expected";
         if (null != message.options && message.hasOwnProperty("options")) {
             if (!Array.isArray(message.options)) return "options: array expected";
-            for (var i = 0; i < message.options.length; ++i) if (error = $root.Message.PollCreationMessage.Option.verify(message.options[i])) return "options." + error;
+            for (let i = 0; i < message.options.length; ++i) {
+                var error = $root.Message.PollCreationMessage.Option.verify(message.options[i]);
+                if (error) return "options." + error;
+            }
         }
         if (null != message.selectableOptionsCount && message.hasOwnProperty("selectableOptionsCount") && !$util.isInteger(message.selectableOptionsCount)) return "selectableOptionsCount: integer expected";
-        var error;
-        if (null != message.contextInfo && message.hasOwnProperty("contextInfo") && (error = $root.ContextInfo.verify(message.contextInfo))) return "contextInfo." + error;
+        if (null != message.contextInfo && message.hasOwnProperty("contextInfo")) {
+            let error = $root.ContextInfo.verify(message.contextInfo);
+            if (error) return "contextInfo." + error;
+        }
         return null;
     }, PollCreationMessage.fromObject = function(object) {
         if (object instanceof $root.Message.PollCreationMessage) return object;
@@ -4080,7 +4324,7 @@ $root.ADVEncryptionType = function() {
         null != object.name && (message.name = String(object.name)), object.options) {
             if (!Array.isArray(object.options)) throw TypeError(".Message.PollCreationMessage.options: array expected");
             message.options = [];
-            for (var i = 0; i < object.options.length; ++i) {
+            for (let i = 0; i < object.options.length; ++i) {
                 if ("object" != typeof object.options[i]) throw TypeError(".Message.PollCreationMessage.options: object expected");
                 message.options[i] = $root.Message.PollCreationMessage.Option.fromObject(object.options[i]);
             }
@@ -4101,7 +4345,7 @@ $root.ADVEncryptionType = function() {
         null != message.name && message.hasOwnProperty("name") && (object.name = message.name), 
         message.options && message.options.length) {
             object.options = [];
-            for (var j = 0; j < message.options.length; ++j) object.options[j] = $root.Message.PollCreationMessage.Option.toObject(message.options[j], options);
+            for (let j = 0; j < message.options.length; ++j) object.options[j] = $root.Message.PollCreationMessage.Option.toObject(message.options[j], options);
         }
         return null != message.selectableOptionsCount && message.hasOwnProperty("selectableOptionsCount") && (object.selectableOptionsCount = message.selectableOptionsCount), 
         null != message.contextInfo && message.hasOwnProperty("contextInfo") && (object.contextInfo = $root.ContextInfo.toObject(message.contextInfo, options)), 
@@ -4146,7 +4390,7 @@ $root.ADVEncryptionType = function() {
     StickerSyncRMRMessage.create = function(properties) {
         return new StickerSyncRMRMessage(properties);
     }, StickerSyncRMRMessage.encode = function(message, writer) {
-        if (writer = writer || $Writer.create(), null != message.filehash && message.filehash.length) for (var i = 0; i < message.filehash.length; ++i) writer.uint32(10).string(message.filehash[i]);
+        if (writer = writer || $Writer.create(), null != message.filehash && message.filehash.length) for (let i = 0; i < message.filehash.length; ++i) writer.uint32(10).string(message.filehash[i]);
         return null != message.rmrSource && Object.hasOwnProperty.call(message, "rmrSource") && writer.uint32(18).string(message.rmrSource), 
         null != message.requestTimestamp && Object.hasOwnProperty.call(message, "requestTimestamp") && writer.uint32(24).int64(message.requestTimestamp), 
         writer;
@@ -4181,7 +4425,7 @@ $root.ADVEncryptionType = function() {
         if ("object" != typeof message || null === message) return "object expected";
         if (null != message.filehash && message.hasOwnProperty("filehash")) {
             if (!Array.isArray(message.filehash)) return "filehash: array expected";
-            for (var i = 0; i < message.filehash.length; ++i) if (!$util.isString(message.filehash[i])) return "filehash: string[] expected";
+            for (let i = 0; i < message.filehash.length; ++i) if (!$util.isString(message.filehash[i])) return "filehash: string[] expected";
         }
         return null != message.rmrSource && message.hasOwnProperty("rmrSource") && !$util.isString(message.rmrSource) ? "rmrSource: string expected" : null != message.requestTimestamp && message.hasOwnProperty("requestTimestamp") && !($util.isInteger(message.requestTimestamp) || message.requestTimestamp && $util.isInteger(message.requestTimestamp.low) && $util.isInteger(message.requestTimestamp.high)) ? "requestTimestamp: integer|Long expected" : null;
     }, StickerSyncRMRMessage.fromObject = function(object) {
@@ -4190,7 +4434,7 @@ $root.ADVEncryptionType = function() {
         if (object.filehash) {
             if (!Array.isArray(object.filehash)) throw TypeError(".Message.StickerSyncRMRMessage.filehash: array expected");
             message.filehash = [];
-            for (var i = 0; i < object.filehash.length; ++i) message.filehash[i] = String(object.filehash[i]);
+            for (let i = 0; i < object.filehash.length; ++i) message.filehash[i] = String(object.filehash[i]);
         }
         return null != object.rmrSource && (message.rmrSource = String(object.rmrSource)), 
         null != object.requestTimestamp && ($util.Long ? (message.requestTimestamp = $util.Long.fromValue(object.requestTimestamp)).unsigned = !1 : "string" == typeof object.requestTimestamp ? message.requestTimestamp = parseInt(object.requestTimestamp, 10) : "number" == typeof object.requestTimestamp ? message.requestTimestamp = object.requestTimestamp : "object" == typeof object.requestTimestamp && (message.requestTimestamp = new $util.LongBits(object.requestTimestamp.low >>> 0, object.requestTimestamp.high >>> 0).toNumber())), 
@@ -4202,7 +4446,7 @@ $root.ADVEncryptionType = function() {
         object.requestTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.requestTimestamp = options.longs === String ? "0" : 0), 
         message.filehash && message.filehash.length) {
             object.filehash = [];
-            for (var j = 0; j < message.filehash.length; ++j) object.filehash[j] = message.filehash[j];
+            for (let j = 0; j < message.filehash.length; ++j) object.filehash[j] = message.filehash[j];
         }
         return null != message.rmrSource && message.hasOwnProperty("rmrSource") && (object.rmrSource = message.rmrSource), 
         null != message.requestTimestamp && message.hasOwnProperty("requestTimestamp") && ("number" == typeof message.requestTimestamp ? object.requestTimestamp = options.longs === String ? String(message.requestTimestamp) : message.requestTimestamp : object.requestTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.requestTimestamp) : options.longs === Number ? new $util.LongBits(message.requestTimestamp.low >>> 0, message.requestTimestamp.high >>> 0).toNumber() : message.requestTimestamp), 
@@ -4285,7 +4529,7 @@ $root.ADVEncryptionType = function() {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/Message.ReactionMessage";
     }, ReactionMessage), Message.ButtonsResponseMessage = function() {
         function ButtonsResponseMessage(properties) {
-            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         var $oneOfFields, values;
         return ButtonsResponseMessage.prototype.selectedButtonId = "", ButtonsResponseMessage.prototype.contextInfo = null, 
@@ -4388,7 +4632,7 @@ $root.ADVEncryptionType = function() {
         values[$oneOfFields[1] = "DISPLAY_TEXT"] = 1, values), ButtonsResponseMessage;
     }(), Message.ButtonsMessage = function() {
         function ButtonsMessage(properties) {
-            if (this.buttons = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (this.buttons = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         var $oneOfFields, values;
         return ButtonsMessage.prototype.contentText = "", ButtonsMessage.prototype.footerText = "", 
@@ -4410,7 +4654,7 @@ $root.ADVEncryptionType = function() {
             null != message.contentText && Object.hasOwnProperty.call(message, "contentText") && writer.uint32(50).string(message.contentText), 
             null != message.footerText && Object.hasOwnProperty.call(message, "footerText") && writer.uint32(58).string(message.footerText), 
             null != message.contextInfo && Object.hasOwnProperty.call(message, "contextInfo") && $root.ContextInfo.encode(message.contextInfo, writer.uint32(66).fork()).ldelim(), 
-            null != message.buttons && message.buttons.length) for (var i = 0; i < message.buttons.length; ++i) $root.Message.ButtonsMessage.Button.encode(message.buttons[i], writer.uint32(74).fork()).ldelim();
+            null != message.buttons && message.buttons.length) for (let i = 0; i < message.buttons.length; ++i) $root.Message.ButtonsMessage.Button.encode(message.buttons[i], writer.uint32(74).fork()).ldelim();
             return null != message.headerType && Object.hasOwnProperty.call(message, "headerType") && writer.uint32(80).int32(message.headerType), 
             writer;
         }, ButtonsMessage.encodeDelimited = function(message, writer) {
@@ -4474,10 +4718,16 @@ $root.ADVEncryptionType = function() {
             var properties = {};
             if (null != message.contentText && message.hasOwnProperty("contentText") && !$util.isString(message.contentText)) return "contentText: string expected";
             if (null != message.footerText && message.hasOwnProperty("footerText") && !$util.isString(message.footerText)) return "footerText: string expected";
-            if (null != message.contextInfo && message.hasOwnProperty("contextInfo") && (error = $root.ContextInfo.verify(message.contextInfo))) return "contextInfo." + error;
+            if (null != message.contextInfo && message.hasOwnProperty("contextInfo")) {
+                var error = $root.ContextInfo.verify(message.contextInfo);
+                if (error) return "contextInfo." + error;
+            }
             if (null != message.buttons && message.hasOwnProperty("buttons")) {
                 if (!Array.isArray(message.buttons)) return "buttons: array expected";
-                for (var error, i = 0; i < message.buttons.length; ++i) if (error = $root.Message.ButtonsMessage.Button.verify(message.buttons[i])) return "buttons." + error;
+                for (let i = 0; i < message.buttons.length; ++i) {
+                    let error = $root.Message.ButtonsMessage.Button.verify(message.buttons[i]);
+                    if (error) return "buttons." + error;
+                }
             }
             if (null != message.headerType && message.hasOwnProperty("headerType")) switch (message.headerType) {
               default:
@@ -4495,19 +4745,35 @@ $root.ADVEncryptionType = function() {
             !$util.isString(message.text))) return "text: string expected";
             if (null != message.documentMessage && message.hasOwnProperty("documentMessage")) {
                 if (1 === properties.header) return "header: multiple values";
-                if (properties.header = 1, error = $root.Message.DocumentMessage.verify(message.documentMessage)) return "documentMessage." + error;
+                properties.header = 1;
+                {
+                    let error = $root.Message.DocumentMessage.verify(message.documentMessage);
+                    if (error) return "documentMessage." + error;
+                }
             }
             if (null != message.imageMessage && message.hasOwnProperty("imageMessage")) {
                 if (1 === properties.header) return "header: multiple values";
-                if (properties.header = 1, error = $root.Message.ImageMessage.verify(message.imageMessage)) return "imageMessage." + error;
+                properties.header = 1;
+                {
+                    let error = $root.Message.ImageMessage.verify(message.imageMessage);
+                    if (error) return "imageMessage." + error;
+                }
             }
             if (null != message.videoMessage && message.hasOwnProperty("videoMessage")) {
                 if (1 === properties.header) return "header: multiple values";
-                if (properties.header = 1, error = $root.Message.VideoMessage.verify(message.videoMessage)) return "videoMessage." + error;
+                properties.header = 1;
+                {
+                    let error = $root.Message.VideoMessage.verify(message.videoMessage);
+                    if (error) return "videoMessage." + error;
+                }
             }
             if (null != message.locationMessage && message.hasOwnProperty("locationMessage")) {
                 if (1 === properties.header) return "header: multiple values";
-                if (properties.header = 1, error = $root.Message.LocationMessage.verify(message.locationMessage)) return "locationMessage." + error;
+                properties.header = 1;
+                {
+                    let error = $root.Message.LocationMessage.verify(message.locationMessage);
+                    if (error) return "locationMessage." + error;
+                }
             }
             return null;
         }, ButtonsMessage.fromObject = function(object) {
@@ -4522,7 +4788,7 @@ $root.ADVEncryptionType = function() {
             if (object.buttons) {
                 if (!Array.isArray(object.buttons)) throw TypeError(".Message.ButtonsMessage.buttons: array expected");
                 message.buttons = [];
-                for (var i = 0; i < object.buttons.length; ++i) {
+                for (let i = 0; i < object.buttons.length; ++i) {
                     if ("object" != typeof object.buttons[i]) throw TypeError(".Message.ButtonsMessage.buttons: object expected");
                     message.buttons[i] = $root.Message.ButtonsMessage.Button.fromObject(object.buttons[i]);
                 }
@@ -4598,7 +4864,7 @@ $root.ADVEncryptionType = function() {
             null != message.contextInfo && message.hasOwnProperty("contextInfo") && (object.contextInfo = $root.ContextInfo.toObject(message.contextInfo, options)), 
             message.buttons && message.buttons.length) {
                 object.buttons = [];
-                for (var j = 0; j < message.buttons.length; ++j) object.buttons[j] = $root.Message.ButtonsMessage.Button.toObject(message.buttons[j], options);
+                for (let j = 0; j < message.buttons.length; ++j) object.buttons[j] = $root.Message.ButtonsMessage.Button.toObject(message.buttons[j], options);
             }
             return null != message.headerType && message.hasOwnProperty("headerType") && (object.headerType = options.enums !== String || void 0 === $root.Message.ButtonsMessage.HeaderType[message.headerType] ? message.headerType : $root.Message.ButtonsMessage.HeaderType[message.headerType]), 
             object;
@@ -4612,14 +4878,14 @@ $root.ADVEncryptionType = function() {
         values[$oneOfFields[5] = "VIDEO"] = 5, values[$oneOfFields[6] = "LOCATION"] = 6, 
         values), ButtonsMessage.Button = function() {
             function Button(properties) {
-                if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+                if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
             }
             var valuesById, values;
             function NativeFlowInfo(properties) {
-                if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+                if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
             }
             function ButtonText(properties) {
-                if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+                if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
             }
             return Button.prototype.buttonId = "", Button.prototype.buttonText = null, 
             Button.prototype.type = 0, Button.prototype.nativeFlowInfo = null, Button.create = function(properties) {
@@ -4664,8 +4930,10 @@ $root.ADVEncryptionType = function() {
             }, Button.verify = function(message) {
                 if ("object" != typeof message || null === message) return "object expected";
                 if (null != message.buttonId && message.hasOwnProperty("buttonId") && !$util.isString(message.buttonId)) return "buttonId: string expected";
-                var error;
-                if (null != message.buttonText && message.hasOwnProperty("buttonText") && (error = $root.Message.ButtonsMessage.Button.ButtonText.verify(message.buttonText))) return "buttonText." + error;
+                if (null != message.buttonText && message.hasOwnProperty("buttonText")) {
+                    var error = $root.Message.ButtonsMessage.Button.ButtonText.verify(message.buttonText);
+                    if (error) return "buttonText." + error;
+                }
                 if (null != message.type && message.hasOwnProperty("type")) switch (message.type) {
                   default:
                     return "type: enum value expected";
@@ -4674,7 +4942,10 @@ $root.ADVEncryptionType = function() {
                   case 1:
                   case 2:
                 }
-                if (null != message.nativeFlowInfo && message.hasOwnProperty("nativeFlowInfo") && (error = $root.Message.ButtonsMessage.Button.NativeFlowInfo.verify(message.nativeFlowInfo))) return "nativeFlowInfo." + error;
+                if (null != message.nativeFlowInfo && message.hasOwnProperty("nativeFlowInfo")) {
+                    let error = $root.Message.ButtonsMessage.Button.NativeFlowInfo.verify(message.nativeFlowInfo);
+                    if (error) return "nativeFlowInfo." + error;
+                }
                 return null;
             }, Button.fromObject = function(object) {
                 if (object instanceof $root.Message.ButtonsMessage.Button) return object;
@@ -4808,7 +5079,7 @@ $root.ADVEncryptionType = function() {
         }(), ButtonsMessage;
     }(), Message.SecretEncryptedMessage = function() {
         function SecretEncryptedMessage(properties) {
-            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         var valuesById, values;
         return SecretEncryptedMessage.prototype.targetMessageKey = null, SecretEncryptedMessage.prototype.encPayload = $util.newBuffer([]), 
@@ -5147,7 +5418,7 @@ $root.ADVEncryptionType = function() {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/Message.NewsletterAdminInviteMessage";
     }, NewsletterAdminInviteMessage), Message.GroupInviteMessage = function() {
         function GroupInviteMessage(properties) {
-            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         var valuesById, values;
         return GroupInviteMessage.prototype.groupJid = "", GroupInviteMessage.prototype.inviteCode = "", 
@@ -5286,14 +5557,14 @@ $root.ADVEncryptionType = function() {
         values[valuesById[1] = "PARENT"] = 1, values), GroupInviteMessage;
     }(), Message.InteractiveResponseMessage = function() {
         function InteractiveResponseMessage(properties) {
-            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         var $oneOfFields, values;
         function NativeFlowResponseMessage(properties) {
-            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         function Body(properties) {
-            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         return InteractiveResponseMessage.prototype.body = null, InteractiveResponseMessage.prototype.contextInfo = null, 
         InteractiveResponseMessage.prototype.nativeFlowResponseMessage = null, Object.defineProperty(InteractiveResponseMessage.prototype, "interactiveResponseMessage", {
@@ -5335,10 +5606,18 @@ $root.ADVEncryptionType = function() {
             this.decode(reader, reader.uint32());
         }, InteractiveResponseMessage.verify = function(message) {
             if ("object" != typeof message || null === message) return "object expected";
-            var error;
-            if (null != message.body && message.hasOwnProperty("body") && (error = $root.Message.InteractiveResponseMessage.Body.verify(message.body))) return "body." + error;
-            if (null != message.contextInfo && message.hasOwnProperty("contextInfo") && (error = $root.ContextInfo.verify(message.contextInfo))) return "contextInfo." + error;
-            if (null != message.nativeFlowResponseMessage && message.hasOwnProperty("nativeFlowResponseMessage") && (error = $root.Message.InteractiveResponseMessage.NativeFlowResponseMessage.verify(message.nativeFlowResponseMessage))) return "nativeFlowResponseMessage." + error;
+            if (null != message.body && message.hasOwnProperty("body")) {
+                var error = $root.Message.InteractiveResponseMessage.Body.verify(message.body);
+                if (error) return "body." + error;
+            }
+            if (null != message.contextInfo && message.hasOwnProperty("contextInfo")) {
+                let error = $root.ContextInfo.verify(message.contextInfo);
+                if (error) return "contextInfo." + error;
+            }
+            if (null != message.nativeFlowResponseMessage && message.hasOwnProperty("nativeFlowResponseMessage")) {
+                let error = $root.Message.InteractiveResponseMessage.NativeFlowResponseMessage.verify(message.nativeFlowResponseMessage);
+                if (error) return "nativeFlowResponseMessage." + error;
+            }
             return null;
         }, InteractiveResponseMessage.fromObject = function(object) {
             if (object instanceof $root.Message.InteractiveResponseMessage) return object;
@@ -5496,29 +5775,29 @@ $root.ADVEncryptionType = function() {
         values[$oneOfFields[1] = "EXTENSIONS_1"] = 1, values), Body), InteractiveResponseMessage;
     }(), Message.InteractiveMessage = function() {
         function InteractiveMessage(properties) {
-            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         var $oneOfFields, values;
         function CarouselMessage(properties) {
-            if (this.cards = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (this.cards = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         function NativeFlowMessage(properties) {
-            if (this.buttons = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (this.buttons = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         function NativeFlowButton(properties) {
-            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         function CollectionMessage(properties) {
-            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         function ShopMessage(properties) {
-            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         function Footer(properties) {
-            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         function Body(properties) {
-            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         return InteractiveMessage.prototype.header = null, InteractiveMessage.prototype.body = null, 
         InteractiveMessage.prototype.footer = null, InteractiveMessage.prototype.contextInfo = null, 
@@ -5588,24 +5867,53 @@ $root.ADVEncryptionType = function() {
             this.decode(reader, reader.uint32());
         }, InteractiveMessage.verify = function(message) {
             if ("object" != typeof message || null === message) return "object expected";
-            var error, properties = {};
-            if (null != message.header && message.hasOwnProperty("header") && (error = $root.Message.InteractiveMessage.Header.verify(message.header))) return "header." + error;
-            if (null != message.body && message.hasOwnProperty("body") && (error = $root.Message.InteractiveMessage.Body.verify(message.body))) return "body." + error;
-            if (null != message.footer && message.hasOwnProperty("footer") && (error = $root.Message.InteractiveMessage.Footer.verify(message.footer))) return "footer." + error;
-            if (null != message.contextInfo && message.hasOwnProperty("contextInfo") && (error = $root.ContextInfo.verify(message.contextInfo))) return "contextInfo." + error;
-            if (null != message.shopStorefrontMessage && message.hasOwnProperty("shopStorefrontMessage") && (properties.interactiveMessage = 1, 
-            error = $root.Message.InteractiveMessage.ShopMessage.verify(message.shopStorefrontMessage))) return "shopStorefrontMessage." + error;
+            var properties = {};
+            if (null != message.header && message.hasOwnProperty("header")) {
+                var error = $root.Message.InteractiveMessage.Header.verify(message.header);
+                if (error) return "header." + error;
+            }
+            if (null != message.body && message.hasOwnProperty("body")) {
+                let error = $root.Message.InteractiveMessage.Body.verify(message.body);
+                if (error) return "body." + error;
+            }
+            if (null != message.footer && message.hasOwnProperty("footer")) {
+                let error = $root.Message.InteractiveMessage.Footer.verify(message.footer);
+                if (error) return "footer." + error;
+            }
+            if (null != message.contextInfo && message.hasOwnProperty("contextInfo")) {
+                let error = $root.ContextInfo.verify(message.contextInfo);
+                if (error) return "contextInfo." + error;
+            }
+            if (null != message.shopStorefrontMessage && message.hasOwnProperty("shopStorefrontMessage")) {
+                properties.interactiveMessage = 1;
+                {
+                    let error = $root.Message.InteractiveMessage.ShopMessage.verify(message.shopStorefrontMessage);
+                    if (error) return "shopStorefrontMessage." + error;
+                }
+            }
             if (null != message.collectionMessage && message.hasOwnProperty("collectionMessage")) {
                 if (1 === properties.interactiveMessage) return "interactiveMessage: multiple values";
-                if (properties.interactiveMessage = 1, error = $root.Message.InteractiveMessage.CollectionMessage.verify(message.collectionMessage)) return "collectionMessage." + error;
+                properties.interactiveMessage = 1;
+                {
+                    let error = $root.Message.InteractiveMessage.CollectionMessage.verify(message.collectionMessage);
+                    if (error) return "collectionMessage." + error;
+                }
             }
             if (null != message.nativeFlowMessage && message.hasOwnProperty("nativeFlowMessage")) {
                 if (1 === properties.interactiveMessage) return "interactiveMessage: multiple values";
-                if (properties.interactiveMessage = 1, error = $root.Message.InteractiveMessage.NativeFlowMessage.verify(message.nativeFlowMessage)) return "nativeFlowMessage." + error;
+                properties.interactiveMessage = 1;
+                {
+                    let error = $root.Message.InteractiveMessage.NativeFlowMessage.verify(message.nativeFlowMessage);
+                    if (error) return "nativeFlowMessage." + error;
+                }
             }
             if (null != message.carouselMessage && message.hasOwnProperty("carouselMessage")) {
                 if (1 === properties.interactiveMessage) return "interactiveMessage: multiple values";
-                if (properties.interactiveMessage = 1, error = $root.Message.InteractiveMessage.CarouselMessage.verify(message.carouselMessage)) return "carouselMessage." + error;
+                properties.interactiveMessage = 1;
+                {
+                    let error = $root.Message.InteractiveMessage.CarouselMessage.verify(message.carouselMessage);
+                    if (error) return "carouselMessage." + error;
+                }
             }
             return null;
         }, InteractiveMessage.fromObject = function(object) {
@@ -5669,7 +5977,7 @@ $root.ADVEncryptionType = function() {
         CarouselMessage.prototype.messageVersion = 0, CarouselMessage.create = function(properties) {
             return new CarouselMessage(properties);
         }, CarouselMessage.encode = function(message, writer) {
-            if (writer = writer || $Writer.create(), null != message.cards && message.cards.length) for (var i = 0; i < message.cards.length; ++i) $root.Message.InteractiveMessage.encode(message.cards[i], writer.uint32(10).fork()).ldelim();
+            if (writer = writer || $Writer.create(), null != message.cards && message.cards.length) for (let i = 0; i < message.cards.length; ++i) $root.Message.InteractiveMessage.encode(message.cards[i], writer.uint32(10).fork()).ldelim();
             return null != message.messageVersion && Object.hasOwnProperty.call(message, "messageVersion") && writer.uint32(16).int32(message.messageVersion), 
             writer;
         }, CarouselMessage.encodeDelimited = function(message, writer) {
@@ -5700,7 +6008,7 @@ $root.ADVEncryptionType = function() {
             if ("object" != typeof message || null === message) return "object expected";
             if (null != message.cards && message.hasOwnProperty("cards")) {
                 if (!Array.isArray(message.cards)) return "cards: array expected";
-                for (var i = 0; i < message.cards.length; ++i) {
+                for (let i = 0; i < message.cards.length; ++i) {
                     var error = $root.Message.InteractiveMessage.verify(message.cards[i]);
                     if (error) return "cards." + error;
                 }
@@ -5712,7 +6020,7 @@ $root.ADVEncryptionType = function() {
             if (object.cards) {
                 if (!Array.isArray(object.cards)) throw TypeError(".Message.InteractiveMessage.CarouselMessage.cards: array expected");
                 message.cards = [];
-                for (var i = 0; i < object.cards.length; ++i) {
+                for (let i = 0; i < object.cards.length; ++i) {
                     if ("object" != typeof object.cards[i]) throw TypeError(".Message.InteractiveMessage.CarouselMessage.cards: object expected");
                     message.cards[i] = $root.Message.InteractiveMessage.fromObject(object.cards[i]);
                 }
@@ -5724,7 +6032,7 @@ $root.ADVEncryptionType = function() {
             if (((options = options || {}).arrays || options.defaults) && (object.cards = []), 
             options.defaults && (object.messageVersion = 0), message.cards && message.cards.length) {
                 object.cards = [];
-                for (var j = 0; j < message.cards.length; ++j) object.cards[j] = $root.Message.InteractiveMessage.toObject(message.cards[j], options);
+                for (let j = 0; j < message.cards.length; ++j) object.cards[j] = $root.Message.InteractiveMessage.toObject(message.cards[j], options);
             }
             return null != message.messageVersion && message.hasOwnProperty("messageVersion") && (object.messageVersion = message.messageVersion), 
             object;
@@ -5737,7 +6045,7 @@ $root.ADVEncryptionType = function() {
         NativeFlowMessage.create = function(properties) {
             return new NativeFlowMessage(properties);
         }, NativeFlowMessage.encode = function(message, writer) {
-            if (writer = writer || $Writer.create(), null != message.buttons && message.buttons.length) for (var i = 0; i < message.buttons.length; ++i) $root.Message.InteractiveMessage.NativeFlowMessage.NativeFlowButton.encode(message.buttons[i], writer.uint32(10).fork()).ldelim();
+            if (writer = writer || $Writer.create(), null != message.buttons && message.buttons.length) for (let i = 0; i < message.buttons.length; ++i) $root.Message.InteractiveMessage.NativeFlowMessage.NativeFlowButton.encode(message.buttons[i], writer.uint32(10).fork()).ldelim();
             return null != message.messageParamsJson && Object.hasOwnProperty.call(message, "messageParamsJson") && writer.uint32(18).string(message.messageParamsJson), 
             null != message.messageVersion && Object.hasOwnProperty.call(message, "messageVersion") && writer.uint32(24).int32(message.messageVersion), 
             writer;
@@ -5773,7 +6081,7 @@ $root.ADVEncryptionType = function() {
             if ("object" != typeof message || null === message) return "object expected";
             if (null != message.buttons && message.hasOwnProperty("buttons")) {
                 if (!Array.isArray(message.buttons)) return "buttons: array expected";
-                for (var i = 0; i < message.buttons.length; ++i) {
+                for (let i = 0; i < message.buttons.length; ++i) {
                     var error = $root.Message.InteractiveMessage.NativeFlowMessage.NativeFlowButton.verify(message.buttons[i]);
                     if (error) return "buttons." + error;
                 }
@@ -5785,7 +6093,7 @@ $root.ADVEncryptionType = function() {
             if (object.buttons) {
                 if (!Array.isArray(object.buttons)) throw TypeError(".Message.InteractiveMessage.NativeFlowMessage.buttons: array expected");
                 message.buttons = [];
-                for (var i = 0; i < object.buttons.length; ++i) {
+                for (let i = 0; i < object.buttons.length; ++i) {
                     if ("object" != typeof object.buttons[i]) throw TypeError(".Message.InteractiveMessage.NativeFlowMessage.buttons: object expected");
                     message.buttons[i] = $root.Message.InteractiveMessage.NativeFlowMessage.NativeFlowButton.fromObject(object.buttons[i]);
                 }
@@ -5799,7 +6107,7 @@ $root.ADVEncryptionType = function() {
             options.defaults && (object.messageParamsJson = "", object.messageVersion = 0), 
             message.buttons && message.buttons.length) {
                 object.buttons = [];
-                for (var j = 0; j < message.buttons.length; ++j) object.buttons[j] = $root.Message.InteractiveMessage.NativeFlowMessage.NativeFlowButton.toObject(message.buttons[j], options);
+                for (let j = 0; j < message.buttons.length; ++j) object.buttons[j] = $root.Message.InteractiveMessage.NativeFlowMessage.NativeFlowButton.toObject(message.buttons[j], options);
             }
             return null != message.messageParamsJson && message.hasOwnProperty("messageParamsJson") && (object.messageParamsJson = message.messageParamsJson), 
             null != message.messageVersion && message.hasOwnProperty("messageVersion") && (object.messageVersion = message.messageVersion), 
@@ -6066,7 +6374,7 @@ $root.ADVEncryptionType = function() {
             return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/Message.InteractiveMessage.Body";
         }, Body), InteractiveMessage.Header = function() {
             function Header(properties) {
-                if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+                if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
             }
             var $oneOfFields;
             return Header.prototype.title = "", Header.prototype.subtitle = "", 
@@ -6142,15 +6450,22 @@ $root.ADVEncryptionType = function() {
                 this.decode(reader, reader.uint32());
             }, Header.verify = function(message) {
                 if ("object" != typeof message || null === message) return "object expected";
-                var error, properties = {};
+                var properties = {};
                 if (null != message.title && message.hasOwnProperty("title") && !$util.isString(message.title)) return "title: string expected";
                 if (null != message.subtitle && message.hasOwnProperty("subtitle") && !$util.isString(message.subtitle)) return "subtitle: string expected";
                 if (null != message.hasMediaAttachment && message.hasOwnProperty("hasMediaAttachment") && "boolean" != typeof message.hasMediaAttachment) return "hasMediaAttachment: boolean expected";
-                if (null != message.documentMessage && message.hasOwnProperty("documentMessage") && (properties.media = 1, 
-                error = $root.Message.DocumentMessage.verify(message.documentMessage))) return "documentMessage." + error;
+                if (null != message.documentMessage && message.hasOwnProperty("documentMessage")) {
+                    properties.media = 1;
+                    var error = $root.Message.DocumentMessage.verify(message.documentMessage);
+                    if (error) return "documentMessage." + error;
+                }
                 if (null != message.imageMessage && message.hasOwnProperty("imageMessage")) {
                     if (1 === properties.media) return "media: multiple values";
-                    if (properties.media = 1, error = $root.Message.ImageMessage.verify(message.imageMessage)) return "imageMessage." + error;
+                    properties.media = 1;
+                    {
+                        let error = $root.Message.ImageMessage.verify(message.imageMessage);
+                        if (error) return "imageMessage." + error;
+                    }
                 }
                 if (null != message.jpegThumbnail && message.hasOwnProperty("jpegThumbnail")) {
                     if (1 === properties.media) return "media: multiple values";
@@ -6158,15 +6473,27 @@ $root.ADVEncryptionType = function() {
                 }
                 if (null != message.videoMessage && message.hasOwnProperty("videoMessage")) {
                     if (1 === properties.media) return "media: multiple values";
-                    if (properties.media = 1, error = $root.Message.VideoMessage.verify(message.videoMessage)) return "videoMessage." + error;
+                    properties.media = 1;
+                    {
+                        let error = $root.Message.VideoMessage.verify(message.videoMessage);
+                        if (error) return "videoMessage." + error;
+                    }
                 }
                 if (null != message.locationMessage && message.hasOwnProperty("locationMessage")) {
                     if (1 === properties.media) return "media: multiple values";
-                    if (properties.media = 1, error = $root.Message.LocationMessage.verify(message.locationMessage)) return "locationMessage." + error;
+                    properties.media = 1;
+                    {
+                        let error = $root.Message.LocationMessage.verify(message.locationMessage);
+                        if (error) return "locationMessage." + error;
+                    }
                 }
                 if (null != message.productMessage && message.hasOwnProperty("productMessage")) {
                     if (1 === properties.media) return "media: multiple values";
-                    if (properties.media = 1, error = $root.Message.ProductMessage.verify(message.productMessage)) return "productMessage." + error;
+                    properties.media = 1;
+                    {
+                        let error = $root.Message.ProductMessage.verify(message.productMessage);
+                        if (error) return "productMessage." + error;
+                    }
                 }
                 return null;
             }, Header.fromObject = function(object) {
@@ -6218,11 +6545,11 @@ $root.ADVEncryptionType = function() {
         }(), InteractiveMessage;
     }(), Message.ListResponseMessage = function() {
         function ListResponseMessage(properties) {
-            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         var valuesById, values;
         function SingleSelectReply(properties) {
-            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         return ListResponseMessage.prototype.title = "", ListResponseMessage.prototype.listType = 0, 
         ListResponseMessage.prototype.singleSelectReply = null, ListResponseMessage.prototype.contextInfo = null, 
@@ -6280,9 +6607,14 @@ $root.ADVEncryptionType = function() {
               case 0:
               case 1:
             }
-            var error;
-            if (null != message.singleSelectReply && message.hasOwnProperty("singleSelectReply") && (error = $root.Message.ListResponseMessage.SingleSelectReply.verify(message.singleSelectReply))) return "singleSelectReply." + error;
-            if (null != message.contextInfo && message.hasOwnProperty("contextInfo") && (error = $root.ContextInfo.verify(message.contextInfo))) return "contextInfo." + error;
+            if (null != message.singleSelectReply && message.hasOwnProperty("singleSelectReply")) {
+                var error = $root.Message.ListResponseMessage.SingleSelectReply.verify(message.singleSelectReply);
+                if (error) return "singleSelectReply." + error;
+            }
+            if (null != message.contextInfo && message.hasOwnProperty("contextInfo")) {
+                let error = $root.ContextInfo.verify(message.contextInfo);
+                if (error) return "contextInfo." + error;
+            }
             return null != message.description && message.hasOwnProperty("description") && !$util.isString(message.description) ? "description: string expected" : null;
         }, ListResponseMessage.fromObject = function(object) {
             if (object instanceof $root.Message.ListResponseMessage) return object;
@@ -6364,26 +6696,26 @@ $root.ADVEncryptionType = function() {
         }, SingleSelectReply), ListResponseMessage;
     }(), Message.ListMessage = function() {
         function ListMessage(properties) {
-            if (this.sections = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (this.sections = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         var valuesById, values;
         function ProductListInfo(properties) {
-            if (this.productSections = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (this.productSections = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         function ProductListHeaderImage(properties) {
-            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         function ProductSection(properties) {
-            if (this.products = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (this.products = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         function Product(properties) {
-            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         function Section(properties) {
-            if (this.rows = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (this.rows = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         function Row(properties) {
-            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         return ListMessage.prototype.title = "", ListMessage.prototype.description = "", 
         ListMessage.prototype.buttonText = "", ListMessage.prototype.listType = 0, 
@@ -6396,7 +6728,7 @@ $root.ADVEncryptionType = function() {
             null != message.description && Object.hasOwnProperty.call(message, "description") && writer.uint32(18).string(message.description), 
             null != message.buttonText && Object.hasOwnProperty.call(message, "buttonText") && writer.uint32(26).string(message.buttonText), 
             null != message.listType && Object.hasOwnProperty.call(message, "listType") && writer.uint32(32).int32(message.listType), 
-            null != message.sections && message.sections.length) for (var i = 0; i < message.sections.length; ++i) $root.Message.ListMessage.Section.encode(message.sections[i], writer.uint32(42).fork()).ldelim();
+            null != message.sections && message.sections.length) for (let i = 0; i < message.sections.length; ++i) $root.Message.ListMessage.Section.encode(message.sections[i], writer.uint32(42).fork()).ldelim();
             return null != message.productListInfo && Object.hasOwnProperty.call(message, "productListInfo") && $root.Message.ListMessage.ProductListInfo.encode(message.productListInfo, writer.uint32(50).fork()).ldelim(), 
             null != message.footerText && Object.hasOwnProperty.call(message, "footerText") && writer.uint32(58).string(message.footerText), 
             null != message.contextInfo && Object.hasOwnProperty.call(message, "contextInfo") && $root.ContextInfo.encode(message.contextInfo, writer.uint32(66).fork()).ldelim(), 
@@ -6464,12 +6796,20 @@ $root.ADVEncryptionType = function() {
             }
             if (null != message.sections && message.hasOwnProperty("sections")) {
                 if (!Array.isArray(message.sections)) return "sections: array expected";
-                for (var i = 0; i < message.sections.length; ++i) if (error = $root.Message.ListMessage.Section.verify(message.sections[i])) return "sections." + error;
+                for (let i = 0; i < message.sections.length; ++i) {
+                    var error = $root.Message.ListMessage.Section.verify(message.sections[i]);
+                    if (error) return "sections." + error;
+                }
             }
-            var error;
-            if (null != message.productListInfo && message.hasOwnProperty("productListInfo") && (error = $root.Message.ListMessage.ProductListInfo.verify(message.productListInfo))) return "productListInfo." + error;
+            if (null != message.productListInfo && message.hasOwnProperty("productListInfo")) {
+                let error = $root.Message.ListMessage.ProductListInfo.verify(message.productListInfo);
+                if (error) return "productListInfo." + error;
+            }
             if (null != message.footerText && message.hasOwnProperty("footerText") && !$util.isString(message.footerText)) return "footerText: string expected";
-            if (null != message.contextInfo && message.hasOwnProperty("contextInfo") && (error = $root.ContextInfo.verify(message.contextInfo))) return "contextInfo." + error;
+            if (null != message.contextInfo && message.hasOwnProperty("contextInfo")) {
+                let error = $root.ContextInfo.verify(message.contextInfo);
+                if (error) return "contextInfo." + error;
+            }
             return null;
         }, ListMessage.fromObject = function(object) {
             if (object instanceof $root.Message.ListMessage) return object;
@@ -6499,7 +6839,7 @@ $root.ADVEncryptionType = function() {
             if (object.sections) {
                 if (!Array.isArray(object.sections)) throw TypeError(".Message.ListMessage.sections: array expected");
                 message.sections = [];
-                for (var i = 0; i < object.sections.length; ++i) {
+                for (let i = 0; i < object.sections.length; ++i) {
                     if ("object" != typeof object.sections[i]) throw TypeError(".Message.ListMessage.sections: object expected");
                     message.sections[i] = $root.Message.ListMessage.Section.fromObject(object.sections[i]);
                 }
@@ -6525,7 +6865,7 @@ $root.ADVEncryptionType = function() {
             null != message.listType && message.hasOwnProperty("listType") && (object.listType = options.enums !== String || void 0 === $root.Message.ListMessage.ListType[message.listType] ? message.listType : $root.Message.ListMessage.ListType[message.listType]), 
             message.sections && message.sections.length) {
                 object.sections = [];
-                for (var j = 0; j < message.sections.length; ++j) object.sections[j] = $root.Message.ListMessage.Section.toObject(message.sections[j], options);
+                for (let j = 0; j < message.sections.length; ++j) object.sections[j] = $root.Message.ListMessage.Section.toObject(message.sections[j], options);
             }
             return null != message.productListInfo && message.hasOwnProperty("productListInfo") && (object.productListInfo = $root.Message.ListMessage.ProductListInfo.toObject(message.productListInfo, options)), 
             null != message.footerText && message.hasOwnProperty("footerText") && (object.footerText = message.footerText), 
@@ -6542,7 +6882,7 @@ $root.ADVEncryptionType = function() {
         ProductListInfo.create = function(properties) {
             return new ProductListInfo(properties);
         }, ProductListInfo.encode = function(message, writer) {
-            if (writer = writer || $Writer.create(), null != message.productSections && message.productSections.length) for (var i = 0; i < message.productSections.length; ++i) $root.Message.ListMessage.ProductSection.encode(message.productSections[i], writer.uint32(10).fork()).ldelim();
+            if (writer = writer || $Writer.create(), null != message.productSections && message.productSections.length) for (let i = 0; i < message.productSections.length; ++i) $root.Message.ListMessage.ProductSection.encode(message.productSections[i], writer.uint32(10).fork()).ldelim();
             return null != message.headerImage && Object.hasOwnProperty.call(message, "headerImage") && $root.Message.ListMessage.ProductListHeaderImage.encode(message.headerImage, writer.uint32(18).fork()).ldelim(), 
             null != message.businessOwnerJid && Object.hasOwnProperty.call(message, "businessOwnerJid") && writer.uint32(26).string(message.businessOwnerJid), 
             writer;
@@ -6578,10 +6918,15 @@ $root.ADVEncryptionType = function() {
             if ("object" != typeof message || null === message) return "object expected";
             if (null != message.productSections && message.hasOwnProperty("productSections")) {
                 if (!Array.isArray(message.productSections)) return "productSections: array expected";
-                for (var i = 0; i < message.productSections.length; ++i) if (error = $root.Message.ListMessage.ProductSection.verify(message.productSections[i])) return "productSections." + error;
+                for (let i = 0; i < message.productSections.length; ++i) {
+                    var error = $root.Message.ListMessage.ProductSection.verify(message.productSections[i]);
+                    if (error) return "productSections." + error;
+                }
             }
-            var error;
-            if (null != message.headerImage && message.hasOwnProperty("headerImage") && (error = $root.Message.ListMessage.ProductListHeaderImage.verify(message.headerImage))) return "headerImage." + error;
+            if (null != message.headerImage && message.hasOwnProperty("headerImage")) {
+                let error = $root.Message.ListMessage.ProductListHeaderImage.verify(message.headerImage);
+                if (error) return "headerImage." + error;
+            }
             return null != message.businessOwnerJid && message.hasOwnProperty("businessOwnerJid") && !$util.isString(message.businessOwnerJid) ? "businessOwnerJid: string expected" : null;
         }, ProductListInfo.fromObject = function(object) {
             if (object instanceof $root.Message.ListMessage.ProductListInfo) return object;
@@ -6589,7 +6934,7 @@ $root.ADVEncryptionType = function() {
             if (object.productSections) {
                 if (!Array.isArray(object.productSections)) throw TypeError(".Message.ListMessage.ProductListInfo.productSections: array expected");
                 message.productSections = [];
-                for (var i = 0; i < object.productSections.length; ++i) {
+                for (let i = 0; i < object.productSections.length; ++i) {
                     if ("object" != typeof object.productSections[i]) throw TypeError(".Message.ListMessage.ProductListInfo.productSections: object expected");
                     message.productSections[i] = $root.Message.ListMessage.ProductSection.fromObject(object.productSections[i]);
                 }
@@ -6606,7 +6951,7 @@ $root.ADVEncryptionType = function() {
             options.defaults && (object.headerImage = null, object.businessOwnerJid = ""), 
             message.productSections && message.productSections.length) {
                 object.productSections = [];
-                for (var j = 0; j < message.productSections.length; ++j) object.productSections[j] = $root.Message.ListMessage.ProductSection.toObject(message.productSections[j], options);
+                for (let j = 0; j < message.productSections.length; ++j) object.productSections[j] = $root.Message.ListMessage.ProductSection.toObject(message.productSections[j], options);
             }
             return null != message.headerImage && message.hasOwnProperty("headerImage") && (object.headerImage = $root.Message.ListMessage.ProductListHeaderImage.toObject(message.headerImage, options)), 
             null != message.businessOwnerJid && message.hasOwnProperty("businessOwnerJid") && (object.businessOwnerJid = message.businessOwnerJid), 
@@ -6670,7 +7015,7 @@ $root.ADVEncryptionType = function() {
             return new ProductSection(properties);
         }, ProductSection.encode = function(message, writer) {
             if (writer = writer || $Writer.create(), null != message.title && Object.hasOwnProperty.call(message, "title") && writer.uint32(10).string(message.title), 
-            null != message.products && message.products.length) for (var i = 0; i < message.products.length; ++i) $root.Message.ListMessage.Product.encode(message.products[i], writer.uint32(18).fork()).ldelim();
+            null != message.products && message.products.length) for (let i = 0; i < message.products.length; ++i) $root.Message.ListMessage.Product.encode(message.products[i], writer.uint32(18).fork()).ldelim();
             return writer;
         }, ProductSection.encodeDelimited = function(message, writer) {
             return this.encode(message, writer).ldelim();
@@ -6701,7 +7046,7 @@ $root.ADVEncryptionType = function() {
             if (null != message.title && message.hasOwnProperty("title") && !$util.isString(message.title)) return "title: string expected";
             if (null != message.products && message.hasOwnProperty("products")) {
                 if (!Array.isArray(message.products)) return "products: array expected";
-                for (var i = 0; i < message.products.length; ++i) {
+                for (let i = 0; i < message.products.length; ++i) {
                     var error = $root.Message.ListMessage.Product.verify(message.products[i]);
                     if (error) return "products." + error;
                 }
@@ -6714,7 +7059,7 @@ $root.ADVEncryptionType = function() {
             object.products) {
                 if (!Array.isArray(object.products)) throw TypeError(".Message.ListMessage.ProductSection.products: array expected");
                 message.products = [];
-                for (var i = 0; i < object.products.length; ++i) {
+                for (let i = 0; i < object.products.length; ++i) {
                     if ("object" != typeof object.products[i]) throw TypeError(".Message.ListMessage.ProductSection.products: object expected");
                     message.products[i] = $root.Message.ListMessage.Product.fromObject(object.products[i]);
                 }
@@ -6726,7 +7071,7 @@ $root.ADVEncryptionType = function() {
             options.defaults && (object.title = ""), null != message.title && message.hasOwnProperty("title") && (object.title = message.title), 
             message.products && message.products.length) {
                 object.products = [];
-                for (var j = 0; j < message.products.length; ++j) object.products[j] = $root.Message.ListMessage.Product.toObject(message.products[j], options);
+                for (let j = 0; j < message.products.length; ++j) object.products[j] = $root.Message.ListMessage.Product.toObject(message.products[j], options);
             }
             return object;
         }, ProductSection.prototype.toJSON = function() {
@@ -6772,7 +7117,7 @@ $root.ADVEncryptionType = function() {
             return new Section(properties);
         }, Section.encode = function(message, writer) {
             if (writer = writer || $Writer.create(), null != message.title && Object.hasOwnProperty.call(message, "title") && writer.uint32(10).string(message.title), 
-            null != message.rows && message.rows.length) for (var i = 0; i < message.rows.length; ++i) $root.Message.ListMessage.Row.encode(message.rows[i], writer.uint32(18).fork()).ldelim();
+            null != message.rows && message.rows.length) for (let i = 0; i < message.rows.length; ++i) $root.Message.ListMessage.Row.encode(message.rows[i], writer.uint32(18).fork()).ldelim();
             return writer;
         }, Section.encodeDelimited = function(message, writer) {
             return this.encode(message, writer).ldelim();
@@ -6803,7 +7148,7 @@ $root.ADVEncryptionType = function() {
             if (null != message.title && message.hasOwnProperty("title") && !$util.isString(message.title)) return "title: string expected";
             if (null != message.rows && message.hasOwnProperty("rows")) {
                 if (!Array.isArray(message.rows)) return "rows: array expected";
-                for (var i = 0; i < message.rows.length; ++i) {
+                for (let i = 0; i < message.rows.length; ++i) {
                     var error = $root.Message.ListMessage.Row.verify(message.rows[i]);
                     if (error) return "rows." + error;
                 }
@@ -6816,7 +7161,7 @@ $root.ADVEncryptionType = function() {
             object.rows) {
                 if (!Array.isArray(object.rows)) throw TypeError(".Message.ListMessage.Section.rows: array expected");
                 message.rows = [];
-                for (var i = 0; i < object.rows.length; ++i) {
+                for (let i = 0; i < object.rows.length; ++i) {
                     if ("object" != typeof object.rows[i]) throw TypeError(".Message.ListMessage.Section.rows: object expected");
                     message.rows[i] = $root.Message.ListMessage.Row.fromObject(object.rows[i]);
                 }
@@ -6828,7 +7173,7 @@ $root.ADVEncryptionType = function() {
             options.defaults && (object.title = ""), null != message.title && message.hasOwnProperty("title") && (object.title = message.title), 
             message.rows && message.rows.length) {
                 object.rows = [];
-                for (var j = 0; j < message.rows.length; ++j) object.rows[j] = $root.Message.ListMessage.Row.toObject(message.rows[j], options);
+                for (let j = 0; j < message.rows.length; ++j) object.rows[j] = $root.Message.ListMessage.Row.toObject(message.rows[j], options);
             }
             return object;
         }, Section.prototype.toJSON = function() {
@@ -6891,7 +7236,7 @@ $root.ADVEncryptionType = function() {
         }, Row), ListMessage;
     }(), Message.OrderMessage = function() {
         function OrderMessage(properties) {
-            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         var valuesById, values;
         return OrderMessage.prototype.orderId = "", OrderMessage.prototype.thumbnail = $util.newBuffer([]), 
@@ -7010,10 +7355,15 @@ $root.ADVEncryptionType = function() {
             if (null != message.token && message.hasOwnProperty("token") && !$util.isString(message.token)) return "token: string expected";
             if (null != message.totalAmount1000 && message.hasOwnProperty("totalAmount1000") && !($util.isInteger(message.totalAmount1000) || message.totalAmount1000 && $util.isInteger(message.totalAmount1000.low) && $util.isInteger(message.totalAmount1000.high))) return "totalAmount1000: integer|Long expected";
             if (null != message.totalCurrencyCode && message.hasOwnProperty("totalCurrencyCode") && !$util.isString(message.totalCurrencyCode)) return "totalCurrencyCode: string expected";
-            var error;
-            if (null != message.contextInfo && message.hasOwnProperty("contextInfo") && (error = $root.ContextInfo.verify(message.contextInfo))) return "contextInfo." + error;
+            if (null != message.contextInfo && message.hasOwnProperty("contextInfo")) {
+                var error = $root.ContextInfo.verify(message.contextInfo);
+                if (error) return "contextInfo." + error;
+            }
             if (null != message.messageVersion && message.hasOwnProperty("messageVersion") && !$util.isInteger(message.messageVersion)) return "messageVersion: integer expected";
-            if (null != message.orderRequestMessageId && message.hasOwnProperty("orderRequestMessageId") && (error = $root.MessageKey.verify(message.orderRequestMessageId))) return "orderRequestMessageId." + error;
+            if (null != message.orderRequestMessageId && message.hasOwnProperty("orderRequestMessageId")) {
+                let error = $root.MessageKey.verify(message.orderRequestMessageId);
+                if (error) return "orderRequestMessageId." + error;
+            }
             return null;
         }, OrderMessage.fromObject = function(object) {
             if (object instanceof $root.Message.OrderMessage) return object;
@@ -7151,13 +7501,21 @@ $root.ADVEncryptionType = function() {
         return reader instanceof $Reader || (reader = new $Reader(reader)), this.decode(reader, reader.uint32());
     }, ProductMessage.verify = function(message) {
         if ("object" != typeof message || null === message) return "object expected";
-        var error;
-        if (null != message.product && message.hasOwnProperty("product") && (error = $root.Message.ProductMessage.ProductSnapshot.verify(message.product))) return "product." + error;
+        if (null != message.product && message.hasOwnProperty("product")) {
+            var error = $root.Message.ProductMessage.ProductSnapshot.verify(message.product);
+            if (error) return "product." + error;
+        }
         if (null != message.businessOwnerJid && message.hasOwnProperty("businessOwnerJid") && !$util.isString(message.businessOwnerJid)) return "businessOwnerJid: string expected";
-        if (null != message.catalog && message.hasOwnProperty("catalog") && (error = $root.Message.ProductMessage.CatalogSnapshot.verify(message.catalog))) return "catalog." + error;
+        if (null != message.catalog && message.hasOwnProperty("catalog")) {
+            let error = $root.Message.ProductMessage.CatalogSnapshot.verify(message.catalog);
+            if (error) return "catalog." + error;
+        }
         if (null != message.body && message.hasOwnProperty("body") && !$util.isString(message.body)) return "body: string expected";
         if (null != message.footer && message.hasOwnProperty("footer") && !$util.isString(message.footer)) return "footer: string expected";
-        if (null != message.contextInfo && message.hasOwnProperty("contextInfo") && (error = $root.ContextInfo.verify(message.contextInfo))) return "contextInfo." + error;
+        if (null != message.contextInfo && message.hasOwnProperty("contextInfo")) {
+            let error = $root.ContextInfo.verify(message.contextInfo);
+            if (error) return "contextInfo." + error;
+        }
         return null;
     }, ProductMessage.fromObject = function(object) {
         if (object instanceof $root.Message.ProductMessage) return object;
@@ -7296,13 +7654,17 @@ $root.ADVEncryptionType = function() {
         null != object.salePriceAmount1000 && ($util.Long ? (message.salePriceAmount1000 = $util.Long.fromValue(object.salePriceAmount1000)).unsigned = !1 : "string" == typeof object.salePriceAmount1000 ? message.salePriceAmount1000 = parseInt(object.salePriceAmount1000, 10) : "number" == typeof object.salePriceAmount1000 ? message.salePriceAmount1000 = object.salePriceAmount1000 : "object" == typeof object.salePriceAmount1000 && (message.salePriceAmount1000 = new $util.LongBits(object.salePriceAmount1000.low >>> 0, object.salePriceAmount1000.high >>> 0).toNumber())), 
         message;
     }, ProductSnapshot.toObject = function(message, options) {
+        options = options || {};
         var long, object = {};
-        return (options = options || {}).defaults && (object.productImage = null, 
-        object.productId = "", object.title = "", object.description = "", object.currencyCode = "", 
-        $util.Long ? (long = new $util.Long(0, 0, !1), object.priceAmount1000 = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.priceAmount1000 = options.longs === String ? "0" : 0, 
+        if (options.defaults) if (object.productImage = null, object.productId = "", 
+        object.title = "", object.description = "", object.currencyCode = "", $util.Long ? (long = new $util.Long(0, 0, !1), 
+        object.priceAmount1000 = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.priceAmount1000 = options.longs === String ? "0" : 0, 
         object.retailerId = "", object.url = "", object.productImageCount = 0, object.firstImageId = "", 
-        $util.Long ? (long = new $util.Long(0, 0, !1), object.salePriceAmount1000 = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.salePriceAmount1000 = options.longs === String ? "0" : 0), 
-        null != message.productImage && message.hasOwnProperty("productImage") && (object.productImage = $root.Message.ImageMessage.toObject(message.productImage, options)), 
+        $util.Long) {
+            let long = new $util.Long(0, 0, !1);
+            object.salePriceAmount1000 = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+        } else object.salePriceAmount1000 = options.longs === String ? "0" : 0;
+        return null != message.productImage && message.hasOwnProperty("productImage") && (object.productImage = $root.Message.ImageMessage.toObject(message.productImage, options)), 
         null != message.productId && message.hasOwnProperty("productId") && (object.productId = message.productId), 
         null != message.title && message.hasOwnProperty("title") && (object.title = message.title), 
         null != message.description && message.hasOwnProperty("description") && (object.description = message.description), 
@@ -7517,19 +7879,38 @@ $root.ADVEncryptionType = function() {
         return reader instanceof $Reader || (reader = new $Reader(reader)), this.decode(reader, reader.uint32());
     }, TemplateMessage.verify = function(message) {
         if ("object" != typeof message || null === message) return "object expected";
-        var error, properties = {};
-        if (null != message.contextInfo && message.hasOwnProperty("contextInfo") && (error = $root.ContextInfo.verify(message.contextInfo))) return "contextInfo." + error;
-        if (null != message.hydratedTemplate && message.hasOwnProperty("hydratedTemplate") && (error = $root.Message.TemplateMessage.HydratedFourRowTemplate.verify(message.hydratedTemplate))) return "hydratedTemplate." + error;
+        var properties = {};
+        if (null != message.contextInfo && message.hasOwnProperty("contextInfo")) {
+            var error = $root.ContextInfo.verify(message.contextInfo);
+            if (error) return "contextInfo." + error;
+        }
+        if (null != message.hydratedTemplate && message.hasOwnProperty("hydratedTemplate")) {
+            let error = $root.Message.TemplateMessage.HydratedFourRowTemplate.verify(message.hydratedTemplate);
+            if (error) return "hydratedTemplate." + error;
+        }
         if (null != message.templateId && message.hasOwnProperty("templateId") && !$util.isString(message.templateId)) return "templateId: string expected";
-        if (null != message.fourRowTemplate && message.hasOwnProperty("fourRowTemplate") && (properties.format = 1, 
-        error = $root.Message.TemplateMessage.FourRowTemplate.verify(message.fourRowTemplate))) return "fourRowTemplate." + error;
+        if (null != message.fourRowTemplate && message.hasOwnProperty("fourRowTemplate")) {
+            properties.format = 1;
+            {
+                let error = $root.Message.TemplateMessage.FourRowTemplate.verify(message.fourRowTemplate);
+                if (error) return "fourRowTemplate." + error;
+            }
+        }
         if (null != message.hydratedFourRowTemplate && message.hasOwnProperty("hydratedFourRowTemplate")) {
             if (1 === properties.format) return "format: multiple values";
-            if (properties.format = 1, error = $root.Message.TemplateMessage.HydratedFourRowTemplate.verify(message.hydratedFourRowTemplate)) return "hydratedFourRowTemplate." + error;
+            properties.format = 1;
+            {
+                let error = $root.Message.TemplateMessage.HydratedFourRowTemplate.verify(message.hydratedFourRowTemplate);
+                if (error) return "hydratedFourRowTemplate." + error;
+            }
         }
         if (null != message.interactiveMessageTemplate && message.hasOwnProperty("interactiveMessageTemplate")) {
             if (1 === properties.format) return "format: multiple values";
-            if (properties.format = 1, error = $root.Message.InteractiveMessage.verify(message.interactiveMessageTemplate)) return "interactiveMessageTemplate." + error;
+            properties.format = 1;
+            {
+                let error = $root.Message.InteractiveMessage.verify(message.interactiveMessageTemplate);
+                if (error) return "interactiveMessageTemplate." + error;
+            }
         }
         return null;
     }, TemplateMessage.fromObject = function(object) {
@@ -7573,7 +7954,7 @@ $root.ADVEncryptionType = function() {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/Message.TemplateMessage";
     }, TemplateMessage.HydratedFourRowTemplate = function() {
         function HydratedFourRowTemplate(properties) {
-            if (this.hydratedButtons = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (this.hydratedButtons = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         var $oneOfFields;
         return HydratedFourRowTemplate.prototype.hydratedContentText = "", HydratedFourRowTemplate.prototype.hydratedFooterText = "", 
@@ -7594,7 +7975,7 @@ $root.ADVEncryptionType = function() {
             null != message.locationMessage && Object.hasOwnProperty.call(message, "locationMessage") && $root.Message.LocationMessage.encode(message.locationMessage, writer.uint32(42).fork()).ldelim(), 
             null != message.hydratedContentText && Object.hasOwnProperty.call(message, "hydratedContentText") && writer.uint32(50).string(message.hydratedContentText), 
             null != message.hydratedFooterText && Object.hasOwnProperty.call(message, "hydratedFooterText") && writer.uint32(58).string(message.hydratedFooterText), 
-            null != message.hydratedButtons && message.hydratedButtons.length) for (var i = 0; i < message.hydratedButtons.length; ++i) $root.HydratedTemplateButton.encode(message.hydratedButtons[i], writer.uint32(66).fork()).ldelim();
+            null != message.hydratedButtons && message.hydratedButtons.length) for (let i = 0; i < message.hydratedButtons.length; ++i) $root.HydratedTemplateButton.encode(message.hydratedButtons[i], writer.uint32(66).fork()).ldelim();
             return null != message.templateId && Object.hasOwnProperty.call(message, "templateId") && writer.uint32(74).string(message.templateId), 
             null != message.maskLinkedDevices && Object.hasOwnProperty.call(message, "maskLinkedDevices") && writer.uint32(80).bool(message.maskLinkedDevices), 
             writer;
@@ -7661,27 +8042,47 @@ $root.ADVEncryptionType = function() {
             if (null != message.hydratedFooterText && message.hasOwnProperty("hydratedFooterText") && !$util.isString(message.hydratedFooterText)) return "hydratedFooterText: string expected";
             if (null != message.hydratedButtons && message.hasOwnProperty("hydratedButtons")) {
                 if (!Array.isArray(message.hydratedButtons)) return "hydratedButtons: array expected";
-                for (var error, i = 0; i < message.hydratedButtons.length; ++i) if (error = $root.HydratedTemplateButton.verify(message.hydratedButtons[i])) return "hydratedButtons." + error;
+                for (let i = 0; i < message.hydratedButtons.length; ++i) {
+                    var error = $root.HydratedTemplateButton.verify(message.hydratedButtons[i]);
+                    if (error) return "hydratedButtons." + error;
+                }
             }
             if (null != message.templateId && message.hasOwnProperty("templateId") && !$util.isString(message.templateId)) return "templateId: string expected";
             if (null != message.maskLinkedDevices && message.hasOwnProperty("maskLinkedDevices") && "boolean" != typeof message.maskLinkedDevices) return "maskLinkedDevices: boolean expected";
-            if (null != message.documentMessage && message.hasOwnProperty("documentMessage") && (properties.title = 1, 
-            error = $root.Message.DocumentMessage.verify(message.documentMessage))) return "documentMessage." + error;
+            if (null != message.documentMessage && message.hasOwnProperty("documentMessage")) {
+                properties.title = 1;
+                {
+                    let error = $root.Message.DocumentMessage.verify(message.documentMessage);
+                    if (error) return "documentMessage." + error;
+                }
+            }
             if (null != message.hydratedTitleText && message.hasOwnProperty("hydratedTitleText")) {
                 if (1 === properties.title) return "title: multiple values";
                 if (properties.title = 1, !$util.isString(message.hydratedTitleText)) return "hydratedTitleText: string expected";
             }
             if (null != message.imageMessage && message.hasOwnProperty("imageMessage")) {
                 if (1 === properties.title) return "title: multiple values";
-                if (properties.title = 1, error = $root.Message.ImageMessage.verify(message.imageMessage)) return "imageMessage." + error;
+                properties.title = 1;
+                {
+                    let error = $root.Message.ImageMessage.verify(message.imageMessage);
+                    if (error) return "imageMessage." + error;
+                }
             }
             if (null != message.videoMessage && message.hasOwnProperty("videoMessage")) {
                 if (1 === properties.title) return "title: multiple values";
-                if (properties.title = 1, error = $root.Message.VideoMessage.verify(message.videoMessage)) return "videoMessage." + error;
+                properties.title = 1;
+                {
+                    let error = $root.Message.VideoMessage.verify(message.videoMessage);
+                    if (error) return "videoMessage." + error;
+                }
             }
             if (null != message.locationMessage && message.hasOwnProperty("locationMessage")) {
                 if (1 === properties.title) return "title: multiple values";
-                if (properties.title = 1, error = $root.Message.LocationMessage.verify(message.locationMessage)) return "locationMessage." + error;
+                properties.title = 1;
+                {
+                    let error = $root.Message.LocationMessage.verify(message.locationMessage);
+                    if (error) return "locationMessage." + error;
+                }
             }
             return null;
         }, HydratedFourRowTemplate.fromObject = function(object) {
@@ -7692,7 +8093,7 @@ $root.ADVEncryptionType = function() {
             object.hydratedButtons) {
                 if (!Array.isArray(object.hydratedButtons)) throw TypeError(".Message.TemplateMessage.HydratedFourRowTemplate.hydratedButtons: array expected");
                 message.hydratedButtons = [];
-                for (var i = 0; i < object.hydratedButtons.length; ++i) {
+                for (let i = 0; i < object.hydratedButtons.length; ++i) {
                     if ("object" != typeof object.hydratedButtons[i]) throw TypeError(".Message.TemplateMessage.HydratedFourRowTemplate.hydratedButtons: object expected");
                     message.hydratedButtons[i] = $root.HydratedTemplateButton.fromObject(object.hydratedButtons[i]);
                 }
@@ -7730,7 +8131,7 @@ $root.ADVEncryptionType = function() {
             null != message.hydratedFooterText && message.hasOwnProperty("hydratedFooterText") && (object.hydratedFooterText = message.hydratedFooterText), 
             message.hydratedButtons && message.hydratedButtons.length) {
                 object.hydratedButtons = [];
-                for (var j = 0; j < message.hydratedButtons.length; ++j) object.hydratedButtons[j] = $root.HydratedTemplateButton.toObject(message.hydratedButtons[j], options);
+                for (let j = 0; j < message.hydratedButtons.length; ++j) object.hydratedButtons[j] = $root.HydratedTemplateButton.toObject(message.hydratedButtons[j], options);
             }
             return null != message.templateId && message.hasOwnProperty("templateId") && (object.templateId = message.templateId), 
             null != message.maskLinkedDevices && message.hasOwnProperty("maskLinkedDevices") && (object.maskLinkedDevices = message.maskLinkedDevices), 
@@ -7742,7 +8143,7 @@ $root.ADVEncryptionType = function() {
         }, HydratedFourRowTemplate;
     }(), TemplateMessage.FourRowTemplate = function() {
         function FourRowTemplate(properties) {
-            if (this.buttons = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (this.buttons = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         var $oneOfFields;
         return FourRowTemplate.prototype.content = null, FourRowTemplate.prototype.footer = null, 
@@ -7762,7 +8163,7 @@ $root.ADVEncryptionType = function() {
             null != message.locationMessage && Object.hasOwnProperty.call(message, "locationMessage") && $root.Message.LocationMessage.encode(message.locationMessage, writer.uint32(42).fork()).ldelim(), 
             null != message.content && Object.hasOwnProperty.call(message, "content") && $root.Message.HighlyStructuredMessage.encode(message.content, writer.uint32(50).fork()).ldelim(), 
             null != message.footer && Object.hasOwnProperty.call(message, "footer") && $root.Message.HighlyStructuredMessage.encode(message.footer, writer.uint32(58).fork()).ldelim(), 
-            null != message.buttons && message.buttons.length) for (var i = 0; i < message.buttons.length; ++i) $root.TemplateButton.encode(message.buttons[i], writer.uint32(66).fork()).ldelim();
+            null != message.buttons && message.buttons.length) for (let i = 0; i < message.buttons.length; ++i) $root.TemplateButton.encode(message.buttons[i], writer.uint32(66).fork()).ldelim();
             return writer;
         }, FourRowTemplate.encodeDelimited = function(message, writer) {
             return this.encode(message, writer).ldelim();
@@ -7815,29 +8216,59 @@ $root.ADVEncryptionType = function() {
         }, FourRowTemplate.verify = function(message) {
             if ("object" != typeof message || null === message) return "object expected";
             var properties = {};
-            if (null != message.content && message.hasOwnProperty("content") && (error = $root.Message.HighlyStructuredMessage.verify(message.content))) return "content." + error;
-            if (null != message.footer && message.hasOwnProperty("footer") && (error = $root.Message.HighlyStructuredMessage.verify(message.footer))) return "footer." + error;
+            if (null != message.content && message.hasOwnProperty("content")) {
+                var error = $root.Message.HighlyStructuredMessage.verify(message.content);
+                if (error) return "content." + error;
+            }
+            if (null != message.footer && message.hasOwnProperty("footer")) {
+                let error = $root.Message.HighlyStructuredMessage.verify(message.footer);
+                if (error) return "footer." + error;
+            }
             if (null != message.buttons && message.hasOwnProperty("buttons")) {
                 if (!Array.isArray(message.buttons)) return "buttons: array expected";
-                for (var error, i = 0; i < message.buttons.length; ++i) if (error = $root.TemplateButton.verify(message.buttons[i])) return "buttons." + error;
+                for (let i = 0; i < message.buttons.length; ++i) {
+                    let error = $root.TemplateButton.verify(message.buttons[i]);
+                    if (error) return "buttons." + error;
+                }
             }
-            if (null != message.documentMessage && message.hasOwnProperty("documentMessage") && (properties.title = 1, 
-            error = $root.Message.DocumentMessage.verify(message.documentMessage))) return "documentMessage." + error;
+            if (null != message.documentMessage && message.hasOwnProperty("documentMessage")) {
+                properties.title = 1;
+                {
+                    let error = $root.Message.DocumentMessage.verify(message.documentMessage);
+                    if (error) return "documentMessage." + error;
+                }
+            }
             if (null != message.highlyStructuredMessage && message.hasOwnProperty("highlyStructuredMessage")) {
                 if (1 === properties.title) return "title: multiple values";
-                if (properties.title = 1, error = $root.Message.HighlyStructuredMessage.verify(message.highlyStructuredMessage)) return "highlyStructuredMessage." + error;
+                properties.title = 1;
+                {
+                    let error = $root.Message.HighlyStructuredMessage.verify(message.highlyStructuredMessage);
+                    if (error) return "highlyStructuredMessage." + error;
+                }
             }
             if (null != message.imageMessage && message.hasOwnProperty("imageMessage")) {
                 if (1 === properties.title) return "title: multiple values";
-                if (properties.title = 1, error = $root.Message.ImageMessage.verify(message.imageMessage)) return "imageMessage." + error;
+                properties.title = 1;
+                {
+                    let error = $root.Message.ImageMessage.verify(message.imageMessage);
+                    if (error) return "imageMessage." + error;
+                }
             }
             if (null != message.videoMessage && message.hasOwnProperty("videoMessage")) {
                 if (1 === properties.title) return "title: multiple values";
-                if (properties.title = 1, error = $root.Message.VideoMessage.verify(message.videoMessage)) return "videoMessage." + error;
+                properties.title = 1;
+                {
+                    let error = $root.Message.VideoMessage.verify(message.videoMessage);
+                    if (error) return "videoMessage." + error;
+                }
             }
             if (null != message.locationMessage && message.hasOwnProperty("locationMessage")) {
                 if (1 === properties.title) return "title: multiple values";
-                if (properties.title = 1, error = $root.Message.LocationMessage.verify(message.locationMessage)) return "locationMessage." + error;
+                properties.title = 1;
+                {
+                    let error = $root.Message.LocationMessage.verify(message.locationMessage);
+                    if (error) return "locationMessage." + error;
+                }
             }
             return null;
         }, FourRowTemplate.fromObject = function(object) {
@@ -7854,7 +8285,7 @@ $root.ADVEncryptionType = function() {
             if (object.buttons) {
                 if (!Array.isArray(object.buttons)) throw TypeError(".Message.TemplateMessage.FourRowTemplate.buttons: array expected");
                 message.buttons = [];
-                for (var i = 0; i < object.buttons.length; ++i) {
+                for (let i = 0; i < object.buttons.length; ++i) {
                     if ("object" != typeof object.buttons[i]) throw TypeError(".Message.TemplateMessage.FourRowTemplate.buttons: object expected");
                     message.buttons[i] = $root.TemplateButton.fromObject(object.buttons[i]);
                 }
@@ -7892,7 +8323,7 @@ $root.ADVEncryptionType = function() {
             null != message.footer && message.hasOwnProperty("footer") && (object.footer = $root.Message.HighlyStructuredMessage.toObject(message.footer, options)), 
             message.buttons && message.buttons.length) {
                 object.buttons = [];
-                for (var j = 0; j < message.buttons.length; ++j) object.buttons[j] = $root.TemplateButton.toObject(message.buttons[j], options);
+                for (let j = 0; j < message.buttons.length; ++j) object.buttons[j] = $root.TemplateButton.toObject(message.buttons[j], options);
             }
             return object;
         }, FourRowTemplate.prototype.toJSON = function() {
@@ -8077,23 +8508,31 @@ $root.ADVEncryptionType = function() {
         message;
     }, StickerMessage.toObject = function(message, options) {
         var long, object = {};
-        return (options = options || {}).defaults && (object.url = "", options.bytes === String ? object.fileSha256 = "" : (object.fileSha256 = [], 
-        options.bytes !== Array && (object.fileSha256 = $util.newBuffer(object.fileSha256))), 
-        options.bytes === String ? object.fileEncSha256 = "" : (object.fileEncSha256 = [], 
-        options.bytes !== Array && (object.fileEncSha256 = $util.newBuffer(object.fileEncSha256))), 
-        options.bytes === String ? object.mediaKey = "" : (object.mediaKey = [], 
-        options.bytes !== Array && (object.mediaKey = $util.newBuffer(object.mediaKey))), 
-        object.mimetype = "", object.height = 0, object.width = 0, object.directPath = "", 
-        $util.Long ? (long = new $util.Long(0, 0, !0), object.fileLength = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.fileLength = options.longs === String ? "0" : 0, 
-        $util.Long ? (long = new $util.Long(0, 0, !1), object.mediaKeyTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.mediaKeyTimestamp = options.longs === String ? "0" : 0, 
-        object.firstFrameLength = 0, options.bytes === String ? object.firstFrameSidecar = "" : (object.firstFrameSidecar = [], 
-        options.bytes !== Array && (object.firstFrameSidecar = $util.newBuffer(object.firstFrameSidecar))), 
-        object.isAnimated = !1, options.bytes === String ? object.pngThumbnail = "" : (object.pngThumbnail = [], 
-        options.bytes !== Array && (object.pngThumbnail = $util.newBuffer(object.pngThumbnail))), 
-        object.contextInfo = null, $util.Long ? (long = new $util.Long(0, 0, !1), 
-        object.stickerSentTs = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.stickerSentTs = options.longs === String ? "0" : 0, 
-        object.isAvatar = !1, object.isAiSticker = !1, object.isLottie = !1, object.accessibilityLabel = ""), 
-        null != message.url && message.hasOwnProperty("url") && (object.url = message.url), 
+        if ((options = options || {}).defaults) {
+            if (object.url = "", options.bytes === String ? object.fileSha256 = "" : (object.fileSha256 = [], 
+            options.bytes !== Array && (object.fileSha256 = $util.newBuffer(object.fileSha256))), 
+            options.bytes === String ? object.fileEncSha256 = "" : (object.fileEncSha256 = [], 
+            options.bytes !== Array && (object.fileEncSha256 = $util.newBuffer(object.fileEncSha256))), 
+            options.bytes === String ? object.mediaKey = "" : (object.mediaKey = [], 
+            options.bytes !== Array && (object.mediaKey = $util.newBuffer(object.mediaKey))), 
+            object.mimetype = "", object.height = 0, object.width = 0, object.directPath = "", 
+            $util.Long ? (long = new $util.Long(0, 0, !0), object.fileLength = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.fileLength = options.longs === String ? "0" : 0, 
+            $util.Long) {
+                let long = new $util.Long(0, 0, !1);
+                object.mediaKeyTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+            } else object.mediaKeyTimestamp = options.longs === String ? "0" : 0;
+            if (object.firstFrameLength = 0, options.bytes === String ? object.firstFrameSidecar = "" : (object.firstFrameSidecar = [], 
+            options.bytes !== Array && (object.firstFrameSidecar = $util.newBuffer(object.firstFrameSidecar))), 
+            object.isAnimated = !1, options.bytes === String ? object.pngThumbnail = "" : (object.pngThumbnail = [], 
+            options.bytes !== Array && (object.pngThumbnail = $util.newBuffer(object.pngThumbnail))), 
+            object.contextInfo = null, $util.Long) {
+                let long = new $util.Long(0, 0, !1);
+                object.stickerSentTs = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+            } else object.stickerSentTs = options.longs === String ? "0" : 0;
+            object.isAvatar = !1, object.isAiSticker = !1, object.isLottie = !1, 
+            object.accessibilityLabel = "";
+        }
+        return null != message.url && message.hasOwnProperty("url") && (object.url = message.url), 
         null != message.fileSha256 && message.hasOwnProperty("fileSha256") && (object.fileSha256 = options.bytes === String ? $util.base64.encode(message.fileSha256, 0, message.fileSha256.length) : options.bytes === Array ? Array.prototype.slice.call(message.fileSha256) : message.fileSha256), 
         null != message.fileEncSha256 && message.hasOwnProperty("fileEncSha256") && (object.fileEncSha256 = options.bytes === String ? $util.base64.encode(message.fileEncSha256, 0, message.fileEncSha256.length) : options.bytes === Array ? Array.prototype.slice.call(message.fileEncSha256) : message.fileEncSha256), 
         null != message.mediaKey && message.hasOwnProperty("mediaKey") && (object.mediaKey = options.bytes === String ? $util.base64.encode(message.mediaKey, 0, message.mediaKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.mediaKey) : message.mediaKey), 
@@ -8248,7 +8687,7 @@ $root.ADVEncryptionType = function() {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/Message.LiveLocationMessage";
     }, LiveLocationMessage), Message.PaymentInviteMessage = function() {
         function PaymentInviteMessage(properties) {
-            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         var valuesById, values;
         return PaymentInviteMessage.prototype.serviceType = 0, PaymentInviteMessage.prototype.expiryTimestamp = $util.Long ? $util.Long.fromBits(0, 0, !1) : 0, 
@@ -8475,14 +8914,22 @@ $root.ADVEncryptionType = function() {
         return reader instanceof $Reader || (reader = new $Reader(reader)), this.decode(reader, reader.uint32());
     }, RequestPaymentMessage.verify = function(message) {
         if ("object" != typeof message || null === message) return "object expected";
-        var error;
-        if (null != message.noteMessage && message.hasOwnProperty("noteMessage") && (error = $root.Message.verify(message.noteMessage))) return "noteMessage." + error;
+        if (null != message.noteMessage && message.hasOwnProperty("noteMessage")) {
+            var error = $root.Message.verify(message.noteMessage);
+            if (error) return "noteMessage." + error;
+        }
         if (null != message.currencyCodeIso4217 && message.hasOwnProperty("currencyCodeIso4217") && !$util.isString(message.currencyCodeIso4217)) return "currencyCodeIso4217: string expected";
         if (null != message.amount1000 && message.hasOwnProperty("amount1000") && !($util.isInteger(message.amount1000) || message.amount1000 && $util.isInteger(message.amount1000.low) && $util.isInteger(message.amount1000.high))) return "amount1000: integer|Long expected";
         if (null != message.requestFrom && message.hasOwnProperty("requestFrom") && !$util.isString(message.requestFrom)) return "requestFrom: string expected";
         if (null != message.expiryTimestamp && message.hasOwnProperty("expiryTimestamp") && !($util.isInteger(message.expiryTimestamp) || message.expiryTimestamp && $util.isInteger(message.expiryTimestamp.low) && $util.isInteger(message.expiryTimestamp.high))) return "expiryTimestamp: integer|Long expected";
-        if (null != message.amount && message.hasOwnProperty("amount") && (error = $root.Money.verify(message.amount))) return "amount." + error;
-        if (null != message.background && message.hasOwnProperty("background") && (error = $root.PaymentBackground.verify(message.background))) return "background." + error;
+        if (null != message.amount && message.hasOwnProperty("amount")) {
+            let error = $root.Money.verify(message.amount);
+            if (error) return "amount." + error;
+        }
+        if (null != message.background && message.hasOwnProperty("background")) {
+            let error = $root.PaymentBackground.verify(message.background);
+            if (error) return "background." + error;
+        }
         return null;
     }, RequestPaymentMessage.fromObject = function(object) {
         if (object instanceof $root.Message.RequestPaymentMessage) return object;
@@ -8506,11 +8953,16 @@ $root.ADVEncryptionType = function() {
         return message;
     }, RequestPaymentMessage.toObject = function(message, options) {
         var long, object = {};
-        return (options = options || {}).defaults && (object.currencyCodeIso4217 = "", 
-        $util.Long ? (long = new $util.Long(0, 0, !0), object.amount1000 = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.amount1000 = options.longs === String ? "0" : 0, 
-        object.requestFrom = "", object.noteMessage = null, $util.Long ? (long = new $util.Long(0, 0, !1), 
-        object.expiryTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.expiryTimestamp = options.longs === String ? "0" : 0, 
-        object.amount = null, object.background = null), null != message.currencyCodeIso4217 && message.hasOwnProperty("currencyCodeIso4217") && (object.currencyCodeIso4217 = message.currencyCodeIso4217), 
+        if ((options = options || {}).defaults) {
+            if (object.currencyCodeIso4217 = "", $util.Long ? (long = new $util.Long(0, 0, !0), 
+            object.amount1000 = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.amount1000 = options.longs === String ? "0" : 0, 
+            object.requestFrom = "", object.noteMessage = null, $util.Long) {
+                let long = new $util.Long(0, 0, !1);
+                object.expiryTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+            } else object.expiryTimestamp = options.longs === String ? "0" : 0;
+            object.amount = null, object.background = null;
+        }
+        return null != message.currencyCodeIso4217 && message.hasOwnProperty("currencyCodeIso4217") && (object.currencyCodeIso4217 = message.currencyCodeIso4217), 
         null != message.amount1000 && message.hasOwnProperty("amount1000") && ("number" == typeof message.amount1000 ? object.amount1000 = options.longs === String ? String(message.amount1000) : message.amount1000 : object.amount1000 = options.longs === String ? $util.Long.prototype.toString.call(message.amount1000) : options.longs === Number ? new $util.LongBits(message.amount1000.low >>> 0, message.amount1000.high >>> 0).toNumber(!0) : message.amount1000), 
         null != message.requestFrom && message.hasOwnProperty("requestFrom") && (object.requestFrom = message.requestFrom), 
         null != message.noteMessage && message.hasOwnProperty("noteMessage") && (object.noteMessage = $root.Message.toObject(message.noteMessage, options)), 
@@ -8559,10 +9011,18 @@ $root.ADVEncryptionType = function() {
         return reader instanceof $Reader || (reader = new $Reader(reader)), this.decode(reader, reader.uint32());
     }, SendPaymentMessage.verify = function(message) {
         if ("object" != typeof message || null === message) return "object expected";
-        var error;
-        if (null != message.noteMessage && message.hasOwnProperty("noteMessage") && (error = $root.Message.verify(message.noteMessage))) return "noteMessage." + error;
-        if (null != message.requestMessageKey && message.hasOwnProperty("requestMessageKey") && (error = $root.MessageKey.verify(message.requestMessageKey))) return "requestMessageKey." + error;
-        if (null != message.background && message.hasOwnProperty("background") && (error = $root.PaymentBackground.verify(message.background))) return "background." + error;
+        if (null != message.noteMessage && message.hasOwnProperty("noteMessage")) {
+            var error = $root.Message.verify(message.noteMessage);
+            if (error) return "noteMessage." + error;
+        }
+        if (null != message.requestMessageKey && message.hasOwnProperty("requestMessageKey")) {
+            let error = $root.MessageKey.verify(message.requestMessageKey);
+            if (error) return "requestMessageKey." + error;
+        }
+        if (null != message.background && message.hasOwnProperty("background")) {
+            let error = $root.PaymentBackground.verify(message.background);
+            if (error) return "background." + error;
+        }
         return null;
     }, SendPaymentMessage.fromObject = function(object) {
         if (object instanceof $root.Message.SendPaymentMessage) return object;
@@ -8593,13 +9053,13 @@ $root.ADVEncryptionType = function() {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/Message.SendPaymentMessage";
     }, SendPaymentMessage), Message.HighlyStructuredMessage = function() {
         function HighlyStructuredMessage(properties) {
-            if (this.params = [], this.localizableParams = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (this.params = [], this.localizableParams = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         function HSMLocalizableParameter(properties) {
-            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         function HSMCurrency(properties) {
-            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         var $oneOfFields;
         return HighlyStructuredMessage.prototype.namespace = "", HighlyStructuredMessage.prototype.elementName = "", 
@@ -8611,10 +9071,10 @@ $root.ADVEncryptionType = function() {
         }, HighlyStructuredMessage.encode = function(message, writer) {
             if (writer = writer || $Writer.create(), null != message.namespace && Object.hasOwnProperty.call(message, "namespace") && writer.uint32(10).string(message.namespace), 
             null != message.elementName && Object.hasOwnProperty.call(message, "elementName") && writer.uint32(18).string(message.elementName), 
-            null != message.params && message.params.length) for (var i = 0; i < message.params.length; ++i) writer.uint32(26).string(message.params[i]);
+            null != message.params && message.params.length) for (let i = 0; i < message.params.length; ++i) writer.uint32(26).string(message.params[i]);
             if (null != message.fallbackLg && Object.hasOwnProperty.call(message, "fallbackLg") && writer.uint32(34).string(message.fallbackLg), 
             null != message.fallbackLc && Object.hasOwnProperty.call(message, "fallbackLc") && writer.uint32(42).string(message.fallbackLc), 
-            null != message.localizableParams && message.localizableParams.length) for (i = 0; i < message.localizableParams.length; ++i) $root.Message.HighlyStructuredMessage.HSMLocalizableParameter.encode(message.localizableParams[i], writer.uint32(50).fork()).ldelim();
+            null != message.localizableParams && message.localizableParams.length) for (let i = 0; i < message.localizableParams.length; ++i) $root.Message.HighlyStructuredMessage.HSMLocalizableParameter.encode(message.localizableParams[i], writer.uint32(50).fork()).ldelim();
             return null != message.deterministicLg && Object.hasOwnProperty.call(message, "deterministicLg") && writer.uint32(58).string(message.deterministicLg), 
             null != message.deterministicLc && Object.hasOwnProperty.call(message, "deterministicLc") && writer.uint32(66).string(message.deterministicLc), 
             null != message.hydratedHsm && Object.hasOwnProperty.call(message, "hydratedHsm") && $root.Message.TemplateMessage.encode(message.hydratedHsm, writer.uint32(74).fork()).ldelim(), 
@@ -8678,18 +9138,23 @@ $root.ADVEncryptionType = function() {
             if (null != message.elementName && message.hasOwnProperty("elementName") && !$util.isString(message.elementName)) return "elementName: string expected";
             if (null != message.params && message.hasOwnProperty("params")) {
                 if (!Array.isArray(message.params)) return "params: array expected";
-                for (var i = 0; i < message.params.length; ++i) if (!$util.isString(message.params[i])) return "params: string[] expected";
+                for (let i = 0; i < message.params.length; ++i) if (!$util.isString(message.params[i])) return "params: string[] expected";
             }
             if (null != message.fallbackLg && message.hasOwnProperty("fallbackLg") && !$util.isString(message.fallbackLg)) return "fallbackLg: string expected";
             if (null != message.fallbackLc && message.hasOwnProperty("fallbackLc") && !$util.isString(message.fallbackLc)) return "fallbackLc: string expected";
             if (null != message.localizableParams && message.hasOwnProperty("localizableParams")) {
                 if (!Array.isArray(message.localizableParams)) return "localizableParams: array expected";
-                for (i = 0; i < message.localizableParams.length; ++i) if (error = $root.Message.HighlyStructuredMessage.HSMLocalizableParameter.verify(message.localizableParams[i])) return "localizableParams." + error;
+                for (let i = 0; i < message.localizableParams.length; ++i) {
+                    var error = $root.Message.HighlyStructuredMessage.HSMLocalizableParameter.verify(message.localizableParams[i]);
+                    if (error) return "localizableParams." + error;
+                }
             }
             if (null != message.deterministicLg && message.hasOwnProperty("deterministicLg") && !$util.isString(message.deterministicLg)) return "deterministicLg: string expected";
             if (null != message.deterministicLc && message.hasOwnProperty("deterministicLc") && !$util.isString(message.deterministicLc)) return "deterministicLc: string expected";
-            var error;
-            if (null != message.hydratedHsm && message.hasOwnProperty("hydratedHsm") && (error = $root.Message.TemplateMessage.verify(message.hydratedHsm))) return "hydratedHsm." + error;
+            if (null != message.hydratedHsm && message.hasOwnProperty("hydratedHsm")) {
+                let error = $root.Message.TemplateMessage.verify(message.hydratedHsm);
+                if (error) return "hydratedHsm." + error;
+            }
             return null;
         }, HighlyStructuredMessage.fromObject = function(object) {
             if (object instanceof $root.Message.HighlyStructuredMessage) return object;
@@ -8699,14 +9164,14 @@ $root.ADVEncryptionType = function() {
             object.params) {
                 if (!Array.isArray(object.params)) throw TypeError(".Message.HighlyStructuredMessage.params: array expected");
                 message.params = [];
-                for (var i = 0; i < object.params.length; ++i) message.params[i] = String(object.params[i]);
+                for (let i = 0; i < object.params.length; ++i) message.params[i] = String(object.params[i]);
             }
             if (null != object.fallbackLg && (message.fallbackLg = String(object.fallbackLg)), 
             null != object.fallbackLc && (message.fallbackLc = String(object.fallbackLc)), 
             object.localizableParams) {
                 if (!Array.isArray(object.localizableParams)) throw TypeError(".Message.HighlyStructuredMessage.localizableParams: array expected");
                 message.localizableParams = [];
-                for (i = 0; i < object.localizableParams.length; ++i) {
+                for (let i = 0; i < object.localizableParams.length; ++i) {
                     if ("object" != typeof object.localizableParams[i]) throw TypeError(".Message.HighlyStructuredMessage.localizableParams: object expected");
                     message.localizableParams[i] = $root.Message.HighlyStructuredMessage.HSMLocalizableParameter.fromObject(object.localizableParams[i]);
                 }
@@ -8728,13 +9193,13 @@ $root.ADVEncryptionType = function() {
             null != message.elementName && message.hasOwnProperty("elementName") && (object.elementName = message.elementName), 
             message.params && message.params.length) {
                 object.params = [];
-                for (var j = 0; j < message.params.length; ++j) object.params[j] = message.params[j];
+                for (let j = 0; j < message.params.length; ++j) object.params[j] = message.params[j];
             }
             if (null != message.fallbackLg && message.hasOwnProperty("fallbackLg") && (object.fallbackLg = message.fallbackLg), 
             null != message.fallbackLc && message.hasOwnProperty("fallbackLc") && (object.fallbackLc = message.fallbackLc), 
             message.localizableParams && message.localizableParams.length) {
                 object.localizableParams = [];
-                for (j = 0; j < message.localizableParams.length; ++j) object.localizableParams[j] = $root.Message.HighlyStructuredMessage.HSMLocalizableParameter.toObject(message.localizableParams[j], options);
+                for (let j = 0; j < message.localizableParams.length; ++j) object.localizableParams[j] = $root.Message.HighlyStructuredMessage.HSMLocalizableParameter.toObject(message.localizableParams[j], options);
             }
             return null != message.deterministicLg && message.hasOwnProperty("deterministicLg") && (object.deterministicLg = message.deterministicLg), 
             null != message.deterministicLc && message.hasOwnProperty("deterministicLc") && (object.deterministicLc = message.deterministicLc), 
@@ -8785,13 +9250,20 @@ $root.ADVEncryptionType = function() {
             this.decode(reader, reader.uint32());
         }, HSMLocalizableParameter.verify = function(message) {
             if ("object" != typeof message || null === message) return "object expected";
-            var error, properties = {};
+            var properties = {};
             if (null != message.default && message.hasOwnProperty("default") && !$util.isString(message.default)) return "default: string expected";
-            if (null != message.currency && message.hasOwnProperty("currency") && (properties.paramOneof = 1, 
-            error = $root.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMCurrency.verify(message.currency))) return "currency." + error;
+            if (null != message.currency && message.hasOwnProperty("currency")) {
+                properties.paramOneof = 1;
+                var error = $root.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMCurrency.verify(message.currency);
+                if (error) return "currency." + error;
+            }
             if (null != message.dateTime && message.hasOwnProperty("dateTime")) {
                 if (1 === properties.paramOneof) return "paramOneof: multiple values";
-                if (properties.paramOneof = 1, error = $root.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.verify(message.dateTime)) return "dateTime." + error;
+                properties.paramOneof = 1;
+                {
+                    let error = $root.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.verify(message.dateTime);
+                    if (error) return "dateTime." + error;
+                }
             }
             return null;
         }, HSMLocalizableParameter.fromObject = function(object) {
@@ -8820,14 +9292,14 @@ $root.ADVEncryptionType = function() {
             return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/Message.HighlyStructuredMessage.HSMLocalizableParameter";
         }, HSMLocalizableParameter.HSMDateTime = function() {
             function HSMDateTime(properties) {
-                if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+                if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
             }
             var $oneOfFields, values;
             function HSMDateTimeUnixEpoch(properties) {
-                if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+                if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
             }
             function HSMDateTimeComponent(properties) {
-                if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+                if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
             }
             return HSMDateTime.prototype.component = null, HSMDateTime.prototype.unixEpoch = null, 
             Object.defineProperty(HSMDateTime.prototype, "datetimeOneof", {
@@ -8864,12 +9336,19 @@ $root.ADVEncryptionType = function() {
                 this.decode(reader, reader.uint32());
             }, HSMDateTime.verify = function(message) {
                 if ("object" != typeof message || null === message) return "object expected";
-                var error, properties = {};
-                if (null != message.component && message.hasOwnProperty("component") && (properties.datetimeOneof = 1, 
-                error = $root.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.HSMDateTimeComponent.verify(message.component))) return "component." + error;
+                var properties = {};
+                if (null != message.component && message.hasOwnProperty("component")) {
+                    properties.datetimeOneof = 1;
+                    var error = $root.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.HSMDateTimeComponent.verify(message.component);
+                    if (error) return "component." + error;
+                }
                 if (null != message.unixEpoch && message.hasOwnProperty("unixEpoch")) {
                     if (1 === properties.datetimeOneof) return "datetimeOneof: multiple values";
-                    if (properties.datetimeOneof = 1, error = $root.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.HSMDateTimeUnixEpoch.verify(message.unixEpoch)) return "unixEpoch." + error;
+                    properties.datetimeOneof = 1;
+                    {
+                        let error = $root.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.HSMDateTimeUnixEpoch.verify(message.unixEpoch);
+                        if (error) return "unixEpoch." + error;
+                    }
                 }
                 return null;
             }, HSMDateTime.fromObject = function(object) {
@@ -9156,7 +9635,7 @@ $root.ADVEncryptionType = function() {
         return new ContactsArrayMessage(properties);
     }, ContactsArrayMessage.encode = function(message, writer) {
         if (writer = writer || $Writer.create(), null != message.displayName && Object.hasOwnProperty.call(message, "displayName") && writer.uint32(10).string(message.displayName), 
-        null != message.contacts && message.contacts.length) for (var i = 0; i < message.contacts.length; ++i) $root.Message.ContactMessage.encode(message.contacts[i], writer.uint32(18).fork()).ldelim();
+        null != message.contacts && message.contacts.length) for (let i = 0; i < message.contacts.length; ++i) $root.Message.ContactMessage.encode(message.contacts[i], writer.uint32(18).fork()).ldelim();
         return null != message.contextInfo && Object.hasOwnProperty.call(message, "contextInfo") && $root.ContextInfo.encode(message.contextInfo, writer.uint32(138).fork()).ldelim(), 
         writer;
     }, ContactsArrayMessage.encodeDelimited = function(message, writer) {
@@ -9191,10 +9670,15 @@ $root.ADVEncryptionType = function() {
         if (null != message.displayName && message.hasOwnProperty("displayName") && !$util.isString(message.displayName)) return "displayName: string expected";
         if (null != message.contacts && message.hasOwnProperty("contacts")) {
             if (!Array.isArray(message.contacts)) return "contacts: array expected";
-            for (var i = 0; i < message.contacts.length; ++i) if (error = $root.Message.ContactMessage.verify(message.contacts[i])) return "contacts." + error;
+            for (let i = 0; i < message.contacts.length; ++i) {
+                var error = $root.Message.ContactMessage.verify(message.contacts[i]);
+                if (error) return "contacts." + error;
+            }
         }
-        var error;
-        if (null != message.contextInfo && message.hasOwnProperty("contextInfo") && (error = $root.ContextInfo.verify(message.contextInfo))) return "contextInfo." + error;
+        if (null != message.contextInfo && message.hasOwnProperty("contextInfo")) {
+            let error = $root.ContextInfo.verify(message.contextInfo);
+            if (error) return "contextInfo." + error;
+        }
         return null;
     }, ContactsArrayMessage.fromObject = function(object) {
         if (object instanceof $root.Message.ContactsArrayMessage) return object;
@@ -9203,7 +9687,7 @@ $root.ADVEncryptionType = function() {
         object.contacts) {
             if (!Array.isArray(object.contacts)) throw TypeError(".Message.ContactsArrayMessage.contacts: array expected");
             message.contacts = [];
-            for (var i = 0; i < object.contacts.length; ++i) {
+            for (let i = 0; i < object.contacts.length; ++i) {
                 if ("object" != typeof object.contacts[i]) throw TypeError(".Message.ContactsArrayMessage.contacts: object expected");
                 message.contacts[i] = $root.Message.ContactMessage.fromObject(object.contacts[i]);
             }
@@ -9220,7 +9704,7 @@ $root.ADVEncryptionType = function() {
         null != message.displayName && message.hasOwnProperty("displayName") && (object.displayName = message.displayName), 
         message.contacts && message.contacts.length) {
             object.contacts = [];
-            for (var j = 0; j < message.contacts.length; ++j) object.contacts[j] = $root.Message.ContactMessage.toObject(message.contacts[j], options);
+            for (let j = 0; j < message.contacts.length; ++j) object.contacts[j] = $root.Message.ContactMessage.toObject(message.contacts[j], options);
         }
         return null != message.contextInfo && message.hasOwnProperty("contextInfo") && (object.contextInfo = $root.ContextInfo.toObject(message.contextInfo, options)), 
         object;
@@ -9268,7 +9752,7 @@ $root.ADVEncryptionType = function() {
     }, PeerDataOperationRequestResponseMessage.encode = function(message, writer) {
         if (writer = writer || $Writer.create(), null != message.peerDataOperationRequestType && Object.hasOwnProperty.call(message, "peerDataOperationRequestType") && writer.uint32(8).int32(message.peerDataOperationRequestType), 
         null != message.stanzaId && Object.hasOwnProperty.call(message, "stanzaId") && writer.uint32(18).string(message.stanzaId), 
-        null != message.peerDataOperationResult && message.peerDataOperationResult.length) for (var i = 0; i < message.peerDataOperationResult.length; ++i) $root.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.encode(message.peerDataOperationResult[i], writer.uint32(26).fork()).ldelim();
+        null != message.peerDataOperationResult && message.peerDataOperationResult.length) for (let i = 0; i < message.peerDataOperationResult.length; ++i) $root.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.encode(message.peerDataOperationResult[i], writer.uint32(26).fork()).ldelim();
         return writer;
     }, PeerDataOperationRequestResponseMessage.encodeDelimited = function(message, writer) {
         return this.encode(message, writer).ldelim();
@@ -9313,7 +9797,7 @@ $root.ADVEncryptionType = function() {
         if (null != message.stanzaId && message.hasOwnProperty("stanzaId") && !$util.isString(message.stanzaId)) return "stanzaId: string expected";
         if (null != message.peerDataOperationResult && message.hasOwnProperty("peerDataOperationResult")) {
             if (!Array.isArray(message.peerDataOperationResult)) return "peerDataOperationResult: array expected";
-            for (var i = 0; i < message.peerDataOperationResult.length; ++i) {
+            for (let i = 0; i < message.peerDataOperationResult.length; ++i) {
                 var error = $root.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.verify(message.peerDataOperationResult[i]);
                 if (error) return "peerDataOperationResult." + error;
             }
@@ -9360,7 +9844,7 @@ $root.ADVEncryptionType = function() {
         object.peerDataOperationResult) {
             if (!Array.isArray(object.peerDataOperationResult)) throw TypeError(".Message.PeerDataOperationRequestResponseMessage.peerDataOperationResult: array expected");
             message.peerDataOperationResult = [];
-            for (var i = 0; i < object.peerDataOperationResult.length; ++i) {
+            for (let i = 0; i < object.peerDataOperationResult.length; ++i) {
                 if ("object" != typeof object.peerDataOperationResult[i]) throw TypeError(".Message.PeerDataOperationRequestResponseMessage.peerDataOperationResult: object expected");
                 message.peerDataOperationResult[i] = $root.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.fromObject(object.peerDataOperationResult[i]);
             }
@@ -9374,7 +9858,7 @@ $root.ADVEncryptionType = function() {
         null != message.stanzaId && message.hasOwnProperty("stanzaId") && (object.stanzaId = message.stanzaId), 
         message.peerDataOperationResult && message.peerDataOperationResult.length) {
             object.peerDataOperationResult = [];
-            for (var j = 0; j < message.peerDataOperationResult.length; ++j) object.peerDataOperationResult[j] = $root.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.toObject(message.peerDataOperationResult[j], options);
+            for (let j = 0; j < message.peerDataOperationResult.length; ++j) object.peerDataOperationResult[j] = $root.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.toObject(message.peerDataOperationResult[j], options);
         }
         return object;
     }, PeerDataOperationRequestResponseMessage.prototype.toJSON = function() {
@@ -9438,11 +9922,22 @@ $root.ADVEncryptionType = function() {
           case 2:
           case 3:
         }
-        var error;
-        if (null != message.stickerMessage && message.hasOwnProperty("stickerMessage") && (error = $root.Message.StickerMessage.verify(message.stickerMessage))) return "stickerMessage." + error;
-        if (null != message.linkPreviewResponse && message.hasOwnProperty("linkPreviewResponse") && (error = $root.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse.verify(message.linkPreviewResponse))) return "linkPreviewResponse." + error;
-        if (null != message.placeholderMessageResendResponse && message.hasOwnProperty("placeholderMessageResendResponse") && (error = $root.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.PlaceholderMessageResendResponse.verify(message.placeholderMessageResendResponse))) return "placeholderMessageResendResponse." + error;
-        if (null != message.waffleNonceFetchRequestResponse && message.hasOwnProperty("waffleNonceFetchRequestResponse") && (error = $root.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.WaffleNonceFetchResponse.verify(message.waffleNonceFetchRequestResponse))) return "waffleNonceFetchRequestResponse." + error;
+        if (null != message.stickerMessage && message.hasOwnProperty("stickerMessage")) {
+            var error = $root.Message.StickerMessage.verify(message.stickerMessage);
+            if (error) return "stickerMessage." + error;
+        }
+        if (null != message.linkPreviewResponse && message.hasOwnProperty("linkPreviewResponse")) {
+            let error = $root.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse.verify(message.linkPreviewResponse);
+            if (error) return "linkPreviewResponse." + error;
+        }
+        if (null != message.placeholderMessageResendResponse && message.hasOwnProperty("placeholderMessageResendResponse")) {
+            let error = $root.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.PlaceholderMessageResendResponse.verify(message.placeholderMessageResendResponse);
+            if (error) return "placeholderMessageResendResponse." + error;
+        }
+        if (null != message.waffleNonceFetchRequestResponse && message.hasOwnProperty("waffleNonceFetchRequestResponse")) {
+            let error = $root.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.WaffleNonceFetchResponse.verify(message.waffleNonceFetchRequestResponse);
+            if (error) return "waffleNonceFetchRequestResponse." + error;
+        }
         return null;
     }, PeerDataOperationResult.fromObject = function(object) {
         if (object instanceof $root.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult) return object;
@@ -9789,10 +10284,10 @@ $root.ADVEncryptionType = function() {
         return new PeerDataOperationRequestMessage(properties);
     }, PeerDataOperationRequestMessage.encode = function(message, writer) {
         if (writer = writer || $Writer.create(), null != message.peerDataOperationRequestType && Object.hasOwnProperty.call(message, "peerDataOperationRequestType") && writer.uint32(8).int32(message.peerDataOperationRequestType), 
-        null != message.requestStickerReupload && message.requestStickerReupload.length) for (var i = 0; i < message.requestStickerReupload.length; ++i) $root.Message.PeerDataOperationRequestMessage.RequestStickerReupload.encode(message.requestStickerReupload[i], writer.uint32(18).fork()).ldelim();
-        if (null != message.requestUrlPreview && message.requestUrlPreview.length) for (i = 0; i < message.requestUrlPreview.length; ++i) $root.Message.PeerDataOperationRequestMessage.RequestUrlPreview.encode(message.requestUrlPreview[i], writer.uint32(26).fork()).ldelim();
+        null != message.requestStickerReupload && message.requestStickerReupload.length) for (let i = 0; i < message.requestStickerReupload.length; ++i) $root.Message.PeerDataOperationRequestMessage.RequestStickerReupload.encode(message.requestStickerReupload[i], writer.uint32(18).fork()).ldelim();
+        if (null != message.requestUrlPreview && message.requestUrlPreview.length) for (let i = 0; i < message.requestUrlPreview.length; ++i) $root.Message.PeerDataOperationRequestMessage.RequestUrlPreview.encode(message.requestUrlPreview[i], writer.uint32(26).fork()).ldelim();
         if (null != message.historySyncOnDemandRequest && Object.hasOwnProperty.call(message, "historySyncOnDemandRequest") && $root.Message.PeerDataOperationRequestMessage.HistorySyncOnDemandRequest.encode(message.historySyncOnDemandRequest, writer.uint32(34).fork()).ldelim(), 
-        null != message.placeholderMessageResendRequest && message.placeholderMessageResendRequest.length) for (i = 0; i < message.placeholderMessageResendRequest.length; ++i) $root.Message.PeerDataOperationRequestMessage.PlaceholderMessageResendRequest.encode(message.placeholderMessageResendRequest[i], writer.uint32(42).fork()).ldelim();
+        null != message.placeholderMessageResendRequest && message.placeholderMessageResendRequest.length) for (let i = 0; i < message.placeholderMessageResendRequest.length; ++i) $root.Message.PeerDataOperationRequestMessage.PlaceholderMessageResendRequest.encode(message.placeholderMessageResendRequest[i], writer.uint32(42).fork()).ldelim();
         return writer;
     }, PeerDataOperationRequestMessage.encodeDelimited = function(message, writer) {
         return this.encode(message, writer).ldelim();
@@ -9846,16 +10341,28 @@ $root.ADVEncryptionType = function() {
         }
         if (null != message.requestStickerReupload && message.hasOwnProperty("requestStickerReupload")) {
             if (!Array.isArray(message.requestStickerReupload)) return "requestStickerReupload: array expected";
-            for (var i = 0; i < message.requestStickerReupload.length; ++i) if (error = $root.Message.PeerDataOperationRequestMessage.RequestStickerReupload.verify(message.requestStickerReupload[i])) return "requestStickerReupload." + error;
+            for (let i = 0; i < message.requestStickerReupload.length; ++i) {
+                var error = $root.Message.PeerDataOperationRequestMessage.RequestStickerReupload.verify(message.requestStickerReupload[i]);
+                if (error) return "requestStickerReupload." + error;
+            }
         }
         if (null != message.requestUrlPreview && message.hasOwnProperty("requestUrlPreview")) {
             if (!Array.isArray(message.requestUrlPreview)) return "requestUrlPreview: array expected";
-            for (i = 0; i < message.requestUrlPreview.length; ++i) if (error = $root.Message.PeerDataOperationRequestMessage.RequestUrlPreview.verify(message.requestUrlPreview[i])) return "requestUrlPreview." + error;
+            for (let i = 0; i < message.requestUrlPreview.length; ++i) {
+                let error = $root.Message.PeerDataOperationRequestMessage.RequestUrlPreview.verify(message.requestUrlPreview[i]);
+                if (error) return "requestUrlPreview." + error;
+            }
         }
-        if (null != message.historySyncOnDemandRequest && message.hasOwnProperty("historySyncOnDemandRequest") && (error = $root.Message.PeerDataOperationRequestMessage.HistorySyncOnDemandRequest.verify(message.historySyncOnDemandRequest))) return "historySyncOnDemandRequest." + error;
+        if (null != message.historySyncOnDemandRequest && message.hasOwnProperty("historySyncOnDemandRequest")) {
+            let error = $root.Message.PeerDataOperationRequestMessage.HistorySyncOnDemandRequest.verify(message.historySyncOnDemandRequest);
+            if (error) return "historySyncOnDemandRequest." + error;
+        }
         if (null != message.placeholderMessageResendRequest && message.hasOwnProperty("placeholderMessageResendRequest")) {
             if (!Array.isArray(message.placeholderMessageResendRequest)) return "placeholderMessageResendRequest: array expected";
-            for (var error, i = 0; i < message.placeholderMessageResendRequest.length; ++i) if (error = $root.Message.PeerDataOperationRequestMessage.PlaceholderMessageResendRequest.verify(message.placeholderMessageResendRequest[i])) return "placeholderMessageResendRequest." + error;
+            for (let i = 0; i < message.placeholderMessageResendRequest.length; ++i) {
+                let error = $root.Message.PeerDataOperationRequestMessage.PlaceholderMessageResendRequest.verify(message.placeholderMessageResendRequest[i]);
+                if (error) return "placeholderMessageResendRequest." + error;
+            }
         }
         return null;
     }, PeerDataOperationRequestMessage.fromObject = function(object) {
@@ -9898,7 +10405,7 @@ $root.ADVEncryptionType = function() {
         if (object.requestStickerReupload) {
             if (!Array.isArray(object.requestStickerReupload)) throw TypeError(".Message.PeerDataOperationRequestMessage.requestStickerReupload: array expected");
             message.requestStickerReupload = [];
-            for (var i = 0; i < object.requestStickerReupload.length; ++i) {
+            for (let i = 0; i < object.requestStickerReupload.length; ++i) {
                 if ("object" != typeof object.requestStickerReupload[i]) throw TypeError(".Message.PeerDataOperationRequestMessage.requestStickerReupload: object expected");
                 message.requestStickerReupload[i] = $root.Message.PeerDataOperationRequestMessage.RequestStickerReupload.fromObject(object.requestStickerReupload[i]);
             }
@@ -9906,7 +10413,7 @@ $root.ADVEncryptionType = function() {
         if (object.requestUrlPreview) {
             if (!Array.isArray(object.requestUrlPreview)) throw TypeError(".Message.PeerDataOperationRequestMessage.requestUrlPreview: array expected");
             message.requestUrlPreview = [];
-            for (i = 0; i < object.requestUrlPreview.length; ++i) {
+            for (let i = 0; i < object.requestUrlPreview.length; ++i) {
                 if ("object" != typeof object.requestUrlPreview[i]) throw TypeError(".Message.PeerDataOperationRequestMessage.requestUrlPreview: object expected");
                 message.requestUrlPreview[i] = $root.Message.PeerDataOperationRequestMessage.RequestUrlPreview.fromObject(object.requestUrlPreview[i]);
             }
@@ -9918,7 +10425,7 @@ $root.ADVEncryptionType = function() {
         if (object.placeholderMessageResendRequest) {
             if (!Array.isArray(object.placeholderMessageResendRequest)) throw TypeError(".Message.PeerDataOperationRequestMessage.placeholderMessageResendRequest: array expected");
             message.placeholderMessageResendRequest = [];
-            for (i = 0; i < object.placeholderMessageResendRequest.length; ++i) {
+            for (let i = 0; i < object.placeholderMessageResendRequest.length; ++i) {
                 if ("object" != typeof object.placeholderMessageResendRequest[i]) throw TypeError(".Message.PeerDataOperationRequestMessage.placeholderMessageResendRequest: object expected");
                 message.placeholderMessageResendRequest[i] = $root.Message.PeerDataOperationRequestMessage.PlaceholderMessageResendRequest.fromObject(object.placeholderMessageResendRequest[i]);
             }
@@ -9932,16 +10439,16 @@ $root.ADVEncryptionType = function() {
         object.historySyncOnDemandRequest = null), null != message.peerDataOperationRequestType && message.hasOwnProperty("peerDataOperationRequestType") && (object.peerDataOperationRequestType = options.enums !== String || void 0 === $root.Message.PeerDataOperationRequestType[message.peerDataOperationRequestType] ? message.peerDataOperationRequestType : $root.Message.PeerDataOperationRequestType[message.peerDataOperationRequestType]), 
         message.requestStickerReupload && message.requestStickerReupload.length) {
             object.requestStickerReupload = [];
-            for (var j = 0; j < message.requestStickerReupload.length; ++j) object.requestStickerReupload[j] = $root.Message.PeerDataOperationRequestMessage.RequestStickerReupload.toObject(message.requestStickerReupload[j], options);
+            for (let j = 0; j < message.requestStickerReupload.length; ++j) object.requestStickerReupload[j] = $root.Message.PeerDataOperationRequestMessage.RequestStickerReupload.toObject(message.requestStickerReupload[j], options);
         }
         if (message.requestUrlPreview && message.requestUrlPreview.length) {
             object.requestUrlPreview = [];
-            for (j = 0; j < message.requestUrlPreview.length; ++j) object.requestUrlPreview[j] = $root.Message.PeerDataOperationRequestMessage.RequestUrlPreview.toObject(message.requestUrlPreview[j], options);
+            for (let j = 0; j < message.requestUrlPreview.length; ++j) object.requestUrlPreview[j] = $root.Message.PeerDataOperationRequestMessage.RequestUrlPreview.toObject(message.requestUrlPreview[j], options);
         }
         if (null != message.historySyncOnDemandRequest && message.hasOwnProperty("historySyncOnDemandRequest") && (object.historySyncOnDemandRequest = $root.Message.PeerDataOperationRequestMessage.HistorySyncOnDemandRequest.toObject(message.historySyncOnDemandRequest, options)), 
         message.placeholderMessageResendRequest && message.placeholderMessageResendRequest.length) {
             object.placeholderMessageResendRequest = [];
-            for (j = 0; j < message.placeholderMessageResendRequest.length; ++j) object.placeholderMessageResendRequest[j] = $root.Message.PeerDataOperationRequestMessage.PlaceholderMessageResendRequest.toObject(message.placeholderMessageResendRequest[j], options);
+            for (let j = 0; j < message.placeholderMessageResendRequest.length; ++j) object.placeholderMessageResendRequest[j] = $root.Message.PeerDataOperationRequestMessage.PlaceholderMessageResendRequest.toObject(message.placeholderMessageResendRequest[j], options);
         }
         return object;
     }, PeerDataOperationRequestMessage.prototype.toJSON = function() {
@@ -10143,7 +10650,7 @@ $root.ADVEncryptionType = function() {
     AppStateFatalExceptionNotification.create = function(properties) {
         return new AppStateFatalExceptionNotification(properties);
     }, AppStateFatalExceptionNotification.encode = function(message, writer) {
-        if (writer = writer || $Writer.create(), null != message.collectionNames && message.collectionNames.length) for (var i = 0; i < message.collectionNames.length; ++i) writer.uint32(10).string(message.collectionNames[i]);
+        if (writer = writer || $Writer.create(), null != message.collectionNames && message.collectionNames.length) for (let i = 0; i < message.collectionNames.length; ++i) writer.uint32(10).string(message.collectionNames[i]);
         return null != message.timestamp && Object.hasOwnProperty.call(message, "timestamp") && writer.uint32(16).int64(message.timestamp), 
         writer;
     }, AppStateFatalExceptionNotification.encodeDelimited = function(message, writer) {
@@ -10173,7 +10680,7 @@ $root.ADVEncryptionType = function() {
         if ("object" != typeof message || null === message) return "object expected";
         if (null != message.collectionNames && message.hasOwnProperty("collectionNames")) {
             if (!Array.isArray(message.collectionNames)) return "collectionNames: array expected";
-            for (var i = 0; i < message.collectionNames.length; ++i) if (!$util.isString(message.collectionNames[i])) return "collectionNames: string[] expected";
+            for (let i = 0; i < message.collectionNames.length; ++i) if (!$util.isString(message.collectionNames[i])) return "collectionNames: string[] expected";
         }
         return null != message.timestamp && message.hasOwnProperty("timestamp") && !($util.isInteger(message.timestamp) || message.timestamp && $util.isInteger(message.timestamp.low) && $util.isInteger(message.timestamp.high)) ? "timestamp: integer|Long expected" : null;
     }, AppStateFatalExceptionNotification.fromObject = function(object) {
@@ -10182,7 +10689,7 @@ $root.ADVEncryptionType = function() {
         if (object.collectionNames) {
             if (!Array.isArray(object.collectionNames)) throw TypeError(".Message.AppStateFatalExceptionNotification.collectionNames: array expected");
             message.collectionNames = [];
-            for (var i = 0; i < object.collectionNames.length; ++i) message.collectionNames[i] = String(object.collectionNames[i]);
+            for (let i = 0; i < object.collectionNames.length; ++i) message.collectionNames[i] = String(object.collectionNames[i]);
         }
         return null != object.timestamp && ($util.Long ? (message.timestamp = $util.Long.fromValue(object.timestamp)).unsigned = !1 : "string" == typeof object.timestamp ? message.timestamp = parseInt(object.timestamp, 10) : "number" == typeof object.timestamp ? message.timestamp = object.timestamp : "object" == typeof object.timestamp && (message.timestamp = new $util.LongBits(object.timestamp.low >>> 0, object.timestamp.high >>> 0).toNumber())), 
         message;
@@ -10192,7 +10699,7 @@ $root.ADVEncryptionType = function() {
         options.defaults && ($util.Long ? (long = new $util.Long(0, 0, !1), object.timestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.timestamp = options.longs === String ? "0" : 0), 
         message.collectionNames && message.collectionNames.length) {
             object.collectionNames = [];
-            for (var j = 0; j < message.collectionNames.length; ++j) object.collectionNames[j] = message.collectionNames[j];
+            for (let j = 0; j < message.collectionNames.length; ++j) object.collectionNames[j] = message.collectionNames[j];
         }
         return null != message.timestamp && message.hasOwnProperty("timestamp") && ("number" == typeof message.timestamp ? object.timestamp = options.longs === String ? String(message.timestamp) : message.timestamp : object.timestamp = options.longs === String ? $util.Long.prototype.toString.call(message.timestamp) : options.longs === Number ? new $util.LongBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0).toNumber() : message.timestamp), 
         object;
@@ -10204,7 +10711,7 @@ $root.ADVEncryptionType = function() {
     AppStateSyncKeyRequest.create = function(properties) {
         return new AppStateSyncKeyRequest(properties);
     }, AppStateSyncKeyRequest.encode = function(message, writer) {
-        if (writer = writer || $Writer.create(), null != message.keyIds && message.keyIds.length) for (var i = 0; i < message.keyIds.length; ++i) $root.Message.AppStateSyncKeyId.encode(message.keyIds[i], writer.uint32(10).fork()).ldelim();
+        if (writer = writer || $Writer.create(), null != message.keyIds && message.keyIds.length) for (let i = 0; i < message.keyIds.length; ++i) $root.Message.AppStateSyncKeyId.encode(message.keyIds[i], writer.uint32(10).fork()).ldelim();
         return writer;
     }, AppStateSyncKeyRequest.encodeDelimited = function(message, writer) {
         return this.encode(message, writer).ldelim();
@@ -10222,7 +10729,7 @@ $root.ADVEncryptionType = function() {
         if ("object" != typeof message || null === message) return "object expected";
         if (null != message.keyIds && message.hasOwnProperty("keyIds")) {
             if (!Array.isArray(message.keyIds)) return "keyIds: array expected";
-            for (var i = 0; i < message.keyIds.length; ++i) {
+            for (let i = 0; i < message.keyIds.length; ++i) {
                 var error = $root.Message.AppStateSyncKeyId.verify(message.keyIds[i]);
                 if (error) return "keyIds." + error;
             }
@@ -10234,7 +10741,7 @@ $root.ADVEncryptionType = function() {
         if (object.keyIds) {
             if (!Array.isArray(object.keyIds)) throw TypeError(".Message.AppStateSyncKeyRequest.keyIds: array expected");
             message.keyIds = [];
-            for (var i = 0; i < object.keyIds.length; ++i) {
+            for (let i = 0; i < object.keyIds.length; ++i) {
                 if ("object" != typeof object.keyIds[i]) throw TypeError(".Message.AppStateSyncKeyRequest.keyIds: object expected");
                 message.keyIds[i] = $root.Message.AppStateSyncKeyId.fromObject(object.keyIds[i]);
             }
@@ -10245,7 +10752,7 @@ $root.ADVEncryptionType = function() {
         if (((options = options || {}).arrays || options.defaults) && (object.keyIds = []), 
         message.keyIds && message.keyIds.length) {
             object.keyIds = [];
-            for (var j = 0; j < message.keyIds.length; ++j) object.keyIds[j] = $root.Message.AppStateSyncKeyId.toObject(message.keyIds[j], options);
+            for (let j = 0; j < message.keyIds.length; ++j) object.keyIds[j] = $root.Message.AppStateSyncKeyId.toObject(message.keyIds[j], options);
         }
         return object;
     }, AppStateSyncKeyRequest.prototype.toJSON = function() {
@@ -10256,7 +10763,7 @@ $root.ADVEncryptionType = function() {
     AppStateSyncKeyShare.create = function(properties) {
         return new AppStateSyncKeyShare(properties);
     }, AppStateSyncKeyShare.encode = function(message, writer) {
-        if (writer = writer || $Writer.create(), null != message.keys && message.keys.length) for (var i = 0; i < message.keys.length; ++i) $root.Message.AppStateSyncKey.encode(message.keys[i], writer.uint32(10).fork()).ldelim();
+        if (writer = writer || $Writer.create(), null != message.keys && message.keys.length) for (let i = 0; i < message.keys.length; ++i) $root.Message.AppStateSyncKey.encode(message.keys[i], writer.uint32(10).fork()).ldelim();
         return writer;
     }, AppStateSyncKeyShare.encodeDelimited = function(message, writer) {
         return this.encode(message, writer).ldelim();
@@ -10274,7 +10781,7 @@ $root.ADVEncryptionType = function() {
         if ("object" != typeof message || null === message) return "object expected";
         if (null != message.keys && message.hasOwnProperty("keys")) {
             if (!Array.isArray(message.keys)) return "keys: array expected";
-            for (var i = 0; i < message.keys.length; ++i) {
+            for (let i = 0; i < message.keys.length; ++i) {
                 var error = $root.Message.AppStateSyncKey.verify(message.keys[i]);
                 if (error) return "keys." + error;
             }
@@ -10286,7 +10793,7 @@ $root.ADVEncryptionType = function() {
         if (object.keys) {
             if (!Array.isArray(object.keys)) throw TypeError(".Message.AppStateSyncKeyShare.keys: array expected");
             message.keys = [];
-            for (var i = 0; i < object.keys.length; ++i) {
+            for (let i = 0; i < object.keys.length; ++i) {
                 if ("object" != typeof object.keys[i]) throw TypeError(".Message.AppStateSyncKeyShare.keys: object expected");
                 message.keys[i] = $root.Message.AppStateSyncKey.fromObject(object.keys[i]);
             }
@@ -10297,7 +10804,7 @@ $root.ADVEncryptionType = function() {
         if (((options = options || {}).arrays || options.defaults) && (object.keys = []), 
         message.keys && message.keys.length) {
             object.keys = [];
-            for (var j = 0; j < message.keys.length; ++j) object.keys[j] = $root.Message.AppStateSyncKey.toObject(message.keys[j], options);
+            for (let j = 0; j < message.keys.length; ++j) object.keys[j] = $root.Message.AppStateSyncKey.toObject(message.keys[j], options);
         }
         return object;
     }, AppStateSyncKeyShare.prototype.toJSON = function() {
@@ -10380,7 +10887,7 @@ $root.ADVEncryptionType = function() {
         null != message.currentIndex && Object.hasOwnProperty.call(message, "currentIndex") && writer.uint32(16).uint32(message.currentIndex), 
         null != message.deviceIndexes && message.deviceIndexes.length) {
             writer.uint32(26).fork();
-            for (var i = 0; i < message.deviceIndexes.length; ++i) writer.uint32(message.deviceIndexes[i]);
+            for (let i = 0; i < message.deviceIndexes.length; ++i) writer.uint32(message.deviceIndexes[i]);
             writer.ldelim();
         }
         return writer;
@@ -10417,7 +10924,7 @@ $root.ADVEncryptionType = function() {
         if (null != message.currentIndex && message.hasOwnProperty("currentIndex") && !$util.isInteger(message.currentIndex)) return "currentIndex: integer expected";
         if (null != message.deviceIndexes && message.hasOwnProperty("deviceIndexes")) {
             if (!Array.isArray(message.deviceIndexes)) return "deviceIndexes: array expected";
-            for (var i = 0; i < message.deviceIndexes.length; ++i) if (!$util.isInteger(message.deviceIndexes[i])) return "deviceIndexes: integer[] expected";
+            for (let i = 0; i < message.deviceIndexes.length; ++i) if (!$util.isInteger(message.deviceIndexes[i])) return "deviceIndexes: integer[] expected";
         }
         return null;
     }, AppStateSyncKeyFingerprint.fromObject = function(object) {
@@ -10427,7 +10934,7 @@ $root.ADVEncryptionType = function() {
         object.deviceIndexes) {
             if (!Array.isArray(object.deviceIndexes)) throw TypeError(".Message.AppStateSyncKeyFingerprint.deviceIndexes: array expected");
             message.deviceIndexes = [];
-            for (var i = 0; i < object.deviceIndexes.length; ++i) message.deviceIndexes[i] = object.deviceIndexes[i] >>> 0;
+            for (let i = 0; i < object.deviceIndexes.length; ++i) message.deviceIndexes[i] = object.deviceIndexes[i] >>> 0;
         }
         return message;
     }, AppStateSyncKeyFingerprint.toObject = function(message, options) {
@@ -10437,7 +10944,7 @@ $root.ADVEncryptionType = function() {
         null != message.currentIndex && message.hasOwnProperty("currentIndex") && (object.currentIndex = message.currentIndex), 
         message.deviceIndexes && message.deviceIndexes.length) {
             object.deviceIndexes = [];
-            for (var j = 0; j < message.deviceIndexes.length; ++j) object.deviceIndexes[j] = message.deviceIndexes[j];
+            for (let j = 0; j < message.deviceIndexes.length; ++j) object.deviceIndexes[j] = message.deviceIndexes[j];
         }
         return object;
     }, AppStateSyncKeyFingerprint.prototype.toJSON = function() {
@@ -10509,9 +11016,14 @@ $root.ADVEncryptionType = function() {
         return reader instanceof $Reader || (reader = new $Reader(reader)), this.decode(reader, reader.uint32());
     }, AppStateSyncKey.verify = function(message) {
         if ("object" != typeof message || null === message) return "object expected";
-        var error;
-        if (null != message.keyId && message.hasOwnProperty("keyId") && (error = $root.Message.AppStateSyncKeyId.verify(message.keyId))) return "keyId." + error;
-        if (null != message.keyData && message.hasOwnProperty("keyData") && (error = $root.Message.AppStateSyncKeyData.verify(message.keyData))) return "keyData." + error;
+        if (null != message.keyId && message.hasOwnProperty("keyId")) {
+            var error = $root.Message.AppStateSyncKeyId.verify(message.keyId);
+            if (error) return "keyId." + error;
+        }
+        if (null != message.keyData && message.hasOwnProperty("keyData")) {
+            let error = $root.Message.AppStateSyncKeyData.verify(message.keyData);
+            if (error) return "keyData." + error;
+        }
         return null;
     }, AppStateSyncKey.fromObject = function(object) {
         if (object instanceof $root.Message.AppStateSyncKey) return object;
@@ -10537,7 +11049,7 @@ $root.ADVEncryptionType = function() {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/Message.AppStateSyncKey";
     }, AppStateSyncKey), Message.HistorySyncNotification = function() {
         function HistorySyncNotification(properties) {
-            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         var valuesById, values;
         return HistorySyncNotification.prototype.fileSha256 = $util.newBuffer([]), 
@@ -10708,19 +11220,25 @@ $root.ADVEncryptionType = function() {
             message;
         }, HistorySyncNotification.toObject = function(message, options) {
             var long, object = {};
-            return (options = options || {}).defaults && (options.bytes === String ? object.fileSha256 = "" : (object.fileSha256 = [], 
-            options.bytes !== Array && (object.fileSha256 = $util.newBuffer(object.fileSha256))), 
-            $util.Long ? (long = new $util.Long(0, 0, !0), object.fileLength = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.fileLength = options.longs === String ? "0" : 0, 
-            options.bytes === String ? object.mediaKey = "" : (object.mediaKey = [], 
-            options.bytes !== Array && (object.mediaKey = $util.newBuffer(object.mediaKey))), 
-            options.bytes === String ? object.fileEncSha256 = "" : (object.fileEncSha256 = [], 
-            options.bytes !== Array && (object.fileEncSha256 = $util.newBuffer(object.fileEncSha256))), 
-            object.directPath = "", object.syncType = options.enums === String ? "INITIAL_BOOTSTRAP" : 0, 
-            object.chunkOrder = 0, object.originalMessageId = "", object.progress = 0, 
-            $util.Long ? (long = new $util.Long(0, 0, !1), object.oldestMsgInChunkTimestampSec = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.oldestMsgInChunkTimestampSec = options.longs === String ? "0" : 0, 
-            options.bytes === String ? object.initialHistBootstrapInlinePayload = "" : (object.initialHistBootstrapInlinePayload = [], 
-            options.bytes !== Array && (object.initialHistBootstrapInlinePayload = $util.newBuffer(object.initialHistBootstrapInlinePayload))), 
-            object.peerDataRequestSessionId = ""), null != message.fileSha256 && message.hasOwnProperty("fileSha256") && (object.fileSha256 = options.bytes === String ? $util.base64.encode(message.fileSha256, 0, message.fileSha256.length) : options.bytes === Array ? Array.prototype.slice.call(message.fileSha256) : message.fileSha256), 
+            if ((options = options || {}).defaults) {
+                if (options.bytes === String ? object.fileSha256 = "" : (object.fileSha256 = [], 
+                options.bytes !== Array && (object.fileSha256 = $util.newBuffer(object.fileSha256))), 
+                $util.Long ? (long = new $util.Long(0, 0, !0), object.fileLength = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.fileLength = options.longs === String ? "0" : 0, 
+                options.bytes === String ? object.mediaKey = "" : (object.mediaKey = [], 
+                options.bytes !== Array && (object.mediaKey = $util.newBuffer(object.mediaKey))), 
+                options.bytes === String ? object.fileEncSha256 = "" : (object.fileEncSha256 = [], 
+                options.bytes !== Array && (object.fileEncSha256 = $util.newBuffer(object.fileEncSha256))), 
+                object.directPath = "", object.syncType = options.enums === String ? "INITIAL_BOOTSTRAP" : 0, 
+                object.chunkOrder = 0, object.originalMessageId = "", object.progress = 0, 
+                $util.Long) {
+                    let long = new $util.Long(0, 0, !1);
+                    object.oldestMsgInChunkTimestampSec = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                } else object.oldestMsgInChunkTimestampSec = options.longs === String ? "0" : 0;
+                options.bytes === String ? object.initialHistBootstrapInlinePayload = "" : (object.initialHistBootstrapInlinePayload = [], 
+                options.bytes !== Array && (object.initialHistBootstrapInlinePayload = $util.newBuffer(object.initialHistBootstrapInlinePayload))), 
+                object.peerDataRequestSessionId = "";
+            }
+            return null != message.fileSha256 && message.hasOwnProperty("fileSha256") && (object.fileSha256 = options.bytes === String ? $util.base64.encode(message.fileSha256, 0, message.fileSha256.length) : options.bytes === Array ? Array.prototype.slice.call(message.fileSha256) : message.fileSha256), 
             null != message.fileLength && message.hasOwnProperty("fileLength") && ("number" == typeof message.fileLength ? object.fileLength = options.longs === String ? String(message.fileLength) : message.fileLength : object.fileLength = options.longs === String ? $util.Long.prototype.toString.call(message.fileLength) : options.longs === Number ? new $util.LongBits(message.fileLength.low >>> 0, message.fileLength.high >>> 0).toNumber(!0) : message.fileLength), 
             null != message.mediaKey && message.hasOwnProperty("mediaKey") && (object.mediaKey = options.bytes === String ? $util.base64.encode(message.mediaKey, 0, message.mediaKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.mediaKey) : message.mediaKey), 
             null != message.fileEncSha256 && message.hasOwnProperty("fileEncSha256") && (object.fileEncSha256 = options.bytes === String ? $util.base64.encode(message.fileEncSha256, 0, message.fileEncSha256.length) : options.bytes === Array ? Array.prototype.slice.call(message.fileEncSha256) : message.fileEncSha256), 
@@ -10744,7 +11262,7 @@ $root.ADVEncryptionType = function() {
         values[valuesById[7] = "NO_HISTORY"] = 7, values), HistorySyncNotification;
     }(), Message.RequestWelcomeMessageMetadata = function() {
         function RequestWelcomeMessageMetadata(properties) {
-            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         var valuesById, values;
         return RequestWelcomeMessageMetadata.prototype.localChatState = 0, RequestWelcomeMessageMetadata.create = function(properties) {
@@ -10805,7 +11323,7 @@ $root.ADVEncryptionType = function() {
         values[valuesById[1] = "NON_EMPTY"] = 1, values), RequestWelcomeMessageMetadata;
     }(), Message.ProtocolMessage = function() {
         function ProtocolMessage(properties) {
-            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         var valuesById, values;
         return ProtocolMessage.prototype.key = null, ProtocolMessage.prototype.type = 0, 
@@ -10939,8 +11457,10 @@ $root.ADVEncryptionType = function() {
             this.decode(reader, reader.uint32());
         }, ProtocolMessage.verify = function(message) {
             if ("object" != typeof message || null === message) return "object expected";
-            var error;
-            if (null != message.key && message.hasOwnProperty("key") && (error = $root.MessageKey.verify(message.key))) return "key." + error;
+            if (null != message.key && message.hasOwnProperty("key")) {
+                var error = $root.MessageKey.verify(message.key);
+                if (error) return "key." + error;
+            }
             if (null != message.type && message.hasOwnProperty("type")) switch (message.type) {
               default:
                 return "type: enum value expected";
@@ -10966,22 +11486,64 @@ $root.ADVEncryptionType = function() {
             }
             if (null != message.ephemeralExpiration && message.hasOwnProperty("ephemeralExpiration") && !$util.isInteger(message.ephemeralExpiration)) return "ephemeralExpiration: integer expected";
             if (null != message.ephemeralSettingTimestamp && message.hasOwnProperty("ephemeralSettingTimestamp") && !($util.isInteger(message.ephemeralSettingTimestamp) || message.ephemeralSettingTimestamp && $util.isInteger(message.ephemeralSettingTimestamp.low) && $util.isInteger(message.ephemeralSettingTimestamp.high))) return "ephemeralSettingTimestamp: integer|Long expected";
-            if (null != message.historySyncNotification && message.hasOwnProperty("historySyncNotification") && (error = $root.Message.HistorySyncNotification.verify(message.historySyncNotification))) return "historySyncNotification." + error;
-            if (null != message.appStateSyncKeyShare && message.hasOwnProperty("appStateSyncKeyShare") && (error = $root.Message.AppStateSyncKeyShare.verify(message.appStateSyncKeyShare))) return "appStateSyncKeyShare." + error;
-            if (null != message.appStateSyncKeyRequest && message.hasOwnProperty("appStateSyncKeyRequest") && (error = $root.Message.AppStateSyncKeyRequest.verify(message.appStateSyncKeyRequest))) return "appStateSyncKeyRequest." + error;
-            if (null != message.initialSecurityNotificationSettingSync && message.hasOwnProperty("initialSecurityNotificationSettingSync") && (error = $root.Message.InitialSecurityNotificationSettingSync.verify(message.initialSecurityNotificationSettingSync))) return "initialSecurityNotificationSettingSync." + error;
-            if (null != message.appStateFatalExceptionNotification && message.hasOwnProperty("appStateFatalExceptionNotification") && (error = $root.Message.AppStateFatalExceptionNotification.verify(message.appStateFatalExceptionNotification))) return "appStateFatalExceptionNotification." + error;
-            if (null != message.disappearingMode && message.hasOwnProperty("disappearingMode") && (error = $root.DisappearingMode.verify(message.disappearingMode))) return "disappearingMode." + error;
-            if (null != message.editedMessage && message.hasOwnProperty("editedMessage") && (error = $root.Message.verify(message.editedMessage))) return "editedMessage." + error;
+            if (null != message.historySyncNotification && message.hasOwnProperty("historySyncNotification")) {
+                let error = $root.Message.HistorySyncNotification.verify(message.historySyncNotification);
+                if (error) return "historySyncNotification." + error;
+            }
+            if (null != message.appStateSyncKeyShare && message.hasOwnProperty("appStateSyncKeyShare")) {
+                let error = $root.Message.AppStateSyncKeyShare.verify(message.appStateSyncKeyShare);
+                if (error) return "appStateSyncKeyShare." + error;
+            }
+            if (null != message.appStateSyncKeyRequest && message.hasOwnProperty("appStateSyncKeyRequest")) {
+                let error = $root.Message.AppStateSyncKeyRequest.verify(message.appStateSyncKeyRequest);
+                if (error) return "appStateSyncKeyRequest." + error;
+            }
+            if (null != message.initialSecurityNotificationSettingSync && message.hasOwnProperty("initialSecurityNotificationSettingSync")) {
+                let error = $root.Message.InitialSecurityNotificationSettingSync.verify(message.initialSecurityNotificationSettingSync);
+                if (error) return "initialSecurityNotificationSettingSync." + error;
+            }
+            if (null != message.appStateFatalExceptionNotification && message.hasOwnProperty("appStateFatalExceptionNotification")) {
+                let error = $root.Message.AppStateFatalExceptionNotification.verify(message.appStateFatalExceptionNotification);
+                if (error) return "appStateFatalExceptionNotification." + error;
+            }
+            if (null != message.disappearingMode && message.hasOwnProperty("disappearingMode")) {
+                let error = $root.DisappearingMode.verify(message.disappearingMode);
+                if (error) return "disappearingMode." + error;
+            }
+            if (null != message.editedMessage && message.hasOwnProperty("editedMessage")) {
+                let error = $root.Message.verify(message.editedMessage);
+                if (error) return "editedMessage." + error;
+            }
             if (null != message.timestampMs && message.hasOwnProperty("timestampMs") && !($util.isInteger(message.timestampMs) || message.timestampMs && $util.isInteger(message.timestampMs.low) && $util.isInteger(message.timestampMs.high))) return "timestampMs: integer|Long expected";
-            if (null != message.peerDataOperationRequestMessage && message.hasOwnProperty("peerDataOperationRequestMessage") && (error = $root.Message.PeerDataOperationRequestMessage.verify(message.peerDataOperationRequestMessage))) return "peerDataOperationRequestMessage." + error;
-            if (null != message.peerDataOperationRequestResponseMessage && message.hasOwnProperty("peerDataOperationRequestResponseMessage") && (error = $root.Message.PeerDataOperationRequestResponseMessage.verify(message.peerDataOperationRequestResponseMessage))) return "peerDataOperationRequestResponseMessage." + error;
-            if (null != message.botFeedbackMessage && message.hasOwnProperty("botFeedbackMessage") && (error = $root.Message.BotFeedbackMessage.verify(message.botFeedbackMessage))) return "botFeedbackMessage." + error;
+            if (null != message.peerDataOperationRequestMessage && message.hasOwnProperty("peerDataOperationRequestMessage")) {
+                let error = $root.Message.PeerDataOperationRequestMessage.verify(message.peerDataOperationRequestMessage);
+                if (error) return "peerDataOperationRequestMessage." + error;
+            }
+            if (null != message.peerDataOperationRequestResponseMessage && message.hasOwnProperty("peerDataOperationRequestResponseMessage")) {
+                let error = $root.Message.PeerDataOperationRequestResponseMessage.verify(message.peerDataOperationRequestResponseMessage);
+                if (error) return "peerDataOperationRequestResponseMessage." + error;
+            }
+            if (null != message.botFeedbackMessage && message.hasOwnProperty("botFeedbackMessage")) {
+                let error = $root.Message.BotFeedbackMessage.verify(message.botFeedbackMessage);
+                if (error) return "botFeedbackMessage." + error;
+            }
             if (null != message.invokerJid && message.hasOwnProperty("invokerJid") && !$util.isString(message.invokerJid)) return "invokerJid: string expected";
-            if (null != message.requestWelcomeMessageMetadata && message.hasOwnProperty("requestWelcomeMessageMetadata") && (error = $root.Message.RequestWelcomeMessageMetadata.verify(message.requestWelcomeMessageMetadata))) return "requestWelcomeMessageMetadata." + error;
-            if (null != message.mediaNotifyMessage && message.hasOwnProperty("mediaNotifyMessage") && (error = $root.MediaNotifyMessage.verify(message.mediaNotifyMessage))) return "mediaNotifyMessage." + error;
-            if (null != message.cloudApiThreadControlNotification && message.hasOwnProperty("cloudApiThreadControlNotification") && (error = $root.Message.CloudAPIThreadControlNotification.verify(message.cloudApiThreadControlNotification))) return "cloudApiThreadControlNotification." + error;
-            if (null != message.lidMigrationMappingSyncMessage && message.hasOwnProperty("lidMigrationMappingSyncMessage") && (error = $root.LIDMigrationMappingSyncMessage.verify(message.lidMigrationMappingSyncMessage))) return "lidMigrationMappingSyncMessage." + error;
+            if (null != message.requestWelcomeMessageMetadata && message.hasOwnProperty("requestWelcomeMessageMetadata")) {
+                let error = $root.Message.RequestWelcomeMessageMetadata.verify(message.requestWelcomeMessageMetadata);
+                if (error) return "requestWelcomeMessageMetadata." + error;
+            }
+            if (null != message.mediaNotifyMessage && message.hasOwnProperty("mediaNotifyMessage")) {
+                let error = $root.MediaNotifyMessage.verify(message.mediaNotifyMessage);
+                if (error) return "mediaNotifyMessage." + error;
+            }
+            if (null != message.cloudApiThreadControlNotification && message.hasOwnProperty("cloudApiThreadControlNotification")) {
+                let error = $root.Message.CloudAPIThreadControlNotification.verify(message.cloudApiThreadControlNotification);
+                if (error) return "cloudApiThreadControlNotification." + error;
+            }
+            if (null != message.lidMigrationMappingSyncMessage && message.hasOwnProperty("lidMigrationMappingSyncMessage")) {
+                let error = $root.LIDMigrationMappingSyncMessage.verify(message.lidMigrationMappingSyncMessage);
+                if (error) return "lidMigrationMappingSyncMessage." + error;
+            }
             return null;
         }, ProtocolMessage.fromObject = function(object) {
             if (object instanceof $root.Message.ProtocolMessage) return object;
@@ -11147,18 +11709,23 @@ $root.ADVEncryptionType = function() {
             return message;
         }, ProtocolMessage.toObject = function(message, options) {
             var long, object = {};
-            return (options = options || {}).defaults && (object.key = null, object.type = options.enums === String ? "REVOKE" : 0, 
-            object.ephemeralExpiration = 0, $util.Long ? (long = new $util.Long(0, 0, !1), 
-            object.ephemeralSettingTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.ephemeralSettingTimestamp = options.longs === String ? "0" : 0, 
-            object.historySyncNotification = null, object.appStateSyncKeyShare = null, 
-            object.appStateSyncKeyRequest = null, object.initialSecurityNotificationSettingSync = null, 
-            object.appStateFatalExceptionNotification = null, object.disappearingMode = null, 
-            object.editedMessage = null, $util.Long ? (long = new $util.Long(0, 0, !1), 
-            object.timestampMs = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.timestampMs = options.longs === String ? "0" : 0, 
-            object.peerDataOperationRequestMessage = null, object.peerDataOperationRequestResponseMessage = null, 
-            object.botFeedbackMessage = null, object.invokerJid = "", object.requestWelcomeMessageMetadata = null, 
-            object.mediaNotifyMessage = null, object.cloudApiThreadControlNotification = null, 
-            object.lidMigrationMappingSyncMessage = null), null != message.key && message.hasOwnProperty("key") && (object.key = $root.MessageKey.toObject(message.key, options)), 
+            if ((options = options || {}).defaults) {
+                if (object.key = null, object.type = options.enums === String ? "REVOKE" : 0, 
+                object.ephemeralExpiration = 0, $util.Long ? (long = new $util.Long(0, 0, !1), 
+                object.ephemeralSettingTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.ephemeralSettingTimestamp = options.longs === String ? "0" : 0, 
+                object.historySyncNotification = null, object.appStateSyncKeyShare = null, 
+                object.appStateSyncKeyRequest = null, object.initialSecurityNotificationSettingSync = null, 
+                object.appStateFatalExceptionNotification = null, object.disappearingMode = null, 
+                object.editedMessage = null, $util.Long) {
+                    let long = new $util.Long(0, 0, !1);
+                    object.timestampMs = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                } else object.timestampMs = options.longs === String ? "0" : 0;
+                object.peerDataOperationRequestMessage = null, object.peerDataOperationRequestResponseMessage = null, 
+                object.botFeedbackMessage = null, object.invokerJid = "", object.requestWelcomeMessageMetadata = null, 
+                object.mediaNotifyMessage = null, object.cloudApiThreadControlNotification = null, 
+                object.lidMigrationMappingSyncMessage = null;
+            }
+            return null != message.key && message.hasOwnProperty("key") && (object.key = $root.MessageKey.toObject(message.key, options)), 
             null != message.type && message.hasOwnProperty("type") && (object.type = options.enums !== String || void 0 === $root.Message.ProtocolMessage.Type[message.type] ? message.type : $root.Message.ProtocolMessage.Type[message.type]), 
             null != message.ephemeralExpiration && message.hasOwnProperty("ephemeralExpiration") && (object.ephemeralExpiration = message.ephemeralExpiration), 
             null != message.ephemeralSettingTimestamp && message.hasOwnProperty("ephemeralSettingTimestamp") && ("number" == typeof message.ephemeralSettingTimestamp ? object.ephemeralSettingTimestamp = options.longs === String ? String(message.ephemeralSettingTimestamp) : message.ephemeralSettingTimestamp : object.ephemeralSettingTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.ephemeralSettingTimestamp) : options.longs === Number ? new $util.LongBits(message.ephemeralSettingTimestamp.low >>> 0, message.ephemeralSettingTimestamp.high >>> 0).toNumber() : message.ephemeralSettingTimestamp), 
@@ -11196,7 +11763,7 @@ $root.ADVEncryptionType = function() {
         values[valuesById[22] = "LID_MIGRATION_MAPPING_SYNC"] = 22, values), ProtocolMessage;
     }(), Message.CloudAPIThreadControlNotification = function() {
         function CloudAPIThreadControlNotification(properties) {
-            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         var valuesById, values;
         return CloudAPIThreadControlNotification.prototype.status = 0, CloudAPIThreadControlNotification.prototype.senderNotificationTimestampMs = $util.Long ? $util.Long.fromBits(0, 0, !1) : 0, 
@@ -11295,7 +11862,7 @@ $root.ADVEncryptionType = function() {
         values[valuesById[2] = "CONTROL_TAKEN"] = 2, values), CloudAPIThreadControlNotification;
     }(), Message.BotFeedbackMessage = function() {
         function BotFeedbackMessage(properties) {
-            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         var valuesById, values;
         return BotFeedbackMessage.prototype.messageKey = null, BotFeedbackMessage.prototype.kind = 0, 
@@ -11448,11 +12015,17 @@ $root.ADVEncryptionType = function() {
             return message;
         }, BotFeedbackMessage.toObject = function(message, options) {
             var long, object = {};
-            return (options = options || {}).defaults && (object.messageKey = null, 
-            object.kind = options.enums === String ? "BOT_FEEDBACK_POSITIVE" : 0, 
-            object.text = "", $util.Long ? (long = new $util.Long(0, 0, !0), object.kindNegative = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.kindNegative = options.longs === String ? "0" : 0, 
-            $util.Long ? (long = new $util.Long(0, 0, !0), object.kindPositive = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.kindPositive = options.longs === String ? "0" : 0, 
-            object.kindReport = options.enums === String ? "GENERIC" : 0), null != message.messageKey && message.hasOwnProperty("messageKey") && (object.messageKey = $root.MessageKey.toObject(message.messageKey, options)), 
+            if ((options = options || {}).defaults) {
+                if (object.messageKey = null, object.kind = options.enums === String ? "BOT_FEEDBACK_POSITIVE" : 0, 
+                object.text = "", $util.Long ? (long = new $util.Long(0, 0, !0), 
+                object.kindNegative = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.kindNegative = options.longs === String ? "0" : 0, 
+                $util.Long) {
+                    let long = new $util.Long(0, 0, !0);
+                    object.kindPositive = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                } else object.kindPositive = options.longs === String ? "0" : 0;
+                object.kindReport = options.enums === String ? "GENERIC" : 0;
+            }
+            return null != message.messageKey && message.hasOwnProperty("messageKey") && (object.messageKey = $root.MessageKey.toObject(message.messageKey, options)), 
             null != message.kind && message.hasOwnProperty("kind") && (object.kind = options.enums !== String || void 0 === $root.Message.BotFeedbackMessage.BotFeedbackKind[message.kind] ? message.kind : $root.Message.BotFeedbackMessage.BotFeedbackKind[message.kind]), 
             null != message.text && message.hasOwnProperty("text") && (object.text = message.text), 
             null != message.kindNegative && message.hasOwnProperty("kindNegative") && ("number" == typeof message.kindNegative ? object.kindNegative = options.longs === String ? String(message.kindNegative) : message.kindNegative : object.kindNegative = options.longs === String ? $util.Long.prototype.toString.call(message.kindNegative) : options.longs === Number ? new $util.LongBits(message.kindNegative.low >>> 0, message.kindNegative.high >>> 0).toNumber(!0) : message.kindNegative), 
@@ -11604,7 +12177,7 @@ $root.ADVEncryptionType = function() {
     }, Call), Message.VideoMessage = function() {
         function VideoMessage(properties) {
             if (this.interactiveAnnotations = [], this.annotations = [], this.processedVideos = [], 
-            properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         var valuesById, values;
         return VideoMessage.prototype.url = "", VideoMessage.prototype.mimetype = "", 
@@ -11634,7 +12207,7 @@ $root.ADVEncryptionType = function() {
             null != message.height && Object.hasOwnProperty.call(message, "height") && writer.uint32(72).uint32(message.height), 
             null != message.width && Object.hasOwnProperty.call(message, "width") && writer.uint32(80).uint32(message.width), 
             null != message.fileEncSha256 && Object.hasOwnProperty.call(message, "fileEncSha256") && writer.uint32(90).bytes(message.fileEncSha256), 
-            null != message.interactiveAnnotations && message.interactiveAnnotations.length) for (var i = 0; i < message.interactiveAnnotations.length; ++i) $root.InteractiveAnnotation.encode(message.interactiveAnnotations[i], writer.uint32(98).fork()).ldelim();
+            null != message.interactiveAnnotations && message.interactiveAnnotations.length) for (let i = 0; i < message.interactiveAnnotations.length; ++i) $root.InteractiveAnnotation.encode(message.interactiveAnnotations[i], writer.uint32(98).fork()).ldelim();
             if (null != message.directPath && Object.hasOwnProperty.call(message, "directPath") && writer.uint32(106).string(message.directPath), 
             null != message.mediaKeyTimestamp && Object.hasOwnProperty.call(message, "mediaKeyTimestamp") && writer.uint32(112).int64(message.mediaKeyTimestamp), 
             null != message.jpegThumbnail && Object.hasOwnProperty.call(message, "jpegThumbnail") && writer.uint32(130).bytes(message.jpegThumbnail), 
@@ -11646,9 +12219,9 @@ $root.ADVEncryptionType = function() {
             null != message.thumbnailSha256 && Object.hasOwnProperty.call(message, "thumbnailSha256") && writer.uint32(178).bytes(message.thumbnailSha256), 
             null != message.thumbnailEncSha256 && Object.hasOwnProperty.call(message, "thumbnailEncSha256") && writer.uint32(186).bytes(message.thumbnailEncSha256), 
             null != message.staticUrl && Object.hasOwnProperty.call(message, "staticUrl") && writer.uint32(194).string(message.staticUrl), 
-            null != message.annotations && message.annotations.length) for (i = 0; i < message.annotations.length; ++i) $root.InteractiveAnnotation.encode(message.annotations[i], writer.uint32(202).fork()).ldelim();
+            null != message.annotations && message.annotations.length) for (let i = 0; i < message.annotations.length; ++i) $root.InteractiveAnnotation.encode(message.annotations[i], writer.uint32(202).fork()).ldelim();
             if (null != message.accessibilityLabel && Object.hasOwnProperty.call(message, "accessibilityLabel") && writer.uint32(210).string(message.accessibilityLabel), 
-            null != message.processedVideos && message.processedVideos.length) for (i = 0; i < message.processedVideos.length; ++i) $root.ProcessedVideo.encode(message.processedVideos[i], writer.uint32(218).fork()).ldelim();
+            null != message.processedVideos && message.processedVideos.length) for (let i = 0; i < message.processedVideos.length; ++i) $root.ProcessedVideo.encode(message.processedVideos[i], writer.uint32(218).fork()).ldelim();
             return writer;
         }, VideoMessage.encodeDelimited = function(message, writer) {
             return this.encode(message, writer).ldelim();
@@ -11787,12 +12360,18 @@ $root.ADVEncryptionType = function() {
             if (null != message.fileEncSha256 && message.hasOwnProperty("fileEncSha256") && !(message.fileEncSha256 && "number" == typeof message.fileEncSha256.length || $util.isString(message.fileEncSha256))) return "fileEncSha256: buffer expected";
             if (null != message.interactiveAnnotations && message.hasOwnProperty("interactiveAnnotations")) {
                 if (!Array.isArray(message.interactiveAnnotations)) return "interactiveAnnotations: array expected";
-                for (var i = 0; i < message.interactiveAnnotations.length; ++i) if (error = $root.InteractiveAnnotation.verify(message.interactiveAnnotations[i])) return "interactiveAnnotations." + error;
+                for (let i = 0; i < message.interactiveAnnotations.length; ++i) {
+                    var error = $root.InteractiveAnnotation.verify(message.interactiveAnnotations[i]);
+                    if (error) return "interactiveAnnotations." + error;
+                }
             }
             if (null != message.directPath && message.hasOwnProperty("directPath") && !$util.isString(message.directPath)) return "directPath: string expected";
             if (null != message.mediaKeyTimestamp && message.hasOwnProperty("mediaKeyTimestamp") && !($util.isInteger(message.mediaKeyTimestamp) || message.mediaKeyTimestamp && $util.isInteger(message.mediaKeyTimestamp.low) && $util.isInteger(message.mediaKeyTimestamp.high))) return "mediaKeyTimestamp: integer|Long expected";
             if (null != message.jpegThumbnail && message.hasOwnProperty("jpegThumbnail") && !(message.jpegThumbnail && "number" == typeof message.jpegThumbnail.length || $util.isString(message.jpegThumbnail))) return "jpegThumbnail: buffer expected";
-            if (null != message.contextInfo && message.hasOwnProperty("contextInfo") && (error = $root.ContextInfo.verify(message.contextInfo))) return "contextInfo." + error;
+            if (null != message.contextInfo && message.hasOwnProperty("contextInfo")) {
+                let error = $root.ContextInfo.verify(message.contextInfo);
+                if (error) return "contextInfo." + error;
+            }
             if (null != message.streamingSidecar && message.hasOwnProperty("streamingSidecar") && !(message.streamingSidecar && "number" == typeof message.streamingSidecar.length || $util.isString(message.streamingSidecar))) return "streamingSidecar: buffer expected";
             if (null != message.gifAttribution && message.hasOwnProperty("gifAttribution")) switch (message.gifAttribution) {
               default:
@@ -11809,12 +12388,18 @@ $root.ADVEncryptionType = function() {
             if (null != message.staticUrl && message.hasOwnProperty("staticUrl") && !$util.isString(message.staticUrl)) return "staticUrl: string expected";
             if (null != message.annotations && message.hasOwnProperty("annotations")) {
                 if (!Array.isArray(message.annotations)) return "annotations: array expected";
-                for (i = 0; i < message.annotations.length; ++i) if (error = $root.InteractiveAnnotation.verify(message.annotations[i])) return "annotations." + error;
+                for (let i = 0; i < message.annotations.length; ++i) {
+                    let error = $root.InteractiveAnnotation.verify(message.annotations[i]);
+                    if (error) return "annotations." + error;
+                }
             }
             if (null != message.accessibilityLabel && message.hasOwnProperty("accessibilityLabel") && !$util.isString(message.accessibilityLabel)) return "accessibilityLabel: string expected";
             if (null != message.processedVideos && message.hasOwnProperty("processedVideos")) {
                 if (!Array.isArray(message.processedVideos)) return "processedVideos: array expected";
-                for (var error, i = 0; i < message.processedVideos.length; ++i) if (error = $root.ProcessedVideo.verify(message.processedVideos[i])) return "processedVideos." + error;
+                for (let i = 0; i < message.processedVideos.length; ++i) {
+                    let error = $root.ProcessedVideo.verify(message.processedVideos[i]);
+                    if (error) return "processedVideos." + error;
+                }
             }
             return null;
         }, VideoMessage.fromObject = function(object) {
@@ -11832,7 +12417,7 @@ $root.ADVEncryptionType = function() {
             object.interactiveAnnotations) {
                 if (!Array.isArray(object.interactiveAnnotations)) throw TypeError(".Message.VideoMessage.interactiveAnnotations: array expected");
                 message.interactiveAnnotations = [];
-                for (var i = 0; i < object.interactiveAnnotations.length; ++i) {
+                for (let i = 0; i < object.interactiveAnnotations.length; ++i) {
                     if ("object" != typeof object.interactiveAnnotations[i]) throw TypeError(".Message.VideoMessage.interactiveAnnotations: object expected");
                     message.interactiveAnnotations[i] = $root.InteractiveAnnotation.fromObject(object.interactiveAnnotations[i]);
                 }
@@ -11872,7 +12457,7 @@ $root.ADVEncryptionType = function() {
             object.annotations) {
                 if (!Array.isArray(object.annotations)) throw TypeError(".Message.VideoMessage.annotations: array expected");
                 message.annotations = [];
-                for (i = 0; i < object.annotations.length; ++i) {
+                for (let i = 0; i < object.annotations.length; ++i) {
                     if ("object" != typeof object.annotations[i]) throw TypeError(".Message.VideoMessage.annotations: object expected");
                     message.annotations[i] = $root.InteractiveAnnotation.fromObject(object.annotations[i]);
                 }
@@ -11881,7 +12466,7 @@ $root.ADVEncryptionType = function() {
             object.processedVideos) {
                 if (!Array.isArray(object.processedVideos)) throw TypeError(".Message.VideoMessage.processedVideos: array expected");
                 message.processedVideos = [];
-                for (i = 0; i < object.processedVideos.length; ++i) {
+                for (let i = 0; i < object.processedVideos.length; ++i) {
                     if ("object" != typeof object.processedVideos[i]) throw TypeError(".Message.VideoMessage.processedVideos: object expected");
                     message.processedVideos[i] = $root.ProcessedVideo.fromObject(object.processedVideos[i]);
                 }
@@ -11890,27 +12475,31 @@ $root.ADVEncryptionType = function() {
         }, VideoMessage.toObject = function(message, options) {
             var long, object = {};
             if (((options = options || {}).arrays || options.defaults) && (object.interactiveAnnotations = [], 
-            object.annotations = [], object.processedVideos = []), options.defaults && (object.url = "", 
-            object.mimetype = "", options.bytes === String ? object.fileSha256 = "" : (object.fileSha256 = [], 
-            options.bytes !== Array && (object.fileSha256 = $util.newBuffer(object.fileSha256))), 
-            $util.Long ? (long = new $util.Long(0, 0, !0), object.fileLength = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.fileLength = options.longs === String ? "0" : 0, 
-            object.seconds = 0, options.bytes === String ? object.mediaKey = "" : (object.mediaKey = [], 
-            options.bytes !== Array && (object.mediaKey = $util.newBuffer(object.mediaKey))), 
-            object.caption = "", object.gifPlayback = !1, object.height = 0, object.width = 0, 
-            options.bytes === String ? object.fileEncSha256 = "" : (object.fileEncSha256 = [], 
-            options.bytes !== Array && (object.fileEncSha256 = $util.newBuffer(object.fileEncSha256))), 
-            object.directPath = "", $util.Long ? (long = new $util.Long(0, 0, !1), 
-            object.mediaKeyTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.mediaKeyTimestamp = options.longs === String ? "0" : 0, 
-            options.bytes === String ? object.jpegThumbnail = "" : (object.jpegThumbnail = [], 
-            options.bytes !== Array && (object.jpegThumbnail = $util.newBuffer(object.jpegThumbnail))), 
-            object.contextInfo = null, options.bytes === String ? object.streamingSidecar = "" : (object.streamingSidecar = [], 
-            options.bytes !== Array && (object.streamingSidecar = $util.newBuffer(object.streamingSidecar))), 
-            object.gifAttribution = options.enums === String ? "NONE" : 0, object.viewOnce = !1, 
-            object.thumbnailDirectPath = "", options.bytes === String ? object.thumbnailSha256 = "" : (object.thumbnailSha256 = [], 
-            options.bytes !== Array && (object.thumbnailSha256 = $util.newBuffer(object.thumbnailSha256))), 
-            options.bytes === String ? object.thumbnailEncSha256 = "" : (object.thumbnailEncSha256 = [], 
-            options.bytes !== Array && (object.thumbnailEncSha256 = $util.newBuffer(object.thumbnailEncSha256))), 
-            object.staticUrl = "", object.accessibilityLabel = ""), null != message.url && message.hasOwnProperty("url") && (object.url = message.url), 
+            object.annotations = [], object.processedVideos = []), options.defaults) {
+                if (object.url = "", object.mimetype = "", options.bytes === String ? object.fileSha256 = "" : (object.fileSha256 = [], 
+                options.bytes !== Array && (object.fileSha256 = $util.newBuffer(object.fileSha256))), 
+                $util.Long ? (long = new $util.Long(0, 0, !0), object.fileLength = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.fileLength = options.longs === String ? "0" : 0, 
+                object.seconds = 0, options.bytes === String ? object.mediaKey = "" : (object.mediaKey = [], 
+                options.bytes !== Array && (object.mediaKey = $util.newBuffer(object.mediaKey))), 
+                object.caption = "", object.gifPlayback = !1, object.height = 0, 
+                object.width = 0, options.bytes === String ? object.fileEncSha256 = "" : (object.fileEncSha256 = [], 
+                options.bytes !== Array && (object.fileEncSha256 = $util.newBuffer(object.fileEncSha256))), 
+                object.directPath = "", $util.Long) {
+                    let long = new $util.Long(0, 0, !1);
+                    object.mediaKeyTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                } else object.mediaKeyTimestamp = options.longs === String ? "0" : 0;
+                options.bytes === String ? object.jpegThumbnail = "" : (object.jpegThumbnail = [], 
+                options.bytes !== Array && (object.jpegThumbnail = $util.newBuffer(object.jpegThumbnail))), 
+                object.contextInfo = null, options.bytes === String ? object.streamingSidecar = "" : (object.streamingSidecar = [], 
+                options.bytes !== Array && (object.streamingSidecar = $util.newBuffer(object.streamingSidecar))), 
+                object.gifAttribution = options.enums === String ? "NONE" : 0, object.viewOnce = !1, 
+                object.thumbnailDirectPath = "", options.bytes === String ? object.thumbnailSha256 = "" : (object.thumbnailSha256 = [], 
+                options.bytes !== Array && (object.thumbnailSha256 = $util.newBuffer(object.thumbnailSha256))), 
+                options.bytes === String ? object.thumbnailEncSha256 = "" : (object.thumbnailEncSha256 = [], 
+                options.bytes !== Array && (object.thumbnailEncSha256 = $util.newBuffer(object.thumbnailEncSha256))), 
+                object.staticUrl = "", object.accessibilityLabel = "";
+            }
+            if (null != message.url && message.hasOwnProperty("url") && (object.url = message.url), 
             null != message.mimetype && message.hasOwnProperty("mimetype") && (object.mimetype = message.mimetype), 
             null != message.fileSha256 && message.hasOwnProperty("fileSha256") && (object.fileSha256 = options.bytes === String ? $util.base64.encode(message.fileSha256, 0, message.fileSha256.length) : options.bytes === Array ? Array.prototype.slice.call(message.fileSha256) : message.fileSha256), 
             null != message.fileLength && message.hasOwnProperty("fileLength") && ("number" == typeof message.fileLength ? object.fileLength = options.longs === String ? String(message.fileLength) : message.fileLength : object.fileLength = options.longs === String ? $util.Long.prototype.toString.call(message.fileLength) : options.longs === Number ? new $util.LongBits(message.fileLength.low >>> 0, message.fileLength.high >>> 0).toNumber(!0) : message.fileLength), 
@@ -11923,7 +12512,7 @@ $root.ADVEncryptionType = function() {
             null != message.fileEncSha256 && message.hasOwnProperty("fileEncSha256") && (object.fileEncSha256 = options.bytes === String ? $util.base64.encode(message.fileEncSha256, 0, message.fileEncSha256.length) : options.bytes === Array ? Array.prototype.slice.call(message.fileEncSha256) : message.fileEncSha256), 
             message.interactiveAnnotations && message.interactiveAnnotations.length) {
                 object.interactiveAnnotations = [];
-                for (var j = 0; j < message.interactiveAnnotations.length; ++j) object.interactiveAnnotations[j] = $root.InteractiveAnnotation.toObject(message.interactiveAnnotations[j], options);
+                for (let j = 0; j < message.interactiveAnnotations.length; ++j) object.interactiveAnnotations[j] = $root.InteractiveAnnotation.toObject(message.interactiveAnnotations[j], options);
             }
             if (null != message.directPath && message.hasOwnProperty("directPath") && (object.directPath = message.directPath), 
             null != message.mediaKeyTimestamp && message.hasOwnProperty("mediaKeyTimestamp") && ("number" == typeof message.mediaKeyTimestamp ? object.mediaKeyTimestamp = options.longs === String ? String(message.mediaKeyTimestamp) : message.mediaKeyTimestamp : object.mediaKeyTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.mediaKeyTimestamp) : options.longs === Number ? new $util.LongBits(message.mediaKeyTimestamp.low >>> 0, message.mediaKeyTimestamp.high >>> 0).toNumber() : message.mediaKeyTimestamp), 
@@ -11938,12 +12527,12 @@ $root.ADVEncryptionType = function() {
             null != message.staticUrl && message.hasOwnProperty("staticUrl") && (object.staticUrl = message.staticUrl), 
             message.annotations && message.annotations.length) {
                 object.annotations = [];
-                for (j = 0; j < message.annotations.length; ++j) object.annotations[j] = $root.InteractiveAnnotation.toObject(message.annotations[j], options);
+                for (let j = 0; j < message.annotations.length; ++j) object.annotations[j] = $root.InteractiveAnnotation.toObject(message.annotations[j], options);
             }
             if (null != message.accessibilityLabel && message.hasOwnProperty("accessibilityLabel") && (object.accessibilityLabel = message.accessibilityLabel), 
             message.processedVideos && message.processedVideos.length) {
                 object.processedVideos = [];
-                for (j = 0; j < message.processedVideos.length; ++j) object.processedVideos[j] = $root.ProcessedVideo.toObject(message.processedVideos[j], options);
+                for (let j = 0; j < message.processedVideos.length; ++j) object.processedVideos[j] = $root.ProcessedVideo.toObject(message.processedVideos[j], options);
             }
             return object;
         }, VideoMessage.prototype.toJSON = function() {
@@ -12099,21 +12688,25 @@ $root.ADVEncryptionType = function() {
         message;
     }, AudioMessage.toObject = function(message, options) {
         var long, object = {};
-        return (options = options || {}).defaults && (object.url = "", object.mimetype = "", 
-        options.bytes === String ? object.fileSha256 = "" : (object.fileSha256 = [], 
-        options.bytes !== Array && (object.fileSha256 = $util.newBuffer(object.fileSha256))), 
-        $util.Long ? (long = new $util.Long(0, 0, !0), object.fileLength = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.fileLength = options.longs === String ? "0" : 0, 
-        object.seconds = 0, object.ptt = !1, options.bytes === String ? object.mediaKey = "" : (object.mediaKey = [], 
-        options.bytes !== Array && (object.mediaKey = $util.newBuffer(object.mediaKey))), 
-        options.bytes === String ? object.fileEncSha256 = "" : (object.fileEncSha256 = [], 
-        options.bytes !== Array && (object.fileEncSha256 = $util.newBuffer(object.fileEncSha256))), 
-        object.directPath = "", $util.Long ? (long = new $util.Long(0, 0, !1), object.mediaKeyTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.mediaKeyTimestamp = options.longs === String ? "0" : 0, 
-        object.contextInfo = null, options.bytes === String ? object.streamingSidecar = "" : (object.streamingSidecar = [], 
-        options.bytes !== Array && (object.streamingSidecar = $util.newBuffer(object.streamingSidecar))), 
-        options.bytes === String ? object.waveform = "" : (object.waveform = [], 
-        options.bytes !== Array && (object.waveform = $util.newBuffer(object.waveform))), 
-        object.backgroundArgb = 0, object.viewOnce = !1, object.accessibilityLabel = ""), 
-        null != message.url && message.hasOwnProperty("url") && (object.url = message.url), 
+        if ((options = options || {}).defaults) {
+            if (object.url = "", object.mimetype = "", options.bytes === String ? object.fileSha256 = "" : (object.fileSha256 = [], 
+            options.bytes !== Array && (object.fileSha256 = $util.newBuffer(object.fileSha256))), 
+            $util.Long ? (long = new $util.Long(0, 0, !0), object.fileLength = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.fileLength = options.longs === String ? "0" : 0, 
+            object.seconds = 0, object.ptt = !1, options.bytes === String ? object.mediaKey = "" : (object.mediaKey = [], 
+            options.bytes !== Array && (object.mediaKey = $util.newBuffer(object.mediaKey))), 
+            options.bytes === String ? object.fileEncSha256 = "" : (object.fileEncSha256 = [], 
+            options.bytes !== Array && (object.fileEncSha256 = $util.newBuffer(object.fileEncSha256))), 
+            object.directPath = "", $util.Long) {
+                let long = new $util.Long(0, 0, !1);
+                object.mediaKeyTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+            } else object.mediaKeyTimestamp = options.longs === String ? "0" : 0;
+            object.contextInfo = null, options.bytes === String ? object.streamingSidecar = "" : (object.streamingSidecar = [], 
+            options.bytes !== Array && (object.streamingSidecar = $util.newBuffer(object.streamingSidecar))), 
+            options.bytes === String ? object.waveform = "" : (object.waveform = [], 
+            options.bytes !== Array && (object.waveform = $util.newBuffer(object.waveform))), 
+            object.backgroundArgb = 0, object.viewOnce = !1, object.accessibilityLabel = "";
+        }
+        return null != message.url && message.hasOwnProperty("url") && (object.url = message.url), 
         null != message.mimetype && message.hasOwnProperty("mimetype") && (object.mimetype = message.mimetype), 
         null != message.fileSha256 && message.hasOwnProperty("fileSha256") && (object.fileSha256 = options.bytes === String ? $util.base64.encode(message.fileSha256, 0, message.fileSha256.length) : options.bytes === Array ? Array.prototype.slice.call(message.fileSha256) : message.fileSha256), 
         null != message.fileLength && message.hasOwnProperty("fileLength") && ("number" == typeof message.fileLength ? object.fileLength = options.longs === String ? String(message.fileLength) : message.fileLength : object.fileLength = options.longs === String ? $util.Long.prototype.toString.call(message.fileLength) : options.longs === Number ? new $util.LongBits(message.fileLength.low >>> 0, message.fileLength.high >>> 0).toNumber(!0) : message.fileLength), 
@@ -12318,23 +12911,28 @@ $root.ADVEncryptionType = function() {
         message;
     }, DocumentMessage.toObject = function(message, options) {
         var long, object = {};
-        return (options = options || {}).defaults && (object.url = "", object.mimetype = "", 
-        object.title = "", options.bytes === String ? object.fileSha256 = "" : (object.fileSha256 = [], 
-        options.bytes !== Array && (object.fileSha256 = $util.newBuffer(object.fileSha256))), 
-        $util.Long ? (long = new $util.Long(0, 0, !0), object.fileLength = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.fileLength = options.longs === String ? "0" : 0, 
-        object.pageCount = 0, options.bytes === String ? object.mediaKey = "" : (object.mediaKey = [], 
-        options.bytes !== Array && (object.mediaKey = $util.newBuffer(object.mediaKey))), 
-        object.fileName = "", options.bytes === String ? object.fileEncSha256 = "" : (object.fileEncSha256 = [], 
-        options.bytes !== Array && (object.fileEncSha256 = $util.newBuffer(object.fileEncSha256))), 
-        object.directPath = "", $util.Long ? (long = new $util.Long(0, 0, !1), object.mediaKeyTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.mediaKeyTimestamp = options.longs === String ? "0" : 0, 
-        object.contactVcard = !1, object.thumbnailDirectPath = "", options.bytes === String ? object.thumbnailSha256 = "" : (object.thumbnailSha256 = [], 
-        options.bytes !== Array && (object.thumbnailSha256 = $util.newBuffer(object.thumbnailSha256))), 
-        options.bytes === String ? object.thumbnailEncSha256 = "" : (object.thumbnailEncSha256 = [], 
-        options.bytes !== Array && (object.thumbnailEncSha256 = $util.newBuffer(object.thumbnailEncSha256))), 
-        options.bytes === String ? object.jpegThumbnail = "" : (object.jpegThumbnail = [], 
-        options.bytes !== Array && (object.jpegThumbnail = $util.newBuffer(object.jpegThumbnail))), 
-        object.contextInfo = null, object.thumbnailHeight = 0, object.thumbnailWidth = 0, 
-        object.caption = "", object.accessibilityLabel = ""), null != message.url && message.hasOwnProperty("url") && (object.url = message.url), 
+        if ((options = options || {}).defaults) {
+            if (object.url = "", object.mimetype = "", object.title = "", options.bytes === String ? object.fileSha256 = "" : (object.fileSha256 = [], 
+            options.bytes !== Array && (object.fileSha256 = $util.newBuffer(object.fileSha256))), 
+            $util.Long ? (long = new $util.Long(0, 0, !0), object.fileLength = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.fileLength = options.longs === String ? "0" : 0, 
+            object.pageCount = 0, options.bytes === String ? object.mediaKey = "" : (object.mediaKey = [], 
+            options.bytes !== Array && (object.mediaKey = $util.newBuffer(object.mediaKey))), 
+            object.fileName = "", options.bytes === String ? object.fileEncSha256 = "" : (object.fileEncSha256 = [], 
+            options.bytes !== Array && (object.fileEncSha256 = $util.newBuffer(object.fileEncSha256))), 
+            object.directPath = "", $util.Long) {
+                let long = new $util.Long(0, 0, !1);
+                object.mediaKeyTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+            } else object.mediaKeyTimestamp = options.longs === String ? "0" : 0;
+            object.contactVcard = !1, object.thumbnailDirectPath = "", options.bytes === String ? object.thumbnailSha256 = "" : (object.thumbnailSha256 = [], 
+            options.bytes !== Array && (object.thumbnailSha256 = $util.newBuffer(object.thumbnailSha256))), 
+            options.bytes === String ? object.thumbnailEncSha256 = "" : (object.thumbnailEncSha256 = [], 
+            options.bytes !== Array && (object.thumbnailEncSha256 = $util.newBuffer(object.thumbnailEncSha256))), 
+            options.bytes === String ? object.jpegThumbnail = "" : (object.jpegThumbnail = [], 
+            options.bytes !== Array && (object.jpegThumbnail = $util.newBuffer(object.jpegThumbnail))), 
+            object.contextInfo = null, object.thumbnailHeight = 0, object.thumbnailWidth = 0, 
+            object.caption = "", object.accessibilityLabel = "";
+        }
+        return null != message.url && message.hasOwnProperty("url") && (object.url = message.url), 
         null != message.mimetype && message.hasOwnProperty("mimetype") && (object.mimetype = message.mimetype), 
         null != message.title && message.hasOwnProperty("title") && (object.title = message.title), 
         null != message.fileSha256 && message.hasOwnProperty("fileSha256") && (object.fileSha256 = options.bytes === String ? $util.base64.encode(message.fileSha256, 0, message.fileSha256.length) : options.bytes === Array ? Array.prototype.slice.call(message.fileSha256) : message.fileSha256), 
@@ -12362,7 +12960,7 @@ $root.ADVEncryptionType = function() {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/Message.DocumentMessage";
     }, DocumentMessage), Message.ExtendedTextMessage = function() {
         function ExtendedTextMessage(properties) {
-            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         var valuesById, values;
         return ExtendedTextMessage.prototype.text = "", ExtendedTextMessage.prototype.matchedText = "", 
@@ -13017,7 +13615,7 @@ $root.ADVEncryptionType = function() {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/Message.ContactMessage";
     }, ContactMessage), Message.InvoiceMessage = function() {
         function InvoiceMessage(properties) {
-            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         var valuesById, values;
         return InvoiceMessage.prototype.note = "", InvoiceMessage.prototype.token = "", 
@@ -13165,7 +13763,7 @@ $root.ADVEncryptionType = function() {
     }(), Message.ImageMessage = function() {
         function ImageMessage(properties) {
             if (this.interactiveAnnotations = [], this.scanLengths = [], this.annotations = [], 
-            properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         var valuesById, values;
         return ImageMessage.prototype.url = "", ImageMessage.prototype.mimetype = "", 
@@ -13194,7 +13792,7 @@ $root.ADVEncryptionType = function() {
             null != message.width && Object.hasOwnProperty.call(message, "width") && writer.uint32(56).uint32(message.width), 
             null != message.mediaKey && Object.hasOwnProperty.call(message, "mediaKey") && writer.uint32(66).bytes(message.mediaKey), 
             null != message.fileEncSha256 && Object.hasOwnProperty.call(message, "fileEncSha256") && writer.uint32(74).bytes(message.fileEncSha256), 
-            null != message.interactiveAnnotations && message.interactiveAnnotations.length) for (var i = 0; i < message.interactiveAnnotations.length; ++i) $root.InteractiveAnnotation.encode(message.interactiveAnnotations[i], writer.uint32(82).fork()).ldelim();
+            null != message.interactiveAnnotations && message.interactiveAnnotations.length) for (let i = 0; i < message.interactiveAnnotations.length; ++i) $root.InteractiveAnnotation.encode(message.interactiveAnnotations[i], writer.uint32(82).fork()).ldelim();
             if (null != message.directPath && Object.hasOwnProperty.call(message, "directPath") && writer.uint32(90).string(message.directPath), 
             null != message.mediaKeyTimestamp && Object.hasOwnProperty.call(message, "mediaKeyTimestamp") && writer.uint32(96).int64(message.mediaKeyTimestamp), 
             null != message.jpegThumbnail && Object.hasOwnProperty.call(message, "jpegThumbnail") && writer.uint32(130).bytes(message.jpegThumbnail), 
@@ -13205,7 +13803,7 @@ $root.ADVEncryptionType = function() {
             null != message.scansSidecar && Object.hasOwnProperty.call(message, "scansSidecar") && writer.uint32(170).bytes(message.scansSidecar), 
             null != message.scanLengths && message.scanLengths.length) {
                 writer.uint32(178).fork();
-                for (i = 0; i < message.scanLengths.length; ++i) writer.uint32(message.scanLengths[i]);
+                for (let i = 0; i < message.scanLengths.length; ++i) writer.uint32(message.scanLengths[i]);
                 writer.ldelim();
             }
             if (null != message.midQualityFileSha256 && Object.hasOwnProperty.call(message, "midQualityFileSha256") && writer.uint32(186).bytes(message.midQualityFileSha256), 
@@ -13215,7 +13813,7 @@ $root.ADVEncryptionType = function() {
             null != message.thumbnailSha256 && Object.hasOwnProperty.call(message, "thumbnailSha256") && writer.uint32(218).bytes(message.thumbnailSha256), 
             null != message.thumbnailEncSha256 && Object.hasOwnProperty.call(message, "thumbnailEncSha256") && writer.uint32(226).bytes(message.thumbnailEncSha256), 
             null != message.staticUrl && Object.hasOwnProperty.call(message, "staticUrl") && writer.uint32(234).string(message.staticUrl), 
-            null != message.annotations && message.annotations.length) for (i = 0; i < message.annotations.length; ++i) $root.InteractiveAnnotation.encode(message.annotations[i], writer.uint32(242).fork()).ldelim();
+            null != message.annotations && message.annotations.length) for (let i = 0; i < message.annotations.length; ++i) $root.InteractiveAnnotation.encode(message.annotations[i], writer.uint32(242).fork()).ldelim();
             return null != message.imageSourceType && Object.hasOwnProperty.call(message, "imageSourceType") && writer.uint32(248).int32(message.imageSourceType), 
             null != message.accessibilityLabel && Object.hasOwnProperty.call(message, "accessibilityLabel") && writer.uint32(258).string(message.accessibilityLabel), 
             writer;
@@ -13366,19 +13964,25 @@ $root.ADVEncryptionType = function() {
             if (null != message.fileEncSha256 && message.hasOwnProperty("fileEncSha256") && !(message.fileEncSha256 && "number" == typeof message.fileEncSha256.length || $util.isString(message.fileEncSha256))) return "fileEncSha256: buffer expected";
             if (null != message.interactiveAnnotations && message.hasOwnProperty("interactiveAnnotations")) {
                 if (!Array.isArray(message.interactiveAnnotations)) return "interactiveAnnotations: array expected";
-                for (var i = 0; i < message.interactiveAnnotations.length; ++i) if (error = $root.InteractiveAnnotation.verify(message.interactiveAnnotations[i])) return "interactiveAnnotations." + error;
+                for (let i = 0; i < message.interactiveAnnotations.length; ++i) {
+                    var error = $root.InteractiveAnnotation.verify(message.interactiveAnnotations[i]);
+                    if (error) return "interactiveAnnotations." + error;
+                }
             }
             if (null != message.directPath && message.hasOwnProperty("directPath") && !$util.isString(message.directPath)) return "directPath: string expected";
             if (null != message.mediaKeyTimestamp && message.hasOwnProperty("mediaKeyTimestamp") && !($util.isInteger(message.mediaKeyTimestamp) || message.mediaKeyTimestamp && $util.isInteger(message.mediaKeyTimestamp.low) && $util.isInteger(message.mediaKeyTimestamp.high))) return "mediaKeyTimestamp: integer|Long expected";
             if (null != message.jpegThumbnail && message.hasOwnProperty("jpegThumbnail") && !(message.jpegThumbnail && "number" == typeof message.jpegThumbnail.length || $util.isString(message.jpegThumbnail))) return "jpegThumbnail: buffer expected";
-            if (null != message.contextInfo && message.hasOwnProperty("contextInfo") && (error = $root.ContextInfo.verify(message.contextInfo))) return "contextInfo." + error;
+            if (null != message.contextInfo && message.hasOwnProperty("contextInfo")) {
+                let error = $root.ContextInfo.verify(message.contextInfo);
+                if (error) return "contextInfo." + error;
+            }
             if (null != message.firstScanSidecar && message.hasOwnProperty("firstScanSidecar") && !(message.firstScanSidecar && "number" == typeof message.firstScanSidecar.length || $util.isString(message.firstScanSidecar))) return "firstScanSidecar: buffer expected";
             if (null != message.firstScanLength && message.hasOwnProperty("firstScanLength") && !$util.isInteger(message.firstScanLength)) return "firstScanLength: integer expected";
             if (null != message.experimentGroupId && message.hasOwnProperty("experimentGroupId") && !$util.isInteger(message.experimentGroupId)) return "experimentGroupId: integer expected";
             if (null != message.scansSidecar && message.hasOwnProperty("scansSidecar") && !(message.scansSidecar && "number" == typeof message.scansSidecar.length || $util.isString(message.scansSidecar))) return "scansSidecar: buffer expected";
             if (null != message.scanLengths && message.hasOwnProperty("scanLengths")) {
                 if (!Array.isArray(message.scanLengths)) return "scanLengths: array expected";
-                for (i = 0; i < message.scanLengths.length; ++i) if (!$util.isInteger(message.scanLengths[i])) return "scanLengths: integer[] expected";
+                for (let i = 0; i < message.scanLengths.length; ++i) if (!$util.isInteger(message.scanLengths[i])) return "scanLengths: integer[] expected";
             }
             if (null != message.midQualityFileSha256 && message.hasOwnProperty("midQualityFileSha256") && !(message.midQualityFileSha256 && "number" == typeof message.midQualityFileSha256.length || $util.isString(message.midQualityFileSha256))) return "midQualityFileSha256: buffer expected";
             if (null != message.midQualityFileEncSha256 && message.hasOwnProperty("midQualityFileEncSha256") && !(message.midQualityFileEncSha256 && "number" == typeof message.midQualityFileEncSha256.length || $util.isString(message.midQualityFileEncSha256))) return "midQualityFileEncSha256: buffer expected";
@@ -13389,7 +13993,10 @@ $root.ADVEncryptionType = function() {
             if (null != message.staticUrl && message.hasOwnProperty("staticUrl") && !$util.isString(message.staticUrl)) return "staticUrl: string expected";
             if (null != message.annotations && message.hasOwnProperty("annotations")) {
                 if (!Array.isArray(message.annotations)) return "annotations: array expected";
-                for (var error, i = 0; i < message.annotations.length; ++i) if (error = $root.InteractiveAnnotation.verify(message.annotations[i])) return "annotations." + error;
+                for (let i = 0; i < message.annotations.length; ++i) {
+                    let error = $root.InteractiveAnnotation.verify(message.annotations[i]);
+                    if (error) return "annotations." + error;
+                }
             }
             if (null != message.imageSourceType && message.hasOwnProperty("imageSourceType")) switch (message.imageSourceType) {
               default:
@@ -13413,7 +14020,7 @@ $root.ADVEncryptionType = function() {
             object.interactiveAnnotations) {
                 if (!Array.isArray(object.interactiveAnnotations)) throw TypeError(".Message.ImageMessage.interactiveAnnotations: array expected");
                 message.interactiveAnnotations = [];
-                for (var i = 0; i < object.interactiveAnnotations.length; ++i) {
+                for (let i = 0; i < object.interactiveAnnotations.length; ++i) {
                     if ("object" != typeof object.interactiveAnnotations[i]) throw TypeError(".Message.ImageMessage.interactiveAnnotations: object expected");
                     message.interactiveAnnotations[i] = $root.InteractiveAnnotation.fromObject(object.interactiveAnnotations[i]);
                 }
@@ -13432,7 +14039,7 @@ $root.ADVEncryptionType = function() {
             object.scanLengths) {
                 if (!Array.isArray(object.scanLengths)) throw TypeError(".Message.ImageMessage.scanLengths: array expected");
                 message.scanLengths = [];
-                for (i = 0; i < object.scanLengths.length; ++i) message.scanLengths[i] = object.scanLengths[i] >>> 0;
+                for (let i = 0; i < object.scanLengths.length; ++i) message.scanLengths[i] = object.scanLengths[i] >>> 0;
             }
             if (null != object.midQualityFileSha256 && ("string" == typeof object.midQualityFileSha256 ? $util.base64.decode(object.midQualityFileSha256, message.midQualityFileSha256 = $util.newBuffer($util.base64.length(object.midQualityFileSha256)), 0) : 0 <= object.midQualityFileSha256.length && (message.midQualityFileSha256 = object.midQualityFileSha256)), 
             null != object.midQualityFileEncSha256 && ("string" == typeof object.midQualityFileEncSha256 ? $util.base64.decode(object.midQualityFileEncSha256, message.midQualityFileEncSha256 = $util.newBuffer($util.base64.length(object.midQualityFileEncSha256)), 0) : 0 <= object.midQualityFileEncSha256.length && (message.midQualityFileEncSha256 = object.midQualityFileEncSha256)), 
@@ -13444,7 +14051,7 @@ $root.ADVEncryptionType = function() {
             object.annotations) {
                 if (!Array.isArray(object.annotations)) throw TypeError(".Message.ImageMessage.annotations: array expected");
                 message.annotations = [];
-                for (i = 0; i < object.annotations.length; ++i) {
+                for (let i = 0; i < object.annotations.length; ++i) {
                     if ("object" != typeof object.annotations[i]) throw TypeError(".Message.ImageMessage.annotations: object expected");
                     message.annotations[i] = $root.InteractiveAnnotation.fromObject(object.annotations[i]);
                 }
@@ -13473,32 +14080,37 @@ $root.ADVEncryptionType = function() {
         }, ImageMessage.toObject = function(message, options) {
             var long, object = {};
             if (((options = options || {}).arrays || options.defaults) && (object.interactiveAnnotations = [], 
-            object.scanLengths = [], object.annotations = []), options.defaults && (object.url = "", 
-            object.mimetype = "", object.caption = "", options.bytes === String ? object.fileSha256 = "" : (object.fileSha256 = [], 
-            options.bytes !== Array && (object.fileSha256 = $util.newBuffer(object.fileSha256))), 
-            $util.Long ? (long = new $util.Long(0, 0, !0), object.fileLength = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.fileLength = options.longs === String ? "0" : 0, 
-            object.height = 0, object.width = 0, options.bytes === String ? object.mediaKey = "" : (object.mediaKey = [], 
-            options.bytes !== Array && (object.mediaKey = $util.newBuffer(object.mediaKey))), 
-            options.bytes === String ? object.fileEncSha256 = "" : (object.fileEncSha256 = [], 
-            options.bytes !== Array && (object.fileEncSha256 = $util.newBuffer(object.fileEncSha256))), 
-            object.directPath = "", $util.Long ? (long = new $util.Long(0, 0, !1), 
-            object.mediaKeyTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.mediaKeyTimestamp = options.longs === String ? "0" : 0, 
-            options.bytes === String ? object.jpegThumbnail = "" : (object.jpegThumbnail = [], 
-            options.bytes !== Array && (object.jpegThumbnail = $util.newBuffer(object.jpegThumbnail))), 
-            object.contextInfo = null, options.bytes === String ? object.firstScanSidecar = "" : (object.firstScanSidecar = [], 
-            options.bytes !== Array && (object.firstScanSidecar = $util.newBuffer(object.firstScanSidecar))), 
-            object.firstScanLength = 0, object.experimentGroupId = 0, options.bytes === String ? object.scansSidecar = "" : (object.scansSidecar = [], 
-            options.bytes !== Array && (object.scansSidecar = $util.newBuffer(object.scansSidecar))), 
-            options.bytes === String ? object.midQualityFileSha256 = "" : (object.midQualityFileSha256 = [], 
-            options.bytes !== Array && (object.midQualityFileSha256 = $util.newBuffer(object.midQualityFileSha256))), 
-            options.bytes === String ? object.midQualityFileEncSha256 = "" : (object.midQualityFileEncSha256 = [], 
-            options.bytes !== Array && (object.midQualityFileEncSha256 = $util.newBuffer(object.midQualityFileEncSha256))), 
-            object.viewOnce = !1, object.thumbnailDirectPath = "", options.bytes === String ? object.thumbnailSha256 = "" : (object.thumbnailSha256 = [], 
-            options.bytes !== Array && (object.thumbnailSha256 = $util.newBuffer(object.thumbnailSha256))), 
-            options.bytes === String ? object.thumbnailEncSha256 = "" : (object.thumbnailEncSha256 = [], 
-            options.bytes !== Array && (object.thumbnailEncSha256 = $util.newBuffer(object.thumbnailEncSha256))), 
-            object.staticUrl = "", object.imageSourceType = options.enums === String ? "USER_IMAGE" : 0, 
-            object.accessibilityLabel = ""), null != message.url && message.hasOwnProperty("url") && (object.url = message.url), 
+            object.scanLengths = [], object.annotations = []), options.defaults) {
+                if (object.url = "", object.mimetype = "", object.caption = "", 
+                options.bytes === String ? object.fileSha256 = "" : (object.fileSha256 = [], 
+                options.bytes !== Array && (object.fileSha256 = $util.newBuffer(object.fileSha256))), 
+                $util.Long ? (long = new $util.Long(0, 0, !0), object.fileLength = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.fileLength = options.longs === String ? "0" : 0, 
+                object.height = 0, object.width = 0, options.bytes === String ? object.mediaKey = "" : (object.mediaKey = [], 
+                options.bytes !== Array && (object.mediaKey = $util.newBuffer(object.mediaKey))), 
+                options.bytes === String ? object.fileEncSha256 = "" : (object.fileEncSha256 = [], 
+                options.bytes !== Array && (object.fileEncSha256 = $util.newBuffer(object.fileEncSha256))), 
+                object.directPath = "", $util.Long) {
+                    let long = new $util.Long(0, 0, !1);
+                    object.mediaKeyTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                } else object.mediaKeyTimestamp = options.longs === String ? "0" : 0;
+                options.bytes === String ? object.jpegThumbnail = "" : (object.jpegThumbnail = [], 
+                options.bytes !== Array && (object.jpegThumbnail = $util.newBuffer(object.jpegThumbnail))), 
+                object.contextInfo = null, options.bytes === String ? object.firstScanSidecar = "" : (object.firstScanSidecar = [], 
+                options.bytes !== Array && (object.firstScanSidecar = $util.newBuffer(object.firstScanSidecar))), 
+                object.firstScanLength = 0, object.experimentGroupId = 0, options.bytes === String ? object.scansSidecar = "" : (object.scansSidecar = [], 
+                options.bytes !== Array && (object.scansSidecar = $util.newBuffer(object.scansSidecar))), 
+                options.bytes === String ? object.midQualityFileSha256 = "" : (object.midQualityFileSha256 = [], 
+                options.bytes !== Array && (object.midQualityFileSha256 = $util.newBuffer(object.midQualityFileSha256))), 
+                options.bytes === String ? object.midQualityFileEncSha256 = "" : (object.midQualityFileEncSha256 = [], 
+                options.bytes !== Array && (object.midQualityFileEncSha256 = $util.newBuffer(object.midQualityFileEncSha256))), 
+                object.viewOnce = !1, object.thumbnailDirectPath = "", options.bytes === String ? object.thumbnailSha256 = "" : (object.thumbnailSha256 = [], 
+                options.bytes !== Array && (object.thumbnailSha256 = $util.newBuffer(object.thumbnailSha256))), 
+                options.bytes === String ? object.thumbnailEncSha256 = "" : (object.thumbnailEncSha256 = [], 
+                options.bytes !== Array && (object.thumbnailEncSha256 = $util.newBuffer(object.thumbnailEncSha256))), 
+                object.staticUrl = "", object.imageSourceType = options.enums === String ? "USER_IMAGE" : 0, 
+                object.accessibilityLabel = "";
+            }
+            if (null != message.url && message.hasOwnProperty("url") && (object.url = message.url), 
             null != message.mimetype && message.hasOwnProperty("mimetype") && (object.mimetype = message.mimetype), 
             null != message.caption && message.hasOwnProperty("caption") && (object.caption = message.caption), 
             null != message.fileSha256 && message.hasOwnProperty("fileSha256") && (object.fileSha256 = options.bytes === String ? $util.base64.encode(message.fileSha256, 0, message.fileSha256.length) : options.bytes === Array ? Array.prototype.slice.call(message.fileSha256) : message.fileSha256), 
@@ -13509,7 +14121,7 @@ $root.ADVEncryptionType = function() {
             null != message.fileEncSha256 && message.hasOwnProperty("fileEncSha256") && (object.fileEncSha256 = options.bytes === String ? $util.base64.encode(message.fileEncSha256, 0, message.fileEncSha256.length) : options.bytes === Array ? Array.prototype.slice.call(message.fileEncSha256) : message.fileEncSha256), 
             message.interactiveAnnotations && message.interactiveAnnotations.length) {
                 object.interactiveAnnotations = [];
-                for (var j = 0; j < message.interactiveAnnotations.length; ++j) object.interactiveAnnotations[j] = $root.InteractiveAnnotation.toObject(message.interactiveAnnotations[j], options);
+                for (let j = 0; j < message.interactiveAnnotations.length; ++j) object.interactiveAnnotations[j] = $root.InteractiveAnnotation.toObject(message.interactiveAnnotations[j], options);
             }
             if (null != message.directPath && message.hasOwnProperty("directPath") && (object.directPath = message.directPath), 
             null != message.mediaKeyTimestamp && message.hasOwnProperty("mediaKeyTimestamp") && ("number" == typeof message.mediaKeyTimestamp ? object.mediaKeyTimestamp = options.longs === String ? String(message.mediaKeyTimestamp) : message.mediaKeyTimestamp : object.mediaKeyTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.mediaKeyTimestamp) : options.longs === Number ? new $util.LongBits(message.mediaKeyTimestamp.low >>> 0, message.mediaKeyTimestamp.high >>> 0).toNumber() : message.mediaKeyTimestamp), 
@@ -13521,7 +14133,7 @@ $root.ADVEncryptionType = function() {
             null != message.scansSidecar && message.hasOwnProperty("scansSidecar") && (object.scansSidecar = options.bytes === String ? $util.base64.encode(message.scansSidecar, 0, message.scansSidecar.length) : options.bytes === Array ? Array.prototype.slice.call(message.scansSidecar) : message.scansSidecar), 
             message.scanLengths && message.scanLengths.length) {
                 object.scanLengths = [];
-                for (j = 0; j < message.scanLengths.length; ++j) object.scanLengths[j] = message.scanLengths[j];
+                for (let j = 0; j < message.scanLengths.length; ++j) object.scanLengths[j] = message.scanLengths[j];
             }
             if (null != message.midQualityFileSha256 && message.hasOwnProperty("midQualityFileSha256") && (object.midQualityFileSha256 = options.bytes === String ? $util.base64.encode(message.midQualityFileSha256, 0, message.midQualityFileSha256.length) : options.bytes === Array ? Array.prototype.slice.call(message.midQualityFileSha256) : message.midQualityFileSha256), 
             null != message.midQualityFileEncSha256 && message.hasOwnProperty("midQualityFileEncSha256") && (object.midQualityFileEncSha256 = options.bytes === String ? $util.base64.encode(message.midQualityFileEncSha256, 0, message.midQualityFileEncSha256.length) : options.bytes === Array ? Array.prototype.slice.call(message.midQualityFileEncSha256) : message.midQualityFileEncSha256), 
@@ -13532,7 +14144,7 @@ $root.ADVEncryptionType = function() {
             null != message.staticUrl && message.hasOwnProperty("staticUrl") && (object.staticUrl = message.staticUrl), 
             message.annotations && message.annotations.length) {
                 object.annotations = [];
-                for (j = 0; j < message.annotations.length; ++j) object.annotations[j] = $root.InteractiveAnnotation.toObject(message.annotations[j], options);
+                for (let j = 0; j < message.annotations.length; ++j) object.annotations[j] = $root.InteractiveAnnotation.toObject(message.annotations[j], options);
             }
             return null != message.imageSourceType && message.hasOwnProperty("imageSourceType") && (object.imageSourceType = options.enums !== String || void 0 === $root.Message.ImageMessage.ImageSourceType[message.imageSourceType] ? message.imageSourceType : $root.Message.ImageMessage.ImageSourceType[message.imageSourceType]), 
             null != message.accessibilityLabel && message.hasOwnProperty("accessibilityLabel") && (object.accessibilityLabel = message.accessibilityLabel), 
@@ -13593,25 +14205,25 @@ $root.ADVEncryptionType = function() {
     }, SenderKeyDistributionMessage.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/Message.SenderKeyDistributionMessage";
     }, SenderKeyDistributionMessage), Message;
-}(), $root.ContextInfo = function() {
+})(), ContextInfo = $root.ContextInfo = (() => {
     function ContextInfo(properties) {
-        if (this.mentionedJid = [], this.groupMentions = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (this.mentionedJid = [], this.groupMentions = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function FeatureEligibilities(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function DataSharingContext(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function ForwardedNewsletterMessageInfo(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     var valuesById, values;
     function UTMInfo(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function BusinessMessageForwardInfo(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return ContextInfo.prototype.stanzaId = "", ContextInfo.prototype.participant = "", 
     ContextInfo.prototype.quotedMessage = null, ContextInfo.prototype.remoteJid = "", 
@@ -13637,7 +14249,7 @@ $root.ADVEncryptionType = function() {
         null != message.participant && Object.hasOwnProperty.call(message, "participant") && writer.uint32(18).string(message.participant), 
         null != message.quotedMessage && Object.hasOwnProperty.call(message, "quotedMessage") && $root.Message.encode(message.quotedMessage, writer.uint32(26).fork()).ldelim(), 
         null != message.remoteJid && Object.hasOwnProperty.call(message, "remoteJid") && writer.uint32(34).string(message.remoteJid), 
-        null != message.mentionedJid && message.mentionedJid.length) for (var i = 0; i < message.mentionedJid.length; ++i) writer.uint32(122).string(message.mentionedJid[i]);
+        null != message.mentionedJid && message.mentionedJid.length) for (let i = 0; i < message.mentionedJid.length; ++i) writer.uint32(122).string(message.mentionedJid[i]);
         if (null != message.conversionSource && Object.hasOwnProperty.call(message, "conversionSource") && writer.uint32(146).string(message.conversionSource), 
         null != message.conversionData && Object.hasOwnProperty.call(message, "conversionData") && writer.uint32(154).bytes(message.conversionData), 
         null != message.conversionDelaySeconds && Object.hasOwnProperty.call(message, "conversionDelaySeconds") && writer.uint32(160).uint32(message.conversionDelaySeconds), 
@@ -13659,7 +14271,7 @@ $root.ADVEncryptionType = function() {
         null != message.trustBannerType && Object.hasOwnProperty.call(message, "trustBannerType") && writer.uint32(298).string(message.trustBannerType), 
         null != message.trustBannerAction && Object.hasOwnProperty.call(message, "trustBannerAction") && writer.uint32(304).uint32(message.trustBannerAction), 
         null != message.isSampled && Object.hasOwnProperty.call(message, "isSampled") && writer.uint32(312).bool(message.isSampled), 
-        null != message.groupMentions && message.groupMentions.length) for (i = 0; i < message.groupMentions.length; ++i) $root.GroupMention.encode(message.groupMentions[i], writer.uint32(322).fork()).ldelim();
+        null != message.groupMentions && message.groupMentions.length) for (let i = 0; i < message.groupMentions.length; ++i) $root.GroupMention.encode(message.groupMentions[i], writer.uint32(322).fork()).ldelim();
         return null != message.utm && Object.hasOwnProperty.call(message, "utm") && $root.ContextInfo.UTMInfo.encode(message.utm, writer.uint32(330).fork()).ldelim(), 
         null != message.forwardedNewsletterMessageInfo && Object.hasOwnProperty.call(message, "forwardedNewsletterMessageInfo") && $root.ContextInfo.ForwardedNewsletterMessageInfo.encode(message.forwardedNewsletterMessageInfo, writer.uint32(346).fork()).ldelim(), 
         null != message.businessMessageForwardInfo && Object.hasOwnProperty.call(message, "businessMessageForwardInfo") && $root.ContextInfo.BusinessMessageForwardInfo.encode(message.businessMessageForwardInfo, writer.uint32(354).fork()).ldelim(), 
@@ -13829,28 +14441,46 @@ $root.ADVEncryptionType = function() {
         if ("object" != typeof message || null === message) return "object expected";
         if (null != message.stanzaId && message.hasOwnProperty("stanzaId") && !$util.isString(message.stanzaId)) return "stanzaId: string expected";
         if (null != message.participant && message.hasOwnProperty("participant") && !$util.isString(message.participant)) return "participant: string expected";
-        if (null != message.quotedMessage && message.hasOwnProperty("quotedMessage") && (error = $root.Message.verify(message.quotedMessage))) return "quotedMessage." + error;
+        if (null != message.quotedMessage && message.hasOwnProperty("quotedMessage")) {
+            var error = $root.Message.verify(message.quotedMessage);
+            if (error) return "quotedMessage." + error;
+        }
         if (null != message.remoteJid && message.hasOwnProperty("remoteJid") && !$util.isString(message.remoteJid)) return "remoteJid: string expected";
         if (null != message.mentionedJid && message.hasOwnProperty("mentionedJid")) {
             if (!Array.isArray(message.mentionedJid)) return "mentionedJid: array expected";
-            for (var i = 0; i < message.mentionedJid.length; ++i) if (!$util.isString(message.mentionedJid[i])) return "mentionedJid: string[] expected";
+            for (let i = 0; i < message.mentionedJid.length; ++i) if (!$util.isString(message.mentionedJid[i])) return "mentionedJid: string[] expected";
         }
         if (null != message.conversionSource && message.hasOwnProperty("conversionSource") && !$util.isString(message.conversionSource)) return "conversionSource: string expected";
         if (null != message.conversionData && message.hasOwnProperty("conversionData") && !(message.conversionData && "number" == typeof message.conversionData.length || $util.isString(message.conversionData))) return "conversionData: buffer expected";
         if (null != message.conversionDelaySeconds && message.hasOwnProperty("conversionDelaySeconds") && !$util.isInteger(message.conversionDelaySeconds)) return "conversionDelaySeconds: integer expected";
         if (null != message.forwardingScore && message.hasOwnProperty("forwardingScore") && !$util.isInteger(message.forwardingScore)) return "forwardingScore: integer expected";
         if (null != message.isForwarded && message.hasOwnProperty("isForwarded") && "boolean" != typeof message.isForwarded) return "isForwarded: boolean expected";
-        if (null != message.quotedAd && message.hasOwnProperty("quotedAd") && (error = $root.ContextInfo.AdReplyInfo.verify(message.quotedAd))) return "quotedAd." + error;
-        if (null != message.placeholderKey && message.hasOwnProperty("placeholderKey") && (error = $root.MessageKey.verify(message.placeholderKey))) return "placeholderKey." + error;
+        if (null != message.quotedAd && message.hasOwnProperty("quotedAd")) {
+            let error = $root.ContextInfo.AdReplyInfo.verify(message.quotedAd);
+            if (error) return "quotedAd." + error;
+        }
+        if (null != message.placeholderKey && message.hasOwnProperty("placeholderKey")) {
+            let error = $root.MessageKey.verify(message.placeholderKey);
+            if (error) return "placeholderKey." + error;
+        }
         if (null != message.expiration && message.hasOwnProperty("expiration") && !$util.isInteger(message.expiration)) return "expiration: integer expected";
         if (null != message.ephemeralSettingTimestamp && message.hasOwnProperty("ephemeralSettingTimestamp") && !($util.isInteger(message.ephemeralSettingTimestamp) || message.ephemeralSettingTimestamp && $util.isInteger(message.ephemeralSettingTimestamp.low) && $util.isInteger(message.ephemeralSettingTimestamp.high))) return "ephemeralSettingTimestamp: integer|Long expected";
         if (null != message.ephemeralSharedSecret && message.hasOwnProperty("ephemeralSharedSecret") && !(message.ephemeralSharedSecret && "number" == typeof message.ephemeralSharedSecret.length || $util.isString(message.ephemeralSharedSecret))) return "ephemeralSharedSecret: buffer expected";
-        if (null != message.externalAdReply && message.hasOwnProperty("externalAdReply") && (error = $root.ContextInfo.ExternalAdReplyInfo.verify(message.externalAdReply))) return "externalAdReply." + error;
+        if (null != message.externalAdReply && message.hasOwnProperty("externalAdReply")) {
+            let error = $root.ContextInfo.ExternalAdReplyInfo.verify(message.externalAdReply);
+            if (error) return "externalAdReply." + error;
+        }
         if (null != message.entryPointConversionSource && message.hasOwnProperty("entryPointConversionSource") && !$util.isString(message.entryPointConversionSource)) return "entryPointConversionSource: string expected";
         if (null != message.entryPointConversionApp && message.hasOwnProperty("entryPointConversionApp") && !$util.isString(message.entryPointConversionApp)) return "entryPointConversionApp: string expected";
         if (null != message.entryPointConversionDelaySeconds && message.hasOwnProperty("entryPointConversionDelaySeconds") && !$util.isInteger(message.entryPointConversionDelaySeconds)) return "entryPointConversionDelaySeconds: integer expected";
-        if (null != message.disappearingMode && message.hasOwnProperty("disappearingMode") && (error = $root.DisappearingMode.verify(message.disappearingMode))) return "disappearingMode." + error;
-        if (null != message.actionLink && message.hasOwnProperty("actionLink") && (error = $root.ActionLink.verify(message.actionLink))) return "actionLink." + error;
+        if (null != message.disappearingMode && message.hasOwnProperty("disappearingMode")) {
+            let error = $root.DisappearingMode.verify(message.disappearingMode);
+            if (error) return "disappearingMode." + error;
+        }
+        if (null != message.actionLink && message.hasOwnProperty("actionLink")) {
+            let error = $root.ActionLink.verify(message.actionLink);
+            if (error) return "actionLink." + error;
+        }
         if (null != message.groupSubject && message.hasOwnProperty("groupSubject") && !$util.isString(message.groupSubject)) return "groupSubject: string expected";
         if (null != message.parentGroupJid && message.hasOwnProperty("parentGroupJid") && !$util.isString(message.parentGroupJid)) return "parentGroupJid: string expected";
         if (null != message.trustBannerType && message.hasOwnProperty("trustBannerType") && !$util.isString(message.trustBannerType)) return "trustBannerType: string expected";
@@ -13858,16 +14488,34 @@ $root.ADVEncryptionType = function() {
         if (null != message.isSampled && message.hasOwnProperty("isSampled") && "boolean" != typeof message.isSampled) return "isSampled: boolean expected";
         if (null != message.groupMentions && message.hasOwnProperty("groupMentions")) {
             if (!Array.isArray(message.groupMentions)) return "groupMentions: array expected";
-            for (var error, i = 0; i < message.groupMentions.length; ++i) if (error = $root.GroupMention.verify(message.groupMentions[i])) return "groupMentions." + error;
+            for (let i = 0; i < message.groupMentions.length; ++i) {
+                let error = $root.GroupMention.verify(message.groupMentions[i]);
+                if (error) return "groupMentions." + error;
+            }
         }
-        if (null != message.utm && message.hasOwnProperty("utm") && (error = $root.ContextInfo.UTMInfo.verify(message.utm))) return "utm." + error;
-        if (null != message.forwardedNewsletterMessageInfo && message.hasOwnProperty("forwardedNewsletterMessageInfo") && (error = $root.ContextInfo.ForwardedNewsletterMessageInfo.verify(message.forwardedNewsletterMessageInfo))) return "forwardedNewsletterMessageInfo." + error;
-        if (null != message.businessMessageForwardInfo && message.hasOwnProperty("businessMessageForwardInfo") && (error = $root.ContextInfo.BusinessMessageForwardInfo.verify(message.businessMessageForwardInfo))) return "businessMessageForwardInfo." + error;
+        if (null != message.utm && message.hasOwnProperty("utm")) {
+            let error = $root.ContextInfo.UTMInfo.verify(message.utm);
+            if (error) return "utm." + error;
+        }
+        if (null != message.forwardedNewsletterMessageInfo && message.hasOwnProperty("forwardedNewsletterMessageInfo")) {
+            let error = $root.ContextInfo.ForwardedNewsletterMessageInfo.verify(message.forwardedNewsletterMessageInfo);
+            if (error) return "forwardedNewsletterMessageInfo." + error;
+        }
+        if (null != message.businessMessageForwardInfo && message.hasOwnProperty("businessMessageForwardInfo")) {
+            let error = $root.ContextInfo.BusinessMessageForwardInfo.verify(message.businessMessageForwardInfo);
+            if (error) return "businessMessageForwardInfo." + error;
+        }
         if (null != message.smbClientCampaignId && message.hasOwnProperty("smbClientCampaignId") && !$util.isString(message.smbClientCampaignId)) return "smbClientCampaignId: string expected";
         if (null != message.smbServerCampaignId && message.hasOwnProperty("smbServerCampaignId") && !$util.isString(message.smbServerCampaignId)) return "smbServerCampaignId: string expected";
-        if (null != message.dataSharingContext && message.hasOwnProperty("dataSharingContext") && (error = $root.ContextInfo.DataSharingContext.verify(message.dataSharingContext))) return "dataSharingContext." + error;
+        if (null != message.dataSharingContext && message.hasOwnProperty("dataSharingContext")) {
+            let error = $root.ContextInfo.DataSharingContext.verify(message.dataSharingContext);
+            if (error) return "dataSharingContext." + error;
+        }
         if (null != message.alwaysShowAdAttribution && message.hasOwnProperty("alwaysShowAdAttribution") && "boolean" != typeof message.alwaysShowAdAttribution) return "alwaysShowAdAttribution: boolean expected";
-        if (null != message.featureEligibilities && message.hasOwnProperty("featureEligibilities") && (error = $root.ContextInfo.FeatureEligibilities.verify(message.featureEligibilities))) return "featureEligibilities." + error;
+        if (null != message.featureEligibilities && message.hasOwnProperty("featureEligibilities")) {
+            let error = $root.ContextInfo.FeatureEligibilities.verify(message.featureEligibilities);
+            if (error) return "featureEligibilities." + error;
+        }
         return null;
     }, ContextInfo.fromObject = function(object) {
         if (object instanceof $root.ContextInfo) return object;
@@ -13882,7 +14530,7 @@ $root.ADVEncryptionType = function() {
         object.mentionedJid) {
             if (!Array.isArray(object.mentionedJid)) throw TypeError(".ContextInfo.mentionedJid: array expected");
             message.mentionedJid = [];
-            for (var i = 0; i < object.mentionedJid.length; ++i) message.mentionedJid[i] = String(object.mentionedJid[i]);
+            for (let i = 0; i < object.mentionedJid.length; ++i) message.mentionedJid[i] = String(object.mentionedJid[i]);
         }
         if (null != object.conversionSource && (message.conversionSource = String(object.conversionSource)), 
         null != object.conversionData && ("string" == typeof object.conversionData ? $util.base64.decode(object.conversionData, message.conversionData = $util.newBuffer($util.base64.length(object.conversionData)), 0) : 0 <= object.conversionData.length && (message.conversionData = object.conversionData)), 
@@ -13923,7 +14571,7 @@ $root.ADVEncryptionType = function() {
         object.groupMentions) {
             if (!Array.isArray(object.groupMentions)) throw TypeError(".ContextInfo.groupMentions: array expected");
             message.groupMentions = [];
-            for (i = 0; i < object.groupMentions.length; ++i) {
+            for (let i = 0; i < object.groupMentions.length; ++i) {
                 if ("object" != typeof object.groupMentions[i]) throw TypeError(".ContextInfo.groupMentions: object expected");
                 message.groupMentions[i] = $root.GroupMention.fromObject(object.groupMentions[i]);
             }
@@ -13977,7 +14625,7 @@ $root.ADVEncryptionType = function() {
         null != message.remoteJid && message.hasOwnProperty("remoteJid") && (object.remoteJid = message.remoteJid), 
         message.mentionedJid && message.mentionedJid.length) {
             object.mentionedJid = [];
-            for (var j = 0; j < message.mentionedJid.length; ++j) object.mentionedJid[j] = message.mentionedJid[j];
+            for (let j = 0; j < message.mentionedJid.length; ++j) object.mentionedJid[j] = message.mentionedJid[j];
         }
         if (null != message.conversionSource && message.hasOwnProperty("conversionSource") && (object.conversionSource = message.conversionSource), 
         null != message.conversionData && message.hasOwnProperty("conversionData") && (object.conversionData = options.bytes === String ? $util.base64.encode(message.conversionData, 0, message.conversionData.length) : options.bytes === Array ? Array.prototype.slice.call(message.conversionData) : message.conversionData), 
@@ -14002,7 +14650,7 @@ $root.ADVEncryptionType = function() {
         null != message.isSampled && message.hasOwnProperty("isSampled") && (object.isSampled = message.isSampled), 
         message.groupMentions && message.groupMentions.length) {
             object.groupMentions = [];
-            for (j = 0; j < message.groupMentions.length; ++j) object.groupMentions[j] = $root.GroupMention.toObject(message.groupMentions[j], options);
+            for (let j = 0; j < message.groupMentions.length; ++j) object.groupMentions[j] = $root.GroupMention.toObject(message.groupMentions[j], options);
         }
         return null != message.utm && message.hasOwnProperty("utm") && (object.utm = $root.ContextInfo.UTMInfo.toObject(message.utm, options)), 
         null != message.forwardedNewsletterMessageInfo && message.hasOwnProperty("forwardedNewsletterMessageInfo") && (object.forwardedNewsletterMessageInfo = $root.ContextInfo.ForwardedNewsletterMessageInfo.toObject(message.forwardedNewsletterMessageInfo, options)), 
@@ -14249,7 +14897,7 @@ $root.ADVEncryptionType = function() {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/ContextInfo.UTMInfo";
     }, UTMInfo), ContextInfo.ExternalAdReplyInfo = function() {
         function ExternalAdReplyInfo(properties) {
-            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         var valuesById, values;
         return ExternalAdReplyInfo.prototype.title = "", ExternalAdReplyInfo.prototype.body = "", 
@@ -14427,7 +15075,7 @@ $root.ADVEncryptionType = function() {
         values), ExternalAdReplyInfo;
     }(), ContextInfo.AdReplyInfo = function() {
         function AdReplyInfo(properties) {
-            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         var valuesById, values;
         return AdReplyInfo.prototype.advertiserName = "", AdReplyInfo.prototype.mediaType = 0, 
@@ -14560,9 +15208,9 @@ $root.ADVEncryptionType = function() {
     }, BusinessMessageForwardInfo.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/ContextInfo.BusinessMessageForwardInfo";
     }, BusinessMessageForwardInfo), ContextInfo;
-}(), $root.BotAvatarMetadata = function() {
+})(), BotAvatarMetadata = $root.BotAvatarMetadata = (() => {
     function BotAvatarMetadata(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return BotAvatarMetadata.prototype.sentiment = 0, BotAvatarMetadata.prototype.behaviorGraph = "", 
     BotAvatarMetadata.prototype.action = 0, BotAvatarMetadata.prototype.intensity = 0, 
@@ -14633,9 +15281,9 @@ $root.ADVEncryptionType = function() {
     }, BotAvatarMetadata.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/BotAvatarMetadata";
     }, BotAvatarMetadata;
-}(), $root.BotPluginMetadata = function() {
+})(), BotPluginMetadata = $root.BotPluginMetadata = (() => {
     function BotPluginMetadata(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     var valuesById, values;
     return BotPluginMetadata.prototype.provider = 1, BotPluginMetadata.prototype.pluginType = 1, 
@@ -14828,15 +15476,15 @@ $root.ADVEncryptionType = function() {
         return values[valuesById[1] = "BING"] = 1, values[valuesById[2] = "GOOGLE"] = 2, 
         values;
     }(), BotPluginMetadata;
-}(), $root.BotSuggestedPromptMetadata = function() {
+})(), BotSuggestedPromptMetadata = $root.BotSuggestedPromptMetadata = (() => {
     function BotSuggestedPromptMetadata(properties) {
-        if (this.suggestedPrompts = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (this.suggestedPrompts = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return BotSuggestedPromptMetadata.prototype.suggestedPrompts = $util.emptyArray, 
     BotSuggestedPromptMetadata.prototype.selectedPromptIndex = 0, BotSuggestedPromptMetadata.create = function(properties) {
         return new BotSuggestedPromptMetadata(properties);
     }, BotSuggestedPromptMetadata.encode = function(message, writer) {
-        if (writer = writer || $Writer.create(), null != message.suggestedPrompts && message.suggestedPrompts.length) for (var i = 0; i < message.suggestedPrompts.length; ++i) writer.uint32(10).string(message.suggestedPrompts[i]);
+        if (writer = writer || $Writer.create(), null != message.suggestedPrompts && message.suggestedPrompts.length) for (let i = 0; i < message.suggestedPrompts.length; ++i) writer.uint32(10).string(message.suggestedPrompts[i]);
         return null != message.selectedPromptIndex && Object.hasOwnProperty.call(message, "selectedPromptIndex") && writer.uint32(16).uint32(message.selectedPromptIndex), 
         writer;
     }, BotSuggestedPromptMetadata.encodeDelimited = function(message, writer) {
@@ -14866,7 +15514,7 @@ $root.ADVEncryptionType = function() {
         if ("object" != typeof message || null === message) return "object expected";
         if (null != message.suggestedPrompts && message.hasOwnProperty("suggestedPrompts")) {
             if (!Array.isArray(message.suggestedPrompts)) return "suggestedPrompts: array expected";
-            for (var i = 0; i < message.suggestedPrompts.length; ++i) if (!$util.isString(message.suggestedPrompts[i])) return "suggestedPrompts: string[] expected";
+            for (let i = 0; i < message.suggestedPrompts.length; ++i) if (!$util.isString(message.suggestedPrompts[i])) return "suggestedPrompts: string[] expected";
         }
         return null != message.selectedPromptIndex && message.hasOwnProperty("selectedPromptIndex") && !$util.isInteger(message.selectedPromptIndex) ? "selectedPromptIndex: integer expected" : null;
     }, BotSuggestedPromptMetadata.fromObject = function(object) {
@@ -14875,7 +15523,7 @@ $root.ADVEncryptionType = function() {
         if (object.suggestedPrompts) {
             if (!Array.isArray(object.suggestedPrompts)) throw TypeError(".BotSuggestedPromptMetadata.suggestedPrompts: array expected");
             message.suggestedPrompts = [];
-            for (var i = 0; i < object.suggestedPrompts.length; ++i) message.suggestedPrompts[i] = String(object.suggestedPrompts[i]);
+            for (let i = 0; i < object.suggestedPrompts.length; ++i) message.suggestedPrompts[i] = String(object.suggestedPrompts[i]);
         }
         return null != object.selectedPromptIndex && (message.selectedPromptIndex = object.selectedPromptIndex >>> 0), 
         message;
@@ -14884,7 +15532,7 @@ $root.ADVEncryptionType = function() {
         if (((options = options || {}).arrays || options.defaults) && (object.suggestedPrompts = []), 
         options.defaults && (object.selectedPromptIndex = 0), message.suggestedPrompts && message.suggestedPrompts.length) {
             object.suggestedPrompts = [];
-            for (var j = 0; j < message.suggestedPrompts.length; ++j) object.suggestedPrompts[j] = message.suggestedPrompts[j];
+            for (let j = 0; j < message.suggestedPrompts.length; ++j) object.suggestedPrompts[j] = message.suggestedPrompts[j];
         }
         return null != message.selectedPromptIndex && message.hasOwnProperty("selectedPromptIndex") && (object.selectedPromptIndex = message.selectedPromptIndex), 
         object;
@@ -14893,9 +15541,9 @@ $root.ADVEncryptionType = function() {
     }, BotSuggestedPromptMetadata.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/BotSuggestedPromptMetadata";
     }, BotSuggestedPromptMetadata;
-}(), $root.BotSearchMetadata = function() {
+})(), BotSearchMetadata = $root.BotSearchMetadata = (() => {
     function BotSearchMetadata(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     var valuesById, values;
     return BotSearchMetadata.prototype.sessionId = "", BotSearchMetadata.prototype.sessionSource = 1, 
@@ -14989,9 +15637,9 @@ $root.ADVEncryptionType = function() {
     values[valuesById[2] = "TYPEAHEAD"] = 2, values[valuesById[3] = "USER_INPUT"] = 3, 
     values[valuesById[4] = "EMU_FLASH"] = 4, values[valuesById[5] = "EMU_FLASH_FOLLOWUP"] = 5, 
     values), BotSearchMetadata;
-}(), $root.BotMediaMetadata = function() {
+})(), BotMediaMetadata = $root.BotMediaMetadata = (() => {
     function BotMediaMetadata(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return BotMediaMetadata.prototype.fileSha256 = $util.newBuffer([]), BotMediaMetadata.prototype.mediaKey = $util.newBuffer([]), 
     BotMediaMetadata.prototype.fileEncSha256 = $util.newBuffer([]), BotMediaMetadata.prototype.directPath = "", 
@@ -15077,14 +15725,14 @@ $root.ADVEncryptionType = function() {
     }, BotMediaMetadata.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/BotMediaMetadata";
     }, BotMediaMetadata;
-}(), $root.BotMemuMetadata = function() {
+})(), BotMemuMetadata = $root.BotMemuMetadata = (() => {
     function BotMemuMetadata(properties) {
-        if (this.faceImages = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (this.faceImages = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return BotMemuMetadata.prototype.faceImages = $util.emptyArray, BotMemuMetadata.create = function(properties) {
         return new BotMemuMetadata(properties);
     }, BotMemuMetadata.encode = function(message, writer) {
-        if (writer = writer || $Writer.create(), null != message.faceImages && message.faceImages.length) for (var i = 0; i < message.faceImages.length; ++i) $root.BotMediaMetadata.encode(message.faceImages[i], writer.uint32(10).fork()).ldelim();
+        if (writer = writer || $Writer.create(), null != message.faceImages && message.faceImages.length) for (let i = 0; i < message.faceImages.length; ++i) $root.BotMediaMetadata.encode(message.faceImages[i], writer.uint32(10).fork()).ldelim();
         return writer;
     }, BotMemuMetadata.encodeDelimited = function(message, writer) {
         return this.encode(message, writer).ldelim();
@@ -15102,7 +15750,7 @@ $root.ADVEncryptionType = function() {
         if ("object" != typeof message || null === message) return "object expected";
         if (null != message.faceImages && message.hasOwnProperty("faceImages")) {
             if (!Array.isArray(message.faceImages)) return "faceImages: array expected";
-            for (var i = 0; i < message.faceImages.length; ++i) {
+            for (let i = 0; i < message.faceImages.length; ++i) {
                 var error = $root.BotMediaMetadata.verify(message.faceImages[i]);
                 if (error) return "faceImages." + error;
             }
@@ -15114,7 +15762,7 @@ $root.ADVEncryptionType = function() {
         if (object.faceImages) {
             if (!Array.isArray(object.faceImages)) throw TypeError(".BotMemuMetadata.faceImages: array expected");
             message.faceImages = [];
-            for (var i = 0; i < object.faceImages.length; ++i) {
+            for (let i = 0; i < object.faceImages.length; ++i) {
                 if ("object" != typeof object.faceImages[i]) throw TypeError(".BotMemuMetadata.faceImages: object expected");
                 message.faceImages[i] = $root.BotMediaMetadata.fromObject(object.faceImages[i]);
             }
@@ -15125,7 +15773,7 @@ $root.ADVEncryptionType = function() {
         if (((options = options || {}).arrays || options.defaults) && (object.faceImages = []), 
         message.faceImages && message.faceImages.length) {
             object.faceImages = [];
-            for (var j = 0; j < message.faceImages.length; ++j) object.faceImages[j] = $root.BotMediaMetadata.toObject(message.faceImages[j], options);
+            for (let j = 0; j < message.faceImages.length; ++j) object.faceImages[j] = $root.BotMediaMetadata.toObject(message.faceImages[j], options);
         }
         return object;
     }, BotMemuMetadata.prototype.toJSON = function() {
@@ -15133,9 +15781,9 @@ $root.ADVEncryptionType = function() {
     }, BotMemuMetadata.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/BotMemuMetadata";
     }, BotMemuMetadata;
-}(), $root.BotMetadata = function() {
+})(), BotMetadata = $root.BotMetadata = (() => {
     function BotMetadata(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return BotMetadata.prototype.avatarMetadata = null, BotMetadata.prototype.personaId = "", 
     BotMetadata.prototype.pluginMetadata = null, BotMetadata.prototype.suggestedPromptMetadata = null, 
@@ -15195,14 +15843,28 @@ $root.ADVEncryptionType = function() {
         return reader instanceof $Reader || (reader = new $Reader(reader)), this.decode(reader, reader.uint32());
     }, BotMetadata.verify = function(message) {
         if ("object" != typeof message || null === message) return "object expected";
-        var error;
-        if (null != message.avatarMetadata && message.hasOwnProperty("avatarMetadata") && (error = $root.BotAvatarMetadata.verify(message.avatarMetadata))) return "avatarMetadata." + error;
+        if (null != message.avatarMetadata && message.hasOwnProperty("avatarMetadata")) {
+            var error = $root.BotAvatarMetadata.verify(message.avatarMetadata);
+            if (error) return "avatarMetadata." + error;
+        }
         if (null != message.personaId && message.hasOwnProperty("personaId") && !$util.isString(message.personaId)) return "personaId: string expected";
-        if (null != message.pluginMetadata && message.hasOwnProperty("pluginMetadata") && (error = $root.BotPluginMetadata.verify(message.pluginMetadata))) return "pluginMetadata." + error;
-        if (null != message.suggestedPromptMetadata && message.hasOwnProperty("suggestedPromptMetadata") && (error = $root.BotSuggestedPromptMetadata.verify(message.suggestedPromptMetadata))) return "suggestedPromptMetadata." + error;
+        if (null != message.pluginMetadata && message.hasOwnProperty("pluginMetadata")) {
+            let error = $root.BotPluginMetadata.verify(message.pluginMetadata);
+            if (error) return "pluginMetadata." + error;
+        }
+        if (null != message.suggestedPromptMetadata && message.hasOwnProperty("suggestedPromptMetadata")) {
+            let error = $root.BotSuggestedPromptMetadata.verify(message.suggestedPromptMetadata);
+            if (error) return "suggestedPromptMetadata." + error;
+        }
         if (null != message.invokerJid && message.hasOwnProperty("invokerJid") && !$util.isString(message.invokerJid)) return "invokerJid: string expected";
-        if (null != message.searchMetadata && message.hasOwnProperty("searchMetadata") && (error = $root.BotSearchMetadata.verify(message.searchMetadata))) return "searchMetadata." + error;
-        if (null != message.memuMetadata && message.hasOwnProperty("memuMetadata") && (error = $root.BotMemuMetadata.verify(message.memuMetadata))) return "memuMetadata." + error;
+        if (null != message.searchMetadata && message.hasOwnProperty("searchMetadata")) {
+            let error = $root.BotSearchMetadata.verify(message.searchMetadata);
+            if (error) return "searchMetadata." + error;
+        }
+        if (null != message.memuMetadata && message.hasOwnProperty("memuMetadata")) {
+            let error = $root.BotMemuMetadata.verify(message.memuMetadata);
+            if (error) return "memuMetadata." + error;
+        }
         return null;
     }, BotMetadata.fromObject = function(object) {
         if (object instanceof $root.BotMetadata) return object;
@@ -15248,9 +15910,9 @@ $root.ADVEncryptionType = function() {
     }, BotMetadata.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/BotMetadata";
     }, BotMetadata;
-}(), $root.MessageAssociation = function() {
+})(), MessageAssociation = $root.MessageAssociation = (() => {
     function MessageAssociation(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     var valuesById, values;
     return MessageAssociation.prototype.associationType = 1, MessageAssociation.prototype.parentMessageKey = null, 
@@ -15337,9 +15999,9 @@ $root.ADVEncryptionType = function() {
     }, MessageAssociation.AssociationType = (valuesById = {}, (values = Object.create(valuesById))[valuesById[1] = "MEDIA_ALBUM"] = 1, 
     values[valuesById[2] = "BOT_PLUGIN"] = 2, values[valuesById[3] = "EVENT_COVER_IMAGE"] = 3, 
     values), MessageAssociation;
-}(), $root.MessageContextInfo = function() {
+})(), MessageContextInfo = $root.MessageContextInfo = (() => {
     function MessageContextInfo(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     var valuesById, values;
     return MessageContextInfo.prototype.deviceListMetadata = null, MessageContextInfo.prototype.deviceListMetadataVersion = 0, 
@@ -15417,14 +16079,19 @@ $root.ADVEncryptionType = function() {
         return reader instanceof $Reader || (reader = new $Reader(reader)), this.decode(reader, reader.uint32());
     }, MessageContextInfo.verify = function(message) {
         if ("object" != typeof message || null === message) return "object expected";
-        var error;
-        if (null != message.deviceListMetadata && message.hasOwnProperty("deviceListMetadata") && (error = $root.DeviceListMetadata.verify(message.deviceListMetadata))) return "deviceListMetadata." + error;
+        if (null != message.deviceListMetadata && message.hasOwnProperty("deviceListMetadata")) {
+            var error = $root.DeviceListMetadata.verify(message.deviceListMetadata);
+            if (error) return "deviceListMetadata." + error;
+        }
         if (null != message.deviceListMetadataVersion && message.hasOwnProperty("deviceListMetadataVersion") && !$util.isInteger(message.deviceListMetadataVersion)) return "deviceListMetadataVersion: integer expected";
         if (null != message.messageSecret && message.hasOwnProperty("messageSecret") && !(message.messageSecret && "number" == typeof message.messageSecret.length || $util.isString(message.messageSecret))) return "messageSecret: buffer expected";
         if (null != message.paddingBytes && message.hasOwnProperty("paddingBytes") && !(message.paddingBytes && "number" == typeof message.paddingBytes.length || $util.isString(message.paddingBytes))) return "paddingBytes: buffer expected";
         if (null != message.messageAddOnDurationInSecs && message.hasOwnProperty("messageAddOnDurationInSecs") && !$util.isInteger(message.messageAddOnDurationInSecs)) return "messageAddOnDurationInSecs: integer expected";
         if (null != message.botMessageSecret && message.hasOwnProperty("botMessageSecret") && !(message.botMessageSecret && "number" == typeof message.botMessageSecret.length || $util.isString(message.botMessageSecret))) return "botMessageSecret: buffer expected";
-        if (null != message.botMetadata && message.hasOwnProperty("botMetadata") && (error = $root.BotMetadata.verify(message.botMetadata))) return "botMetadata." + error;
+        if (null != message.botMetadata && message.hasOwnProperty("botMetadata")) {
+            let error = $root.BotMetadata.verify(message.botMetadata);
+            if (error) return "botMetadata." + error;
+        }
         if (null != message.reportingTokenVersion && message.hasOwnProperty("reportingTokenVersion") && !$util.isInteger(message.reportingTokenVersion)) return "reportingTokenVersion: integer expected";
         if (null != message.messageAddOnExpiryType && message.hasOwnProperty("messageAddOnExpiryType")) switch (message.messageAddOnExpiryType) {
           default:
@@ -15433,7 +16100,10 @@ $root.ADVEncryptionType = function() {
           case 1:
           case 2:
         }
-        if (null != message.messageAssociation && message.hasOwnProperty("messageAssociation") && (error = $root.MessageAssociation.verify(message.messageAssociation))) return "messageAssociation." + error;
+        if (null != message.messageAssociation && message.hasOwnProperty("messageAssociation")) {
+            let error = $root.MessageAssociation.verify(message.messageAssociation);
+            if (error) return "messageAssociation." + error;
+        }
         return null;
     }, MessageContextInfo.fromObject = function(object) {
         if (object instanceof $root.MessageContextInfo) return object;
@@ -15498,9 +16168,9 @@ $root.ADVEncryptionType = function() {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/MessageContextInfo";
     }, MessageContextInfo.MessageAddonExpiryType = (valuesById = {}, (values = Object.create(valuesById))[valuesById[1] = "STATIC"] = 1, 
     values[valuesById[2] = "DEPENDENT_ON_PARENT"] = 2, values), MessageContextInfo;
-}(), $root.DeviceListMetadata = function() {
+})(), DeviceListMetadata = $root.DeviceListMetadata = (() => {
     function DeviceListMetadata(properties) {
-        if (this.senderKeyIndexes = [], this.recipientKeyIndexes = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (this.senderKeyIndexes = [], this.recipientKeyIndexes = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return DeviceListMetadata.prototype.senderKeyHash = $util.newBuffer([]), DeviceListMetadata.prototype.senderTimestamp = $util.Long ? $util.Long.fromBits(0, 0, !0) : 0, 
     DeviceListMetadata.prototype.senderKeyIndexes = $util.emptyArray, DeviceListMetadata.prototype.senderAccountType = 0, 
@@ -15513,7 +16183,7 @@ $root.ADVEncryptionType = function() {
         null != message.senderTimestamp && Object.hasOwnProperty.call(message, "senderTimestamp") && writer.uint32(16).uint64(message.senderTimestamp), 
         null != message.senderKeyIndexes && message.senderKeyIndexes.length) {
             writer.uint32(26).fork();
-            for (var i = 0; i < message.senderKeyIndexes.length; ++i) writer.uint32(message.senderKeyIndexes[i]);
+            for (let i = 0; i < message.senderKeyIndexes.length; ++i) writer.uint32(message.senderKeyIndexes[i]);
             writer.ldelim();
         }
         if (null != message.senderAccountType && Object.hasOwnProperty.call(message, "senderAccountType") && writer.uint32(32).int32(message.senderAccountType), 
@@ -15522,7 +16192,7 @@ $root.ADVEncryptionType = function() {
         null != message.recipientTimestamp && Object.hasOwnProperty.call(message, "recipientTimestamp") && writer.uint32(72).uint64(message.recipientTimestamp), 
         null != message.recipientKeyIndexes && message.recipientKeyIndexes.length) {
             writer.uint32(82).fork();
-            for (i = 0; i < message.recipientKeyIndexes.length; ++i) writer.uint32(message.recipientKeyIndexes[i]);
+            for (let i = 0; i < message.recipientKeyIndexes.length; ++i) writer.uint32(message.recipientKeyIndexes[i]);
             writer.ldelim();
         }
         return writer;
@@ -15564,7 +16234,10 @@ $root.ADVEncryptionType = function() {
 
               case 10:
                 if (message.recipientKeyIndexes && message.recipientKeyIndexes.length || (message.recipientKeyIndexes = []), 
-                2 == (7 & tag)) for (end2 = reader.uint32() + reader.pos; reader.pos < end2; ) message.recipientKeyIndexes.push(reader.uint32()); else message.recipientKeyIndexes.push(reader.uint32());
+                2 == (7 & tag)) {
+                    let end2 = reader.uint32() + reader.pos;
+                    for (;reader.pos < end2; ) message.recipientKeyIndexes.push(reader.uint32());
+                } else message.recipientKeyIndexes.push(reader.uint32());
                 break;
 
               default:
@@ -15580,7 +16253,7 @@ $root.ADVEncryptionType = function() {
         if (null != message.senderTimestamp && message.hasOwnProperty("senderTimestamp") && !($util.isInteger(message.senderTimestamp) || message.senderTimestamp && $util.isInteger(message.senderTimestamp.low) && $util.isInteger(message.senderTimestamp.high))) return "senderTimestamp: integer|Long expected";
         if (null != message.senderKeyIndexes && message.hasOwnProperty("senderKeyIndexes")) {
             if (!Array.isArray(message.senderKeyIndexes)) return "senderKeyIndexes: array expected";
-            for (var i = 0; i < message.senderKeyIndexes.length; ++i) if (!$util.isInteger(message.senderKeyIndexes[i])) return "senderKeyIndexes: integer[] expected";
+            for (let i = 0; i < message.senderKeyIndexes.length; ++i) if (!$util.isInteger(message.senderKeyIndexes[i])) return "senderKeyIndexes: integer[] expected";
         }
         if (null != message.senderAccountType && message.hasOwnProperty("senderAccountType")) switch (message.senderAccountType) {
           default:
@@ -15600,7 +16273,7 @@ $root.ADVEncryptionType = function() {
         if (null != message.recipientTimestamp && message.hasOwnProperty("recipientTimestamp") && !($util.isInteger(message.recipientTimestamp) || message.recipientTimestamp && $util.isInteger(message.recipientTimestamp.low) && $util.isInteger(message.recipientTimestamp.high))) return "recipientTimestamp: integer|Long expected";
         if (null != message.recipientKeyIndexes && message.hasOwnProperty("recipientKeyIndexes")) {
             if (!Array.isArray(message.recipientKeyIndexes)) return "recipientKeyIndexes: array expected";
-            for (i = 0; i < message.recipientKeyIndexes.length; ++i) if (!$util.isInteger(message.recipientKeyIndexes[i])) return "recipientKeyIndexes: integer[] expected";
+            for (let i = 0; i < message.recipientKeyIndexes.length; ++i) if (!$util.isInteger(message.recipientKeyIndexes[i])) return "recipientKeyIndexes: integer[] expected";
         }
         return null;
     }, DeviceListMetadata.fromObject = function(object) {
@@ -15611,7 +16284,7 @@ $root.ADVEncryptionType = function() {
         object.senderKeyIndexes) {
             if (!Array.isArray(object.senderKeyIndexes)) throw TypeError(".DeviceListMetadata.senderKeyIndexes: array expected");
             message.senderKeyIndexes = [];
-            for (var i = 0; i < object.senderKeyIndexes.length; ++i) message.senderKeyIndexes[i] = object.senderKeyIndexes[i] >>> 0;
+            for (let i = 0; i < object.senderKeyIndexes.length; ++i) message.senderKeyIndexes[i] = object.senderKeyIndexes[i] >>> 0;
         }
         switch (object.senderAccountType) {
           default:
@@ -15646,24 +16319,28 @@ $root.ADVEncryptionType = function() {
         object.recipientKeyIndexes) {
             if (!Array.isArray(object.recipientKeyIndexes)) throw TypeError(".DeviceListMetadata.recipientKeyIndexes: array expected");
             message.recipientKeyIndexes = [];
-            for (i = 0; i < object.recipientKeyIndexes.length; ++i) message.recipientKeyIndexes[i] = object.recipientKeyIndexes[i] >>> 0;
+            for (let i = 0; i < object.recipientKeyIndexes.length; ++i) message.recipientKeyIndexes[i] = object.recipientKeyIndexes[i] >>> 0;
         }
         return message;
     }, DeviceListMetadata.toObject = function(message, options) {
+        options = options || {};
         var long, object = {};
-        if (((options = options || {}).arrays || options.defaults) && (object.senderKeyIndexes = [], 
-        object.recipientKeyIndexes = []), options.defaults && (options.bytes === String ? object.senderKeyHash = "" : (object.senderKeyHash = [], 
+        if ((options.arrays || options.defaults) && (object.senderKeyIndexes = [], 
+        object.recipientKeyIndexes = []), options.defaults) if (options.bytes === String ? object.senderKeyHash = "" : (object.senderKeyHash = [], 
         options.bytes !== Array && (object.senderKeyHash = $util.newBuffer(object.senderKeyHash))), 
         $util.Long ? (long = new $util.Long(0, 0, !0), object.senderTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.senderTimestamp = options.longs === String ? "0" : 0, 
         object.senderAccountType = options.enums === String ? "E2EE" : 0, object.receiverAccountType = options.enums === String ? "E2EE" : 0, 
         options.bytes === String ? object.recipientKeyHash = "" : (object.recipientKeyHash = [], 
         options.bytes !== Array && (object.recipientKeyHash = $util.newBuffer(object.recipientKeyHash))), 
-        $util.Long ? (long = new $util.Long(0, 0, !0), object.recipientTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.recipientTimestamp = options.longs === String ? "0" : 0), 
-        null != message.senderKeyHash && message.hasOwnProperty("senderKeyHash") && (object.senderKeyHash = options.bytes === String ? $util.base64.encode(message.senderKeyHash, 0, message.senderKeyHash.length) : options.bytes === Array ? Array.prototype.slice.call(message.senderKeyHash) : message.senderKeyHash), 
+        $util.Long) {
+            let long = new $util.Long(0, 0, !0);
+            object.recipientTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+        } else object.recipientTimestamp = options.longs === String ? "0" : 0;
+        if (null != message.senderKeyHash && message.hasOwnProperty("senderKeyHash") && (object.senderKeyHash = options.bytes === String ? $util.base64.encode(message.senderKeyHash, 0, message.senderKeyHash.length) : options.bytes === Array ? Array.prototype.slice.call(message.senderKeyHash) : message.senderKeyHash), 
         null != message.senderTimestamp && message.hasOwnProperty("senderTimestamp") && ("number" == typeof message.senderTimestamp ? object.senderTimestamp = options.longs === String ? String(message.senderTimestamp) : message.senderTimestamp : object.senderTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.senderTimestamp) : options.longs === Number ? new $util.LongBits(message.senderTimestamp.low >>> 0, message.senderTimestamp.high >>> 0).toNumber(!0) : message.senderTimestamp), 
         message.senderKeyIndexes && message.senderKeyIndexes.length) {
             object.senderKeyIndexes = [];
-            for (var j = 0; j < message.senderKeyIndexes.length; ++j) object.senderKeyIndexes[j] = message.senderKeyIndexes[j];
+            for (let j = 0; j < message.senderKeyIndexes.length; ++j) object.senderKeyIndexes[j] = message.senderKeyIndexes[j];
         }
         if (null != message.senderAccountType && message.hasOwnProperty("senderAccountType") && (object.senderAccountType = options.enums !== String || void 0 === $root.ADVEncryptionType[message.senderAccountType] ? message.senderAccountType : $root.ADVEncryptionType[message.senderAccountType]), 
         null != message.receiverAccountType && message.hasOwnProperty("receiverAccountType") && (object.receiverAccountType = options.enums !== String || void 0 === $root.ADVEncryptionType[message.receiverAccountType] ? message.receiverAccountType : $root.ADVEncryptionType[message.receiverAccountType]), 
@@ -15671,7 +16348,7 @@ $root.ADVEncryptionType = function() {
         null != message.recipientTimestamp && message.hasOwnProperty("recipientTimestamp") && ("number" == typeof message.recipientTimestamp ? object.recipientTimestamp = options.longs === String ? String(message.recipientTimestamp) : message.recipientTimestamp : object.recipientTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.recipientTimestamp) : options.longs === Number ? new $util.LongBits(message.recipientTimestamp.low >>> 0, message.recipientTimestamp.high >>> 0).toNumber(!0) : message.recipientTimestamp), 
         message.recipientKeyIndexes && message.recipientKeyIndexes.length) {
             object.recipientKeyIndexes = [];
-            for (j = 0; j < message.recipientKeyIndexes.length; ++j) object.recipientKeyIndexes[j] = message.recipientKeyIndexes[j];
+            for (let j = 0; j < message.recipientKeyIndexes.length; ++j) object.recipientKeyIndexes[j] = message.recipientKeyIndexes[j];
         }
         return object;
     }, DeviceListMetadata.prototype.toJSON = function() {
@@ -15679,9 +16356,9 @@ $root.ADVEncryptionType = function() {
     }, DeviceListMetadata.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/DeviceListMetadata";
     }, DeviceListMetadata;
-}(), $root.InteractiveAnnotation = function() {
+})(), InteractiveAnnotation = $root.InteractiveAnnotation = (() => {
     function InteractiveAnnotation(properties) {
-        if (this.polygonVertices = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (this.polygonVertices = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     var $oneOfFields;
     return InteractiveAnnotation.prototype.polygonVertices = $util.emptyArray, InteractiveAnnotation.prototype.shouldSkipConfirmation = !1, 
@@ -15692,7 +16369,7 @@ $root.ADVEncryptionType = function() {
     }), InteractiveAnnotation.create = function(properties) {
         return new InteractiveAnnotation(properties);
     }, InteractiveAnnotation.encode = function(message, writer) {
-        if (writer = writer || $Writer.create(), null != message.polygonVertices && message.polygonVertices.length) for (var i = 0; i < message.polygonVertices.length; ++i) $root.Point.encode(message.polygonVertices[i], writer.uint32(10).fork()).ldelim();
+        if (writer = writer || $Writer.create(), null != message.polygonVertices && message.polygonVertices.length) for (let i = 0; i < message.polygonVertices.length; ++i) $root.Point.encode(message.polygonVertices[i], writer.uint32(10).fork()).ldelim();
         return null != message.location && Object.hasOwnProperty.call(message, "location") && $root.Location.encode(message.location, writer.uint32(18).fork()).ldelim(), 
         null != message.newsletter && Object.hasOwnProperty.call(message, "newsletter") && $root.ContextInfo.ForwardedNewsletterMessageInfo.encode(message.newsletter, writer.uint32(26).fork()).ldelim(), 
         null != message.shouldSkipConfirmation && Object.hasOwnProperty.call(message, "shouldSkipConfirmation") && writer.uint32(32).bool(message.shouldSkipConfirmation), 
@@ -15733,14 +16410,26 @@ $root.ADVEncryptionType = function() {
         var properties = {};
         if (null != message.polygonVertices && message.hasOwnProperty("polygonVertices")) {
             if (!Array.isArray(message.polygonVertices)) return "polygonVertices: array expected";
-            for (var error, i = 0; i < message.polygonVertices.length; ++i) if (error = $root.Point.verify(message.polygonVertices[i])) return "polygonVertices." + error;
+            for (let i = 0; i < message.polygonVertices.length; ++i) {
+                var error = $root.Point.verify(message.polygonVertices[i]);
+                if (error) return "polygonVertices." + error;
+            }
         }
         if (null != message.shouldSkipConfirmation && message.hasOwnProperty("shouldSkipConfirmation") && "boolean" != typeof message.shouldSkipConfirmation) return "shouldSkipConfirmation: boolean expected";
-        if (null != message.location && message.hasOwnProperty("location") && (properties.action = 1, 
-        error = $root.Location.verify(message.location))) return "location." + error;
+        if (null != message.location && message.hasOwnProperty("location")) {
+            properties.action = 1;
+            {
+                let error = $root.Location.verify(message.location);
+                if (error) return "location." + error;
+            }
+        }
         if (null != message.newsletter && message.hasOwnProperty("newsletter")) {
             if (1 === properties.action) return "action: multiple values";
-            if (properties.action = 1, error = $root.ContextInfo.ForwardedNewsletterMessageInfo.verify(message.newsletter)) return "newsletter." + error;
+            properties.action = 1;
+            {
+                let error = $root.ContextInfo.ForwardedNewsletterMessageInfo.verify(message.newsletter);
+                if (error) return "newsletter." + error;
+            }
         }
         return null;
     }, InteractiveAnnotation.fromObject = function(object) {
@@ -15749,7 +16438,7 @@ $root.ADVEncryptionType = function() {
         if (object.polygonVertices) {
             if (!Array.isArray(object.polygonVertices)) throw TypeError(".InteractiveAnnotation.polygonVertices: array expected");
             message.polygonVertices = [];
-            for (var i = 0; i < object.polygonVertices.length; ++i) {
+            for (let i = 0; i < object.polygonVertices.length; ++i) {
                 if ("object" != typeof object.polygonVertices[i]) throw TypeError(".InteractiveAnnotation.polygonVertices: object expected");
                 message.polygonVertices[i] = $root.Point.fromObject(object.polygonVertices[i]);
             }
@@ -15769,7 +16458,7 @@ $root.ADVEncryptionType = function() {
         if (((options = options || {}).arrays || options.defaults) && (object.polygonVertices = []), 
         options.defaults && (object.shouldSkipConfirmation = !1), message.polygonVertices && message.polygonVertices.length) {
             object.polygonVertices = [];
-            for (var j = 0; j < message.polygonVertices.length; ++j) object.polygonVertices[j] = $root.Point.toObject(message.polygonVertices[j], options);
+            for (let j = 0; j < message.polygonVertices.length; ++j) object.polygonVertices[j] = $root.Point.toObject(message.polygonVertices[j], options);
         }
         return null != message.location && message.hasOwnProperty("location") && (object.location = $root.Location.toObject(message.location, options), 
         options.oneofs) && (object.action = "location"), null != message.newsletter && message.hasOwnProperty("newsletter") && (object.newsletter = $root.ContextInfo.ForwardedNewsletterMessageInfo.toObject(message.newsletter, options), 
@@ -15780,9 +16469,9 @@ $root.ADVEncryptionType = function() {
     }, InteractiveAnnotation.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/InteractiveAnnotation";
     }, InteractiveAnnotation;
-}(), $root.Point = function() {
+})(), Point = $root.Point = (() => {
     function Point(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return Point.prototype.xDeprecated = 0, Point.prototype.yDeprecated = 0, Point.prototype.x = 0, 
     Point.prototype.y = 0, Point.create = function(properties) {
@@ -15845,9 +16534,9 @@ $root.ADVEncryptionType = function() {
     }, Point.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/Point";
     }, Point;
-}(), $root.Location = function() {
+})(), Location = $root.Location = (() => {
     function Location(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return Location.prototype.degreesLatitude = 0, Location.prototype.degreesLongitude = 0, 
     Location.prototype.name = "", Location.create = function(properties) {
@@ -15903,19 +16592,19 @@ $root.ADVEncryptionType = function() {
     }, Location.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/Location";
     }, Location;
-}(), $root.TemplateButton = function() {
+})(), TemplateButton = $root.TemplateButton = (() => {
     function TemplateButton(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     var $oneOfFields;
     function CallButton(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function URLButton(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function QuickReplyButton(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return TemplateButton.prototype.index = 0, TemplateButton.prototype.quickReplyButton = null, 
     TemplateButton.prototype.urlButton = null, TemplateButton.prototype.callButton = null, 
@@ -15962,17 +16651,28 @@ $root.ADVEncryptionType = function() {
         return reader instanceof $Reader || (reader = new $Reader(reader)), this.decode(reader, reader.uint32());
     }, TemplateButton.verify = function(message) {
         if ("object" != typeof message || null === message) return "object expected";
-        var error, properties = {};
+        var properties = {};
         if (null != message.index && message.hasOwnProperty("index") && !$util.isInteger(message.index)) return "index: integer expected";
-        if (null != message.quickReplyButton && message.hasOwnProperty("quickReplyButton") && (properties.button = 1, 
-        error = $root.TemplateButton.QuickReplyButton.verify(message.quickReplyButton))) return "quickReplyButton." + error;
+        if (null != message.quickReplyButton && message.hasOwnProperty("quickReplyButton")) {
+            properties.button = 1;
+            var error = $root.TemplateButton.QuickReplyButton.verify(message.quickReplyButton);
+            if (error) return "quickReplyButton." + error;
+        }
         if (null != message.urlButton && message.hasOwnProperty("urlButton")) {
             if (1 === properties.button) return "button: multiple values";
-            if (properties.button = 1, error = $root.TemplateButton.URLButton.verify(message.urlButton)) return "urlButton." + error;
+            properties.button = 1;
+            {
+                let error = $root.TemplateButton.URLButton.verify(message.urlButton);
+                if (error) return "urlButton." + error;
+            }
         }
         if (null != message.callButton && message.hasOwnProperty("callButton")) {
             if (1 === properties.button) return "button: multiple values";
-            if (properties.button = 1, error = $root.TemplateButton.CallButton.verify(message.callButton)) return "callButton." + error;
+            properties.button = 1;
+            {
+                let error = $root.TemplateButton.CallButton.verify(message.callButton);
+                if (error) return "callButton." + error;
+            }
         }
         return null;
     }, TemplateButton.fromObject = function(object) {
@@ -16033,9 +16733,14 @@ $root.ADVEncryptionType = function() {
         return reader instanceof $Reader || (reader = new $Reader(reader)), this.decode(reader, reader.uint32());
     }, CallButton.verify = function(message) {
         if ("object" != typeof message || null === message) return "object expected";
-        var error;
-        if (null != message.displayText && message.hasOwnProperty("displayText") && (error = $root.Message.HighlyStructuredMessage.verify(message.displayText))) return "displayText." + error;
-        if (null != message.phoneNumber && message.hasOwnProperty("phoneNumber") && (error = $root.Message.HighlyStructuredMessage.verify(message.phoneNumber))) return "phoneNumber." + error;
+        if (null != message.displayText && message.hasOwnProperty("displayText")) {
+            var error = $root.Message.HighlyStructuredMessage.verify(message.displayText);
+            if (error) return "displayText." + error;
+        }
+        if (null != message.phoneNumber && message.hasOwnProperty("phoneNumber")) {
+            let error = $root.Message.HighlyStructuredMessage.verify(message.phoneNumber);
+            if (error) return "phoneNumber." + error;
+        }
         return null;
     }, CallButton.fromObject = function(object) {
         if (object instanceof $root.TemplateButton.CallButton) return object;
@@ -16090,9 +16795,14 @@ $root.ADVEncryptionType = function() {
         return reader instanceof $Reader || (reader = new $Reader(reader)), this.decode(reader, reader.uint32());
     }, URLButton.verify = function(message) {
         if ("object" != typeof message || null === message) return "object expected";
-        var error;
-        if (null != message.displayText && message.hasOwnProperty("displayText") && (error = $root.Message.HighlyStructuredMessage.verify(message.displayText))) return "displayText." + error;
-        if (null != message.url && message.hasOwnProperty("url") && (error = $root.Message.HighlyStructuredMessage.verify(message.url))) return "url." + error;
+        if (null != message.displayText && message.hasOwnProperty("displayText")) {
+            var error = $root.Message.HighlyStructuredMessage.verify(message.displayText);
+            if (error) return "displayText." + error;
+        }
+        if (null != message.url && message.hasOwnProperty("url")) {
+            let error = $root.Message.HighlyStructuredMessage.verify(message.url);
+            if (error) return "url." + error;
+        }
         return null;
     }, URLButton.fromObject = function(object) {
         if (object instanceof $root.TemplateButton.URLButton) return object;
@@ -16171,19 +16881,19 @@ $root.ADVEncryptionType = function() {
     }, QuickReplyButton.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/TemplateButton.QuickReplyButton";
     }, QuickReplyButton), TemplateButton;
-}(), $root.HydratedTemplateButton = function() {
+})(), HydratedTemplateButton = $root.HydratedTemplateButton = (() => {
     function HydratedTemplateButton(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     var $oneOfFields, values;
     function HydratedCallButton(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function HydratedURLButton(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function HydratedQuickReplyButton(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return HydratedTemplateButton.prototype.index = 0, HydratedTemplateButton.prototype.quickReplyButton = null, 
     HydratedTemplateButton.prototype.urlButton = null, HydratedTemplateButton.prototype.callButton = null, 
@@ -16230,17 +16940,28 @@ $root.ADVEncryptionType = function() {
         return reader instanceof $Reader || (reader = new $Reader(reader)), this.decode(reader, reader.uint32());
     }, HydratedTemplateButton.verify = function(message) {
         if ("object" != typeof message || null === message) return "object expected";
-        var error, properties = {};
+        var properties = {};
         if (null != message.index && message.hasOwnProperty("index") && !$util.isInteger(message.index)) return "index: integer expected";
-        if (null != message.quickReplyButton && message.hasOwnProperty("quickReplyButton") && (properties.hydratedButton = 1, 
-        error = $root.HydratedTemplateButton.HydratedQuickReplyButton.verify(message.quickReplyButton))) return "quickReplyButton." + error;
+        if (null != message.quickReplyButton && message.hasOwnProperty("quickReplyButton")) {
+            properties.hydratedButton = 1;
+            var error = $root.HydratedTemplateButton.HydratedQuickReplyButton.verify(message.quickReplyButton);
+            if (error) return "quickReplyButton." + error;
+        }
         if (null != message.urlButton && message.hasOwnProperty("urlButton")) {
             if (1 === properties.hydratedButton) return "hydratedButton: multiple values";
-            if (properties.hydratedButton = 1, error = $root.HydratedTemplateButton.HydratedURLButton.verify(message.urlButton)) return "urlButton." + error;
+            properties.hydratedButton = 1;
+            {
+                let error = $root.HydratedTemplateButton.HydratedURLButton.verify(message.urlButton);
+                if (error) return "urlButton." + error;
+            }
         }
         if (null != message.callButton && message.hasOwnProperty("callButton")) {
             if (1 === properties.hydratedButton) return "hydratedButton: multiple values";
-            if (properties.hydratedButton = 1, error = $root.HydratedTemplateButton.HydratedCallButton.verify(message.callButton)) return "callButton." + error;
+            properties.hydratedButton = 1;
+            {
+                let error = $root.HydratedTemplateButton.HydratedCallButton.verify(message.callButton);
+                if (error) return "callButton." + error;
+            }
         }
         return null;
     }, HydratedTemplateButton.fromObject = function(object) {
@@ -16458,9 +17179,9 @@ $root.ADVEncryptionType = function() {
     }, HydratedQuickReplyButton.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/HydratedTemplateButton.HydratedQuickReplyButton";
     }, HydratedQuickReplyButton), HydratedTemplateButton;
-}(), $root.Money = function() {
+})(), Money = $root.Money = (() => {
     function Money(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return Money.prototype.value = $util.Long ? $util.Long.fromBits(0, 0, !1) : 0, 
     Money.prototype.offset = 0, Money.prototype.currencyCode = "", Money.create = function(properties) {
@@ -16517,13 +17238,13 @@ $root.ADVEncryptionType = function() {
     }, Money.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/Money";
     }, Money;
-}(), $root.PaymentBackground = function() {
+})(), PaymentBackground = $root.PaymentBackground = (() => {
     function PaymentBackground(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     var valuesById, values;
     function MediaData(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return PaymentBackground.prototype.id = "", PaymentBackground.prototype.fileLength = $util.Long ? $util.Long.fromBits(0, 0, !0) : 0, 
     PaymentBackground.prototype.width = 0, PaymentBackground.prototype.height = 0, 
@@ -16746,9 +17467,9 @@ $root.ADVEncryptionType = function() {
     }, MediaData.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/PaymentBackground.MediaData";
     }, MediaData), PaymentBackground;
-}(), $root.DisappearingMode = function() {
+})(), DisappearingMode = $root.DisappearingMode = (() => {
     function DisappearingMode(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     var valuesById, values;
     return DisappearingMode.prototype.initiator = 0, DisappearingMode.prototype.trigger = 0, 
@@ -16894,9 +17615,9 @@ $root.ADVEncryptionType = function() {
         values[valuesById[2] = "INITIATED_BY_OTHER"] = 2, values[valuesById[3] = "BIZ_UPGRADE_FB_HOSTING"] = 3, 
         values;
     }(), DisappearingMode;
-}(), $root.ActionLink = function() {
+})(), ActionLink = $root.ActionLink = (() => {
     function ActionLink(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return ActionLink.prototype.url = "", ActionLink.prototype.buttonTitle = "", 
     ActionLink.create = function(properties) {
@@ -16945,9 +17666,9 @@ $root.ADVEncryptionType = function() {
     }, ActionLink.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/ActionLink";
     }, ActionLink;
-}(), $root.GroupMention = function() {
+})(), GroupMention = $root.GroupMention = (() => {
     function GroupMention(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return GroupMention.prototype.groupJid = "", GroupMention.prototype.groupSubject = "", 
     GroupMention.create = function(properties) {
@@ -16997,9 +17718,9 @@ $root.ADVEncryptionType = function() {
     }, GroupMention.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/GroupMention";
     }, GroupMention;
-}(), $root.MessageSecretMessage = function() {
+})(), MessageSecretMessage = $root.MessageSecretMessage = (() => {
     function MessageSecretMessage(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return MessageSecretMessage.prototype.version = 0, MessageSecretMessage.prototype.encIv = $util.newBuffer([]), 
     MessageSecretMessage.prototype.encPayload = $util.newBuffer([]), MessageSecretMessage.create = function(properties) {
@@ -17058,9 +17779,9 @@ $root.ADVEncryptionType = function() {
     }, MessageSecretMessage.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/MessageSecretMessage";
     }, MessageSecretMessage;
-}(), $root.MediaNotifyMessage = function() {
+})(), MediaNotifyMessage = $root.MediaNotifyMessage = (() => {
     function MediaNotifyMessage(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return MediaNotifyMessage.prototype.expressPathUrl = "", MediaNotifyMessage.prototype.fileEncSha256 = $util.newBuffer([]), 
     MediaNotifyMessage.prototype.fileLength = $util.Long ? $util.Long.fromBits(0, 0, !0) : 0, 
@@ -17121,9 +17842,9 @@ $root.ADVEncryptionType = function() {
     }, MediaNotifyMessage.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/MediaNotifyMessage";
     }, MediaNotifyMessage;
-}(), $root.LIDMigrationMappingSyncMessage = function() {
+})(), LIDMigrationMappingSyncMessage = $root.LIDMigrationMappingSyncMessage = (() => {
     function LIDMigrationMappingSyncMessage(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return LIDMigrationMappingSyncMessage.prototype.encodedMappingPayload = $util.newBuffer([]), 
     LIDMigrationMappingSyncMessage.create = function(properties) {
@@ -17160,9 +17881,9 @@ $root.ADVEncryptionType = function() {
     }, LIDMigrationMappingSyncMessage.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/LIDMigrationMappingSyncMessage";
     }, LIDMigrationMappingSyncMessage;
-}(), $root.ProcessedVideo = function() {
+})(), ProcessedVideo = $root.ProcessedVideo = (() => {
     function ProcessedVideo(properties) {
-        if (this.capabilities = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (this.capabilities = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     var valuesById, values;
     return ProcessedVideo.prototype.directPath = "", ProcessedVideo.prototype.fileSha256 = $util.newBuffer([]), 
@@ -17178,7 +17899,7 @@ $root.ADVEncryptionType = function() {
         null != message.fileLength && Object.hasOwnProperty.call(message, "fileLength") && writer.uint32(40).uint64(message.fileLength), 
         null != message.bitrate && Object.hasOwnProperty.call(message, "bitrate") && writer.uint32(48).uint32(message.bitrate), 
         null != message.quality && Object.hasOwnProperty.call(message, "quality") && writer.uint32(56).int32(message.quality), 
-        null != message.capabilities && message.capabilities.length) for (var i = 0; i < message.capabilities.length; ++i) writer.uint32(66).string(message.capabilities[i]);
+        null != message.capabilities && message.capabilities.length) for (let i = 0; i < message.capabilities.length; ++i) writer.uint32(66).string(message.capabilities[i]);
         return writer;
     }, ProcessedVideo.encodeDelimited = function(message, writer) {
         return this.encode(message, writer).ldelim();
@@ -17246,7 +17967,7 @@ $root.ADVEncryptionType = function() {
         }
         if (null != message.capabilities && message.hasOwnProperty("capabilities")) {
             if (!Array.isArray(message.capabilities)) return "capabilities: array expected";
-            for (var i = 0; i < message.capabilities.length; ++i) if (!$util.isString(message.capabilities[i])) return "capabilities: string[] expected";
+            for (let i = 0; i < message.capabilities.length; ++i) if (!$util.isString(message.capabilities[i])) return "capabilities: string[] expected";
         }
         return null;
     }, ProcessedVideo.fromObject = function(object) {
@@ -17283,7 +18004,7 @@ $root.ADVEncryptionType = function() {
         if (object.capabilities) {
             if (!Array.isArray(object.capabilities)) throw TypeError(".ProcessedVideo.capabilities: array expected");
             message.capabilities = [];
-            for (var i = 0; i < object.capabilities.length; ++i) message.capabilities[i] = String(object.capabilities[i]);
+            for (let i = 0; i < object.capabilities.length; ++i) message.capabilities[i] = String(object.capabilities[i]);
         }
         return message;
     }, ProcessedVideo.toObject = function(message, options) {
@@ -17303,7 +18024,7 @@ $root.ADVEncryptionType = function() {
         null != message.quality && message.hasOwnProperty("quality") && (object.quality = options.enums !== String || void 0 === $root.ProcessedVideo.VideoQuality[message.quality] ? message.quality : $root.ProcessedVideo.VideoQuality[message.quality]), 
         message.capabilities && message.capabilities.length) {
             object.capabilities = [];
-            for (var j = 0; j < message.capabilities.length; ++j) object.capabilities[j] = message.capabilities[j];
+            for (let j = 0; j < message.capabilities.length; ++j) object.capabilities[j] = message.capabilities[j];
         }
         return object;
     }, ProcessedVideo.prototype.toJSON = function() {
@@ -17313,9 +18034,9 @@ $root.ADVEncryptionType = function() {
     }, ProcessedVideo.VideoQuality = (valuesById = {}, (values = Object.create(valuesById))[valuesById[0] = "UNDEFINED"] = 0, 
     values[valuesById[1] = "LOW"] = 1, values[valuesById[2] = "MID"] = 2, values[valuesById[3] = "HIGH"] = 3, 
     values), ProcessedVideo;
-}(), $root.EphemeralSetting = function() {
+})(), EphemeralSetting = $root.EphemeralSetting = (() => {
     function EphemeralSetting(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return EphemeralSetting.prototype.duration = 0, EphemeralSetting.prototype.timestamp = $util.Long ? $util.Long.fromBits(0, 0, !1) : 0, 
     EphemeralSetting.create = function(properties) {
@@ -17365,19 +18086,19 @@ $root.ADVEncryptionType = function() {
     }, EphemeralSetting.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/EphemeralSetting";
     }, EphemeralSetting;
-}(), $root.MediaVisibility = function() {
+})(), MediaVisibility = $root.MediaVisibility = (() => {
     var valuesById = {}, values = Object.create(valuesById);
     return values[valuesById[0] = "DEFAULT"] = 0, values[valuesById[1] = "OFF"] = 1, 
     values[valuesById[2] = "ON"] = 2, values;
-}(), $root.PrivacySystemMessage = function() {
+})(), PrivacySystemMessage = $root.PrivacySystemMessage = (() => {
     var valuesById = {}, values = Object.create(valuesById);
     return values[valuesById[1] = "E2EE_MSG"] = 1, values[valuesById[2] = "NE2EE_SELF"] = 2, 
     values[valuesById[3] = "NE2EE_OTHER"] = 3, values;
-}(), $root.HistorySync = function() {
+})(), HistorySync = $root.HistorySync = (() => {
     function HistorySync(properties) {
         if (this.conversations = [], this.statusV3Messages = [], this.pushnames = [], 
         this.recentStickers = [], this.pastParticipants = [], this.callLogRecords = [], 
-        this.phoneNumberToLidMappings = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        this.phoneNumberToLidMappings = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     var valuesById, values;
     return HistorySync.prototype.syncType = 0, HistorySync.prototype.conversations = $util.emptyArray, 
@@ -17391,19 +18112,19 @@ $root.ADVEncryptionType = function() {
         return new HistorySync(properties);
     }, HistorySync.encode = function(message, writer) {
         if ((writer = writer || $Writer.create()).uint32(8).int32(message.syncType), 
-        null != message.conversations && message.conversations.length) for (var i = 0; i < message.conversations.length; ++i) $root.Conversation.encode(message.conversations[i], writer.uint32(18).fork()).ldelim();
-        if (null != message.statusV3Messages && message.statusV3Messages.length) for (i = 0; i < message.statusV3Messages.length; ++i) $root.WebMessageInfo.encode(message.statusV3Messages[i], writer.uint32(26).fork()).ldelim();
+        null != message.conversations && message.conversations.length) for (let i = 0; i < message.conversations.length; ++i) $root.Conversation.encode(message.conversations[i], writer.uint32(18).fork()).ldelim();
+        if (null != message.statusV3Messages && message.statusV3Messages.length) for (let i = 0; i < message.statusV3Messages.length; ++i) $root.WebMessageInfo.encode(message.statusV3Messages[i], writer.uint32(26).fork()).ldelim();
         if (null != message.chunkOrder && Object.hasOwnProperty.call(message, "chunkOrder") && writer.uint32(40).uint32(message.chunkOrder), 
         null != message.progress && Object.hasOwnProperty.call(message, "progress") && writer.uint32(48).uint32(message.progress), 
-        null != message.pushnames && message.pushnames.length) for (i = 0; i < message.pushnames.length; ++i) $root.Pushname.encode(message.pushnames[i], writer.uint32(58).fork()).ldelim();
+        null != message.pushnames && message.pushnames.length) for (let i = 0; i < message.pushnames.length; ++i) $root.Pushname.encode(message.pushnames[i], writer.uint32(58).fork()).ldelim();
         if (null != message.globalSettings && Object.hasOwnProperty.call(message, "globalSettings") && $root.GlobalSettings.encode(message.globalSettings, writer.uint32(66).fork()).ldelim(), 
         null != message.threadIdUserSecret && Object.hasOwnProperty.call(message, "threadIdUserSecret") && writer.uint32(74).bytes(message.threadIdUserSecret), 
         null != message.threadDsTimeframeOffset && Object.hasOwnProperty.call(message, "threadDsTimeframeOffset") && writer.uint32(80).uint32(message.threadDsTimeframeOffset), 
-        null != message.recentStickers && message.recentStickers.length) for (i = 0; i < message.recentStickers.length; ++i) $root.StickerMetadata.encode(message.recentStickers[i], writer.uint32(90).fork()).ldelim();
-        if (null != message.pastParticipants && message.pastParticipants.length) for (i = 0; i < message.pastParticipants.length; ++i) $root.PastParticipants.encode(message.pastParticipants[i], writer.uint32(98).fork()).ldelim();
-        if (null != message.callLogRecords && message.callLogRecords.length) for (i = 0; i < message.callLogRecords.length; ++i) $root.CallLogRecord.encode(message.callLogRecords[i], writer.uint32(106).fork()).ldelim();
+        null != message.recentStickers && message.recentStickers.length) for (let i = 0; i < message.recentStickers.length; ++i) $root.StickerMetadata.encode(message.recentStickers[i], writer.uint32(90).fork()).ldelim();
+        if (null != message.pastParticipants && message.pastParticipants.length) for (let i = 0; i < message.pastParticipants.length; ++i) $root.PastParticipants.encode(message.pastParticipants[i], writer.uint32(98).fork()).ldelim();
+        if (null != message.callLogRecords && message.callLogRecords.length) for (let i = 0; i < message.callLogRecords.length; ++i) $root.CallLogRecord.encode(message.callLogRecords[i], writer.uint32(106).fork()).ldelim();
         if (null != message.aiWaitListState && Object.hasOwnProperty.call(message, "aiWaitListState") && writer.uint32(112).int32(message.aiWaitListState), 
-        null != message.phoneNumberToLidMappings && message.phoneNumberToLidMappings.length) for (i = 0; i < message.phoneNumberToLidMappings.length; ++i) $root.PhoneNumberToLIDMapping.encode(message.phoneNumberToLidMappings[i], writer.uint32(122).fork()).ldelim();
+        null != message.phoneNumberToLidMappings && message.phoneNumberToLidMappings.length) for (let i = 0; i < message.phoneNumberToLidMappings.length; ++i) $root.PhoneNumberToLIDMapping.encode(message.phoneNumberToLidMappings[i], writer.uint32(122).fork()).ldelim();
         return writer;
     }, HistorySync.encodeDelimited = function(message, writer) {
         return this.encode(message, writer).ldelim();
@@ -17501,32 +18222,53 @@ $root.ADVEncryptionType = function() {
         }
         if (null != message.conversations && message.hasOwnProperty("conversations")) {
             if (!Array.isArray(message.conversations)) return "conversations: array expected";
-            for (var i = 0; i < message.conversations.length; ++i) if (error = $root.Conversation.verify(message.conversations[i])) return "conversations." + error;
+            for (let i = 0; i < message.conversations.length; ++i) {
+                var error = $root.Conversation.verify(message.conversations[i]);
+                if (error) return "conversations." + error;
+            }
         }
         if (null != message.statusV3Messages && message.hasOwnProperty("statusV3Messages")) {
             if (!Array.isArray(message.statusV3Messages)) return "statusV3Messages: array expected";
-            for (i = 0; i < message.statusV3Messages.length; ++i) if (error = $root.WebMessageInfo.verify(message.statusV3Messages[i])) return "statusV3Messages." + error;
+            for (let i = 0; i < message.statusV3Messages.length; ++i) {
+                let error = $root.WebMessageInfo.verify(message.statusV3Messages[i]);
+                if (error) return "statusV3Messages." + error;
+            }
         }
         if (null != message.chunkOrder && message.hasOwnProperty("chunkOrder") && !$util.isInteger(message.chunkOrder)) return "chunkOrder: integer expected";
         if (null != message.progress && message.hasOwnProperty("progress") && !$util.isInteger(message.progress)) return "progress: integer expected";
         if (null != message.pushnames && message.hasOwnProperty("pushnames")) {
             if (!Array.isArray(message.pushnames)) return "pushnames: array expected";
-            for (i = 0; i < message.pushnames.length; ++i) if (error = $root.Pushname.verify(message.pushnames[i])) return "pushnames." + error;
+            for (let i = 0; i < message.pushnames.length; ++i) {
+                let error = $root.Pushname.verify(message.pushnames[i]);
+                if (error) return "pushnames." + error;
+            }
         }
-        if (null != message.globalSettings && message.hasOwnProperty("globalSettings") && (error = $root.GlobalSettings.verify(message.globalSettings))) return "globalSettings." + error;
+        if (null != message.globalSettings && message.hasOwnProperty("globalSettings")) {
+            let error = $root.GlobalSettings.verify(message.globalSettings);
+            if (error) return "globalSettings." + error;
+        }
         if (null != message.threadIdUserSecret && message.hasOwnProperty("threadIdUserSecret") && !(message.threadIdUserSecret && "number" == typeof message.threadIdUserSecret.length || $util.isString(message.threadIdUserSecret))) return "threadIdUserSecret: buffer expected";
         if (null != message.threadDsTimeframeOffset && message.hasOwnProperty("threadDsTimeframeOffset") && !$util.isInteger(message.threadDsTimeframeOffset)) return "threadDsTimeframeOffset: integer expected";
         if (null != message.recentStickers && message.hasOwnProperty("recentStickers")) {
             if (!Array.isArray(message.recentStickers)) return "recentStickers: array expected";
-            for (i = 0; i < message.recentStickers.length; ++i) if (error = $root.StickerMetadata.verify(message.recentStickers[i])) return "recentStickers." + error;
+            for (let i = 0; i < message.recentStickers.length; ++i) {
+                let error = $root.StickerMetadata.verify(message.recentStickers[i]);
+                if (error) return "recentStickers." + error;
+            }
         }
         if (null != message.pastParticipants && message.hasOwnProperty("pastParticipants")) {
             if (!Array.isArray(message.pastParticipants)) return "pastParticipants: array expected";
-            for (i = 0; i < message.pastParticipants.length; ++i) if (error = $root.PastParticipants.verify(message.pastParticipants[i])) return "pastParticipants." + error;
+            for (let i = 0; i < message.pastParticipants.length; ++i) {
+                let error = $root.PastParticipants.verify(message.pastParticipants[i]);
+                if (error) return "pastParticipants." + error;
+            }
         }
         if (null != message.callLogRecords && message.hasOwnProperty("callLogRecords")) {
             if (!Array.isArray(message.callLogRecords)) return "callLogRecords: array expected";
-            for (i = 0; i < message.callLogRecords.length; ++i) if (error = $root.CallLogRecord.verify(message.callLogRecords[i])) return "callLogRecords." + error;
+            for (let i = 0; i < message.callLogRecords.length; ++i) {
+                let error = $root.CallLogRecord.verify(message.callLogRecords[i]);
+                if (error) return "callLogRecords." + error;
+            }
         }
         if (null != message.aiWaitListState && message.hasOwnProperty("aiWaitListState")) switch (message.aiWaitListState) {
           default:
@@ -17537,7 +18279,10 @@ $root.ADVEncryptionType = function() {
         }
         if (null != message.phoneNumberToLidMappings && message.hasOwnProperty("phoneNumberToLidMappings")) {
             if (!Array.isArray(message.phoneNumberToLidMappings)) return "phoneNumberToLidMappings: array expected";
-            for (var error, i = 0; i < message.phoneNumberToLidMappings.length; ++i) if (error = $root.PhoneNumberToLIDMapping.verify(message.phoneNumberToLidMappings[i])) return "phoneNumberToLidMappings." + error;
+            for (let i = 0; i < message.phoneNumberToLidMappings.length; ++i) {
+                let error = $root.PhoneNumberToLIDMapping.verify(message.phoneNumberToLidMappings[i]);
+                if (error) return "phoneNumberToLidMappings." + error;
+            }
         }
         return null;
     }, HistorySync.fromObject = function(object) {
@@ -17585,7 +18330,7 @@ $root.ADVEncryptionType = function() {
         if (object.conversations) {
             if (!Array.isArray(object.conversations)) throw TypeError(".HistorySync.conversations: array expected");
             message.conversations = [];
-            for (var i = 0; i < object.conversations.length; ++i) {
+            for (let i = 0; i < object.conversations.length; ++i) {
                 if ("object" != typeof object.conversations[i]) throw TypeError(".HistorySync.conversations: object expected");
                 message.conversations[i] = $root.Conversation.fromObject(object.conversations[i]);
             }
@@ -17593,7 +18338,7 @@ $root.ADVEncryptionType = function() {
         if (object.statusV3Messages) {
             if (!Array.isArray(object.statusV3Messages)) throw TypeError(".HistorySync.statusV3Messages: array expected");
             message.statusV3Messages = [];
-            for (i = 0; i < object.statusV3Messages.length; ++i) {
+            for (let i = 0; i < object.statusV3Messages.length; ++i) {
                 if ("object" != typeof object.statusV3Messages[i]) throw TypeError(".HistorySync.statusV3Messages: object expected");
                 message.statusV3Messages[i] = $root.WebMessageInfo.fromObject(object.statusV3Messages[i]);
             }
@@ -17602,7 +18347,7 @@ $root.ADVEncryptionType = function() {
         null != object.progress && (message.progress = object.progress >>> 0), object.pushnames) {
             if (!Array.isArray(object.pushnames)) throw TypeError(".HistorySync.pushnames: array expected");
             message.pushnames = [];
-            for (i = 0; i < object.pushnames.length; ++i) {
+            for (let i = 0; i < object.pushnames.length; ++i) {
                 if ("object" != typeof object.pushnames[i]) throw TypeError(".HistorySync.pushnames: object expected");
                 message.pushnames[i] = $root.Pushname.fromObject(object.pushnames[i]);
             }
@@ -17616,7 +18361,7 @@ $root.ADVEncryptionType = function() {
         object.recentStickers) {
             if (!Array.isArray(object.recentStickers)) throw TypeError(".HistorySync.recentStickers: array expected");
             message.recentStickers = [];
-            for (i = 0; i < object.recentStickers.length; ++i) {
+            for (let i = 0; i < object.recentStickers.length; ++i) {
                 if ("object" != typeof object.recentStickers[i]) throw TypeError(".HistorySync.recentStickers: object expected");
                 message.recentStickers[i] = $root.StickerMetadata.fromObject(object.recentStickers[i]);
             }
@@ -17624,7 +18369,7 @@ $root.ADVEncryptionType = function() {
         if (object.pastParticipants) {
             if (!Array.isArray(object.pastParticipants)) throw TypeError(".HistorySync.pastParticipants: array expected");
             message.pastParticipants = [];
-            for (i = 0; i < object.pastParticipants.length; ++i) {
+            for (let i = 0; i < object.pastParticipants.length; ++i) {
                 if ("object" != typeof object.pastParticipants[i]) throw TypeError(".HistorySync.pastParticipants: object expected");
                 message.pastParticipants[i] = $root.PastParticipants.fromObject(object.pastParticipants[i]);
             }
@@ -17632,7 +18377,7 @@ $root.ADVEncryptionType = function() {
         if (object.callLogRecords) {
             if (!Array.isArray(object.callLogRecords)) throw TypeError(".HistorySync.callLogRecords: array expected");
             message.callLogRecords = [];
-            for (i = 0; i < object.callLogRecords.length; ++i) {
+            for (let i = 0; i < object.callLogRecords.length; ++i) {
                 if ("object" != typeof object.callLogRecords[i]) throw TypeError(".HistorySync.callLogRecords: object expected");
                 message.callLogRecords[i] = $root.CallLogRecord.fromObject(object.callLogRecords[i]);
             }
@@ -17654,7 +18399,7 @@ $root.ADVEncryptionType = function() {
         if (object.phoneNumberToLidMappings) {
             if (!Array.isArray(object.phoneNumberToLidMappings)) throw TypeError(".HistorySync.phoneNumberToLidMappings: array expected");
             message.phoneNumberToLidMappings = [];
-            for (i = 0; i < object.phoneNumberToLidMappings.length; ++i) {
+            for (let i = 0; i < object.phoneNumberToLidMappings.length; ++i) {
                 if ("object" != typeof object.phoneNumberToLidMappings[i]) throw TypeError(".HistorySync.phoneNumberToLidMappings: object expected");
                 message.phoneNumberToLidMappings[i] = $root.PhoneNumberToLIDMapping.fromObject(object.phoneNumberToLidMappings[i]);
             }
@@ -17673,37 +18418,37 @@ $root.ADVEncryptionType = function() {
         null != message.syncType && message.hasOwnProperty("syncType") && (object.syncType = options.enums !== String || void 0 === $root.HistorySync.HistorySyncType[message.syncType] ? message.syncType : $root.HistorySync.HistorySyncType[message.syncType]), 
         message.conversations && message.conversations.length) {
             object.conversations = [];
-            for (var j = 0; j < message.conversations.length; ++j) object.conversations[j] = $root.Conversation.toObject(message.conversations[j], options);
+            for (let j = 0; j < message.conversations.length; ++j) object.conversations[j] = $root.Conversation.toObject(message.conversations[j], options);
         }
         if (message.statusV3Messages && message.statusV3Messages.length) {
             object.statusV3Messages = [];
-            for (j = 0; j < message.statusV3Messages.length; ++j) object.statusV3Messages[j] = $root.WebMessageInfo.toObject(message.statusV3Messages[j], options);
+            for (let j = 0; j < message.statusV3Messages.length; ++j) object.statusV3Messages[j] = $root.WebMessageInfo.toObject(message.statusV3Messages[j], options);
         }
         if (null != message.chunkOrder && message.hasOwnProperty("chunkOrder") && (object.chunkOrder = message.chunkOrder), 
         null != message.progress && message.hasOwnProperty("progress") && (object.progress = message.progress), 
         message.pushnames && message.pushnames.length) {
             object.pushnames = [];
-            for (j = 0; j < message.pushnames.length; ++j) object.pushnames[j] = $root.Pushname.toObject(message.pushnames[j], options);
+            for (let j = 0; j < message.pushnames.length; ++j) object.pushnames[j] = $root.Pushname.toObject(message.pushnames[j], options);
         }
         if (null != message.globalSettings && message.hasOwnProperty("globalSettings") && (object.globalSettings = $root.GlobalSettings.toObject(message.globalSettings, options)), 
         null != message.threadIdUserSecret && message.hasOwnProperty("threadIdUserSecret") && (object.threadIdUserSecret = options.bytes === String ? $util.base64.encode(message.threadIdUserSecret, 0, message.threadIdUserSecret.length) : options.bytes === Array ? Array.prototype.slice.call(message.threadIdUserSecret) : message.threadIdUserSecret), 
         null != message.threadDsTimeframeOffset && message.hasOwnProperty("threadDsTimeframeOffset") && (object.threadDsTimeframeOffset = message.threadDsTimeframeOffset), 
         message.recentStickers && message.recentStickers.length) {
             object.recentStickers = [];
-            for (j = 0; j < message.recentStickers.length; ++j) object.recentStickers[j] = $root.StickerMetadata.toObject(message.recentStickers[j], options);
+            for (let j = 0; j < message.recentStickers.length; ++j) object.recentStickers[j] = $root.StickerMetadata.toObject(message.recentStickers[j], options);
         }
         if (message.pastParticipants && message.pastParticipants.length) {
             object.pastParticipants = [];
-            for (j = 0; j < message.pastParticipants.length; ++j) object.pastParticipants[j] = $root.PastParticipants.toObject(message.pastParticipants[j], options);
+            for (let j = 0; j < message.pastParticipants.length; ++j) object.pastParticipants[j] = $root.PastParticipants.toObject(message.pastParticipants[j], options);
         }
         if (message.callLogRecords && message.callLogRecords.length) {
             object.callLogRecords = [];
-            for (j = 0; j < message.callLogRecords.length; ++j) object.callLogRecords[j] = $root.CallLogRecord.toObject(message.callLogRecords[j], options);
+            for (let j = 0; j < message.callLogRecords.length; ++j) object.callLogRecords[j] = $root.CallLogRecord.toObject(message.callLogRecords[j], options);
         }
         if (null != message.aiWaitListState && message.hasOwnProperty("aiWaitListState") && (object.aiWaitListState = options.enums !== String || void 0 === $root.HistorySync.BotAIWaitListState[message.aiWaitListState] ? message.aiWaitListState : $root.HistorySync.BotAIWaitListState[message.aiWaitListState]), 
         message.phoneNumberToLidMappings && message.phoneNumberToLidMappings.length) {
             object.phoneNumberToLidMappings = [];
-            for (j = 0; j < message.phoneNumberToLidMappings.length; ++j) object.phoneNumberToLidMappings[j] = $root.PhoneNumberToLIDMapping.toObject(message.phoneNumberToLidMappings[j], options);
+            for (let j = 0; j < message.phoneNumberToLidMappings.length; ++j) object.phoneNumberToLidMappings[j] = $root.PhoneNumberToLIDMapping.toObject(message.phoneNumberToLidMappings[j], options);
         }
         return object;
     }, HistorySync.prototype.toJSON = function() {
@@ -17718,9 +18463,9 @@ $root.ADVEncryptionType = function() {
         values[valuesById[4] = "PUSH_NAME"] = 4, values[valuesById[5] = "NON_BLOCKING_DATA"] = 5, 
         values[valuesById[6] = "ON_DEMAND"] = 6, values;
     }(), HistorySync;
-}(), $root.Conversation = function() {
+})(), Conversation = $root.Conversation = (() => {
     function Conversation(properties) {
-        if (this.messages = [], this.participant = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (this.messages = [], this.participant = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     var valuesById, values;
     return Conversation.prototype.id = "", Conversation.prototype.messages = $util.emptyArray, 
@@ -17751,7 +18496,7 @@ $root.ADVEncryptionType = function() {
         return new Conversation(properties);
     }, Conversation.encode = function(message, writer) {
         if ((writer = writer || $Writer.create()).uint32(10).string(message.id), 
-        null != message.messages && message.messages.length) for (var i = 0; i < message.messages.length; ++i) $root.HistorySyncMsg.encode(message.messages[i], writer.uint32(18).fork()).ldelim();
+        null != message.messages && message.messages.length) for (let i = 0; i < message.messages.length; ++i) $root.HistorySyncMsg.encode(message.messages[i], writer.uint32(18).fork()).ldelim();
         if (null != message.newJid && Object.hasOwnProperty.call(message, "newJid") && writer.uint32(26).string(message.newJid), 
         null != message.oldJid && Object.hasOwnProperty.call(message, "oldJid") && writer.uint32(34).string(message.oldJid), 
         null != message.lastMsgTimestamp && Object.hasOwnProperty.call(message, "lastMsgTimestamp") && writer.uint32(40).uint64(message.lastMsgTimestamp), 
@@ -17769,7 +18514,7 @@ $root.ADVEncryptionType = function() {
         null != message.disappearingMode && Object.hasOwnProperty.call(message, "disappearingMode") && $root.DisappearingMode.encode(message.disappearingMode, writer.uint32(138).fork()).ldelim(), 
         null != message.unreadMentionCount && Object.hasOwnProperty.call(message, "unreadMentionCount") && writer.uint32(144).uint32(message.unreadMentionCount), 
         null != message.markedAsUnread && Object.hasOwnProperty.call(message, "markedAsUnread") && writer.uint32(152).bool(message.markedAsUnread), 
-        null != message.participant && message.participant.length) for (i = 0; i < message.participant.length; ++i) $root.GroupParticipant.encode(message.participant[i], writer.uint32(162).fork()).ldelim();
+        null != message.participant && message.participant.length) for (let i = 0; i < message.participant.length; ++i) $root.GroupParticipant.encode(message.participant[i], writer.uint32(162).fork()).ldelim();
         return null != message.tcToken && Object.hasOwnProperty.call(message, "tcToken") && writer.uint32(170).bytes(message.tcToken), 
         null != message.tcTokenTimestamp && Object.hasOwnProperty.call(message, "tcTokenTimestamp") && writer.uint32(176).uint64(message.tcTokenTimestamp), 
         null != message.contactPrimaryIdentityKey && Object.hasOwnProperty.call(message, "contactPrimaryIdentityKey") && writer.uint32(186).bytes(message.contactPrimaryIdentityKey), 
@@ -18010,7 +18755,10 @@ $root.ADVEncryptionType = function() {
         if (!$util.isString(message.id)) return "id: string expected";
         if (null != message.messages && message.hasOwnProperty("messages")) {
             if (!Array.isArray(message.messages)) return "messages: array expected";
-            for (var i = 0; i < message.messages.length; ++i) if (error = $root.HistorySyncMsg.verify(message.messages[i])) return "messages." + error;
+            for (let i = 0; i < message.messages.length; ++i) {
+                var error = $root.HistorySyncMsg.verify(message.messages[i]);
+                if (error) return "messages." + error;
+            }
         }
         if (null != message.newJid && message.hasOwnProperty("newJid") && !$util.isString(message.newJid)) return "newJid: string expected";
         if (null != message.oldJid && message.hasOwnProperty("oldJid") && !$util.isString(message.oldJid)) return "oldJid: string expected";
@@ -18033,19 +18781,28 @@ $root.ADVEncryptionType = function() {
         if (null != message.pHash && message.hasOwnProperty("pHash") && !$util.isString(message.pHash)) return "pHash: string expected";
         if (null != message.notSpam && message.hasOwnProperty("notSpam") && "boolean" != typeof message.notSpam) return "notSpam: boolean expected";
         if (null != message.archived && message.hasOwnProperty("archived") && "boolean" != typeof message.archived) return "archived: boolean expected";
-        if (null != message.disappearingMode && message.hasOwnProperty("disappearingMode") && (error = $root.DisappearingMode.verify(message.disappearingMode))) return "disappearingMode." + error;
+        if (null != message.disappearingMode && message.hasOwnProperty("disappearingMode")) {
+            let error = $root.DisappearingMode.verify(message.disappearingMode);
+            if (error) return "disappearingMode." + error;
+        }
         if (null != message.unreadMentionCount && message.hasOwnProperty("unreadMentionCount") && !$util.isInteger(message.unreadMentionCount)) return "unreadMentionCount: integer expected";
         if (null != message.markedAsUnread && message.hasOwnProperty("markedAsUnread") && "boolean" != typeof message.markedAsUnread) return "markedAsUnread: boolean expected";
         if (null != message.participant && message.hasOwnProperty("participant")) {
             if (!Array.isArray(message.participant)) return "participant: array expected";
-            for (var error, i = 0; i < message.participant.length; ++i) if (error = $root.GroupParticipant.verify(message.participant[i])) return "participant." + error;
+            for (let i = 0; i < message.participant.length; ++i) {
+                let error = $root.GroupParticipant.verify(message.participant[i]);
+                if (error) return "participant." + error;
+            }
         }
         if (null != message.tcToken && message.hasOwnProperty("tcToken") && !(message.tcToken && "number" == typeof message.tcToken.length || $util.isString(message.tcToken))) return "tcToken: buffer expected";
         if (null != message.tcTokenTimestamp && message.hasOwnProperty("tcTokenTimestamp") && !($util.isInteger(message.tcTokenTimestamp) || message.tcTokenTimestamp && $util.isInteger(message.tcTokenTimestamp.low) && $util.isInteger(message.tcTokenTimestamp.high))) return "tcTokenTimestamp: integer|Long expected";
         if (null != message.contactPrimaryIdentityKey && message.hasOwnProperty("contactPrimaryIdentityKey") && !(message.contactPrimaryIdentityKey && "number" == typeof message.contactPrimaryIdentityKey.length || $util.isString(message.contactPrimaryIdentityKey))) return "contactPrimaryIdentityKey: buffer expected";
         if (null != message.pinned && message.hasOwnProperty("pinned") && !$util.isInteger(message.pinned)) return "pinned: integer expected";
         if (null != message.muteEndTime && message.hasOwnProperty("muteEndTime") && !($util.isInteger(message.muteEndTime) || message.muteEndTime && $util.isInteger(message.muteEndTime.low) && $util.isInteger(message.muteEndTime.high))) return "muteEndTime: integer|Long expected";
-        if (null != message.wallpaper && message.hasOwnProperty("wallpaper") && (error = $root.WallpaperSettings.verify(message.wallpaper))) return "wallpaper." + error;
+        if (null != message.wallpaper && message.hasOwnProperty("wallpaper")) {
+            let error = $root.WallpaperSettings.verify(message.wallpaper);
+            if (error) return "wallpaper." + error;
+        }
         if (null != message.mediaVisibility && message.hasOwnProperty("mediaVisibility")) switch (message.mediaVisibility) {
           default:
             return "mediaVisibility: enum value expected";
@@ -18088,7 +18845,7 @@ $root.ADVEncryptionType = function() {
         if (null != object.id && (message.id = String(object.id)), object.messages) {
             if (!Array.isArray(object.messages)) throw TypeError(".Conversation.messages: array expected");
             message.messages = [];
-            for (var i = 0; i < object.messages.length; ++i) {
+            for (let i = 0; i < object.messages.length; ++i) {
                 if ("object" != typeof object.messages[i]) throw TypeError(".Conversation.messages: object expected");
                 message.messages[i] = $root.HistorySyncMsg.fromObject(object.messages[i]);
             }
@@ -18131,7 +18888,7 @@ $root.ADVEncryptionType = function() {
         object.participant) {
             if (!Array.isArray(object.participant)) throw TypeError(".Conversation.participant: array expected");
             message.participant = [];
-            for (i = 0; i < object.participant.length; ++i) {
+            for (let i = 0; i < object.participant.length; ++i) {
                 if ("object" != typeof object.participant[i]) throw TypeError(".Conversation.participant: object expected");
                 message.participant[i] = $root.GroupParticipant.fromObject(object.participant[i]);
             }
@@ -18201,33 +18958,53 @@ $root.ADVEncryptionType = function() {
     }, Conversation.toObject = function(message, options) {
         var long, object = {};
         if (((options = options || {}).arrays || options.defaults) && (object.messages = [], 
-        object.participant = []), options.defaults && (object.id = "", object.newJid = "", 
-        object.oldJid = "", $util.Long ? (long = new $util.Long(0, 0, !0), object.lastMsgTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.lastMsgTimestamp = options.longs === String ? "0" : 0, 
-        object.unreadCount = 0, object.readOnly = !1, object.endOfHistoryTransfer = !1, 
-        object.ephemeralExpiration = 0, $util.Long ? (long = new $util.Long(0, 0, !1), 
-        object.ephemeralSettingTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.ephemeralSettingTimestamp = options.longs === String ? "0" : 0, 
-        object.endOfHistoryTransferType = options.enums === String ? "COMPLETE_BUT_MORE_MESSAGES_REMAIN_ON_PRIMARY" : 0, 
-        $util.Long ? (long = new $util.Long(0, 0, !0), object.conversationTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.conversationTimestamp = options.longs === String ? "0" : 0, 
-        object.name = "", object.pHash = "", object.notSpam = !1, object.archived = !1, 
-        object.disappearingMode = null, object.unreadMentionCount = 0, object.markedAsUnread = !1, 
-        options.bytes === String ? object.tcToken = "" : (object.tcToken = [], options.bytes !== Array && (object.tcToken = $util.newBuffer(object.tcToken))), 
-        $util.Long ? (long = new $util.Long(0, 0, !0), object.tcTokenTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.tcTokenTimestamp = options.longs === String ? "0" : 0, 
-        options.bytes === String ? object.contactPrimaryIdentityKey = "" : (object.contactPrimaryIdentityKey = [], 
-        options.bytes !== Array && (object.contactPrimaryIdentityKey = $util.newBuffer(object.contactPrimaryIdentityKey))), 
-        object.pinned = 0, $util.Long ? (long = new $util.Long(0, 0, !0), object.muteEndTime = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.muteEndTime = options.longs === String ? "0" : 0, 
-        object.wallpaper = null, object.mediaVisibility = options.enums === String ? "DEFAULT" : 0, 
-        $util.Long ? (long = new $util.Long(0, 0, !0), object.tcTokenSenderTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.tcTokenSenderTimestamp = options.longs === String ? "0" : 0, 
-        object.suspended = !1, object.terminated = !1, $util.Long ? (long = new $util.Long(0, 0, !0), 
-        object.createdAt = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.createdAt = options.longs === String ? "0" : 0, 
-        object.createdBy = "", object.description = "", object.support = !1, object.isParentGroup = !1, 
-        object.isDefaultSubgroup = !1, object.parentGroupId = "", object.displayName = "", 
-        object.pnJid = "", object.shareOwnPn = !1, object.pnhDuplicateLidThread = !1, 
-        object.lidJid = "", object.username = "", object.lidOriginType = "", object.commentsCount = 0, 
-        object.locked = !1, object.systemMessageToInsert = options.enums === String ? "E2EE_MSG" : 1), 
-        null != message.id && message.hasOwnProperty("id") && (object.id = message.id), 
+        object.participant = []), options.defaults) {
+            if (object.id = "", object.newJid = "", object.oldJid = "", $util.Long ? (long = new $util.Long(0, 0, !0), 
+            object.lastMsgTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.lastMsgTimestamp = options.longs === String ? "0" : 0, 
+            object.unreadCount = 0, object.readOnly = !1, object.endOfHistoryTransfer = !1, 
+            object.ephemeralExpiration = 0, $util.Long) {
+                let long = new $util.Long(0, 0, !1);
+                object.ephemeralSettingTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+            } else object.ephemeralSettingTimestamp = options.longs === String ? "0" : 0;
+            if (object.endOfHistoryTransferType = options.enums === String ? "COMPLETE_BUT_MORE_MESSAGES_REMAIN_ON_PRIMARY" : 0, 
+            $util.Long) {
+                let long = new $util.Long(0, 0, !0);
+                object.conversationTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+            } else object.conversationTimestamp = options.longs === String ? "0" : 0;
+            if (object.name = "", object.pHash = "", object.notSpam = !1, object.archived = !1, 
+            object.disappearingMode = null, object.unreadMentionCount = 0, object.markedAsUnread = !1, 
+            options.bytes === String ? object.tcToken = "" : (object.tcToken = [], 
+            options.bytes !== Array && (object.tcToken = $util.newBuffer(object.tcToken))), 
+            $util.Long) {
+                let long = new $util.Long(0, 0, !0);
+                object.tcTokenTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+            } else object.tcTokenTimestamp = options.longs === String ? "0" : 0;
+            if (options.bytes === String ? object.contactPrimaryIdentityKey = "" : (object.contactPrimaryIdentityKey = [], 
+            options.bytes !== Array && (object.contactPrimaryIdentityKey = $util.newBuffer(object.contactPrimaryIdentityKey))), 
+            object.pinned = 0, $util.Long) {
+                let long = new $util.Long(0, 0, !0);
+                object.muteEndTime = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+            } else object.muteEndTime = options.longs === String ? "0" : 0;
+            if (object.wallpaper = null, object.mediaVisibility = options.enums === String ? "DEFAULT" : 0, 
+            $util.Long) {
+                let long = new $util.Long(0, 0, !0);
+                object.tcTokenSenderTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+            } else object.tcTokenSenderTimestamp = options.longs === String ? "0" : 0;
+            if (object.suspended = !1, object.terminated = !1, $util.Long) {
+                let long = new $util.Long(0, 0, !0);
+                object.createdAt = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+            } else object.createdAt = options.longs === String ? "0" : 0;
+            object.createdBy = "", object.description = "", object.support = !1, 
+            object.isParentGroup = !1, object.isDefaultSubgroup = !1, object.parentGroupId = "", 
+            object.displayName = "", object.pnJid = "", object.shareOwnPn = !1, 
+            object.pnhDuplicateLidThread = !1, object.lidJid = "", object.username = "", 
+            object.lidOriginType = "", object.commentsCount = 0, object.locked = !1, 
+            object.systemMessageToInsert = options.enums === String ? "E2EE_MSG" : 1;
+        }
+        if (null != message.id && message.hasOwnProperty("id") && (object.id = message.id), 
         message.messages && message.messages.length) {
             object.messages = [];
-            for (var j = 0; j < message.messages.length; ++j) object.messages[j] = $root.HistorySyncMsg.toObject(message.messages[j], options);
+            for (let j = 0; j < message.messages.length; ++j) object.messages[j] = $root.HistorySyncMsg.toObject(message.messages[j], options);
         }
         if (null != message.newJid && message.hasOwnProperty("newJid") && (object.newJid = message.newJid), 
         null != message.oldJid && message.hasOwnProperty("oldJid") && (object.oldJid = message.oldJid), 
@@ -18248,7 +19025,7 @@ $root.ADVEncryptionType = function() {
         null != message.markedAsUnread && message.hasOwnProperty("markedAsUnread") && (object.markedAsUnread = message.markedAsUnread), 
         message.participant && message.participant.length) {
             object.participant = [];
-            for (j = 0; j < message.participant.length; ++j) object.participant[j] = $root.GroupParticipant.toObject(message.participant[j], options);
+            for (let j = 0; j < message.participant.length; ++j) object.participant[j] = $root.GroupParticipant.toObject(message.participant[j], options);
         }
         return null != message.tcToken && message.hasOwnProperty("tcToken") && (object.tcToken = options.bytes === String ? $util.base64.encode(message.tcToken, 0, message.tcToken.length) : options.bytes === Array ? Array.prototype.slice.call(message.tcToken) : message.tcToken), 
         null != message.tcTokenTimestamp && message.hasOwnProperty("tcTokenTimestamp") && ("number" == typeof message.tcTokenTimestamp ? object.tcTokenTimestamp = options.longs === String ? String(message.tcTokenTimestamp) : message.tcTokenTimestamp : object.tcTokenTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.tcTokenTimestamp) : options.longs === Number ? new $util.LongBits(message.tcTokenTimestamp.low >>> 0, message.tcTokenTimestamp.high >>> 0).toNumber(!0) : message.tcTokenTimestamp), 
@@ -18286,9 +19063,9 @@ $root.ADVEncryptionType = function() {
     values[valuesById[1] = "COMPLETE_AND_NO_MORE_MESSAGE_REMAIN_ON_PRIMARY"] = 1, 
     values[valuesById[2] = "COMPLETE_ON_DEMAND_SYNC_BUT_MORE_MSG_REMAIN_ON_PRIMARY"] = 2, 
     values), Conversation;
-}(), $root.PhoneNumberToLIDMapping = function() {
+})(), PhoneNumberToLIDMapping = $root.PhoneNumberToLIDMapping = (() => {
     function PhoneNumberToLIDMapping(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return PhoneNumberToLIDMapping.prototype.pnJid = "", PhoneNumberToLIDMapping.prototype.lidJid = "", 
     PhoneNumberToLIDMapping.create = function(properties) {
@@ -18337,9 +19114,9 @@ $root.ADVEncryptionType = function() {
     }, PhoneNumberToLIDMapping.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/PhoneNumberToLIDMapping";
     }, PhoneNumberToLIDMapping;
-}(), $root.HistorySyncMsg = function() {
+})(), HistorySyncMsg = $root.HistorySyncMsg = (() => {
     function HistorySyncMsg(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return HistorySyncMsg.prototype.message = null, HistorySyncMsg.prototype.msgOrderId = $util.Long ? $util.Long.fromBits(0, 0, !0) : 0, 
     HistorySyncMsg.create = function(properties) {
@@ -18398,9 +19175,9 @@ $root.ADVEncryptionType = function() {
     }, HistorySyncMsg.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/HistorySyncMsg";
     }, HistorySyncMsg;
-}(), $root.Pushname = function() {
+})(), Pushname = $root.Pushname = (() => {
     function Pushname(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return Pushname.prototype.id = "", Pushname.prototype.pushname = "", Pushname.create = function(properties) {
         return new Pushname(properties);
@@ -18448,9 +19225,9 @@ $root.ADVEncryptionType = function() {
     }, Pushname.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/Pushname";
     }, Pushname;
-}(), $root.GroupParticipant = function() {
+})(), GroupParticipant = $root.GroupParticipant = (() => {
     function GroupParticipant(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     var valuesById, values;
     return GroupParticipant.prototype.userJid = "", GroupParticipant.prototype.rank = 0, 
@@ -18534,9 +19311,9 @@ $root.ADVEncryptionType = function() {
     }, GroupParticipant.Rank = (valuesById = {}, (values = Object.create(valuesById))[valuesById[0] = "REGULAR"] = 0, 
     values[valuesById[1] = "ADMIN"] = 1, values[valuesById[2] = "SUPERADMIN"] = 2, 
     values), GroupParticipant;
-}(), $root.WallpaperSettings = function() {
+})(), WallpaperSettings = $root.WallpaperSettings = (() => {
     function WallpaperSettings(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return WallpaperSettings.prototype.filename = "", WallpaperSettings.prototype.opacity = 0, 
     WallpaperSettings.create = function(properties) {
@@ -18585,9 +19362,9 @@ $root.ADVEncryptionType = function() {
     }, WallpaperSettings.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/WallpaperSettings";
     }, WallpaperSettings;
-}(), $root.GlobalSettings = function() {
+})(), GlobalSettings = $root.GlobalSettings = (() => {
     function GlobalSettings(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return GlobalSettings.prototype.lightThemeWallpaper = null, GlobalSettings.prototype.mediaVisibility = 0, 
     GlobalSettings.prototype.darkThemeWallpaper = null, GlobalSettings.prototype.autoDownloadWiFi = null, 
@@ -18713,8 +19490,10 @@ $root.ADVEncryptionType = function() {
         return reader instanceof $Reader || (reader = new $Reader(reader)), this.decode(reader, reader.uint32());
     }, GlobalSettings.verify = function(message) {
         if ("object" != typeof message || null === message) return "object expected";
-        var error;
-        if (null != message.lightThemeWallpaper && message.hasOwnProperty("lightThemeWallpaper") && (error = $root.WallpaperSettings.verify(message.lightThemeWallpaper))) return "lightThemeWallpaper." + error;
+        if (null != message.lightThemeWallpaper && message.hasOwnProperty("lightThemeWallpaper")) {
+            var error = $root.WallpaperSettings.verify(message.lightThemeWallpaper);
+            if (error) return "lightThemeWallpaper." + error;
+        }
         if (null != message.mediaVisibility && message.hasOwnProperty("mediaVisibility")) switch (message.mediaVisibility) {
           default:
             return "mediaVisibility: enum value expected";
@@ -18723,23 +19502,47 @@ $root.ADVEncryptionType = function() {
           case 1:
           case 2:
         }
-        if (null != message.darkThemeWallpaper && message.hasOwnProperty("darkThemeWallpaper") && (error = $root.WallpaperSettings.verify(message.darkThemeWallpaper))) return "darkThemeWallpaper." + error;
-        if (null != message.autoDownloadWiFi && message.hasOwnProperty("autoDownloadWiFi") && (error = $root.AutoDownloadSettings.verify(message.autoDownloadWiFi))) return "autoDownloadWiFi." + error;
-        if (null != message.autoDownloadCellular && message.hasOwnProperty("autoDownloadCellular") && (error = $root.AutoDownloadSettings.verify(message.autoDownloadCellular))) return "autoDownloadCellular." + error;
-        if (null != message.autoDownloadRoaming && message.hasOwnProperty("autoDownloadRoaming") && (error = $root.AutoDownloadSettings.verify(message.autoDownloadRoaming))) return "autoDownloadRoaming." + error;
+        if (null != message.darkThemeWallpaper && message.hasOwnProperty("darkThemeWallpaper")) {
+            let error = $root.WallpaperSettings.verify(message.darkThemeWallpaper);
+            if (error) return "darkThemeWallpaper." + error;
+        }
+        if (null != message.autoDownloadWiFi && message.hasOwnProperty("autoDownloadWiFi")) {
+            let error = $root.AutoDownloadSettings.verify(message.autoDownloadWiFi);
+            if (error) return "autoDownloadWiFi." + error;
+        }
+        if (null != message.autoDownloadCellular && message.hasOwnProperty("autoDownloadCellular")) {
+            let error = $root.AutoDownloadSettings.verify(message.autoDownloadCellular);
+            if (error) return "autoDownloadCellular." + error;
+        }
+        if (null != message.autoDownloadRoaming && message.hasOwnProperty("autoDownloadRoaming")) {
+            let error = $root.AutoDownloadSettings.verify(message.autoDownloadRoaming);
+            if (error) return "autoDownloadRoaming." + error;
+        }
         if (null != message.showIndividualNotificationsPreview && message.hasOwnProperty("showIndividualNotificationsPreview") && "boolean" != typeof message.showIndividualNotificationsPreview) return "showIndividualNotificationsPreview: boolean expected";
         if (null != message.showGroupNotificationsPreview && message.hasOwnProperty("showGroupNotificationsPreview") && "boolean" != typeof message.showGroupNotificationsPreview) return "showGroupNotificationsPreview: boolean expected";
         if (null != message.disappearingModeDuration && message.hasOwnProperty("disappearingModeDuration") && !$util.isInteger(message.disappearingModeDuration)) return "disappearingModeDuration: integer expected";
         if (null != message.disappearingModeTimestamp && message.hasOwnProperty("disappearingModeTimestamp") && !($util.isInteger(message.disappearingModeTimestamp) || message.disappearingModeTimestamp && $util.isInteger(message.disappearingModeTimestamp.low) && $util.isInteger(message.disappearingModeTimestamp.high))) return "disappearingModeTimestamp: integer|Long expected";
-        if (null != message.avatarUserSettings && message.hasOwnProperty("avatarUserSettings") && (error = $root.AvatarUserSettings.verify(message.avatarUserSettings))) return "avatarUserSettings." + error;
+        if (null != message.avatarUserSettings && message.hasOwnProperty("avatarUserSettings")) {
+            let error = $root.AvatarUserSettings.verify(message.avatarUserSettings);
+            if (error) return "avatarUserSettings." + error;
+        }
         if (null != message.fontSize && message.hasOwnProperty("fontSize") && !$util.isInteger(message.fontSize)) return "fontSize: integer expected";
         if (null != message.securityNotifications && message.hasOwnProperty("securityNotifications") && "boolean" != typeof message.securityNotifications) return "securityNotifications: boolean expected";
         if (null != message.autoUnarchiveChats && message.hasOwnProperty("autoUnarchiveChats") && "boolean" != typeof message.autoUnarchiveChats) return "autoUnarchiveChats: boolean expected";
         if (null != message.videoQualityMode && message.hasOwnProperty("videoQualityMode") && !$util.isInteger(message.videoQualityMode)) return "videoQualityMode: integer expected";
         if (null != message.photoQualityMode && message.hasOwnProperty("photoQualityMode") && !$util.isInteger(message.photoQualityMode)) return "photoQualityMode: integer expected";
-        if (null != message.individualNotificationSettings && message.hasOwnProperty("individualNotificationSettings") && (error = $root.NotificationSettings.verify(message.individualNotificationSettings))) return "individualNotificationSettings." + error;
-        if (null != message.groupNotificationSettings && message.hasOwnProperty("groupNotificationSettings") && (error = $root.NotificationSettings.verify(message.groupNotificationSettings))) return "groupNotificationSettings." + error;
-        if (null != message.chatLockSettings && message.hasOwnProperty("chatLockSettings") && (error = $root.ChatLockSettings.verify(message.chatLockSettings))) return "chatLockSettings." + error;
+        if (null != message.individualNotificationSettings && message.hasOwnProperty("individualNotificationSettings")) {
+            let error = $root.NotificationSettings.verify(message.individualNotificationSettings);
+            if (error) return "individualNotificationSettings." + error;
+        }
+        if (null != message.groupNotificationSettings && message.hasOwnProperty("groupNotificationSettings")) {
+            let error = $root.NotificationSettings.verify(message.groupNotificationSettings);
+            if (error) return "groupNotificationSettings." + error;
+        }
+        if (null != message.chatLockSettings && message.hasOwnProperty("chatLockSettings")) {
+            let error = $root.ChatLockSettings.verify(message.chatLockSettings);
+            if (error) return "chatLockSettings." + error;
+        }
         return null;
     }, GlobalSettings.fromObject = function(object) {
         if (object instanceof $root.GlobalSettings) return object;
@@ -18845,9 +19648,9 @@ $root.ADVEncryptionType = function() {
     }, GlobalSettings.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/GlobalSettings";
     }, GlobalSettings;
-}(), $root.AutoDownloadSettings = function() {
+})(), AutoDownloadSettings = $root.AutoDownloadSettings = (() => {
     function AutoDownloadSettings(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return AutoDownloadSettings.prototype.downloadImages = !1, AutoDownloadSettings.prototype.downloadAudio = !1, 
     AutoDownloadSettings.prototype.downloadVideo = !1, AutoDownloadSettings.prototype.downloadDocuments = !1, 
@@ -18913,9 +19716,9 @@ $root.ADVEncryptionType = function() {
     }, AutoDownloadSettings.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/AutoDownloadSettings";
     }, AutoDownloadSettings;
-}(), $root.StickerMetadata = function() {
+})(), StickerMetadata = $root.StickerMetadata = (() => {
     function StickerMetadata(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return StickerMetadata.prototype.url = "", StickerMetadata.prototype.fileSha256 = $util.newBuffer([]), 
     StickerMetadata.prototype.fileEncSha256 = $util.newBuffer([]), StickerMetadata.prototype.mediaKey = $util.newBuffer([]), 
@@ -19018,16 +19821,22 @@ $root.ADVEncryptionType = function() {
         message);
     }, StickerMetadata.toObject = function(message, options) {
         var long, object = {};
-        return (options = options || {}).defaults && (object.url = "", options.bytes === String ? object.fileSha256 = "" : (object.fileSha256 = [], 
-        options.bytes !== Array && (object.fileSha256 = $util.newBuffer(object.fileSha256))), 
-        options.bytes === String ? object.fileEncSha256 = "" : (object.fileEncSha256 = [], 
-        options.bytes !== Array && (object.fileEncSha256 = $util.newBuffer(object.fileEncSha256))), 
-        options.bytes === String ? object.mediaKey = "" : (object.mediaKey = [], 
-        options.bytes !== Array && (object.mediaKey = $util.newBuffer(object.mediaKey))), 
-        object.mimetype = "", object.height = 0, object.width = 0, object.directPath = "", 
-        $util.Long ? (long = new $util.Long(0, 0, !0), object.fileLength = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.fileLength = options.longs === String ? "0" : 0, 
-        object.weight = 0, $util.Long ? (long = new $util.Long(0, 0, !1), object.lastStickerSentTs = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.lastStickerSentTs = options.longs === String ? "0" : 0, 
-        object.isLottie = !1), null != message.url && message.hasOwnProperty("url") && (object.url = message.url), 
+        if ((options = options || {}).defaults) {
+            if (object.url = "", options.bytes === String ? object.fileSha256 = "" : (object.fileSha256 = [], 
+            options.bytes !== Array && (object.fileSha256 = $util.newBuffer(object.fileSha256))), 
+            options.bytes === String ? object.fileEncSha256 = "" : (object.fileEncSha256 = [], 
+            options.bytes !== Array && (object.fileEncSha256 = $util.newBuffer(object.fileEncSha256))), 
+            options.bytes === String ? object.mediaKey = "" : (object.mediaKey = [], 
+            options.bytes !== Array && (object.mediaKey = $util.newBuffer(object.mediaKey))), 
+            object.mimetype = "", object.height = 0, object.width = 0, object.directPath = "", 
+            $util.Long ? (long = new $util.Long(0, 0, !0), object.fileLength = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.fileLength = options.longs === String ? "0" : 0, 
+            object.weight = 0, $util.Long) {
+                let long = new $util.Long(0, 0, !1);
+                object.lastStickerSentTs = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+            } else object.lastStickerSentTs = options.longs === String ? "0" : 0;
+            object.isLottie = !1;
+        }
+        return null != message.url && message.hasOwnProperty("url") && (object.url = message.url), 
         null != message.fileSha256 && message.hasOwnProperty("fileSha256") && (object.fileSha256 = options.bytes === String ? $util.base64.encode(message.fileSha256, 0, message.fileSha256.length) : options.bytes === Array ? Array.prototype.slice.call(message.fileSha256) : message.fileSha256), 
         null != message.fileEncSha256 && message.hasOwnProperty("fileEncSha256") && (object.fileEncSha256 = options.bytes === String ? $util.base64.encode(message.fileEncSha256, 0, message.fileEncSha256.length) : options.bytes === Array ? Array.prototype.slice.call(message.fileEncSha256) : message.fileEncSha256), 
         null != message.mediaKey && message.hasOwnProperty("mediaKey") && (object.mediaKey = options.bytes === String ? $util.base64.encode(message.mediaKey, 0, message.mediaKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.mediaKey) : message.mediaKey), 
@@ -19045,16 +19854,16 @@ $root.ADVEncryptionType = function() {
     }, StickerMetadata.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/StickerMetadata";
     }, StickerMetadata;
-}(), $root.PastParticipants = function() {
+})(), PastParticipants = $root.PastParticipants = (() => {
     function PastParticipants(properties) {
-        if (this.pastParticipants = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (this.pastParticipants = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return PastParticipants.prototype.groupJid = "", PastParticipants.prototype.pastParticipants = $util.emptyArray, 
     PastParticipants.create = function(properties) {
         return new PastParticipants(properties);
     }, PastParticipants.encode = function(message, writer) {
         if (writer = writer || $Writer.create(), null != message.groupJid && Object.hasOwnProperty.call(message, "groupJid") && writer.uint32(10).string(message.groupJid), 
-        null != message.pastParticipants && message.pastParticipants.length) for (var i = 0; i < message.pastParticipants.length; ++i) $root.PastParticipant.encode(message.pastParticipants[i], writer.uint32(18).fork()).ldelim();
+        null != message.pastParticipants && message.pastParticipants.length) for (let i = 0; i < message.pastParticipants.length; ++i) $root.PastParticipant.encode(message.pastParticipants[i], writer.uint32(18).fork()).ldelim();
         return writer;
     }, PastParticipants.encodeDelimited = function(message, writer) {
         return this.encode(message, writer).ldelim();
@@ -19084,7 +19893,7 @@ $root.ADVEncryptionType = function() {
         if (null != message.groupJid && message.hasOwnProperty("groupJid") && !$util.isString(message.groupJid)) return "groupJid: string expected";
         if (null != message.pastParticipants && message.hasOwnProperty("pastParticipants")) {
             if (!Array.isArray(message.pastParticipants)) return "pastParticipants: array expected";
-            for (var i = 0; i < message.pastParticipants.length; ++i) {
+            for (let i = 0; i < message.pastParticipants.length; ++i) {
                 var error = $root.PastParticipant.verify(message.pastParticipants[i]);
                 if (error) return "pastParticipants." + error;
             }
@@ -19097,7 +19906,7 @@ $root.ADVEncryptionType = function() {
         object.pastParticipants) {
             if (!Array.isArray(object.pastParticipants)) throw TypeError(".PastParticipants.pastParticipants: array expected");
             message.pastParticipants = [];
-            for (var i = 0; i < object.pastParticipants.length; ++i) {
+            for (let i = 0; i < object.pastParticipants.length; ++i) {
                 if ("object" != typeof object.pastParticipants[i]) throw TypeError(".PastParticipants.pastParticipants: object expected");
                 message.pastParticipants[i] = $root.PastParticipant.fromObject(object.pastParticipants[i]);
             }
@@ -19109,7 +19918,7 @@ $root.ADVEncryptionType = function() {
         options.defaults && (object.groupJid = ""), null != message.groupJid && message.hasOwnProperty("groupJid") && (object.groupJid = message.groupJid), 
         message.pastParticipants && message.pastParticipants.length) {
             object.pastParticipants = [];
-            for (var j = 0; j < message.pastParticipants.length; ++j) object.pastParticipants[j] = $root.PastParticipant.toObject(message.pastParticipants[j], options);
+            for (let j = 0; j < message.pastParticipants.length; ++j) object.pastParticipants[j] = $root.PastParticipant.toObject(message.pastParticipants[j], options);
         }
         return object;
     }, PastParticipants.prototype.toJSON = function() {
@@ -19117,9 +19926,9 @@ $root.ADVEncryptionType = function() {
     }, PastParticipants.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/PastParticipants";
     }, PastParticipants;
-}(), $root.PastParticipant = function() {
+})(), PastParticipant = $root.PastParticipant = (() => {
     function PastParticipant(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     var valuesById, values;
     return PastParticipant.prototype.userJid = "", PastParticipant.prototype.leaveReason = 0, 
@@ -19202,9 +20011,9 @@ $root.ADVEncryptionType = function() {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/PastParticipant";
     }, PastParticipant.LeaveReason = (valuesById = {}, (values = Object.create(valuesById))[valuesById[0] = "LEFT"] = 0, 
     values[valuesById[1] = "REMOVED"] = 1, values), PastParticipant;
-}(), $root.AvatarUserSettings = function() {
+})(), AvatarUserSettings = $root.AvatarUserSettings = (() => {
     function AvatarUserSettings(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return AvatarUserSettings.prototype.fbid = "", AvatarUserSettings.prototype.password = "", 
     AvatarUserSettings.create = function(properties) {
@@ -19253,9 +20062,9 @@ $root.ADVEncryptionType = function() {
     }, AvatarUserSettings.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/AvatarUserSettings";
     }, AvatarUserSettings;
-}(), $root.NotificationSettings = function() {
+})(), NotificationSettings = $root.NotificationSettings = (() => {
     function NotificationSettings(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return NotificationSettings.prototype.messageVibrate = "", NotificationSettings.prototype.messagePopup = "", 
     NotificationSettings.prototype.messageLight = "", NotificationSettings.prototype.lowPriorityNotifications = !1, 
@@ -19336,18 +20145,18 @@ $root.ADVEncryptionType = function() {
     }, NotificationSettings.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/NotificationSettings";
     }, NotificationSettings;
-}(), $root.ChatRowOpaqueData = function() {
+})(), ChatRowOpaqueData = $root.ChatRowOpaqueData = (() => {
     function ChatRowOpaqueData(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function DraftMessage(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function CtwaContextData(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function CtwaContextLinkData(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     var valuesById, values;
     return ChatRowOpaqueData.prototype.draftMessage = null, ChatRowOpaqueData.create = function(properties) {
@@ -19440,9 +20249,14 @@ $root.ADVEncryptionType = function() {
         if ("object" != typeof message || null === message) return "object expected";
         if (null != message.text && message.hasOwnProperty("text") && !$util.isString(message.text)) return "text: string expected";
         if (null != message.omittedUrl && message.hasOwnProperty("omittedUrl") && !$util.isString(message.omittedUrl)) return "omittedUrl: string expected";
-        var error;
-        if (null != message.ctwaContextLinkData && message.hasOwnProperty("ctwaContextLinkData") && (error = $root.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData.verify(message.ctwaContextLinkData))) return "ctwaContextLinkData." + error;
-        if (null != message.ctwaContext && message.hasOwnProperty("ctwaContext") && (error = $root.ChatRowOpaqueData.DraftMessage.CtwaContextData.verify(message.ctwaContext))) return "ctwaContext." + error;
+        if (null != message.ctwaContextLinkData && message.hasOwnProperty("ctwaContextLinkData")) {
+            var error = $root.ChatRowOpaqueData.DraftMessage.CtwaContextLinkData.verify(message.ctwaContextLinkData);
+            if (error) return "ctwaContextLinkData." + error;
+        }
+        if (null != message.ctwaContext && message.hasOwnProperty("ctwaContext")) {
+            let error = $root.ChatRowOpaqueData.DraftMessage.CtwaContextData.verify(message.ctwaContext);
+            if (error) return "ctwaContext." + error;
+        }
         return null != message.timestamp && message.hasOwnProperty("timestamp") && !($util.isInteger(message.timestamp) || message.timestamp && $util.isInteger(message.timestamp.low) && $util.isInteger(message.timestamp.high)) ? "timestamp: integer|Long expected" : null;
     }, DraftMessage.fromObject = function(object) {
         if (object instanceof $root.ChatRowOpaqueData.DraftMessage) return object;
@@ -19698,9 +20512,9 @@ $root.ADVEncryptionType = function() {
     }, CtwaContextLinkData.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/ChatRowOpaqueData.DraftMessage.CtwaContextLinkData";
     }, CtwaContextLinkData), DraftMessage), ChatRowOpaqueData;
-}(), $root.MsgRowOpaqueData = function() {
+})(), MsgRowOpaqueData = $root.MsgRowOpaqueData = (() => {
     function MsgRowOpaqueData(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return MsgRowOpaqueData.prototype.currentMsg = null, MsgRowOpaqueData.prototype.quotedMsg = null, 
     MsgRowOpaqueData.create = function(properties) {
@@ -19733,9 +20547,14 @@ $root.ADVEncryptionType = function() {
         return reader instanceof $Reader || (reader = new $Reader(reader)), this.decode(reader, reader.uint32());
     }, MsgRowOpaqueData.verify = function(message) {
         if ("object" != typeof message || null === message) return "object expected";
-        var error;
-        if (null != message.currentMsg && message.hasOwnProperty("currentMsg") && (error = $root.MsgOpaqueData.verify(message.currentMsg))) return "currentMsg." + error;
-        if (null != message.quotedMsg && message.hasOwnProperty("quotedMsg") && (error = $root.MsgOpaqueData.verify(message.quotedMsg))) return "quotedMsg." + error;
+        if (null != message.currentMsg && message.hasOwnProperty("currentMsg")) {
+            var error = $root.MsgOpaqueData.verify(message.currentMsg);
+            if (error) return "currentMsg." + error;
+        }
+        if (null != message.quotedMsg && message.hasOwnProperty("quotedMsg")) {
+            let error = $root.MsgOpaqueData.verify(message.quotedMsg);
+            if (error) return "quotedMsg." + error;
+        }
         return null;
     }, MsgRowOpaqueData.fromObject = function(object) {
         if (object instanceof $root.MsgRowOpaqueData) return object;
@@ -19760,9 +20579,9 @@ $root.ADVEncryptionType = function() {
     }, MsgRowOpaqueData.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/MsgRowOpaqueData";
     }, MsgRowOpaqueData;
-}(), $root.PollEncValue = function() {
+})(), PollEncValue = $root.PollEncValue = (() => {
     function PollEncValue(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return PollEncValue.prototype.encPayload = $util.newBuffer([]), PollEncValue.prototype.encIv = $util.newBuffer([]), 
     PollEncValue.create = function(properties) {
@@ -19814,15 +20633,15 @@ $root.ADVEncryptionType = function() {
     }, PollEncValue.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/PollEncValue";
     }, PollEncValue;
-}(), $root.MsgOpaqueData = function() {
+})(), MsgOpaqueData = $root.MsgOpaqueData = (() => {
     function MsgOpaqueData(properties) {
-        if (this.pollOptions = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (this.pollOptions = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function EventLocation(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function PollOption(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return MsgOpaqueData.prototype.body = "", MsgOpaqueData.prototype.caption = "", 
     MsgOpaqueData.prototype.lng = 0, MsgOpaqueData.prototype.isLive = !1, MsgOpaqueData.prototype.lat = 0, 
@@ -19859,7 +20678,7 @@ $root.ADVEncryptionType = function() {
         null != message.clientUrl && Object.hasOwnProperty.call(message, "clientUrl") && writer.uint32(122).string(message.clientUrl), 
         null != message.loc && Object.hasOwnProperty.call(message, "loc") && writer.uint32(130).string(message.loc), 
         null != message.pollName && Object.hasOwnProperty.call(message, "pollName") && writer.uint32(138).string(message.pollName), 
-        null != message.pollOptions && message.pollOptions.length) for (var i = 0; i < message.pollOptions.length; ++i) $root.MsgOpaqueData.PollOption.encode(message.pollOptions[i], writer.uint32(146).fork()).ldelim();
+        null != message.pollOptions && message.pollOptions.length) for (let i = 0; i < message.pollOptions.length; ++i) $root.MsgOpaqueData.PollOption.encode(message.pollOptions[i], writer.uint32(146).fork()).ldelim();
         return null != message.pollSelectableOptionsCount && Object.hasOwnProperty.call(message, "pollSelectableOptionsCount") && writer.uint32(160).uint32(message.pollSelectableOptionsCount), 
         null != message.messageSecret && Object.hasOwnProperty.call(message, "messageSecret") && writer.uint32(170).bytes(message.messageSecret), 
         null != message.senderTimestampMs && Object.hasOwnProperty.call(message, "senderTimestampMs") && writer.uint32(176).int64(message.senderTimestampMs), 
@@ -20059,15 +20878,20 @@ $root.ADVEncryptionType = function() {
         if (null != message.pollName && message.hasOwnProperty("pollName") && !$util.isString(message.pollName)) return "pollName: string expected";
         if (null != message.pollOptions && message.hasOwnProperty("pollOptions")) {
             if (!Array.isArray(message.pollOptions)) return "pollOptions: array expected";
-            for (var i = 0; i < message.pollOptions.length; ++i) if (error = $root.MsgOpaqueData.PollOption.verify(message.pollOptions[i])) return "pollOptions." + error;
+            for (let i = 0; i < message.pollOptions.length; ++i) {
+                var error = $root.MsgOpaqueData.PollOption.verify(message.pollOptions[i]);
+                if (error) return "pollOptions." + error;
+            }
         }
         if (null != message.pollSelectableOptionsCount && message.hasOwnProperty("pollSelectableOptionsCount") && !$util.isInteger(message.pollSelectableOptionsCount)) return "pollSelectableOptionsCount: integer expected";
         if (null != message.messageSecret && message.hasOwnProperty("messageSecret") && !(message.messageSecret && "number" == typeof message.messageSecret.length || $util.isString(message.messageSecret))) return "messageSecret: buffer expected";
         if (null != message.originalSelfAuthor && message.hasOwnProperty("originalSelfAuthor") && !$util.isString(message.originalSelfAuthor)) return "originalSelfAuthor: string expected";
         if (null != message.senderTimestampMs && message.hasOwnProperty("senderTimestampMs") && !($util.isInteger(message.senderTimestampMs) || message.senderTimestampMs && $util.isInteger(message.senderTimestampMs.low) && $util.isInteger(message.senderTimestampMs.high))) return "senderTimestampMs: integer|Long expected";
         if (null != message.pollUpdateParentKey && message.hasOwnProperty("pollUpdateParentKey") && !$util.isString(message.pollUpdateParentKey)) return "pollUpdateParentKey: string expected";
-        var error;
-        if (null != message.encPollVote && message.hasOwnProperty("encPollVote") && (error = $root.PollEncValue.verify(message.encPollVote))) return "encPollVote." + error;
+        if (null != message.encPollVote && message.hasOwnProperty("encPollVote")) {
+            let error = $root.PollEncValue.verify(message.encPollVote);
+            if (error) return "encPollVote." + error;
+        }
         if (null != message.isSentCagPollCreation && message.hasOwnProperty("isSentCagPollCreation") && "boolean" != typeof message.isSentCagPollCreation) return "isSentCagPollCreation: boolean expected";
         if (null != message.encReactionTargetMessageKey && message.hasOwnProperty("encReactionTargetMessageKey") && !$util.isString(message.encReactionTargetMessageKey)) return "encReactionTargetMessageKey: string expected";
         if (null != message.encReactionEncPayload && message.hasOwnProperty("encReactionEncPayload") && !(message.encReactionEncPayload && "number" == typeof message.encReactionEncPayload.length || $util.isString(message.encReactionEncPayload))) return "encReactionEncPayload: buffer expected";
@@ -20081,7 +20905,10 @@ $root.ADVEncryptionType = function() {
         if (null != message.eventDescription && message.hasOwnProperty("eventDescription") && !$util.isString(message.eventDescription)) return "eventDescription: string expected";
         if (null != message.eventJoinLink && message.hasOwnProperty("eventJoinLink") && !$util.isString(message.eventJoinLink)) return "eventJoinLink: string expected";
         if (null != message.eventStartTime && message.hasOwnProperty("eventStartTime") && !($util.isInteger(message.eventStartTime) || message.eventStartTime && $util.isInteger(message.eventStartTime.low) && $util.isInteger(message.eventStartTime.high))) return "eventStartTime: integer|Long expected";
-        if (null != message.eventLocation && message.hasOwnProperty("eventLocation") && (error = $root.MsgOpaqueData.EventLocation.verify(message.eventLocation))) return "eventLocation." + error;
+        if (null != message.eventLocation && message.hasOwnProperty("eventLocation")) {
+            let error = $root.MsgOpaqueData.EventLocation.verify(message.eventLocation);
+            if (error) return "eventLocation." + error;
+        }
         return null;
     }, MsgOpaqueData.fromObject = function(object) {
         if (object instanceof $root.MsgOpaqueData) return object;
@@ -20099,7 +20926,7 @@ $root.ADVEncryptionType = function() {
         object.pollOptions) {
             if (!Array.isArray(object.pollOptions)) throw TypeError(".MsgOpaqueData.pollOptions: array expected");
             message.pollOptions = [];
-            for (var i = 0; i < object.pollOptions.length; ++i) {
+            for (let i = 0; i < object.pollOptions.length; ++i) {
                 if ("object" != typeof object.pollOptions[i]) throw TypeError(".MsgOpaqueData.pollOptions: object expected");
                 message.pollOptions[i] = $root.MsgOpaqueData.PollOption.fromObject(object.pollOptions[i]);
             }
@@ -20134,29 +20961,34 @@ $root.ADVEncryptionType = function() {
     }, MsgOpaqueData.toObject = function(message, options) {
         var long, object = {};
         if (((options = options || {}).arrays || options.defaults) && (object.pollOptions = []), 
-        options.defaults && (object.body = "", object.caption = "", object.lng = 0, 
-        object.isLive = !1, object.lat = 0, object.paymentAmount1000 = 0, object.paymentNoteMsgBody = "", 
-        object.canonicalUrl = "", object.matchedText = "", object.title = "", object.description = "", 
-        options.bytes === String ? object.futureproofBuffer = "" : (object.futureproofBuffer = [], 
-        options.bytes !== Array && (object.futureproofBuffer = $util.newBuffer(object.futureproofBuffer))), 
-        object.clientUrl = "", object.loc = "", object.pollName = "", object.pollSelectableOptionsCount = 0, 
-        options.bytes === String ? object.messageSecret = "" : (object.messageSecret = [], 
-        options.bytes !== Array && (object.messageSecret = $util.newBuffer(object.messageSecret))), 
-        $util.Long ? (long = new $util.Long(0, 0, !1), object.senderTimestampMs = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.senderTimestampMs = options.longs === String ? "0" : 0, 
-        object.pollUpdateParentKey = "", object.encPollVote = null, object.encReactionTargetMessageKey = "", 
-        options.bytes === String ? object.encReactionEncPayload = "" : (object.encReactionEncPayload = [], 
-        options.bytes !== Array && (object.encReactionEncPayload = $util.newBuffer(object.encReactionEncPayload))), 
-        options.bytes === String ? object.encReactionEncIv = "" : (object.encReactionEncIv = [], 
-        options.bytes !== Array && (object.encReactionEncIv = $util.newBuffer(object.encReactionEncIv))), 
-        object.isSentCagPollCreation = !1, options.bytes === String ? object.botMessageSecret = "" : (object.botMessageSecret = [], 
-        options.bytes !== Array && (object.botMessageSecret = $util.newBuffer(object.botMessageSecret))), 
-        object.targetMessageKey = "", options.bytes === String ? object.encPayload = "" : (object.encPayload = [], 
-        options.bytes !== Array && (object.encPayload = $util.newBuffer(object.encPayload))), 
-        options.bytes === String ? object.encIv = "" : (object.encIv = [], options.bytes !== Array && (object.encIv = $util.newBuffer(object.encIv))), 
-        object.eventName = "", object.isEventCanceled = !1, object.eventDescription = "", 
-        object.eventJoinLink = "", $util.Long ? (long = new $util.Long(0, 0, !1), 
-        object.eventStartTime = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.eventStartTime = options.longs === String ? "0" : 0, 
-        object.eventLocation = null, object.originalSelfAuthor = ""), null != message.body && message.hasOwnProperty("body") && (object.body = message.body), 
+        options.defaults) {
+            if (object.body = "", object.caption = "", object.lng = 0, object.isLive = !1, 
+            object.lat = 0, object.paymentAmount1000 = 0, object.paymentNoteMsgBody = "", 
+            object.canonicalUrl = "", object.matchedText = "", object.title = "", 
+            object.description = "", options.bytes === String ? object.futureproofBuffer = "" : (object.futureproofBuffer = [], 
+            options.bytes !== Array && (object.futureproofBuffer = $util.newBuffer(object.futureproofBuffer))), 
+            object.clientUrl = "", object.loc = "", object.pollName = "", object.pollSelectableOptionsCount = 0, 
+            options.bytes === String ? object.messageSecret = "" : (object.messageSecret = [], 
+            options.bytes !== Array && (object.messageSecret = $util.newBuffer(object.messageSecret))), 
+            $util.Long ? (long = new $util.Long(0, 0, !1), object.senderTimestampMs = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.senderTimestampMs = options.longs === String ? "0" : 0, 
+            object.pollUpdateParentKey = "", object.encPollVote = null, object.encReactionTargetMessageKey = "", 
+            options.bytes === String ? object.encReactionEncPayload = "" : (object.encReactionEncPayload = [], 
+            options.bytes !== Array && (object.encReactionEncPayload = $util.newBuffer(object.encReactionEncPayload))), 
+            options.bytes === String ? object.encReactionEncIv = "" : (object.encReactionEncIv = [], 
+            options.bytes !== Array && (object.encReactionEncIv = $util.newBuffer(object.encReactionEncIv))), 
+            object.isSentCagPollCreation = !1, options.bytes === String ? object.botMessageSecret = "" : (object.botMessageSecret = [], 
+            options.bytes !== Array && (object.botMessageSecret = $util.newBuffer(object.botMessageSecret))), 
+            object.targetMessageKey = "", options.bytes === String ? object.encPayload = "" : (object.encPayload = [], 
+            options.bytes !== Array && (object.encPayload = $util.newBuffer(object.encPayload))), 
+            options.bytes === String ? object.encIv = "" : (object.encIv = [], options.bytes !== Array && (object.encIv = $util.newBuffer(object.encIv))), 
+            object.eventName = "", object.isEventCanceled = !1, object.eventDescription = "", 
+            object.eventJoinLink = "", $util.Long) {
+                let long = new $util.Long(0, 0, !1);
+                object.eventStartTime = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+            } else object.eventStartTime = options.longs === String ? "0" : 0;
+            object.eventLocation = null, object.originalSelfAuthor = "";
+        }
+        if (null != message.body && message.hasOwnProperty("body") && (object.body = message.body), 
         null != message.caption && message.hasOwnProperty("caption") && (object.caption = message.caption), 
         null != message.lng && message.hasOwnProperty("lng") && (object.lng = options.json && !isFinite(message.lng) ? String(message.lng) : message.lng), 
         null != message.isLive && message.hasOwnProperty("isLive") && (object.isLive = message.isLive), 
@@ -20173,7 +21005,7 @@ $root.ADVEncryptionType = function() {
         null != message.pollName && message.hasOwnProperty("pollName") && (object.pollName = message.pollName), 
         message.pollOptions && message.pollOptions.length) {
             object.pollOptions = [];
-            for (var j = 0; j < message.pollOptions.length; ++j) object.pollOptions[j] = $root.MsgOpaqueData.PollOption.toObject(message.pollOptions[j], options);
+            for (let j = 0; j < message.pollOptions.length; ++j) object.pollOptions[j] = $root.MsgOpaqueData.PollOption.toObject(message.pollOptions[j], options);
         }
         return null != message.pollSelectableOptionsCount && message.hasOwnProperty("pollSelectableOptionsCount") && (object.pollSelectableOptionsCount = message.pollSelectableOptionsCount), 
         null != message.messageSecret && message.hasOwnProperty("messageSecret") && (object.messageSecret = options.bytes === String ? $util.base64.encode(message.messageSecret, 0, message.messageSecret.length) : options.bytes === Array ? Array.prototype.slice.call(message.messageSecret) : message.messageSecret), 
@@ -20310,15 +21142,15 @@ $root.ADVEncryptionType = function() {
     }, PollOption.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/MsgOpaqueData.PollOption";
     }, PollOption), MsgOpaqueData;
-}(), $root.MediaEntry = function() {
+})(), MediaEntry = $root.MediaEntry = (() => {
     function MediaEntry(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function ProgressiveJpegDetails(properties) {
-        if (this.scanLengths = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (this.scanLengths = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function DownloadableThumbnail(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return MediaEntry.prototype.fileSha256 = $util.newBuffer([]), MediaEntry.prototype.mediaKey = $util.newBuffer([]), 
     MediaEntry.prototype.fileEncSha256 = $util.newBuffer([]), MediaEntry.prototype.directPath = "", 
@@ -20433,11 +21265,16 @@ $root.ADVEncryptionType = function() {
         if (null != message.sidecar && message.hasOwnProperty("sidecar") && !(message.sidecar && "number" == typeof message.sidecar.length || $util.isString(message.sidecar))) return "sidecar: buffer expected";
         if (null != message.objectId && message.hasOwnProperty("objectId") && !$util.isString(message.objectId)) return "objectId: string expected";
         if (null != message.fbid && message.hasOwnProperty("fbid") && !$util.isString(message.fbid)) return "fbid: string expected";
-        var error;
-        if (null != message.downloadableThumbnail && message.hasOwnProperty("downloadableThumbnail") && (error = $root.MediaEntry.DownloadableThumbnail.verify(message.downloadableThumbnail))) return "downloadableThumbnail." + error;
+        if (null != message.downloadableThumbnail && message.hasOwnProperty("downloadableThumbnail")) {
+            var error = $root.MediaEntry.DownloadableThumbnail.verify(message.downloadableThumbnail);
+            if (error) return "downloadableThumbnail." + error;
+        }
         if (null != message.handle && message.hasOwnProperty("handle") && !$util.isString(message.handle)) return "handle: string expected";
         if (null != message.filename && message.hasOwnProperty("filename") && !$util.isString(message.filename)) return "filename: string expected";
-        if (null != message.progressiveJpegDetails && message.hasOwnProperty("progressiveJpegDetails") && (error = $root.MediaEntry.ProgressiveJpegDetails.verify(message.progressiveJpegDetails))) return "progressiveJpegDetails." + error;
+        if (null != message.progressiveJpegDetails && message.hasOwnProperty("progressiveJpegDetails")) {
+            let error = $root.MediaEntry.ProgressiveJpegDetails.verify(message.progressiveJpegDetails);
+            if (error) return "progressiveJpegDetails." + error;
+        }
         return null;
     }, MediaEntry.fromObject = function(object) {
         if (object instanceof $root.MediaEntry) return object;
@@ -20504,7 +21341,7 @@ $root.ADVEncryptionType = function() {
     }, ProgressiveJpegDetails.encode = function(message, writer) {
         if (writer = writer || $Writer.create(), null != message.scanLengths && message.scanLengths.length) {
             writer.uint32(10).fork();
-            for (var i = 0; i < message.scanLengths.length; ++i) writer.uint32(message.scanLengths[i]);
+            for (let i = 0; i < message.scanLengths.length; ++i) writer.uint32(message.scanLengths[i]);
             writer.ldelim();
         }
         return null != message.sidecar && Object.hasOwnProperty.call(message, "sidecar") && writer.uint32(18).bytes(message.sidecar), 
@@ -20536,7 +21373,7 @@ $root.ADVEncryptionType = function() {
         if ("object" != typeof message || null === message) return "object expected";
         if (null != message.scanLengths && message.hasOwnProperty("scanLengths")) {
             if (!Array.isArray(message.scanLengths)) return "scanLengths: array expected";
-            for (var i = 0; i < message.scanLengths.length; ++i) if (!$util.isInteger(message.scanLengths[i])) return "scanLengths: integer[] expected";
+            for (let i = 0; i < message.scanLengths.length; ++i) if (!$util.isInteger(message.scanLengths[i])) return "scanLengths: integer[] expected";
         }
         return null != message.sidecar && message.hasOwnProperty("sidecar") && !(message.sidecar && "number" == typeof message.sidecar.length || $util.isString(message.sidecar)) ? "sidecar: buffer expected" : null;
     }, ProgressiveJpegDetails.fromObject = function(object) {
@@ -20545,7 +21382,7 @@ $root.ADVEncryptionType = function() {
         if (object.scanLengths) {
             if (!Array.isArray(object.scanLengths)) throw TypeError(".MediaEntry.ProgressiveJpegDetails.scanLengths: array expected");
             message.scanLengths = [];
-            for (var i = 0; i < object.scanLengths.length; ++i) message.scanLengths[i] = object.scanLengths[i] >>> 0;
+            for (let i = 0; i < object.scanLengths.length; ++i) message.scanLengths[i] = object.scanLengths[i] >>> 0;
         }
         return null != object.sidecar && ("string" == typeof object.sidecar ? $util.base64.decode(object.sidecar, message.sidecar = $util.newBuffer($util.base64.length(object.sidecar)), 0) : 0 <= object.sidecar.length && (message.sidecar = object.sidecar)), 
         message;
@@ -20556,7 +21393,7 @@ $root.ADVEncryptionType = function() {
         options.bytes !== Array && (object.sidecar = $util.newBuffer(object.sidecar)))), 
         message.scanLengths && message.scanLengths.length) {
             object.scanLengths = [];
-            for (var j = 0; j < message.scanLengths.length; ++j) object.scanLengths[j] = message.scanLengths[j];
+            for (let j = 0; j < message.scanLengths.length; ++j) object.scanLengths[j] = message.scanLengths[j];
         }
         return null != message.sidecar && message.hasOwnProperty("sidecar") && (object.sidecar = options.bytes === String ? $util.base64.encode(message.sidecar, 0, message.sidecar.length) : options.bytes === Array ? Array.prototype.slice.call(message.sidecar) : message.sidecar), 
         object;
@@ -20648,9 +21485,9 @@ $root.ADVEncryptionType = function() {
     }, DownloadableThumbnail.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/MediaEntry.DownloadableThumbnail";
     }, DownloadableThumbnail), MediaEntry;
-}(), $root.MediaRetryNotification = function() {
+})(), MediaRetryNotification = $root.MediaRetryNotification = (() => {
     function MediaRetryNotification(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     var valuesById, values;
     return MediaRetryNotification.prototype.stanzaId = "", MediaRetryNotification.prototype.directPath = "", 
@@ -20745,9 +21582,9 @@ $root.ADVEncryptionType = function() {
     }, MediaRetryNotification.ResultType = (valuesById = {}, (values = Object.create(valuesById))[valuesById[0] = "GENERAL_ERROR"] = 0, 
     values[valuesById[1] = "SUCCESS"] = 1, values[valuesById[2] = "NOT_FOUND"] = 2, 
     values[valuesById[3] = "DECRYPTION_ERROR"] = 3, values), MediaRetryNotification;
-}(), $root.ServerErrorReceipt = function() {
+})(), ServerErrorReceipt = $root.ServerErrorReceipt = (() => {
     function ServerErrorReceipt(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return ServerErrorReceipt.prototype.stanzaId = "", ServerErrorReceipt.create = function(properties) {
         return new ServerErrorReceipt(properties);
@@ -20781,9 +21618,9 @@ $root.ADVEncryptionType = function() {
     }, ServerErrorReceipt.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/ServerErrorReceipt";
     }, ServerErrorReceipt;
-}(), $root.MessageKey = function() {
+})(), MessageKey = $root.MessageKey = (() => {
     function MessageKey(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return MessageKey.prototype.remoteJid = "", MessageKey.prototype.fromMe = !1, 
     MessageKey.prototype.id = "", MessageKey.prototype.participant = "", MessageKey.create = function(properties) {
@@ -20846,19 +21683,19 @@ $root.ADVEncryptionType = function() {
     }, MessageKey.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/MessageKey";
     }, MessageKey;
-}(), $root.QP = function() {
+})(), QP = $root.QP = (() => {
     function QP(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     var valuesById, values;
     function FilterClause(properties) {
-        if (this.clauses = [], this.filters = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (this.clauses = [], this.filters = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function Filter(properties) {
-        if (this.parameters = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (this.parameters = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function FilterParameters(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return QP.create = function(properties) {
         return new QP(properties);
@@ -20900,8 +21737,8 @@ $root.ADVEncryptionType = function() {
         return new FilterClause(properties);
     }, FilterClause.encode = function(message, writer) {
         if ((writer = writer || $Writer.create()).uint32(8).int32(message.clauseType), 
-        null != message.clauses && message.clauses.length) for (var i = 0; i < message.clauses.length; ++i) $root.QP.FilterClause.encode(message.clauses[i], writer.uint32(18).fork()).ldelim();
-        if (null != message.filters && message.filters.length) for (i = 0; i < message.filters.length; ++i) $root.QP.Filter.encode(message.filters[i], writer.uint32(26).fork()).ldelim();
+        null != message.clauses && message.clauses.length) for (let i = 0; i < message.clauses.length; ++i) $root.QP.FilterClause.encode(message.clauses[i], writer.uint32(18).fork()).ldelim();
+        if (null != message.filters && message.filters.length) for (let i = 0; i < message.filters.length; ++i) $root.QP.Filter.encode(message.filters[i], writer.uint32(26).fork()).ldelim();
         return writer;
     }, FilterClause.encodeDelimited = function(message, writer) {
         return this.encode(message, writer).ldelim();
@@ -20946,11 +21783,17 @@ $root.ADVEncryptionType = function() {
         }
         if (null != message.clauses && message.hasOwnProperty("clauses")) {
             if (!Array.isArray(message.clauses)) return "clauses: array expected";
-            for (var i = 0; i < message.clauses.length; ++i) if (error = $root.QP.FilterClause.verify(message.clauses[i])) return "clauses." + error;
+            for (let i = 0; i < message.clauses.length; ++i) {
+                var error = $root.QP.FilterClause.verify(message.clauses[i]);
+                if (error) return "clauses." + error;
+            }
         }
         if (null != message.filters && message.hasOwnProperty("filters")) {
             if (!Array.isArray(message.filters)) return "filters: array expected";
-            for (var error, i = 0; i < message.filters.length; ++i) if (error = $root.QP.Filter.verify(message.filters[i])) return "filters." + error;
+            for (let i = 0; i < message.filters.length; ++i) {
+                let error = $root.QP.Filter.verify(message.filters[i]);
+                if (error) return "filters." + error;
+            }
         }
         return null;
     }, FilterClause.fromObject = function(object) {
@@ -20978,7 +21821,7 @@ $root.ADVEncryptionType = function() {
         if (object.clauses) {
             if (!Array.isArray(object.clauses)) throw TypeError(".QP.FilterClause.clauses: array expected");
             message.clauses = [];
-            for (var i = 0; i < object.clauses.length; ++i) {
+            for (let i = 0; i < object.clauses.length; ++i) {
                 if ("object" != typeof object.clauses[i]) throw TypeError(".QP.FilterClause.clauses: object expected");
                 message.clauses[i] = $root.QP.FilterClause.fromObject(object.clauses[i]);
             }
@@ -20986,7 +21829,7 @@ $root.ADVEncryptionType = function() {
         if (object.filters) {
             if (!Array.isArray(object.filters)) throw TypeError(".QP.FilterClause.filters: array expected");
             message.filters = [];
-            for (i = 0; i < object.filters.length; ++i) {
+            for (let i = 0; i < object.filters.length; ++i) {
                 if ("object" != typeof object.filters[i]) throw TypeError(".QP.FilterClause.filters: object expected");
                 message.filters[i] = $root.QP.Filter.fromObject(object.filters[i]);
             }
@@ -20999,11 +21842,11 @@ $root.ADVEncryptionType = function() {
         null != message.clauseType && message.hasOwnProperty("clauseType") && (object.clauseType = options.enums !== String || void 0 === $root.QP.ClauseType[message.clauseType] ? message.clauseType : $root.QP.ClauseType[message.clauseType]), 
         message.clauses && message.clauses.length) {
             object.clauses = [];
-            for (var j = 0; j < message.clauses.length; ++j) object.clauses[j] = $root.QP.FilterClause.toObject(message.clauses[j], options);
+            for (let j = 0; j < message.clauses.length; ++j) object.clauses[j] = $root.QP.FilterClause.toObject(message.clauses[j], options);
         }
         if (message.filters && message.filters.length) {
             object.filters = [];
-            for (j = 0; j < message.filters.length; ++j) object.filters[j] = $root.QP.Filter.toObject(message.filters[j], options);
+            for (let j = 0; j < message.filters.length; ++j) object.filters[j] = $root.QP.Filter.toObject(message.filters[j], options);
         }
         return object;
     }, FilterClause.prototype.toJSON = function() {
@@ -21016,7 +21859,7 @@ $root.ADVEncryptionType = function() {
         return new Filter(properties);
     }, Filter.encode = function(message, writer) {
         if ((writer = writer || $Writer.create()).uint32(10).string(message.filterName), 
-        null != message.parameters && message.parameters.length) for (var i = 0; i < message.parameters.length; ++i) $root.QP.FilterParameters.encode(message.parameters[i], writer.uint32(18).fork()).ldelim();
+        null != message.parameters && message.parameters.length) for (let i = 0; i < message.parameters.length; ++i) $root.QP.FilterParameters.encode(message.parameters[i], writer.uint32(18).fork()).ldelim();
         return null != message.filterResult && Object.hasOwnProperty.call(message, "filterResult") && writer.uint32(24).int32(message.filterResult), 
         writer.uint32(32).int32(message.clientNotSupportedConfig), writer;
     }, Filter.encodeDelimited = function(message, writer) {
@@ -21061,7 +21904,7 @@ $root.ADVEncryptionType = function() {
         if (!$util.isString(message.filterName)) return "filterName: string expected";
         if (null != message.parameters && message.hasOwnProperty("parameters")) {
             if (!Array.isArray(message.parameters)) return "parameters: array expected";
-            for (var i = 0; i < message.parameters.length; ++i) {
+            for (let i = 0; i < message.parameters.length; ++i) {
                 var error = $root.QP.FilterParameters.verify(message.parameters[i]);
                 if (error) return "parameters." + error;
             }
@@ -21089,7 +21932,7 @@ $root.ADVEncryptionType = function() {
         object.parameters) {
             if (!Array.isArray(object.parameters)) throw TypeError(".QP.Filter.parameters: array expected");
             message.parameters = [];
-            for (var i = 0; i < object.parameters.length; ++i) {
+            for (let i = 0; i < object.parameters.length; ++i) {
                 if ("object" != typeof object.parameters[i]) throw TypeError(".QP.Filter.parameters: object expected");
                 message.parameters[i] = $root.QP.FilterParameters.fromObject(object.parameters[i]);
             }
@@ -21136,7 +21979,7 @@ $root.ADVEncryptionType = function() {
         null != message.filterName && message.hasOwnProperty("filterName") && (object.filterName = message.filterName), 
         message.parameters && message.parameters.length) {
             object.parameters = [];
-            for (var j = 0; j < message.parameters.length; ++j) object.parameters[j] = $root.QP.FilterParameters.toObject(message.parameters[j], options);
+            for (let j = 0; j < message.parameters.length; ++j) object.parameters[j] = $root.QP.FilterParameters.toObject(message.parameters[j], options);
         }
         return null != message.filterResult && message.hasOwnProperty("filterResult") && (object.filterResult = options.enums !== String || void 0 === $root.QP.FilterResult[message.filterResult] ? message.filterResult : $root.QP.FilterResult[message.filterResult]), 
         null != message.clientNotSupportedConfig && message.hasOwnProperty("clientNotSupportedConfig") && (object.clientNotSupportedConfig = options.enums !== String || void 0 === $root.QP.FilterClientNotSupportedConfig[message.clientNotSupportedConfig] ? message.clientNotSupportedConfig : $root.QP.FilterClientNotSupportedConfig[message.clientNotSupportedConfig]), 
@@ -21192,9 +22035,9 @@ $root.ADVEncryptionType = function() {
     }, FilterParameters.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/QP.FilterParameters";
     }, FilterParameters), QP;
-}(), $root.RoutingInfo = function() {
+})(), RoutingInfo = $root.RoutingInfo = (() => {
     function RoutingInfo(properties) {
-        if (this.regionId = [], this.clusterId = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (this.regionId = [], this.clusterId = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return RoutingInfo.prototype.regionId = $util.emptyArray, RoutingInfo.prototype.clusterId = $util.emptyArray, 
     RoutingInfo.prototype.taskId = 0, RoutingInfo.prototype.debug = !1, RoutingInfo.prototype.tcpBbr = !1, 
@@ -21203,12 +22046,12 @@ $root.ADVEncryptionType = function() {
     }, RoutingInfo.encode = function(message, writer) {
         if (writer = writer || $Writer.create(), null != message.regionId && message.regionId.length) {
             writer.uint32(10).fork();
-            for (var i = 0; i < message.regionId.length; ++i) writer.int32(message.regionId[i]);
+            for (let i = 0; i < message.regionId.length; ++i) writer.int32(message.regionId[i]);
             writer.ldelim();
         }
         if (null != message.clusterId && message.clusterId.length) {
             writer.uint32(18).fork();
-            for (i = 0; i < message.clusterId.length; ++i) writer.int32(message.clusterId[i]);
+            for (let i = 0; i < message.clusterId.length; ++i) writer.int32(message.clusterId[i]);
             writer.ldelim();
         }
         return null != message.taskId && Object.hasOwnProperty.call(message, "taskId") && writer.uint32(24).int32(message.taskId), 
@@ -21230,7 +22073,10 @@ $root.ADVEncryptionType = function() {
 
               case 2:
                 if (message.clusterId && message.clusterId.length || (message.clusterId = []), 
-                2 == (7 & tag)) for (end2 = reader.uint32() + reader.pos; reader.pos < end2; ) message.clusterId.push(reader.int32()); else message.clusterId.push(reader.int32());
+                2 == (7 & tag)) {
+                    let end2 = reader.uint32() + reader.pos;
+                    for (;reader.pos < end2; ) message.clusterId.push(reader.int32());
+                } else message.clusterId.push(reader.int32());
                 break;
 
               case 3:
@@ -21260,11 +22106,11 @@ $root.ADVEncryptionType = function() {
         if ("object" != typeof message || null === message) return "object expected";
         if (null != message.regionId && message.hasOwnProperty("regionId")) {
             if (!Array.isArray(message.regionId)) return "regionId: array expected";
-            for (var i = 0; i < message.regionId.length; ++i) if (!$util.isInteger(message.regionId[i])) return "regionId: integer[] expected";
+            for (let i = 0; i < message.regionId.length; ++i) if (!$util.isInteger(message.regionId[i])) return "regionId: integer[] expected";
         }
         if (null != message.clusterId && message.hasOwnProperty("clusterId")) {
             if (!Array.isArray(message.clusterId)) return "clusterId: array expected";
-            for (i = 0; i < message.clusterId.length; ++i) if (!$util.isInteger(message.clusterId[i])) return "clusterId: integer[] expected";
+            for (let i = 0; i < message.clusterId.length; ++i) if (!$util.isInteger(message.clusterId[i])) return "clusterId: integer[] expected";
         }
         return null != message.taskId && message.hasOwnProperty("taskId") && !$util.isInteger(message.taskId) ? "taskId: integer expected" : null != message.debug && message.hasOwnProperty("debug") && "boolean" != typeof message.debug ? "debug: boolean expected" : null != message.tcpBbr && message.hasOwnProperty("tcpBbr") && "boolean" != typeof message.tcpBbr ? "tcpBbr: boolean expected" : null != message.tcpKeepalive && message.hasOwnProperty("tcpKeepalive") && "boolean" != typeof message.tcpKeepalive ? "tcpKeepalive: boolean expected" : null;
     }, RoutingInfo.fromObject = function(object) {
@@ -21273,12 +22119,12 @@ $root.ADVEncryptionType = function() {
         if (object.regionId) {
             if (!Array.isArray(object.regionId)) throw TypeError(".RoutingInfo.regionId: array expected");
             message.regionId = [];
-            for (var i = 0; i < object.regionId.length; ++i) message.regionId[i] = 0 | object.regionId[i];
+            for (let i = 0; i < object.regionId.length; ++i) message.regionId[i] = 0 | object.regionId[i];
         }
         if (object.clusterId) {
             if (!Array.isArray(object.clusterId)) throw TypeError(".RoutingInfo.clusterId: array expected");
             message.clusterId = [];
-            for (i = 0; i < object.clusterId.length; ++i) message.clusterId[i] = 0 | object.clusterId[i];
+            for (let i = 0; i < object.clusterId.length; ++i) message.clusterId[i] = 0 | object.clusterId[i];
         }
         return null != object.taskId && (message.taskId = 0 | object.taskId), null != object.debug && (message.debug = Boolean(object.debug)), 
         null != object.tcpBbr && (message.tcpBbr = Boolean(object.tcpBbr)), null != object.tcpKeepalive && (message.tcpKeepalive = Boolean(object.tcpKeepalive)), 
@@ -21289,11 +22135,11 @@ $root.ADVEncryptionType = function() {
         object.clusterId = []), options.defaults && (object.taskId = 0, object.debug = !1, 
         object.tcpBbr = !1, object.tcpKeepalive = !1), message.regionId && message.regionId.length) {
             object.regionId = [];
-            for (var j = 0; j < message.regionId.length; ++j) object.regionId[j] = message.regionId[j];
+            for (let j = 0; j < message.regionId.length; ++j) object.regionId[j] = message.regionId[j];
         }
         if (message.clusterId && message.clusterId.length) {
             object.clusterId = [];
-            for (j = 0; j < message.clusterId.length; ++j) object.clusterId[j] = message.clusterId[j];
+            for (let j = 0; j < message.clusterId.length; ++j) object.clusterId[j] = message.clusterId[j];
         }
         return null != message.taskId && message.hasOwnProperty("taskId") && (object.taskId = message.taskId), 
         null != message.debug && message.hasOwnProperty("debug") && (object.debug = message.debug), 
@@ -21305,9 +22151,9 @@ $root.ADVEncryptionType = function() {
     }, RoutingInfo.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/RoutingInfo";
     }, RoutingInfo;
-}(), $root.SyncdVersion = function() {
+})(), SyncdVersion = $root.SyncdVersion = (() => {
     function SyncdVersion(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return SyncdVersion.prototype.version = $util.Long ? $util.Long.fromBits(0, 0, !0) : 0, 
     SyncdVersion.create = function(properties) {
@@ -21344,9 +22190,9 @@ $root.ADVEncryptionType = function() {
     }, SyncdVersion.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/SyncdVersion";
     }, SyncdVersion;
-}(), $root.ExitCode = function() {
+})(), ExitCode = $root.ExitCode = (() => {
     function ExitCode(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return ExitCode.prototype.code = $util.Long ? $util.Long.fromBits(0, 0, !0) : 0, 
     ExitCode.prototype.text = "", ExitCode.create = function(properties) {
@@ -21396,9 +22242,9 @@ $root.ADVEncryptionType = function() {
     }, ExitCode.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/ExitCode";
     }, ExitCode;
-}(), $root.SyncdIndex = function() {
+})(), SyncdIndex = $root.SyncdIndex = (() => {
     function SyncdIndex(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return SyncdIndex.prototype.blob = $util.newBuffer([]), SyncdIndex.create = function(properties) {
         return new SyncdIndex(properties);
@@ -21434,9 +22280,9 @@ $root.ADVEncryptionType = function() {
     }, SyncdIndex.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/SyncdIndex";
     }, SyncdIndex;
-}(), $root.SyncdValue = function() {
+})(), SyncdValue = $root.SyncdValue = (() => {
     function SyncdValue(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return SyncdValue.prototype.blob = $util.newBuffer([]), SyncdValue.create = function(properties) {
         return new SyncdValue(properties);
@@ -21472,9 +22318,9 @@ $root.ADVEncryptionType = function() {
     }, SyncdValue.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/SyncdValue";
     }, SyncdValue;
-}(), $root.KeyId = function() {
+})(), KeyId = $root.KeyId = (() => {
     function KeyId(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return KeyId.prototype.id = $util.newBuffer([]), KeyId.create = function(properties) {
         return new KeyId(properties);
@@ -21509,9 +22355,9 @@ $root.ADVEncryptionType = function() {
     }, KeyId.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/KeyId";
     }, KeyId;
-}(), $root.SyncdRecord = function() {
+})(), SyncdRecord = $root.SyncdRecord = (() => {
     function SyncdRecord(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return SyncdRecord.prototype.index = null, SyncdRecord.prototype.value = null, 
     SyncdRecord.prototype.keyId = null, SyncdRecord.create = function(properties) {
@@ -21549,10 +22395,18 @@ $root.ADVEncryptionType = function() {
         return reader instanceof $Reader || (reader = new $Reader(reader)), this.decode(reader, reader.uint32());
     }, SyncdRecord.verify = function(message) {
         if ("object" != typeof message || null === message) return "object expected";
-        var error;
-        if (null != message.index && message.hasOwnProperty("index") && (error = $root.SyncdIndex.verify(message.index))) return "index." + error;
-        if (null != message.value && message.hasOwnProperty("value") && (error = $root.SyncdValue.verify(message.value))) return "value." + error;
-        if (null != message.keyId && message.hasOwnProperty("keyId") && (error = $root.KeyId.verify(message.keyId))) return "keyId." + error;
+        if (null != message.index && message.hasOwnProperty("index")) {
+            var error = $root.SyncdIndex.verify(message.index);
+            if (error) return "index." + error;
+        }
+        if (null != message.value && message.hasOwnProperty("value")) {
+            let error = $root.SyncdValue.verify(message.value);
+            if (error) return "value." + error;
+        }
+        if (null != message.keyId && message.hasOwnProperty("keyId")) {
+            let error = $root.KeyId.verify(message.keyId);
+            if (error) return "keyId." + error;
+        }
         return null;
     }, SyncdRecord.fromObject = function(object) {
         if (object instanceof $root.SyncdRecord) return object;
@@ -21582,9 +22436,9 @@ $root.ADVEncryptionType = function() {
     }, SyncdRecord.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/SyncdRecord";
     }, SyncdRecord;
-}(), $root.ExternalBlobReference = function() {
+})(), ExternalBlobReference = $root.ExternalBlobReference = (() => {
     function ExternalBlobReference(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return ExternalBlobReference.prototype.mediaKey = $util.newBuffer([]), ExternalBlobReference.prototype.directPath = "", 
     ExternalBlobReference.prototype.handle = "", ExternalBlobReference.prototype.fileSizeBytes = $util.Long ? $util.Long.fromBits(0, 0, !0) : 0, 
@@ -21670,9 +22524,9 @@ $root.ADVEncryptionType = function() {
     }, ExternalBlobReference.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/ExternalBlobReference";
     }, ExternalBlobReference;
-}(), $root.SyncdSnapshot = function() {
+})(), SyncdSnapshot = $root.SyncdSnapshot = (() => {
     function SyncdSnapshot(properties) {
-        if (this.records = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (this.records = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return SyncdSnapshot.prototype.version = null, SyncdSnapshot.prototype.records = $util.emptyArray, 
     SyncdSnapshot.prototype.mac = $util.newBuffer([]), SyncdSnapshot.prototype.keyId = null, 
@@ -21680,7 +22534,7 @@ $root.ADVEncryptionType = function() {
         return new SyncdSnapshot(properties);
     }, SyncdSnapshot.encode = function(message, writer) {
         if (writer = writer || $Writer.create(), null != message.version && Object.hasOwnProperty.call(message, "version") && $root.SyncdVersion.encode(message.version, writer.uint32(10).fork()).ldelim(), 
-        null != message.records && message.records.length) for (var i = 0; i < message.records.length; ++i) $root.SyncdRecord.encode(message.records[i], writer.uint32(18).fork()).ldelim();
+        null != message.records && message.records.length) for (let i = 0; i < message.records.length; ++i) $root.SyncdRecord.encode(message.records[i], writer.uint32(18).fork()).ldelim();
         return null != message.mac && Object.hasOwnProperty.call(message, "mac") && writer.uint32(26).bytes(message.mac), 
         null != message.keyId && Object.hasOwnProperty.call(message, "keyId") && $root.KeyId.encode(message.keyId, writer.uint32(34).fork()).ldelim(), 
         writer;
@@ -21717,13 +22571,22 @@ $root.ADVEncryptionType = function() {
         return reader instanceof $Reader || (reader = new $Reader(reader)), this.decode(reader, reader.uint32());
     }, SyncdSnapshot.verify = function(message) {
         if ("object" != typeof message || null === message) return "object expected";
-        if (null != message.version && message.hasOwnProperty("version") && (error = $root.SyncdVersion.verify(message.version))) return "version." + error;
+        if (null != message.version && message.hasOwnProperty("version")) {
+            var error = $root.SyncdVersion.verify(message.version);
+            if (error) return "version." + error;
+        }
         if (null != message.records && message.hasOwnProperty("records")) {
             if (!Array.isArray(message.records)) return "records: array expected";
-            for (var error, i = 0; i < message.records.length; ++i) if (error = $root.SyncdRecord.verify(message.records[i])) return "records." + error;
+            for (let i = 0; i < message.records.length; ++i) {
+                let error = $root.SyncdRecord.verify(message.records[i]);
+                if (error) return "records." + error;
+            }
         }
         if (null != message.mac && message.hasOwnProperty("mac") && !(message.mac && "number" == typeof message.mac.length || $util.isString(message.mac))) return "mac: buffer expected";
-        if (null != message.keyId && message.hasOwnProperty("keyId") && (error = $root.KeyId.verify(message.keyId))) return "keyId." + error;
+        if (null != message.keyId && message.hasOwnProperty("keyId")) {
+            let error = $root.KeyId.verify(message.keyId);
+            if (error) return "keyId." + error;
+        }
         return null;
     }, SyncdSnapshot.fromObject = function(object) {
         if (object instanceof $root.SyncdSnapshot) return object;
@@ -21735,7 +22598,7 @@ $root.ADVEncryptionType = function() {
         if (object.records) {
             if (!Array.isArray(object.records)) throw TypeError(".SyncdSnapshot.records: array expected");
             message.records = [];
-            for (var i = 0; i < object.records.length; ++i) {
+            for (let i = 0; i < object.records.length; ++i) {
                 if ("object" != typeof object.records[i]) throw TypeError(".SyncdSnapshot.records: object expected");
                 message.records[i] = $root.SyncdRecord.fromObject(object.records[i]);
             }
@@ -21754,7 +22617,7 @@ $root.ADVEncryptionType = function() {
         object.keyId = null), null != message.version && message.hasOwnProperty("version") && (object.version = $root.SyncdVersion.toObject(message.version, options)), 
         message.records && message.records.length) {
             object.records = [];
-            for (var j = 0; j < message.records.length; ++j) object.records[j] = $root.SyncdRecord.toObject(message.records[j], options);
+            for (let j = 0; j < message.records.length; ++j) object.records[j] = $root.SyncdRecord.toObject(message.records[j], options);
         }
         return null != message.mac && message.hasOwnProperty("mac") && (object.mac = options.bytes === String ? $util.base64.encode(message.mac, 0, message.mac.length) : options.bytes === Array ? Array.prototype.slice.call(message.mac) : message.mac), 
         null != message.keyId && message.hasOwnProperty("keyId") && (object.keyId = $root.KeyId.toObject(message.keyId, options)), 
@@ -21764,14 +22627,14 @@ $root.ADVEncryptionType = function() {
     }, SyncdSnapshot.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/SyncdSnapshot";
     }, SyncdSnapshot;
-}(), $root.SyncdMutations = function() {
+})(), SyncdMutations = $root.SyncdMutations = (() => {
     function SyncdMutations(properties) {
-        if (this.mutations = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (this.mutations = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return SyncdMutations.prototype.mutations = $util.emptyArray, SyncdMutations.create = function(properties) {
         return new SyncdMutations(properties);
     }, SyncdMutations.encode = function(message, writer) {
-        if (writer = writer || $Writer.create(), null != message.mutations && message.mutations.length) for (var i = 0; i < message.mutations.length; ++i) $root.SyncdMutation.encode(message.mutations[i], writer.uint32(10).fork()).ldelim();
+        if (writer = writer || $Writer.create(), null != message.mutations && message.mutations.length) for (let i = 0; i < message.mutations.length; ++i) $root.SyncdMutation.encode(message.mutations[i], writer.uint32(10).fork()).ldelim();
         return writer;
     }, SyncdMutations.encodeDelimited = function(message, writer) {
         return this.encode(message, writer).ldelim();
@@ -21789,7 +22652,7 @@ $root.ADVEncryptionType = function() {
         if ("object" != typeof message || null === message) return "object expected";
         if (null != message.mutations && message.hasOwnProperty("mutations")) {
             if (!Array.isArray(message.mutations)) return "mutations: array expected";
-            for (var i = 0; i < message.mutations.length; ++i) {
+            for (let i = 0; i < message.mutations.length; ++i) {
                 var error = $root.SyncdMutation.verify(message.mutations[i]);
                 if (error) return "mutations." + error;
             }
@@ -21801,7 +22664,7 @@ $root.ADVEncryptionType = function() {
         if (object.mutations) {
             if (!Array.isArray(object.mutations)) throw TypeError(".SyncdMutations.mutations: array expected");
             message.mutations = [];
-            for (var i = 0; i < object.mutations.length; ++i) {
+            for (let i = 0; i < object.mutations.length; ++i) {
                 if ("object" != typeof object.mutations[i]) throw TypeError(".SyncdMutations.mutations: object expected");
                 message.mutations[i] = $root.SyncdMutation.fromObject(object.mutations[i]);
             }
@@ -21812,7 +22675,7 @@ $root.ADVEncryptionType = function() {
         if (((options = options || {}).arrays || options.defaults) && (object.mutations = []), 
         message.mutations && message.mutations.length) {
             object.mutations = [];
-            for (var j = 0; j < message.mutations.length; ++j) object.mutations[j] = $root.SyncdMutation.toObject(message.mutations[j], options);
+            for (let j = 0; j < message.mutations.length; ++j) object.mutations[j] = $root.SyncdMutation.toObject(message.mutations[j], options);
         }
         return object;
     }, SyncdMutations.prototype.toJSON = function() {
@@ -21820,9 +22683,9 @@ $root.ADVEncryptionType = function() {
     }, SyncdMutations.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/SyncdMutations";
     }, SyncdMutations;
-}(), $root.SyncdMutation = function() {
+})(), SyncdMutation = $root.SyncdMutation = (() => {
     function SyncdMutation(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     var valuesById, values;
     return SyncdMutation.prototype.operation = 0, SyncdMutation.prototype.record = null, 
@@ -21902,9 +22765,9 @@ $root.ADVEncryptionType = function() {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/SyncdMutation";
     }, SyncdMutation.SyncdOperation = (valuesById = {}, (values = Object.create(valuesById))[valuesById[0] = "SET"] = 0, 
     values[valuesById[1] = "REMOVE"] = 1, values), SyncdMutation;
-}(), $root.SyncdPatch = function() {
+})(), SyncdPatch = $root.SyncdPatch = (() => {
     function SyncdPatch(properties) {
-        if (this.mutations = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (this.mutations = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return SyncdPatch.prototype.version = null, SyncdPatch.prototype.mutations = $util.emptyArray, 
     SyncdPatch.prototype.externalMutations = null, SyncdPatch.prototype.snapshotMac = $util.newBuffer([]), 
@@ -21914,7 +22777,7 @@ $root.ADVEncryptionType = function() {
         return new SyncdPatch(properties);
     }, SyncdPatch.encode = function(message, writer) {
         if (writer = writer || $Writer.create(), null != message.version && Object.hasOwnProperty.call(message, "version") && $root.SyncdVersion.encode(message.version, writer.uint32(10).fork()).ldelim(), 
-        null != message.mutations && message.mutations.length) for (var i = 0; i < message.mutations.length; ++i) $root.SyncdMutation.encode(message.mutations[i], writer.uint32(18).fork()).ldelim();
+        null != message.mutations && message.mutations.length) for (let i = 0; i < message.mutations.length; ++i) $root.SyncdMutation.encode(message.mutations[i], writer.uint32(18).fork()).ldelim();
         return null != message.externalMutations && Object.hasOwnProperty.call(message, "externalMutations") && $root.ExternalBlobReference.encode(message.externalMutations, writer.uint32(26).fork()).ldelim(), 
         null != message.snapshotMac && Object.hasOwnProperty.call(message, "snapshotMac") && writer.uint32(34).bytes(message.snapshotMac), 
         null != message.patchMac && Object.hasOwnProperty.call(message, "patchMac") && writer.uint32(42).bytes(message.patchMac), 
@@ -21976,16 +22839,31 @@ $root.ADVEncryptionType = function() {
         return reader instanceof $Reader || (reader = new $Reader(reader)), this.decode(reader, reader.uint32());
     }, SyncdPatch.verify = function(message) {
         if ("object" != typeof message || null === message) return "object expected";
-        if (null != message.version && message.hasOwnProperty("version") && (error = $root.SyncdVersion.verify(message.version))) return "version." + error;
+        if (null != message.version && message.hasOwnProperty("version")) {
+            var error = $root.SyncdVersion.verify(message.version);
+            if (error) return "version." + error;
+        }
         if (null != message.mutations && message.hasOwnProperty("mutations")) {
             if (!Array.isArray(message.mutations)) return "mutations: array expected";
-            for (var error, i = 0; i < message.mutations.length; ++i) if (error = $root.SyncdMutation.verify(message.mutations[i])) return "mutations." + error;
+            for (let i = 0; i < message.mutations.length; ++i) {
+                let error = $root.SyncdMutation.verify(message.mutations[i]);
+                if (error) return "mutations." + error;
+            }
         }
-        if (null != message.externalMutations && message.hasOwnProperty("externalMutations") && (error = $root.ExternalBlobReference.verify(message.externalMutations))) return "externalMutations." + error;
+        if (null != message.externalMutations && message.hasOwnProperty("externalMutations")) {
+            let error = $root.ExternalBlobReference.verify(message.externalMutations);
+            if (error) return "externalMutations." + error;
+        }
         if (null != message.snapshotMac && message.hasOwnProperty("snapshotMac") && !(message.snapshotMac && "number" == typeof message.snapshotMac.length || $util.isString(message.snapshotMac))) return "snapshotMac: buffer expected";
         if (null != message.patchMac && message.hasOwnProperty("patchMac") && !(message.patchMac && "number" == typeof message.patchMac.length || $util.isString(message.patchMac))) return "patchMac: buffer expected";
-        if (null != message.keyId && message.hasOwnProperty("keyId") && (error = $root.KeyId.verify(message.keyId))) return "keyId." + error;
-        if (null != message.exitCode && message.hasOwnProperty("exitCode") && (error = $root.ExitCode.verify(message.exitCode))) return "exitCode." + error;
+        if (null != message.keyId && message.hasOwnProperty("keyId")) {
+            let error = $root.KeyId.verify(message.keyId);
+            if (error) return "keyId." + error;
+        }
+        if (null != message.exitCode && message.hasOwnProperty("exitCode")) {
+            let error = $root.ExitCode.verify(message.exitCode);
+            if (error) return "exitCode." + error;
+        }
         return null != message.deviceIndex && message.hasOwnProperty("deviceIndex") && !$util.isInteger(message.deviceIndex) ? "deviceIndex: integer expected" : null != message.clientDebugData && message.hasOwnProperty("clientDebugData") && !(message.clientDebugData && "number" == typeof message.clientDebugData.length || $util.isString(message.clientDebugData)) ? "clientDebugData: buffer expected" : null;
     }, SyncdPatch.fromObject = function(object) {
         if (object instanceof $root.SyncdPatch) return object;
@@ -21997,7 +22875,7 @@ $root.ADVEncryptionType = function() {
         if (object.mutations) {
             if (!Array.isArray(object.mutations)) throw TypeError(".SyncdPatch.mutations: array expected");
             message.mutations = [];
-            for (var i = 0; i < object.mutations.length; ++i) {
+            for (let i = 0; i < object.mutations.length; ++i) {
                 if ("object" != typeof object.mutations[i]) throw TypeError(".SyncdPatch.mutations: object expected");
                 message.mutations[i] = $root.SyncdMutation.fromObject(object.mutations[i]);
             }
@@ -22032,7 +22910,7 @@ $root.ADVEncryptionType = function() {
         null != message.version && message.hasOwnProperty("version") && (object.version = $root.SyncdVersion.toObject(message.version, options)), 
         message.mutations && message.mutations.length) {
             object.mutations = [];
-            for (var j = 0; j < message.mutations.length; ++j) object.mutations[j] = $root.SyncdMutation.toObject(message.mutations[j], options);
+            for (let j = 0; j < message.mutations.length; ++j) object.mutations[j] = $root.SyncdMutation.toObject(message.mutations[j], options);
         }
         return null != message.externalMutations && message.hasOwnProperty("externalMutations") && (object.externalMutations = $root.ExternalBlobReference.toObject(message.externalMutations, options)), 
         null != message.snapshotMac && message.hasOwnProperty("snapshotMac") && (object.snapshotMac = options.bytes === String ? $util.base64.encode(message.snapshotMac, 0, message.snapshotMac.length) : options.bytes === Array ? Array.prototype.slice.call(message.snapshotMac) : message.snapshotMac), 
@@ -22047,24 +22925,24 @@ $root.ADVEncryptionType = function() {
     }, SyncdPatch.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/SyncdPatch";
     }, SyncdPatch;
-}(), $root.SessionStructure = function() {
+})(), SessionStructure = $root.SessionStructure = (() => {
     function SessionStructure(properties) {
-        if (this.receiverChains = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (this.receiverChains = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function PendingPreKey(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function PendingKeyExchange(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function Chain(properties) {
-        if (this.messageKeys = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (this.messageKeys = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function MessageKey(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function ChainKey(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return SessionStructure.prototype.sessionVersion = 0, SessionStructure.prototype.localIdentityPublic = $util.newBuffer([]), 
     SessionStructure.prototype.remoteIdentityPublic = $util.newBuffer([]), SessionStructure.prototype.rootKey = $util.newBuffer([]), 
@@ -22081,7 +22959,7 @@ $root.ADVEncryptionType = function() {
         null != message.rootKey && Object.hasOwnProperty.call(message, "rootKey") && writer.uint32(34).bytes(message.rootKey), 
         null != message.previousCounter && Object.hasOwnProperty.call(message, "previousCounter") && writer.uint32(40).uint32(message.previousCounter), 
         null != message.senderChain && Object.hasOwnProperty.call(message, "senderChain") && $root.SessionStructure.Chain.encode(message.senderChain, writer.uint32(50).fork()).ldelim(), 
-        null != message.receiverChains && message.receiverChains.length) for (var i = 0; i < message.receiverChains.length; ++i) $root.SessionStructure.Chain.encode(message.receiverChains[i], writer.uint32(58).fork()).ldelim();
+        null != message.receiverChains && message.receiverChains.length) for (let i = 0; i < message.receiverChains.length; ++i) $root.SessionStructure.Chain.encode(message.receiverChains[i], writer.uint32(58).fork()).ldelim();
         return null != message.pendingKeyExchange && Object.hasOwnProperty.call(message, "pendingKeyExchange") && $root.SessionStructure.PendingKeyExchange.encode(message.pendingKeyExchange, writer.uint32(66).fork()).ldelim(), 
         null != message.pendingPreKey && Object.hasOwnProperty.call(message, "pendingPreKey") && $root.SessionStructure.PendingPreKey.encode(message.pendingPreKey, writer.uint32(74).fork()).ldelim(), 
         null != message.remoteRegistrationId && Object.hasOwnProperty.call(message, "remoteRegistrationId") && writer.uint32(80).uint32(message.remoteRegistrationId), 
@@ -22163,13 +23041,25 @@ $root.ADVEncryptionType = function() {
         if (null != message.remoteIdentityPublic && message.hasOwnProperty("remoteIdentityPublic") && !(message.remoteIdentityPublic && "number" == typeof message.remoteIdentityPublic.length || $util.isString(message.remoteIdentityPublic))) return "remoteIdentityPublic: buffer expected";
         if (null != message.rootKey && message.hasOwnProperty("rootKey") && !(message.rootKey && "number" == typeof message.rootKey.length || $util.isString(message.rootKey))) return "rootKey: buffer expected";
         if (null != message.previousCounter && message.hasOwnProperty("previousCounter") && !$util.isInteger(message.previousCounter)) return "previousCounter: integer expected";
-        if (null != message.senderChain && message.hasOwnProperty("senderChain") && (error = $root.SessionStructure.Chain.verify(message.senderChain))) return "senderChain." + error;
+        if (null != message.senderChain && message.hasOwnProperty("senderChain")) {
+            var error = $root.SessionStructure.Chain.verify(message.senderChain);
+            if (error) return "senderChain." + error;
+        }
         if (null != message.receiverChains && message.hasOwnProperty("receiverChains")) {
             if (!Array.isArray(message.receiverChains)) return "receiverChains: array expected";
-            for (var error, i = 0; i < message.receiverChains.length; ++i) if (error = $root.SessionStructure.Chain.verify(message.receiverChains[i])) return "receiverChains." + error;
+            for (let i = 0; i < message.receiverChains.length; ++i) {
+                let error = $root.SessionStructure.Chain.verify(message.receiverChains[i]);
+                if (error) return "receiverChains." + error;
+            }
         }
-        if (null != message.pendingKeyExchange && message.hasOwnProperty("pendingKeyExchange") && (error = $root.SessionStructure.PendingKeyExchange.verify(message.pendingKeyExchange))) return "pendingKeyExchange." + error;
-        if (null != message.pendingPreKey && message.hasOwnProperty("pendingPreKey") && (error = $root.SessionStructure.PendingPreKey.verify(message.pendingPreKey))) return "pendingPreKey." + error;
+        if (null != message.pendingKeyExchange && message.hasOwnProperty("pendingKeyExchange")) {
+            let error = $root.SessionStructure.PendingKeyExchange.verify(message.pendingKeyExchange);
+            if (error) return "pendingKeyExchange." + error;
+        }
+        if (null != message.pendingPreKey && message.hasOwnProperty("pendingPreKey")) {
+            let error = $root.SessionStructure.PendingPreKey.verify(message.pendingPreKey);
+            if (error) return "pendingPreKey." + error;
+        }
         return null != message.remoteRegistrationId && message.hasOwnProperty("remoteRegistrationId") && !$util.isInteger(message.remoteRegistrationId) ? "remoteRegistrationId: integer expected" : null != message.localRegistrationId && message.hasOwnProperty("localRegistrationId") && !$util.isInteger(message.localRegistrationId) ? "localRegistrationId: integer expected" : null != message.needsRefresh && message.hasOwnProperty("needsRefresh") && "boolean" != typeof message.needsRefresh ? "needsRefresh: boolean expected" : null != message.aliceBaseKey && message.hasOwnProperty("aliceBaseKey") && !(message.aliceBaseKey && "number" == typeof message.aliceBaseKey.length || $util.isString(message.aliceBaseKey)) ? "aliceBaseKey: buffer expected" : null;
     }, SessionStructure.fromObject = function(object) {
         if (object instanceof $root.SessionStructure) return object;
@@ -22186,7 +23076,7 @@ $root.ADVEncryptionType = function() {
         if (object.receiverChains) {
             if (!Array.isArray(object.receiverChains)) throw TypeError(".SessionStructure.receiverChains: array expected");
             message.receiverChains = [];
-            for (var i = 0; i < object.receiverChains.length; ++i) {
+            for (let i = 0; i < object.receiverChains.length; ++i) {
                 if ("object" != typeof object.receiverChains[i]) throw TypeError(".SessionStructure.receiverChains: object expected");
                 message.receiverChains[i] = $root.SessionStructure.Chain.fromObject(object.receiverChains[i]);
             }
@@ -22224,7 +23114,7 @@ $root.ADVEncryptionType = function() {
         null != message.senderChain && message.hasOwnProperty("senderChain") && (object.senderChain = $root.SessionStructure.Chain.toObject(message.senderChain, options)), 
         message.receiverChains && message.receiverChains.length) {
             object.receiverChains = [];
-            for (var j = 0; j < message.receiverChains.length; ++j) object.receiverChains[j] = $root.SessionStructure.Chain.toObject(message.receiverChains[j], options);
+            for (let j = 0; j < message.receiverChains.length; ++j) object.receiverChains[j] = $root.SessionStructure.Chain.toObject(message.receiverChains[j], options);
         }
         return null != message.pendingKeyExchange && message.hasOwnProperty("pendingKeyExchange") && (object.pendingKeyExchange = $root.SessionStructure.PendingKeyExchange.toObject(message.pendingKeyExchange, options)), 
         null != message.pendingPreKey && message.hasOwnProperty("pendingPreKey") && (object.pendingPreKey = $root.SessionStructure.PendingPreKey.toObject(message.pendingPreKey, options)), 
@@ -22394,7 +23284,7 @@ $root.ADVEncryptionType = function() {
         if (writer = writer || $Writer.create(), null != message.senderRatchetKey && Object.hasOwnProperty.call(message, "senderRatchetKey") && writer.uint32(10).bytes(message.senderRatchetKey), 
         null != message.senderRatchetKeyPrivate && Object.hasOwnProperty.call(message, "senderRatchetKeyPrivate") && writer.uint32(18).bytes(message.senderRatchetKeyPrivate), 
         null != message.chainKey && Object.hasOwnProperty.call(message, "chainKey") && $root.SessionStructure.Chain.ChainKey.encode(message.chainKey, writer.uint32(26).fork()).ldelim(), 
-        null != message.messageKeys && message.messageKeys.length) for (var i = 0; i < message.messageKeys.length; ++i) $root.SessionStructure.Chain.MessageKey.encode(message.messageKeys[i], writer.uint32(34).fork()).ldelim();
+        null != message.messageKeys && message.messageKeys.length) for (let i = 0; i < message.messageKeys.length; ++i) $root.SessionStructure.Chain.MessageKey.encode(message.messageKeys[i], writer.uint32(34).fork()).ldelim();
         return writer;
     }, Chain.encodeDelimited = function(message, writer) {
         return this.encode(message, writer).ldelim();
@@ -22431,10 +23321,16 @@ $root.ADVEncryptionType = function() {
         if ("object" != typeof message || null === message) return "object expected";
         if (null != message.senderRatchetKey && message.hasOwnProperty("senderRatchetKey") && !(message.senderRatchetKey && "number" == typeof message.senderRatchetKey.length || $util.isString(message.senderRatchetKey))) return "senderRatchetKey: buffer expected";
         if (null != message.senderRatchetKeyPrivate && message.hasOwnProperty("senderRatchetKeyPrivate") && !(message.senderRatchetKeyPrivate && "number" == typeof message.senderRatchetKeyPrivate.length || $util.isString(message.senderRatchetKeyPrivate))) return "senderRatchetKeyPrivate: buffer expected";
-        if (null != message.chainKey && message.hasOwnProperty("chainKey") && (error = $root.SessionStructure.Chain.ChainKey.verify(message.chainKey))) return "chainKey." + error;
+        if (null != message.chainKey && message.hasOwnProperty("chainKey")) {
+            var error = $root.SessionStructure.Chain.ChainKey.verify(message.chainKey);
+            if (error) return "chainKey." + error;
+        }
         if (null != message.messageKeys && message.hasOwnProperty("messageKeys")) {
             if (!Array.isArray(message.messageKeys)) return "messageKeys: array expected";
-            for (var error, i = 0; i < message.messageKeys.length; ++i) if (error = $root.SessionStructure.Chain.MessageKey.verify(message.messageKeys[i])) return "messageKeys." + error;
+            for (let i = 0; i < message.messageKeys.length; ++i) {
+                let error = $root.SessionStructure.Chain.MessageKey.verify(message.messageKeys[i]);
+                if (error) return "messageKeys." + error;
+            }
         }
         return null;
     }, Chain.fromObject = function(object) {
@@ -22449,7 +23345,7 @@ $root.ADVEncryptionType = function() {
         if (object.messageKeys) {
             if (!Array.isArray(object.messageKeys)) throw TypeError(".SessionStructure.Chain.messageKeys: array expected");
             message.messageKeys = [];
-            for (var i = 0; i < object.messageKeys.length; ++i) {
+            for (let i = 0; i < object.messageKeys.length; ++i) {
                 if ("object" != typeof object.messageKeys[i]) throw TypeError(".SessionStructure.Chain.messageKeys: object expected");
                 message.messageKeys[i] = $root.SessionStructure.Chain.MessageKey.fromObject(object.messageKeys[i]);
             }
@@ -22467,7 +23363,7 @@ $root.ADVEncryptionType = function() {
         null != message.chainKey && message.hasOwnProperty("chainKey") && (object.chainKey = $root.SessionStructure.Chain.ChainKey.toObject(message.chainKey, options)), 
         message.messageKeys && message.messageKeys.length) {
             object.messageKeys = [];
-            for (var j = 0; j < message.messageKeys.length; ++j) object.messageKeys[j] = $root.SessionStructure.Chain.MessageKey.toObject(message.messageKeys[j], options);
+            for (let j = 0; j < message.messageKeys.length; ++j) object.messageKeys[j] = $root.SessionStructure.Chain.MessageKey.toObject(message.messageKeys[j], options);
         }
         return object;
     }, Chain.prototype.toJSON = function() {
@@ -22586,16 +23482,16 @@ $root.ADVEncryptionType = function() {
     }, ChainKey.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/SessionStructure.Chain.ChainKey";
     }, ChainKey), Chain), SessionStructure;
-}(), $root.RecordStructure = function() {
+})(), RecordStructure = $root.RecordStructure = (() => {
     function RecordStructure(properties) {
-        if (this.previousSessions = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (this.previousSessions = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return RecordStructure.prototype.currentSession = null, RecordStructure.prototype.previousSessions = $util.emptyArray, 
     RecordStructure.create = function(properties) {
         return new RecordStructure(properties);
     }, RecordStructure.encode = function(message, writer) {
         if (writer = writer || $Writer.create(), null != message.currentSession && Object.hasOwnProperty.call(message, "currentSession") && $root.SessionStructure.encode(message.currentSession, writer.uint32(10).fork()).ldelim(), 
-        null != message.previousSessions && message.previousSessions.length) for (var i = 0; i < message.previousSessions.length; ++i) $root.SessionStructure.encode(message.previousSessions[i], writer.uint32(18).fork()).ldelim();
+        null != message.previousSessions && message.previousSessions.length) for (let i = 0; i < message.previousSessions.length; ++i) $root.SessionStructure.encode(message.previousSessions[i], writer.uint32(18).fork()).ldelim();
         return writer;
     }, RecordStructure.encodeDelimited = function(message, writer) {
         return this.encode(message, writer).ldelim();
@@ -22622,10 +23518,16 @@ $root.ADVEncryptionType = function() {
         return reader instanceof $Reader || (reader = new $Reader(reader)), this.decode(reader, reader.uint32());
     }, RecordStructure.verify = function(message) {
         if ("object" != typeof message || null === message) return "object expected";
-        if (null != message.currentSession && message.hasOwnProperty("currentSession") && (error = $root.SessionStructure.verify(message.currentSession))) return "currentSession." + error;
+        if (null != message.currentSession && message.hasOwnProperty("currentSession")) {
+            var error = $root.SessionStructure.verify(message.currentSession);
+            if (error) return "currentSession." + error;
+        }
         if (null != message.previousSessions && message.hasOwnProperty("previousSessions")) {
             if (!Array.isArray(message.previousSessions)) return "previousSessions: array expected";
-            for (var error, i = 0; i < message.previousSessions.length; ++i) if (error = $root.SessionStructure.verify(message.previousSessions[i])) return "previousSessions." + error;
+            for (let i = 0; i < message.previousSessions.length; ++i) {
+                let error = $root.SessionStructure.verify(message.previousSessions[i]);
+                if (error) return "previousSessions." + error;
+            }
         }
         return null;
     }, RecordStructure.fromObject = function(object) {
@@ -22638,7 +23540,7 @@ $root.ADVEncryptionType = function() {
         if (object.previousSessions) {
             if (!Array.isArray(object.previousSessions)) throw TypeError(".RecordStructure.previousSessions: array expected");
             message.previousSessions = [];
-            for (var i = 0; i < object.previousSessions.length; ++i) {
+            for (let i = 0; i < object.previousSessions.length; ++i) {
                 if ("object" != typeof object.previousSessions[i]) throw TypeError(".RecordStructure.previousSessions: object expected");
                 message.previousSessions[i] = $root.SessionStructure.fromObject(object.previousSessions[i]);
             }
@@ -22650,7 +23552,7 @@ $root.ADVEncryptionType = function() {
         options.defaults && (object.currentSession = null), null != message.currentSession && message.hasOwnProperty("currentSession") && (object.currentSession = $root.SessionStructure.toObject(message.currentSession, options)), 
         message.previousSessions && message.previousSessions.length) {
             object.previousSessions = [];
-            for (var j = 0; j < message.previousSessions.length; ++j) object.previousSessions[j] = $root.SessionStructure.toObject(message.previousSessions[j], options);
+            for (let j = 0; j < message.previousSessions.length; ++j) object.previousSessions[j] = $root.SessionStructure.toObject(message.previousSessions[j], options);
         }
         return object;
     }, RecordStructure.prototype.toJSON = function() {
@@ -22658,9 +23560,9 @@ $root.ADVEncryptionType = function() {
     }, RecordStructure.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/RecordStructure";
     }, RecordStructure;
-}(), $root.PreKeyRecordStructure = function() {
+})(), PreKeyRecordStructure = $root.PreKeyRecordStructure = (() => {
     function PreKeyRecordStructure(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return PreKeyRecordStructure.prototype.id = 0, PreKeyRecordStructure.prototype.publicKey = $util.newBuffer([]), 
     PreKeyRecordStructure.prototype.privateKey = $util.newBuffer([]), PreKeyRecordStructure.create = function(properties) {
@@ -22719,9 +23621,9 @@ $root.ADVEncryptionType = function() {
     }, PreKeyRecordStructure.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/PreKeyRecordStructure";
     }, PreKeyRecordStructure;
-}(), $root.SignedPreKeyRecordStructure = function() {
+})(), SignedPreKeyRecordStructure = $root.SignedPreKeyRecordStructure = (() => {
     function SignedPreKeyRecordStructure(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return SignedPreKeyRecordStructure.prototype.id = 0, SignedPreKeyRecordStructure.prototype.publicKey = $util.newBuffer([]), 
     SignedPreKeyRecordStructure.prototype.privateKey = $util.newBuffer([]), SignedPreKeyRecordStructure.prototype.signature = $util.newBuffer([]), 
@@ -22799,9 +23701,9 @@ $root.ADVEncryptionType = function() {
     }, SignedPreKeyRecordStructure.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/SignedPreKeyRecordStructure";
     }, SignedPreKeyRecordStructure;
-}(), $root.IdentityKeyPairStructure = function() {
+})(), IdentityKeyPairStructure = $root.IdentityKeyPairStructure = (() => {
     function IdentityKeyPairStructure(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return IdentityKeyPairStructure.prototype.publicKey = $util.newBuffer([]), IdentityKeyPairStructure.prototype.privateKey = $util.newBuffer([]), 
     IdentityKeyPairStructure.create = function(properties) {
@@ -22854,18 +23756,18 @@ $root.ADVEncryptionType = function() {
     }, IdentityKeyPairStructure.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/IdentityKeyPairStructure";
     }, IdentityKeyPairStructure;
-}(), $root.SenderKeyStateStructure = function() {
+})(), SenderKeyStateStructure = $root.SenderKeyStateStructure = (() => {
     function SenderKeyStateStructure(properties) {
-        if (this.senderMessageKeys = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (this.senderMessageKeys = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function SenderSigningKey(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function SenderMessageKey(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function SenderChainKey(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return SenderKeyStateStructure.prototype.senderKeyId = 0, SenderKeyStateStructure.prototype.senderChainKey = null, 
     SenderKeyStateStructure.prototype.senderSigningKey = null, SenderKeyStateStructure.prototype.senderMessageKeys = $util.emptyArray, 
@@ -22875,7 +23777,7 @@ $root.ADVEncryptionType = function() {
         if (writer = writer || $Writer.create(), null != message.senderKeyId && Object.hasOwnProperty.call(message, "senderKeyId") && writer.uint32(8).uint32(message.senderKeyId), 
         null != message.senderChainKey && Object.hasOwnProperty.call(message, "senderChainKey") && $root.SenderKeyStateStructure.SenderChainKey.encode(message.senderChainKey, writer.uint32(18).fork()).ldelim(), 
         null != message.senderSigningKey && Object.hasOwnProperty.call(message, "senderSigningKey") && $root.SenderKeyStateStructure.SenderSigningKey.encode(message.senderSigningKey, writer.uint32(26).fork()).ldelim(), 
-        null != message.senderMessageKeys && message.senderMessageKeys.length) for (var i = 0; i < message.senderMessageKeys.length; ++i) $root.SenderKeyStateStructure.SenderMessageKey.encode(message.senderMessageKeys[i], writer.uint32(34).fork()).ldelim();
+        null != message.senderMessageKeys && message.senderMessageKeys.length) for (let i = 0; i < message.senderMessageKeys.length; ++i) $root.SenderKeyStateStructure.SenderMessageKey.encode(message.senderMessageKeys[i], writer.uint32(34).fork()).ldelim();
         return writer;
     }, SenderKeyStateStructure.encodeDelimited = function(message, writer) {
         return this.encode(message, writer).ldelim();
@@ -22911,11 +23813,20 @@ $root.ADVEncryptionType = function() {
     }, SenderKeyStateStructure.verify = function(message) {
         if ("object" != typeof message || null === message) return "object expected";
         if (null != message.senderKeyId && message.hasOwnProperty("senderKeyId") && !$util.isInteger(message.senderKeyId)) return "senderKeyId: integer expected";
-        if (null != message.senderChainKey && message.hasOwnProperty("senderChainKey") && (error = $root.SenderKeyStateStructure.SenderChainKey.verify(message.senderChainKey))) return "senderChainKey." + error;
-        if (null != message.senderSigningKey && message.hasOwnProperty("senderSigningKey") && (error = $root.SenderKeyStateStructure.SenderSigningKey.verify(message.senderSigningKey))) return "senderSigningKey." + error;
+        if (null != message.senderChainKey && message.hasOwnProperty("senderChainKey")) {
+            var error = $root.SenderKeyStateStructure.SenderChainKey.verify(message.senderChainKey);
+            if (error) return "senderChainKey." + error;
+        }
+        if (null != message.senderSigningKey && message.hasOwnProperty("senderSigningKey")) {
+            let error = $root.SenderKeyStateStructure.SenderSigningKey.verify(message.senderSigningKey);
+            if (error) return "senderSigningKey." + error;
+        }
         if (null != message.senderMessageKeys && message.hasOwnProperty("senderMessageKeys")) {
             if (!Array.isArray(message.senderMessageKeys)) return "senderMessageKeys: array expected";
-            for (var error, i = 0; i < message.senderMessageKeys.length; ++i) if (error = $root.SenderKeyStateStructure.SenderMessageKey.verify(message.senderMessageKeys[i])) return "senderMessageKeys." + error;
+            for (let i = 0; i < message.senderMessageKeys.length; ++i) {
+                let error = $root.SenderKeyStateStructure.SenderMessageKey.verify(message.senderMessageKeys[i]);
+                if (error) return "senderMessageKeys." + error;
+            }
         }
         return null;
     }, SenderKeyStateStructure.fromObject = function(object) {
@@ -22933,7 +23844,7 @@ $root.ADVEncryptionType = function() {
         if (object.senderMessageKeys) {
             if (!Array.isArray(object.senderMessageKeys)) throw TypeError(".SenderKeyStateStructure.senderMessageKeys: array expected");
             message.senderMessageKeys = [];
-            for (var i = 0; i < object.senderMessageKeys.length; ++i) {
+            for (let i = 0; i < object.senderMessageKeys.length; ++i) {
                 if ("object" != typeof object.senderMessageKeys[i]) throw TypeError(".SenderKeyStateStructure.senderMessageKeys: object expected");
                 message.senderMessageKeys[i] = $root.SenderKeyStateStructure.SenderMessageKey.fromObject(object.senderMessageKeys[i]);
             }
@@ -22948,7 +23859,7 @@ $root.ADVEncryptionType = function() {
         null != message.senderSigningKey && message.hasOwnProperty("senderSigningKey") && (object.senderSigningKey = $root.SenderKeyStateStructure.SenderSigningKey.toObject(message.senderSigningKey, options)), 
         message.senderMessageKeys && message.senderMessageKeys.length) {
             object.senderMessageKeys = [];
-            for (var j = 0; j < message.senderMessageKeys.length; ++j) object.senderMessageKeys[j] = $root.SenderKeyStateStructure.SenderMessageKey.toObject(message.senderMessageKeys[j], options);
+            for (let j = 0; j < message.senderMessageKeys.length; ++j) object.senderMessageKeys[j] = $root.SenderKeyStateStructure.SenderMessageKey.toObject(message.senderMessageKeys[j], options);
         }
         return object;
     }, SenderKeyStateStructure.prototype.toJSON = function() {
@@ -23101,15 +24012,15 @@ $root.ADVEncryptionType = function() {
     }, SenderChainKey.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/SenderKeyStateStructure.SenderChainKey";
     }, SenderChainKey), SenderKeyStateStructure;
-}(), $root.SenderKeyRecordStructure = function() {
+})(), SenderKeyRecordStructure = $root.SenderKeyRecordStructure = (() => {
     function SenderKeyRecordStructure(properties) {
-        if (this.senderKeyStates = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (this.senderKeyStates = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return SenderKeyRecordStructure.prototype.senderKeyStates = $util.emptyArray, 
     SenderKeyRecordStructure.create = function(properties) {
         return new SenderKeyRecordStructure(properties);
     }, SenderKeyRecordStructure.encode = function(message, writer) {
-        if (writer = writer || $Writer.create(), null != message.senderKeyStates && message.senderKeyStates.length) for (var i = 0; i < message.senderKeyStates.length; ++i) $root.SenderKeyStateStructure.encode(message.senderKeyStates[i], writer.uint32(10).fork()).ldelim();
+        if (writer = writer || $Writer.create(), null != message.senderKeyStates && message.senderKeyStates.length) for (let i = 0; i < message.senderKeyStates.length; ++i) $root.SenderKeyStateStructure.encode(message.senderKeyStates[i], writer.uint32(10).fork()).ldelim();
         return writer;
     }, SenderKeyRecordStructure.encodeDelimited = function(message, writer) {
         return this.encode(message, writer).ldelim();
@@ -23127,7 +24038,7 @@ $root.ADVEncryptionType = function() {
         if ("object" != typeof message || null === message) return "object expected";
         if (null != message.senderKeyStates && message.hasOwnProperty("senderKeyStates")) {
             if (!Array.isArray(message.senderKeyStates)) return "senderKeyStates: array expected";
-            for (var i = 0; i < message.senderKeyStates.length; ++i) {
+            for (let i = 0; i < message.senderKeyStates.length; ++i) {
                 var error = $root.SenderKeyStateStructure.verify(message.senderKeyStates[i]);
                 if (error) return "senderKeyStates." + error;
             }
@@ -23139,7 +24050,7 @@ $root.ADVEncryptionType = function() {
         if (object.senderKeyStates) {
             if (!Array.isArray(object.senderKeyStates)) throw TypeError(".SenderKeyRecordStructure.senderKeyStates: array expected");
             message.senderKeyStates = [];
-            for (var i = 0; i < object.senderKeyStates.length; ++i) {
+            for (let i = 0; i < object.senderKeyStates.length; ++i) {
                 if ("object" != typeof object.senderKeyStates[i]) throw TypeError(".SenderKeyRecordStructure.senderKeyStates: object expected");
                 message.senderKeyStates[i] = $root.SenderKeyStateStructure.fromObject(object.senderKeyStates[i]);
             }
@@ -23150,7 +24061,7 @@ $root.ADVEncryptionType = function() {
         if (((options = options || {}).arrays || options.defaults) && (object.senderKeyStates = []), 
         message.senderKeyStates && message.senderKeyStates.length) {
             object.senderKeyStates = [];
-            for (var j = 0; j < message.senderKeyStates.length; ++j) object.senderKeyStates[j] = $root.SenderKeyStateStructure.toObject(message.senderKeyStates[j], options);
+            for (let j = 0; j < message.senderKeyStates.length; ++j) object.senderKeyStates[j] = $root.SenderKeyStateStructure.toObject(message.senderKeyStates[j], options);
         }
         return object;
     }, SenderKeyRecordStructure.prototype.toJSON = function() {
@@ -23158,9 +24069,9 @@ $root.ADVEncryptionType = function() {
     }, SenderKeyRecordStructure.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/SenderKeyRecordStructure";
     }, SenderKeyRecordStructure;
-}(), $root.SignalMessage = function() {
+})(), SignalMessage = $root.SignalMessage = (() => {
     function SignalMessage(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return SignalMessage.prototype.ratchetKey = $util.newBuffer([]), SignalMessage.prototype.counter = 0, 
     SignalMessage.prototype.previousCounter = 0, SignalMessage.prototype.ciphertext = $util.newBuffer([]), 
@@ -23227,9 +24138,9 @@ $root.ADVEncryptionType = function() {
     }, SignalMessage.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/SignalMessage";
     }, SignalMessage;
-}(), $root.PreKeySignalMessage = function() {
+})(), PreKeySignalMessage = $root.PreKeySignalMessage = (() => {
     function PreKeySignalMessage(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return PreKeySignalMessage.prototype.registrationId = 0, PreKeySignalMessage.prototype.preKeyId = 0, 
     PreKeySignalMessage.prototype.signedPreKeyId = 0, PreKeySignalMessage.prototype.baseKey = $util.newBuffer([]), 
@@ -23312,9 +24223,9 @@ $root.ADVEncryptionType = function() {
     }, PreKeySignalMessage.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/PreKeySignalMessage";
     }, PreKeySignalMessage;
-}(), $root.KeyExchangeMessage = function() {
+})(), KeyExchangeMessage = $root.KeyExchangeMessage = (() => {
     function KeyExchangeMessage(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return KeyExchangeMessage.prototype.id = 0, KeyExchangeMessage.prototype.baseKey = $util.newBuffer([]), 
     KeyExchangeMessage.prototype.ratchetKey = $util.newBuffer([]), KeyExchangeMessage.prototype.identityKey = $util.newBuffer([]), 
@@ -23392,9 +24303,9 @@ $root.ADVEncryptionType = function() {
     }, KeyExchangeMessage.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/KeyExchangeMessage";
     }, KeyExchangeMessage;
-}(), $root.SenderKeyMessage = function() {
+})(), SenderKeyMessage = $root.SenderKeyMessage = (() => {
     function SenderKeyMessage(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return SenderKeyMessage.prototype.id = 0, SenderKeyMessage.prototype.iteration = 0, 
     SenderKeyMessage.prototype.ciphertext = $util.newBuffer([]), SenderKeyMessage.create = function(properties) {
@@ -23452,9 +24363,9 @@ $root.ADVEncryptionType = function() {
     }, SenderKeyMessage.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/SenderKeyMessage";
     }, SenderKeyMessage;
-}(), $root.SenderKeyDistributionMessage = function() {
+})(), SenderKeyDistributionMessage = $root.SenderKeyDistributionMessage = (() => {
     function SenderKeyDistributionMessage(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return SenderKeyDistributionMessage.prototype.id = 0, SenderKeyDistributionMessage.prototype.iteration = 0, 
     SenderKeyDistributionMessage.prototype.chainKey = $util.newBuffer([]), SenderKeyDistributionMessage.prototype.signingKey = $util.newBuffer([]), 
@@ -23522,9 +24433,9 @@ $root.ADVEncryptionType = function() {
     }, SenderKeyDistributionMessage.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/SenderKeyDistributionMessage";
     }, SenderKeyDistributionMessage;
-}(), $root.DeviceConsistencyCodeMessage = function() {
+})(), DeviceConsistencyCodeMessage = $root.DeviceConsistencyCodeMessage = (() => {
     function DeviceConsistencyCodeMessage(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return DeviceConsistencyCodeMessage.prototype.generation = 0, DeviceConsistencyCodeMessage.prototype.signature = $util.newBuffer([]), 
     DeviceConsistencyCodeMessage.create = function(properties) {
@@ -23575,9 +24486,9 @@ $root.ADVEncryptionType = function() {
     }, DeviceConsistencyCodeMessage.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/DeviceConsistencyCodeMessage";
     }, DeviceConsistencyCodeMessage;
-}(), $root.RecentEmojiWeight = function() {
+})(), RecentEmojiWeight = $root.RecentEmojiWeight = (() => {
     function RecentEmojiWeight(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return RecentEmojiWeight.prototype.emoji = "", RecentEmojiWeight.prototype.weight = 0, 
     RecentEmojiWeight.create = function(properties) {
@@ -23626,13 +24537,13 @@ $root.ADVEncryptionType = function() {
     }, RecentEmojiWeight.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/RecentEmojiWeight";
     }, RecentEmojiWeight;
-}(), $root.CallLogRecord = function() {
+})(), CallLogRecord = $root.CallLogRecord = (() => {
     function CallLogRecord(properties) {
-        if (this.participants = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (this.participants = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     var valuesById, values;
     function ParticipantInfo(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return CallLogRecord.prototype.callResult = 0, CallLogRecord.prototype.isDndMode = !1, 
     CallLogRecord.prototype.silenceReason = 0, CallLogRecord.prototype.duration = $util.Long ? $util.Long.fromBits(0, 0, !1) : 0, 
@@ -23658,7 +24569,7 @@ $root.ADVEncryptionType = function() {
         null != message.callId && Object.hasOwnProperty.call(message, "callId") && writer.uint32(90).string(message.callId), 
         null != message.callCreatorJid && Object.hasOwnProperty.call(message, "callCreatorJid") && writer.uint32(98).string(message.callCreatorJid), 
         null != message.groupJid && Object.hasOwnProperty.call(message, "groupJid") && writer.uint32(106).string(message.groupJid), 
-        null != message.participants && message.participants.length) for (var i = 0; i < message.participants.length; ++i) $root.CallLogRecord.ParticipantInfo.encode(message.participants[i], writer.uint32(114).fork()).ldelim();
+        null != message.participants && message.participants.length) for (let i = 0; i < message.participants.length; ++i) $root.CallLogRecord.ParticipantInfo.encode(message.participants[i], writer.uint32(114).fork()).ldelim();
         return null != message.callType && Object.hasOwnProperty.call(message, "callType") && writer.uint32(120).int32(message.callType), 
         writer;
     }, CallLogRecord.encodeDelimited = function(message, writer) {
@@ -23776,7 +24687,7 @@ $root.ADVEncryptionType = function() {
         if (null != message.groupJid && message.hasOwnProperty("groupJid") && !$util.isString(message.groupJid)) return "groupJid: string expected";
         if (null != message.participants && message.hasOwnProperty("participants")) {
             if (!Array.isArray(message.participants)) return "participants: array expected";
-            for (var i = 0; i < message.participants.length; ++i) {
+            for (let i = 0; i < message.participants.length; ++i) {
                 var error = $root.CallLogRecord.ParticipantInfo.verify(message.participants[i]);
                 if (error) return "participants." + error;
             }
@@ -23888,7 +24799,7 @@ $root.ADVEncryptionType = function() {
         object.participants) {
             if (!Array.isArray(object.participants)) throw TypeError(".CallLogRecord.participants: array expected");
             message.participants = [];
-            for (var i = 0; i < object.participants.length; ++i) {
+            for (let i = 0; i < object.participants.length; ++i) {
                 if ("object" != typeof object.participants[i]) throw TypeError(".CallLogRecord.participants: object expected");
                 message.participants[i] = $root.CallLogRecord.ParticipantInfo.fromObject(object.participants[i]);
             }
@@ -23916,14 +24827,19 @@ $root.ADVEncryptionType = function() {
     }, CallLogRecord.toObject = function(message, options) {
         var long, object = {};
         if (((options = options || {}).arrays || options.defaults) && (object.participants = []), 
-        options.defaults && (object.callResult = options.enums === String ? "CONNECTED" : 0, 
-        object.isDndMode = !1, object.silenceReason = options.enums === String ? "NONE" : 0, 
-        $util.Long ? (long = new $util.Long(0, 0, !1), object.duration = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.duration = options.longs === String ? "0" : 0, 
-        $util.Long ? (long = new $util.Long(0, 0, !1), object.startTime = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.startTime = options.longs === String ? "0" : 0, 
-        object.isIncoming = !1, object.isVideo = !1, object.isCallLink = !1, object.callLinkToken = "", 
-        object.scheduledCallId = "", object.callId = "", object.callCreatorJid = "", 
-        object.groupJid = "", object.callType = options.enums === String ? "REGULAR" : 0), 
-        null != message.callResult && message.hasOwnProperty("callResult") && (object.callResult = options.enums !== String || void 0 === $root.CallLogRecord.CallResult[message.callResult] ? message.callResult : $root.CallLogRecord.CallResult[message.callResult]), 
+        options.defaults) {
+            if (object.callResult = options.enums === String ? "CONNECTED" : 0, 
+            object.isDndMode = !1, object.silenceReason = options.enums === String ? "NONE" : 0, 
+            $util.Long ? (long = new $util.Long(0, 0, !1), object.duration = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.duration = options.longs === String ? "0" : 0, 
+            $util.Long) {
+                let long = new $util.Long(0, 0, !1);
+                object.startTime = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+            } else object.startTime = options.longs === String ? "0" : 0;
+            object.isIncoming = !1, object.isVideo = !1, object.isCallLink = !1, 
+            object.callLinkToken = "", object.scheduledCallId = "", object.callId = "", 
+            object.callCreatorJid = "", object.groupJid = "", object.callType = options.enums === String ? "REGULAR" : 0;
+        }
+        if (null != message.callResult && message.hasOwnProperty("callResult") && (object.callResult = options.enums !== String || void 0 === $root.CallLogRecord.CallResult[message.callResult] ? message.callResult : $root.CallLogRecord.CallResult[message.callResult]), 
         null != message.isDndMode && message.hasOwnProperty("isDndMode") && (object.isDndMode = message.isDndMode), 
         null != message.silenceReason && message.hasOwnProperty("silenceReason") && (object.silenceReason = options.enums !== String || void 0 === $root.CallLogRecord.SilenceReason[message.silenceReason] ? message.silenceReason : $root.CallLogRecord.SilenceReason[message.silenceReason]), 
         null != message.duration && message.hasOwnProperty("duration") && ("number" == typeof message.duration ? object.duration = options.longs === String ? String(message.duration) : message.duration : object.duration = options.longs === String ? $util.Long.prototype.toString.call(message.duration) : options.longs === Number ? new $util.LongBits(message.duration.low >>> 0, message.duration.high >>> 0).toNumber() : message.duration), 
@@ -23938,7 +24854,7 @@ $root.ADVEncryptionType = function() {
         null != message.groupJid && message.hasOwnProperty("groupJid") && (object.groupJid = message.groupJid), 
         message.participants && message.participants.length) {
             object.participants = [];
-            for (var j = 0; j < message.participants.length; ++j) object.participants[j] = $root.CallLogRecord.ParticipantInfo.toObject(message.participants[j], options);
+            for (let j = 0; j < message.participants.length; ++j) object.participants[j] = $root.CallLogRecord.ParticipantInfo.toObject(message.participants[j], options);
         }
         return null != message.callType && message.hasOwnProperty("callType") && (object.callType = options.enums !== String || void 0 === $root.CallLogRecord.CallType[message.callType] ? message.callType : $root.CallLogRecord.CallType[message.callType]), 
         object;
@@ -24085,160 +25001,160 @@ $root.ADVEncryptionType = function() {
     }, ParticipantInfo.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/CallLogRecord.ParticipantInfo";
     }, ParticipantInfo), CallLogRecord;
-}(), $root.SyncActionValue = function() {
+})(), SyncActionValue = $root.SyncActionValue = (() => {
     function SyncActionValue(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function WaffleAccountLinkStateAction(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     var valuesById, values;
     function FavoritesAction(properties) {
-        if (this.favorites = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (this.favorites = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function Favorite(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function PrivacySettingDisableLinkPreviewsAction(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function WamoUserIdentifierAction(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function LockChatAction(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function CustomPaymentMethodsAction(properties) {
-        if (this.customPaymentMethods = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (this.customPaymentMethods = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function CustomPaymentMethod(properties) {
-        if (this.metadata = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (this.metadata = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function CustomPaymentMethodMetadata(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function PaymentInfoAction(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function LabelReorderingAction(properties) {
-        if (this.sortedLabelIds = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (this.sortedLabelIds = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function DeleteIndividualCallLogAction(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function BotWelcomeRequestAction(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function CallLogAction(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function PrivacySettingRelayAllCalls(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function ExternalWebBetaAction(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function MarketingMessageBroadcastAction(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function PnForLidChatAction(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function ChatAssignmentOpenedStatusAction(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function ChatAssignmentAction(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function StickerAction(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function RemoveRecentStickerAction(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function PrimaryVersionAction(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function NuxAction(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function TimeFormatAction(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function UserStatusMuteAction(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function SubscriptionAction(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function AgentAction(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function AndroidUnsupportedActions(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function PrimaryFeature(properties) {
-        if (this.flags = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (this.flags = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function KeyExpiration(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function SyncActionMessage(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function SyncActionMessageRange(properties) {
-        if (this.messages = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (this.messages = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function UnarchiveChatsSetting(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function DeleteChatAction(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function ClearChatAction(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function MarkChatAsReadAction(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function DeleteMessageForMeAction(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function ArchiveChatAction(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function RecentEmojiWeightsAction(properties) {
-        if (this.weights = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (this.weights = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function LabelEditAction(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function LabelAssociationAction(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function QuickReplyAction(properties) {
-        if (this.keywords = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (this.keywords = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function LocaleSetting(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function PushNameSetting(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function SecurityNotificationSetting(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function PinAction(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function MuteAction(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function ContactAction(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function StarAction(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return SyncActionValue.prototype.timestamp = $util.Long ? $util.Long.fromBits(0, 0, !1) : 0, 
     SyncActionValue.prototype.starAction = null, SyncActionValue.prototype.contactAction = null, 
@@ -24547,58 +25463,210 @@ $root.ADVEncryptionType = function() {
     }, SyncActionValue.verify = function(message) {
         if ("object" != typeof message || null === message) return "object expected";
         if (null != message.timestamp && message.hasOwnProperty("timestamp") && !($util.isInteger(message.timestamp) || message.timestamp && $util.isInteger(message.timestamp.low) && $util.isInteger(message.timestamp.high))) return "timestamp: integer|Long expected";
-        var error;
-        if (null != message.starAction && message.hasOwnProperty("starAction") && (error = $root.SyncActionValue.StarAction.verify(message.starAction))) return "starAction." + error;
-        if (null != message.contactAction && message.hasOwnProperty("contactAction") && (error = $root.SyncActionValue.ContactAction.verify(message.contactAction))) return "contactAction." + error;
-        if (null != message.muteAction && message.hasOwnProperty("muteAction") && (error = $root.SyncActionValue.MuteAction.verify(message.muteAction))) return "muteAction." + error;
-        if (null != message.pinAction && message.hasOwnProperty("pinAction") && (error = $root.SyncActionValue.PinAction.verify(message.pinAction))) return "pinAction." + error;
-        if (null != message.securityNotificationSetting && message.hasOwnProperty("securityNotificationSetting") && (error = $root.SyncActionValue.SecurityNotificationSetting.verify(message.securityNotificationSetting))) return "securityNotificationSetting." + error;
-        if (null != message.pushNameSetting && message.hasOwnProperty("pushNameSetting") && (error = $root.SyncActionValue.PushNameSetting.verify(message.pushNameSetting))) return "pushNameSetting." + error;
-        if (null != message.quickReplyAction && message.hasOwnProperty("quickReplyAction") && (error = $root.SyncActionValue.QuickReplyAction.verify(message.quickReplyAction))) return "quickReplyAction." + error;
-        if (null != message.recentEmojiWeightsAction && message.hasOwnProperty("recentEmojiWeightsAction") && (error = $root.SyncActionValue.RecentEmojiWeightsAction.verify(message.recentEmojiWeightsAction))) return "recentEmojiWeightsAction." + error;
-        if (null != message.labelEditAction && message.hasOwnProperty("labelEditAction") && (error = $root.SyncActionValue.LabelEditAction.verify(message.labelEditAction))) return "labelEditAction." + error;
-        if (null != message.labelAssociationAction && message.hasOwnProperty("labelAssociationAction") && (error = $root.SyncActionValue.LabelAssociationAction.verify(message.labelAssociationAction))) return "labelAssociationAction." + error;
-        if (null != message.localeSetting && message.hasOwnProperty("localeSetting") && (error = $root.SyncActionValue.LocaleSetting.verify(message.localeSetting))) return "localeSetting." + error;
-        if (null != message.archiveChatAction && message.hasOwnProperty("archiveChatAction") && (error = $root.SyncActionValue.ArchiveChatAction.verify(message.archiveChatAction))) return "archiveChatAction." + error;
-        if (null != message.deleteMessageForMeAction && message.hasOwnProperty("deleteMessageForMeAction") && (error = $root.SyncActionValue.DeleteMessageForMeAction.verify(message.deleteMessageForMeAction))) return "deleteMessageForMeAction." + error;
-        if (null != message.keyExpiration && message.hasOwnProperty("keyExpiration") && (error = $root.SyncActionValue.KeyExpiration.verify(message.keyExpiration))) return "keyExpiration." + error;
-        if (null != message.markChatAsReadAction && message.hasOwnProperty("markChatAsReadAction") && (error = $root.SyncActionValue.MarkChatAsReadAction.verify(message.markChatAsReadAction))) return "markChatAsReadAction." + error;
-        if (null != message.clearChatAction && message.hasOwnProperty("clearChatAction") && (error = $root.SyncActionValue.ClearChatAction.verify(message.clearChatAction))) return "clearChatAction." + error;
-        if (null != message.deleteChatAction && message.hasOwnProperty("deleteChatAction") && (error = $root.SyncActionValue.DeleteChatAction.verify(message.deleteChatAction))) return "deleteChatAction." + error;
-        if (null != message.unarchiveChatsSetting && message.hasOwnProperty("unarchiveChatsSetting") && (error = $root.SyncActionValue.UnarchiveChatsSetting.verify(message.unarchiveChatsSetting))) return "unarchiveChatsSetting." + error;
-        if (null != message.primaryFeature && message.hasOwnProperty("primaryFeature") && (error = $root.SyncActionValue.PrimaryFeature.verify(message.primaryFeature))) return "primaryFeature." + error;
-        if (null != message.androidUnsupportedActions && message.hasOwnProperty("androidUnsupportedActions") && (error = $root.SyncActionValue.AndroidUnsupportedActions.verify(message.androidUnsupportedActions))) return "androidUnsupportedActions." + error;
-        if (null != message.agentAction && message.hasOwnProperty("agentAction") && (error = $root.SyncActionValue.AgentAction.verify(message.agentAction))) return "agentAction." + error;
-        if (null != message.subscriptionAction && message.hasOwnProperty("subscriptionAction") && (error = $root.SyncActionValue.SubscriptionAction.verify(message.subscriptionAction))) return "subscriptionAction." + error;
-        if (null != message.userStatusMuteAction && message.hasOwnProperty("userStatusMuteAction") && (error = $root.SyncActionValue.UserStatusMuteAction.verify(message.userStatusMuteAction))) return "userStatusMuteAction." + error;
-        if (null != message.timeFormatAction && message.hasOwnProperty("timeFormatAction") && (error = $root.SyncActionValue.TimeFormatAction.verify(message.timeFormatAction))) return "timeFormatAction." + error;
-        if (null != message.nuxAction && message.hasOwnProperty("nuxAction") && (error = $root.SyncActionValue.NuxAction.verify(message.nuxAction))) return "nuxAction." + error;
-        if (null != message.primaryVersionAction && message.hasOwnProperty("primaryVersionAction") && (error = $root.SyncActionValue.PrimaryVersionAction.verify(message.primaryVersionAction))) return "primaryVersionAction." + error;
-        if (null != message.stickerAction && message.hasOwnProperty("stickerAction") && (error = $root.SyncActionValue.StickerAction.verify(message.stickerAction))) return "stickerAction." + error;
-        if (null != message.removeRecentStickerAction && message.hasOwnProperty("removeRecentStickerAction") && (error = $root.SyncActionValue.RemoveRecentStickerAction.verify(message.removeRecentStickerAction))) return "removeRecentStickerAction." + error;
-        if (null != message.chatAssignment && message.hasOwnProperty("chatAssignment") && (error = $root.SyncActionValue.ChatAssignmentAction.verify(message.chatAssignment))) return "chatAssignment." + error;
-        if (null != message.chatAssignmentOpenedStatus && message.hasOwnProperty("chatAssignmentOpenedStatus") && (error = $root.SyncActionValue.ChatAssignmentOpenedStatusAction.verify(message.chatAssignmentOpenedStatus))) return "chatAssignmentOpenedStatus." + error;
-        if (null != message.pnForLidChatAction && message.hasOwnProperty("pnForLidChatAction") && (error = $root.SyncActionValue.PnForLidChatAction.verify(message.pnForLidChatAction))) return "pnForLidChatAction." + error;
-        if (null != message.marketingMessageAction && message.hasOwnProperty("marketingMessageAction") && (error = $root.SyncActionValue.MarketingMessageAction.verify(message.marketingMessageAction))) return "marketingMessageAction." + error;
-        if (null != message.marketingMessageBroadcastAction && message.hasOwnProperty("marketingMessageBroadcastAction") && (error = $root.SyncActionValue.MarketingMessageBroadcastAction.verify(message.marketingMessageBroadcastAction))) return "marketingMessageBroadcastAction." + error;
-        if (null != message.externalWebBetaAction && message.hasOwnProperty("externalWebBetaAction") && (error = $root.SyncActionValue.ExternalWebBetaAction.verify(message.externalWebBetaAction))) return "externalWebBetaAction." + error;
-        if (null != message.privacySettingRelayAllCalls && message.hasOwnProperty("privacySettingRelayAllCalls") && (error = $root.SyncActionValue.PrivacySettingRelayAllCalls.verify(message.privacySettingRelayAllCalls))) return "privacySettingRelayAllCalls." + error;
-        if (null != message.callLogAction && message.hasOwnProperty("callLogAction") && (error = $root.SyncActionValue.CallLogAction.verify(message.callLogAction))) return "callLogAction." + error;
-        if (null != message.statusPrivacy && message.hasOwnProperty("statusPrivacy") && (error = $root.SyncActionValue.StatusPrivacyAction.verify(message.statusPrivacy))) return "statusPrivacy." + error;
-        if (null != message.botWelcomeRequestAction && message.hasOwnProperty("botWelcomeRequestAction") && (error = $root.SyncActionValue.BotWelcomeRequestAction.verify(message.botWelcomeRequestAction))) return "botWelcomeRequestAction." + error;
-        if (null != message.deleteIndividualCallLog && message.hasOwnProperty("deleteIndividualCallLog") && (error = $root.SyncActionValue.DeleteIndividualCallLogAction.verify(message.deleteIndividualCallLog))) return "deleteIndividualCallLog." + error;
-        if (null != message.labelReorderingAction && message.hasOwnProperty("labelReorderingAction") && (error = $root.SyncActionValue.LabelReorderingAction.verify(message.labelReorderingAction))) return "labelReorderingAction." + error;
-        if (null != message.paymentInfoAction && message.hasOwnProperty("paymentInfoAction") && (error = $root.SyncActionValue.PaymentInfoAction.verify(message.paymentInfoAction))) return "paymentInfoAction." + error;
-        if (null != message.customPaymentMethodsAction && message.hasOwnProperty("customPaymentMethodsAction") && (error = $root.SyncActionValue.CustomPaymentMethodsAction.verify(message.customPaymentMethodsAction))) return "customPaymentMethodsAction." + error;
-        if (null != message.lockChatAction && message.hasOwnProperty("lockChatAction") && (error = $root.SyncActionValue.LockChatAction.verify(message.lockChatAction))) return "lockChatAction." + error;
-        if (null != message.chatLockSettings && message.hasOwnProperty("chatLockSettings") && (error = $root.ChatLockSettings.verify(message.chatLockSettings))) return "chatLockSettings." + error;
-        if (null != message.wamoUserIdentifierAction && message.hasOwnProperty("wamoUserIdentifierAction") && (error = $root.SyncActionValue.WamoUserIdentifierAction.verify(message.wamoUserIdentifierAction))) return "wamoUserIdentifierAction." + error;
-        if (null != message.privacySettingDisableLinkPreviewsAction && message.hasOwnProperty("privacySettingDisableLinkPreviewsAction") && (error = $root.SyncActionValue.PrivacySettingDisableLinkPreviewsAction.verify(message.privacySettingDisableLinkPreviewsAction))) return "privacySettingDisableLinkPreviewsAction." + error;
-        if (null != message.deviceCapabilities && message.hasOwnProperty("deviceCapabilities") && (error = $root.DeviceCapabilities.verify(message.deviceCapabilities))) return "deviceCapabilities." + error;
-        if (null != message.noteEditAction && message.hasOwnProperty("noteEditAction") && (error = $root.SyncActionValue.NoteEditAction.verify(message.noteEditAction))) return "noteEditAction." + error;
-        if (null != message.favorites && message.hasOwnProperty("favorites") && (error = $root.SyncActionValue.FavoritesAction.verify(message.favorites))) return "favorites." + error;
-        if (null != message.merchantPaymentPartnerAction && message.hasOwnProperty("merchantPaymentPartnerAction") && (error = $root.SyncActionValue.MerchantPaymentPartnerAction.verify(message.merchantPaymentPartnerAction))) return "merchantPaymentPartnerAction." + error;
-        if (null != message.waffleAccountLinkStateAction && message.hasOwnProperty("waffleAccountLinkStateAction") && (error = $root.SyncActionValue.WaffleAccountLinkStateAction.verify(message.waffleAccountLinkStateAction))) return "waffleAccountLinkStateAction." + error;
+        if (null != message.starAction && message.hasOwnProperty("starAction")) {
+            var error = $root.SyncActionValue.StarAction.verify(message.starAction);
+            if (error) return "starAction." + error;
+        }
+        if (null != message.contactAction && message.hasOwnProperty("contactAction")) {
+            let error = $root.SyncActionValue.ContactAction.verify(message.contactAction);
+            if (error) return "contactAction." + error;
+        }
+        if (null != message.muteAction && message.hasOwnProperty("muteAction")) {
+            let error = $root.SyncActionValue.MuteAction.verify(message.muteAction);
+            if (error) return "muteAction." + error;
+        }
+        if (null != message.pinAction && message.hasOwnProperty("pinAction")) {
+            let error = $root.SyncActionValue.PinAction.verify(message.pinAction);
+            if (error) return "pinAction." + error;
+        }
+        if (null != message.securityNotificationSetting && message.hasOwnProperty("securityNotificationSetting")) {
+            let error = $root.SyncActionValue.SecurityNotificationSetting.verify(message.securityNotificationSetting);
+            if (error) return "securityNotificationSetting." + error;
+        }
+        if (null != message.pushNameSetting && message.hasOwnProperty("pushNameSetting")) {
+            let error = $root.SyncActionValue.PushNameSetting.verify(message.pushNameSetting);
+            if (error) return "pushNameSetting." + error;
+        }
+        if (null != message.quickReplyAction && message.hasOwnProperty("quickReplyAction")) {
+            let error = $root.SyncActionValue.QuickReplyAction.verify(message.quickReplyAction);
+            if (error) return "quickReplyAction." + error;
+        }
+        if (null != message.recentEmojiWeightsAction && message.hasOwnProperty("recentEmojiWeightsAction")) {
+            let error = $root.SyncActionValue.RecentEmojiWeightsAction.verify(message.recentEmojiWeightsAction);
+            if (error) return "recentEmojiWeightsAction." + error;
+        }
+        if (null != message.labelEditAction && message.hasOwnProperty("labelEditAction")) {
+            let error = $root.SyncActionValue.LabelEditAction.verify(message.labelEditAction);
+            if (error) return "labelEditAction." + error;
+        }
+        if (null != message.labelAssociationAction && message.hasOwnProperty("labelAssociationAction")) {
+            let error = $root.SyncActionValue.LabelAssociationAction.verify(message.labelAssociationAction);
+            if (error) return "labelAssociationAction." + error;
+        }
+        if (null != message.localeSetting && message.hasOwnProperty("localeSetting")) {
+            let error = $root.SyncActionValue.LocaleSetting.verify(message.localeSetting);
+            if (error) return "localeSetting." + error;
+        }
+        if (null != message.archiveChatAction && message.hasOwnProperty("archiveChatAction")) {
+            let error = $root.SyncActionValue.ArchiveChatAction.verify(message.archiveChatAction);
+            if (error) return "archiveChatAction." + error;
+        }
+        if (null != message.deleteMessageForMeAction && message.hasOwnProperty("deleteMessageForMeAction")) {
+            let error = $root.SyncActionValue.DeleteMessageForMeAction.verify(message.deleteMessageForMeAction);
+            if (error) return "deleteMessageForMeAction." + error;
+        }
+        if (null != message.keyExpiration && message.hasOwnProperty("keyExpiration")) {
+            let error = $root.SyncActionValue.KeyExpiration.verify(message.keyExpiration);
+            if (error) return "keyExpiration." + error;
+        }
+        if (null != message.markChatAsReadAction && message.hasOwnProperty("markChatAsReadAction")) {
+            let error = $root.SyncActionValue.MarkChatAsReadAction.verify(message.markChatAsReadAction);
+            if (error) return "markChatAsReadAction." + error;
+        }
+        if (null != message.clearChatAction && message.hasOwnProperty("clearChatAction")) {
+            let error = $root.SyncActionValue.ClearChatAction.verify(message.clearChatAction);
+            if (error) return "clearChatAction." + error;
+        }
+        if (null != message.deleteChatAction && message.hasOwnProperty("deleteChatAction")) {
+            let error = $root.SyncActionValue.DeleteChatAction.verify(message.deleteChatAction);
+            if (error) return "deleteChatAction." + error;
+        }
+        if (null != message.unarchiveChatsSetting && message.hasOwnProperty("unarchiveChatsSetting")) {
+            let error = $root.SyncActionValue.UnarchiveChatsSetting.verify(message.unarchiveChatsSetting);
+            if (error) return "unarchiveChatsSetting." + error;
+        }
+        if (null != message.primaryFeature && message.hasOwnProperty("primaryFeature")) {
+            let error = $root.SyncActionValue.PrimaryFeature.verify(message.primaryFeature);
+            if (error) return "primaryFeature." + error;
+        }
+        if (null != message.androidUnsupportedActions && message.hasOwnProperty("androidUnsupportedActions")) {
+            let error = $root.SyncActionValue.AndroidUnsupportedActions.verify(message.androidUnsupportedActions);
+            if (error) return "androidUnsupportedActions." + error;
+        }
+        if (null != message.agentAction && message.hasOwnProperty("agentAction")) {
+            let error = $root.SyncActionValue.AgentAction.verify(message.agentAction);
+            if (error) return "agentAction." + error;
+        }
+        if (null != message.subscriptionAction && message.hasOwnProperty("subscriptionAction")) {
+            let error = $root.SyncActionValue.SubscriptionAction.verify(message.subscriptionAction);
+            if (error) return "subscriptionAction." + error;
+        }
+        if (null != message.userStatusMuteAction && message.hasOwnProperty("userStatusMuteAction")) {
+            let error = $root.SyncActionValue.UserStatusMuteAction.verify(message.userStatusMuteAction);
+            if (error) return "userStatusMuteAction." + error;
+        }
+        if (null != message.timeFormatAction && message.hasOwnProperty("timeFormatAction")) {
+            let error = $root.SyncActionValue.TimeFormatAction.verify(message.timeFormatAction);
+            if (error) return "timeFormatAction." + error;
+        }
+        if (null != message.nuxAction && message.hasOwnProperty("nuxAction")) {
+            let error = $root.SyncActionValue.NuxAction.verify(message.nuxAction);
+            if (error) return "nuxAction." + error;
+        }
+        if (null != message.primaryVersionAction && message.hasOwnProperty("primaryVersionAction")) {
+            let error = $root.SyncActionValue.PrimaryVersionAction.verify(message.primaryVersionAction);
+            if (error) return "primaryVersionAction." + error;
+        }
+        if (null != message.stickerAction && message.hasOwnProperty("stickerAction")) {
+            let error = $root.SyncActionValue.StickerAction.verify(message.stickerAction);
+            if (error) return "stickerAction." + error;
+        }
+        if (null != message.removeRecentStickerAction && message.hasOwnProperty("removeRecentStickerAction")) {
+            let error = $root.SyncActionValue.RemoveRecentStickerAction.verify(message.removeRecentStickerAction);
+            if (error) return "removeRecentStickerAction." + error;
+        }
+        if (null != message.chatAssignment && message.hasOwnProperty("chatAssignment")) {
+            let error = $root.SyncActionValue.ChatAssignmentAction.verify(message.chatAssignment);
+            if (error) return "chatAssignment." + error;
+        }
+        if (null != message.chatAssignmentOpenedStatus && message.hasOwnProperty("chatAssignmentOpenedStatus")) {
+            let error = $root.SyncActionValue.ChatAssignmentOpenedStatusAction.verify(message.chatAssignmentOpenedStatus);
+            if (error) return "chatAssignmentOpenedStatus." + error;
+        }
+        if (null != message.pnForLidChatAction && message.hasOwnProperty("pnForLidChatAction")) {
+            let error = $root.SyncActionValue.PnForLidChatAction.verify(message.pnForLidChatAction);
+            if (error) return "pnForLidChatAction." + error;
+        }
+        if (null != message.marketingMessageAction && message.hasOwnProperty("marketingMessageAction")) {
+            let error = $root.SyncActionValue.MarketingMessageAction.verify(message.marketingMessageAction);
+            if (error) return "marketingMessageAction." + error;
+        }
+        if (null != message.marketingMessageBroadcastAction && message.hasOwnProperty("marketingMessageBroadcastAction")) {
+            let error = $root.SyncActionValue.MarketingMessageBroadcastAction.verify(message.marketingMessageBroadcastAction);
+            if (error) return "marketingMessageBroadcastAction." + error;
+        }
+        if (null != message.externalWebBetaAction && message.hasOwnProperty("externalWebBetaAction")) {
+            let error = $root.SyncActionValue.ExternalWebBetaAction.verify(message.externalWebBetaAction);
+            if (error) return "externalWebBetaAction." + error;
+        }
+        if (null != message.privacySettingRelayAllCalls && message.hasOwnProperty("privacySettingRelayAllCalls")) {
+            let error = $root.SyncActionValue.PrivacySettingRelayAllCalls.verify(message.privacySettingRelayAllCalls);
+            if (error) return "privacySettingRelayAllCalls." + error;
+        }
+        if (null != message.callLogAction && message.hasOwnProperty("callLogAction")) {
+            let error = $root.SyncActionValue.CallLogAction.verify(message.callLogAction);
+            if (error) return "callLogAction." + error;
+        }
+        if (null != message.statusPrivacy && message.hasOwnProperty("statusPrivacy")) {
+            let error = $root.SyncActionValue.StatusPrivacyAction.verify(message.statusPrivacy);
+            if (error) return "statusPrivacy." + error;
+        }
+        if (null != message.botWelcomeRequestAction && message.hasOwnProperty("botWelcomeRequestAction")) {
+            let error = $root.SyncActionValue.BotWelcomeRequestAction.verify(message.botWelcomeRequestAction);
+            if (error) return "botWelcomeRequestAction." + error;
+        }
+        if (null != message.deleteIndividualCallLog && message.hasOwnProperty("deleteIndividualCallLog")) {
+            let error = $root.SyncActionValue.DeleteIndividualCallLogAction.verify(message.deleteIndividualCallLog);
+            if (error) return "deleteIndividualCallLog." + error;
+        }
+        if (null != message.labelReorderingAction && message.hasOwnProperty("labelReorderingAction")) {
+            let error = $root.SyncActionValue.LabelReorderingAction.verify(message.labelReorderingAction);
+            if (error) return "labelReorderingAction." + error;
+        }
+        if (null != message.paymentInfoAction && message.hasOwnProperty("paymentInfoAction")) {
+            let error = $root.SyncActionValue.PaymentInfoAction.verify(message.paymentInfoAction);
+            if (error) return "paymentInfoAction." + error;
+        }
+        if (null != message.customPaymentMethodsAction && message.hasOwnProperty("customPaymentMethodsAction")) {
+            let error = $root.SyncActionValue.CustomPaymentMethodsAction.verify(message.customPaymentMethodsAction);
+            if (error) return "customPaymentMethodsAction." + error;
+        }
+        if (null != message.lockChatAction && message.hasOwnProperty("lockChatAction")) {
+            let error = $root.SyncActionValue.LockChatAction.verify(message.lockChatAction);
+            if (error) return "lockChatAction." + error;
+        }
+        if (null != message.chatLockSettings && message.hasOwnProperty("chatLockSettings")) {
+            let error = $root.ChatLockSettings.verify(message.chatLockSettings);
+            if (error) return "chatLockSettings." + error;
+        }
+        if (null != message.wamoUserIdentifierAction && message.hasOwnProperty("wamoUserIdentifierAction")) {
+            let error = $root.SyncActionValue.WamoUserIdentifierAction.verify(message.wamoUserIdentifierAction);
+            if (error) return "wamoUserIdentifierAction." + error;
+        }
+        if (null != message.privacySettingDisableLinkPreviewsAction && message.hasOwnProperty("privacySettingDisableLinkPreviewsAction")) {
+            let error = $root.SyncActionValue.PrivacySettingDisableLinkPreviewsAction.verify(message.privacySettingDisableLinkPreviewsAction);
+            if (error) return "privacySettingDisableLinkPreviewsAction." + error;
+        }
+        if (null != message.deviceCapabilities && message.hasOwnProperty("deviceCapabilities")) {
+            let error = $root.DeviceCapabilities.verify(message.deviceCapabilities);
+            if (error) return "deviceCapabilities." + error;
+        }
+        if (null != message.noteEditAction && message.hasOwnProperty("noteEditAction")) {
+            let error = $root.SyncActionValue.NoteEditAction.verify(message.noteEditAction);
+            if (error) return "noteEditAction." + error;
+        }
+        if (null != message.favorites && message.hasOwnProperty("favorites")) {
+            let error = $root.SyncActionValue.FavoritesAction.verify(message.favorites);
+            if (error) return "favorites." + error;
+        }
+        if (null != message.merchantPaymentPartnerAction && message.hasOwnProperty("merchantPaymentPartnerAction")) {
+            let error = $root.SyncActionValue.MerchantPaymentPartnerAction.verify(message.merchantPaymentPartnerAction);
+            if (error) return "merchantPaymentPartnerAction." + error;
+        }
+        if (null != message.waffleAccountLinkStateAction && message.hasOwnProperty("waffleAccountLinkStateAction")) {
+            let error = $root.SyncActionValue.WaffleAccountLinkStateAction.verify(message.waffleAccountLinkStateAction);
+            if (error) return "waffleAccountLinkStateAction." + error;
+        }
         return null;
     }, SyncActionValue.fromObject = function(object) {
         if (object instanceof $root.SyncActionValue) return object;
@@ -24953,7 +26021,7 @@ $root.ADVEncryptionType = function() {
     values[valuesById[1] = "PAUSED"] = 1, values[valuesById[2] = "UNLINKED"] = 2, 
     values), WaffleAccountLinkStateAction), SyncActionValue.MerchantPaymentPartnerAction = function() {
         function MerchantPaymentPartnerAction(properties) {
-            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         var valuesById, values;
         return MerchantPaymentPartnerAction.prototype.status = 0, MerchantPaymentPartnerAction.prototype.country = "", 
@@ -25052,7 +26120,7 @@ $root.ADVEncryptionType = function() {
     FavoritesAction.create = function(properties) {
         return new FavoritesAction(properties);
     }, FavoritesAction.encode = function(message, writer) {
-        if (writer = writer || $Writer.create(), null != message.favorites && message.favorites.length) for (var i = 0; i < message.favorites.length; ++i) $root.SyncActionValue.FavoritesAction.Favorite.encode(message.favorites[i], writer.uint32(10).fork()).ldelim();
+        if (writer = writer || $Writer.create(), null != message.favorites && message.favorites.length) for (let i = 0; i < message.favorites.length; ++i) $root.SyncActionValue.FavoritesAction.Favorite.encode(message.favorites[i], writer.uint32(10).fork()).ldelim();
         return writer;
     }, FavoritesAction.encodeDelimited = function(message, writer) {
         return this.encode(message, writer).ldelim();
@@ -25070,7 +26138,7 @@ $root.ADVEncryptionType = function() {
         if ("object" != typeof message || null === message) return "object expected";
         if (null != message.favorites && message.hasOwnProperty("favorites")) {
             if (!Array.isArray(message.favorites)) return "favorites: array expected";
-            for (var i = 0; i < message.favorites.length; ++i) {
+            for (let i = 0; i < message.favorites.length; ++i) {
                 var error = $root.SyncActionValue.FavoritesAction.Favorite.verify(message.favorites[i]);
                 if (error) return "favorites." + error;
             }
@@ -25082,7 +26150,7 @@ $root.ADVEncryptionType = function() {
         if (object.favorites) {
             if (!Array.isArray(object.favorites)) throw TypeError(".SyncActionValue.FavoritesAction.favorites: array expected");
             message.favorites = [];
-            for (var i = 0; i < object.favorites.length; ++i) {
+            for (let i = 0; i < object.favorites.length; ++i) {
                 if ("object" != typeof object.favorites[i]) throw TypeError(".SyncActionValue.FavoritesAction.favorites: object expected");
                 message.favorites[i] = $root.SyncActionValue.FavoritesAction.Favorite.fromObject(object.favorites[i]);
             }
@@ -25093,7 +26161,7 @@ $root.ADVEncryptionType = function() {
         if (((options = options || {}).arrays || options.defaults) && (object.favorites = []), 
         message.favorites && message.favorites.length) {
             object.favorites = [];
-            for (var j = 0; j < message.favorites.length; ++j) object.favorites[j] = $root.SyncActionValue.FavoritesAction.Favorite.toObject(message.favorites[j], options);
+            for (let j = 0; j < message.favorites.length; ++j) object.favorites[j] = $root.SyncActionValue.FavoritesAction.Favorite.toObject(message.favorites[j], options);
         }
         return object;
     }, FavoritesAction.prototype.toJSON = function() {
@@ -25132,7 +26200,7 @@ $root.ADVEncryptionType = function() {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/SyncActionValue.FavoritesAction.Favorite";
     }, Favorite), FavoritesAction), SyncActionValue.NoteEditAction = function() {
         function NoteEditAction(properties) {
-            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         var valuesById, values;
         return NoteEditAction.prototype.type = 1, NoteEditAction.prototype.chatJid = "", 
@@ -25331,7 +26399,7 @@ $root.ADVEncryptionType = function() {
     CustomPaymentMethodsAction.create = function(properties) {
         return new CustomPaymentMethodsAction(properties);
     }, CustomPaymentMethodsAction.encode = function(message, writer) {
-        if (writer = writer || $Writer.create(), null != message.customPaymentMethods && message.customPaymentMethods.length) for (var i = 0; i < message.customPaymentMethods.length; ++i) $root.SyncActionValue.CustomPaymentMethod.encode(message.customPaymentMethods[i], writer.uint32(10).fork()).ldelim();
+        if (writer = writer || $Writer.create(), null != message.customPaymentMethods && message.customPaymentMethods.length) for (let i = 0; i < message.customPaymentMethods.length; ++i) $root.SyncActionValue.CustomPaymentMethod.encode(message.customPaymentMethods[i], writer.uint32(10).fork()).ldelim();
         return writer;
     }, CustomPaymentMethodsAction.encodeDelimited = function(message, writer) {
         return this.encode(message, writer).ldelim();
@@ -25349,7 +26417,7 @@ $root.ADVEncryptionType = function() {
         if ("object" != typeof message || null === message) return "object expected";
         if (null != message.customPaymentMethods && message.hasOwnProperty("customPaymentMethods")) {
             if (!Array.isArray(message.customPaymentMethods)) return "customPaymentMethods: array expected";
-            for (var i = 0; i < message.customPaymentMethods.length; ++i) {
+            for (let i = 0; i < message.customPaymentMethods.length; ++i) {
                 var error = $root.SyncActionValue.CustomPaymentMethod.verify(message.customPaymentMethods[i]);
                 if (error) return "customPaymentMethods." + error;
             }
@@ -25361,7 +26429,7 @@ $root.ADVEncryptionType = function() {
         if (object.customPaymentMethods) {
             if (!Array.isArray(object.customPaymentMethods)) throw TypeError(".SyncActionValue.CustomPaymentMethodsAction.customPaymentMethods: array expected");
             message.customPaymentMethods = [];
-            for (var i = 0; i < object.customPaymentMethods.length; ++i) {
+            for (let i = 0; i < object.customPaymentMethods.length; ++i) {
                 if ("object" != typeof object.customPaymentMethods[i]) throw TypeError(".SyncActionValue.CustomPaymentMethodsAction.customPaymentMethods: object expected");
                 message.customPaymentMethods[i] = $root.SyncActionValue.CustomPaymentMethod.fromObject(object.customPaymentMethods[i]);
             }
@@ -25372,7 +26440,7 @@ $root.ADVEncryptionType = function() {
         if (((options = options || {}).arrays || options.defaults) && (object.customPaymentMethods = []), 
         message.customPaymentMethods && message.customPaymentMethods.length) {
             object.customPaymentMethods = [];
-            for (var j = 0; j < message.customPaymentMethods.length; ++j) object.customPaymentMethods[j] = $root.SyncActionValue.CustomPaymentMethod.toObject(message.customPaymentMethods[j], options);
+            for (let j = 0; j < message.customPaymentMethods.length; ++j) object.customPaymentMethods[j] = $root.SyncActionValue.CustomPaymentMethod.toObject(message.customPaymentMethods[j], options);
         }
         return object;
     }, CustomPaymentMethodsAction.prototype.toJSON = function() {
@@ -25386,7 +26454,7 @@ $root.ADVEncryptionType = function() {
     }, CustomPaymentMethod.encode = function(message, writer) {
         if ((writer = writer || $Writer.create()).uint32(10).string(message.credentialId), 
         writer.uint32(18).string(message.country), writer.uint32(26).string(message.type), 
-        null != message.metadata && message.metadata.length) for (var i = 0; i < message.metadata.length; ++i) $root.SyncActionValue.CustomPaymentMethodMetadata.encode(message.metadata[i], writer.uint32(34).fork()).ldelim();
+        null != message.metadata && message.metadata.length) for (let i = 0; i < message.metadata.length; ++i) $root.SyncActionValue.CustomPaymentMethodMetadata.encode(message.metadata[i], writer.uint32(34).fork()).ldelim();
         return writer;
     }, CustomPaymentMethod.encodeDelimited = function(message, writer) {
         return this.encode(message, writer).ldelim();
@@ -25435,7 +26503,7 @@ $root.ADVEncryptionType = function() {
         if (!$util.isString(message.type)) return "type: string expected";
         if (null != message.metadata && message.hasOwnProperty("metadata")) {
             if (!Array.isArray(message.metadata)) return "metadata: array expected";
-            for (var i = 0; i < message.metadata.length; ++i) {
+            for (let i = 0; i < message.metadata.length; ++i) {
                 var error = $root.SyncActionValue.CustomPaymentMethodMetadata.verify(message.metadata[i]);
                 if (error) return "metadata." + error;
             }
@@ -25449,7 +26517,7 @@ $root.ADVEncryptionType = function() {
         object.metadata) {
             if (!Array.isArray(object.metadata)) throw TypeError(".SyncActionValue.CustomPaymentMethod.metadata: array expected");
             message.metadata = [];
-            for (var i = 0; i < object.metadata.length; ++i) {
+            for (let i = 0; i < object.metadata.length; ++i) {
                 if ("object" != typeof object.metadata[i]) throw TypeError(".SyncActionValue.CustomPaymentMethod.metadata: object expected");
                 message.metadata[i] = $root.SyncActionValue.CustomPaymentMethodMetadata.fromObject(object.metadata[i]);
             }
@@ -25464,7 +26532,7 @@ $root.ADVEncryptionType = function() {
         null != message.type && message.hasOwnProperty("type") && (object.type = message.type), 
         message.metadata && message.metadata.length) {
             object.metadata = [];
-            for (var j = 0; j < message.metadata.length; ++j) object.metadata[j] = $root.SyncActionValue.CustomPaymentMethodMetadata.toObject(message.metadata[j], options);
+            for (let j = 0; j < message.metadata.length; ++j) object.metadata[j] = $root.SyncActionValue.CustomPaymentMethodMetadata.toObject(message.metadata[j], options);
         }
         return object;
     }, CustomPaymentMethod.prototype.toJSON = function() {
@@ -25559,7 +26627,7 @@ $root.ADVEncryptionType = function() {
     }, LabelReorderingAction.encode = function(message, writer) {
         if (writer = writer || $Writer.create(), null != message.sortedLabelIds && message.sortedLabelIds.length) {
             writer.uint32(10).fork();
-            for (var i = 0; i < message.sortedLabelIds.length; ++i) writer.int32(message.sortedLabelIds[i]);
+            for (let i = 0; i < message.sortedLabelIds.length; ++i) writer.int32(message.sortedLabelIds[i]);
             writer.ldelim();
         }
         return writer;
@@ -25579,7 +26647,7 @@ $root.ADVEncryptionType = function() {
         if ("object" != typeof message || null === message) return "object expected";
         if (null != message.sortedLabelIds && message.hasOwnProperty("sortedLabelIds")) {
             if (!Array.isArray(message.sortedLabelIds)) return "sortedLabelIds: array expected";
-            for (var i = 0; i < message.sortedLabelIds.length; ++i) if (!$util.isInteger(message.sortedLabelIds[i])) return "sortedLabelIds: integer[] expected";
+            for (let i = 0; i < message.sortedLabelIds.length; ++i) if (!$util.isInteger(message.sortedLabelIds[i])) return "sortedLabelIds: integer[] expected";
         }
         return null;
     }, LabelReorderingAction.fromObject = function(object) {
@@ -25588,7 +26656,7 @@ $root.ADVEncryptionType = function() {
         if (object.sortedLabelIds) {
             if (!Array.isArray(object.sortedLabelIds)) throw TypeError(".SyncActionValue.LabelReorderingAction.sortedLabelIds: array expected");
             message.sortedLabelIds = [];
-            for (var i = 0; i < object.sortedLabelIds.length; ++i) message.sortedLabelIds[i] = 0 | object.sortedLabelIds[i];
+            for (let i = 0; i < object.sortedLabelIds.length; ++i) message.sortedLabelIds[i] = 0 | object.sortedLabelIds[i];
         }
         return message;
     }, LabelReorderingAction.toObject = function(message, options) {
@@ -25596,7 +26664,7 @@ $root.ADVEncryptionType = function() {
         if (((options = options || {}).arrays || options.defaults) && (object.sortedLabelIds = []), 
         message.sortedLabelIds && message.sortedLabelIds.length) {
             object.sortedLabelIds = [];
-            for (var j = 0; j < message.sortedLabelIds.length; ++j) object.sortedLabelIds[j] = message.sortedLabelIds[j];
+            for (let j = 0; j < message.sortedLabelIds.length; ++j) object.sortedLabelIds[j] = message.sortedLabelIds[j];
         }
         return object;
     }, LabelReorderingAction.prototype.toJSON = function() {
@@ -25682,7 +26750,7 @@ $root.ADVEncryptionType = function() {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/SyncActionValue.BotWelcomeRequestAction";
     }, BotWelcomeRequestAction), SyncActionValue.StatusPrivacyAction = function() {
         function StatusPrivacyAction(properties) {
-            if (this.userJid = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (this.userJid = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         var valuesById, values;
         return StatusPrivacyAction.prototype.mode = 0, StatusPrivacyAction.prototype.userJid = $util.emptyArray, 
@@ -25690,7 +26758,7 @@ $root.ADVEncryptionType = function() {
             return new StatusPrivacyAction(properties);
         }, StatusPrivacyAction.encode = function(message, writer) {
             if (writer = writer || $Writer.create(), null != message.mode && Object.hasOwnProperty.call(message, "mode") && writer.uint32(8).int32(message.mode), 
-            null != message.userJid && message.userJid.length) for (var i = 0; i < message.userJid.length; ++i) writer.uint32(18).string(message.userJid[i]);
+            null != message.userJid && message.userJid.length) for (let i = 0; i < message.userJid.length; ++i) writer.uint32(18).string(message.userJid[i]);
             return writer;
         }, StatusPrivacyAction.encodeDelimited = function(message, writer) {
             return this.encode(message, writer).ldelim();
@@ -25728,7 +26796,7 @@ $root.ADVEncryptionType = function() {
             }
             if (null != message.userJid && message.hasOwnProperty("userJid")) {
                 if (!Array.isArray(message.userJid)) return "userJid: array expected";
-                for (var i = 0; i < message.userJid.length; ++i) if (!$util.isString(message.userJid[i])) return "userJid: string[] expected";
+                for (let i = 0; i < message.userJid.length; ++i) if (!$util.isString(message.userJid[i])) return "userJid: string[] expected";
             }
             return null;
         }, StatusPrivacyAction.fromObject = function(object) {
@@ -25756,7 +26824,7 @@ $root.ADVEncryptionType = function() {
             if (object.userJid) {
                 if (!Array.isArray(object.userJid)) throw TypeError(".SyncActionValue.StatusPrivacyAction.userJid: array expected");
                 message.userJid = [];
-                for (var i = 0; i < object.userJid.length; ++i) message.userJid[i] = String(object.userJid[i]);
+                for (let i = 0; i < object.userJid.length; ++i) message.userJid[i] = String(object.userJid[i]);
             }
             return message;
         }, StatusPrivacyAction.toObject = function(message, options) {
@@ -25766,7 +26834,7 @@ $root.ADVEncryptionType = function() {
             null != message.mode && message.hasOwnProperty("mode") && (object.mode = options.enums !== String || void 0 === $root.SyncActionValue.StatusPrivacyAction.StatusDistributionMode[message.mode] ? message.mode : $root.SyncActionValue.StatusPrivacyAction.StatusDistributionMode[message.mode]), 
             message.userJid && message.userJid.length) {
                 object.userJid = [];
-                for (var j = 0; j < message.userJid.length; ++j) object.userJid[j] = message.userJid[j];
+                for (let j = 0; j < message.userJid.length; ++j) object.userJid[j] = message.userJid[j];
             }
             return object;
         }, StatusPrivacyAction.prototype.toJSON = function() {
@@ -25915,7 +26983,7 @@ $root.ADVEncryptionType = function() {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/SyncActionValue.MarketingMessageBroadcastAction";
     }, MarketingMessageBroadcastAction), SyncActionValue.MarketingMessageAction = function() {
         function MarketingMessageAction(properties) {
-            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         var valuesById, values;
         return MarketingMessageAction.prototype.name = "", MarketingMessageAction.prototype.message = "", 
@@ -25999,11 +27067,16 @@ $root.ADVEncryptionType = function() {
             message;
         }, MarketingMessageAction.toObject = function(message, options) {
             var long, object = {};
-            return (options = options || {}).defaults && (object.name = "", object.message = "", 
-            object.type = options.enums === String ? "PERSONALIZED" : 0, $util.Long ? (long = new $util.Long(0, 0, !1), 
-            object.createdAt = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.createdAt = options.longs === String ? "0" : 0, 
-            $util.Long ? (long = new $util.Long(0, 0, !1), object.lastSentAt = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.lastSentAt = options.longs === String ? "0" : 0, 
-            object.isDeleted = !1, object.mediaId = ""), null != message.name && message.hasOwnProperty("name") && (object.name = message.name), 
+            if ((options = options || {}).defaults) {
+                if (object.name = "", object.message = "", object.type = options.enums === String ? "PERSONALIZED" : 0, 
+                $util.Long ? (long = new $util.Long(0, 0, !1), object.createdAt = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.createdAt = options.longs === String ? "0" : 0, 
+                $util.Long) {
+                    let long = new $util.Long(0, 0, !1);
+                    object.lastSentAt = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                } else object.lastSentAt = options.longs === String ? "0" : 0;
+                object.isDeleted = !1, object.mediaId = "";
+            }
+            return null != message.name && message.hasOwnProperty("name") && (object.name = message.name), 
             null != message.message && message.hasOwnProperty("message") && (object.message = message.message), 
             null != message.type && message.hasOwnProperty("type") && (object.type = options.enums !== String || void 0 === $root.SyncActionValue.MarketingMessageAction.MarketingMessagePrototypeType[message.type] ? message.type : $root.SyncActionValue.MarketingMessageAction.MarketingMessagePrototypeType[message.type]), 
             null != message.createdAt && message.hasOwnProperty("createdAt") && ("number" == typeof message.createdAt ? object.createdAt = options.longs === String ? String(message.createdAt) : message.createdAt : object.createdAt = options.longs === String ? $util.Long.prototype.toString.call(message.createdAt) : options.longs === Number ? new $util.LongBits(message.createdAt.low >>> 0, message.createdAt.high >>> 0).toNumber() : message.createdAt), 
@@ -26539,7 +27612,7 @@ $root.ADVEncryptionType = function() {
     PrimaryFeature.create = function(properties) {
         return new PrimaryFeature(properties);
     }, PrimaryFeature.encode = function(message, writer) {
-        if (writer = writer || $Writer.create(), null != message.flags && message.flags.length) for (var i = 0; i < message.flags.length; ++i) writer.uint32(10).string(message.flags[i]);
+        if (writer = writer || $Writer.create(), null != message.flags && message.flags.length) for (let i = 0; i < message.flags.length; ++i) writer.uint32(10).string(message.flags[i]);
         return writer;
     }, PrimaryFeature.encodeDelimited = function(message, writer) {
         return this.encode(message, writer).ldelim();
@@ -26557,7 +27630,7 @@ $root.ADVEncryptionType = function() {
         if ("object" != typeof message || null === message) return "object expected";
         if (null != message.flags && message.hasOwnProperty("flags")) {
             if (!Array.isArray(message.flags)) return "flags: array expected";
-            for (var i = 0; i < message.flags.length; ++i) if (!$util.isString(message.flags[i])) return "flags: string[] expected";
+            for (let i = 0; i < message.flags.length; ++i) if (!$util.isString(message.flags[i])) return "flags: string[] expected";
         }
         return null;
     }, PrimaryFeature.fromObject = function(object) {
@@ -26566,7 +27639,7 @@ $root.ADVEncryptionType = function() {
         if (object.flags) {
             if (!Array.isArray(object.flags)) throw TypeError(".SyncActionValue.PrimaryFeature.flags: array expected");
             message.flags = [];
-            for (var i = 0; i < object.flags.length; ++i) message.flags[i] = String(object.flags[i]);
+            for (let i = 0; i < object.flags.length; ++i) message.flags[i] = String(object.flags[i]);
         }
         return message;
     }, PrimaryFeature.toObject = function(message, options) {
@@ -26574,7 +27647,7 @@ $root.ADVEncryptionType = function() {
         if (((options = options || {}).arrays || options.defaults) && (object.flags = []), 
         message.flags && message.flags.length) {
             object.flags = [];
-            for (var j = 0; j < message.flags.length; ++j) object.flags[j] = message.flags[j];
+            for (let j = 0; j < message.flags.length; ++j) object.flags[j] = message.flags[j];
         }
         return object;
     }, PrimaryFeature.prototype.toJSON = function() {
@@ -26678,7 +27751,7 @@ $root.ADVEncryptionType = function() {
     }, SyncActionMessageRange.encode = function(message, writer) {
         if (writer = writer || $Writer.create(), null != message.lastMessageTimestamp && Object.hasOwnProperty.call(message, "lastMessageTimestamp") && writer.uint32(8).int64(message.lastMessageTimestamp), 
         null != message.lastSystemMessageTimestamp && Object.hasOwnProperty.call(message, "lastSystemMessageTimestamp") && writer.uint32(16).int64(message.lastSystemMessageTimestamp), 
-        null != message.messages && message.messages.length) for (var i = 0; i < message.messages.length; ++i) $root.SyncActionValue.SyncActionMessage.encode(message.messages[i], writer.uint32(26).fork()).ldelim();
+        null != message.messages && message.messages.length) for (let i = 0; i < message.messages.length; ++i) $root.SyncActionValue.SyncActionMessage.encode(message.messages[i], writer.uint32(26).fork()).ldelim();
         return writer;
     }, SyncActionMessageRange.encodeDelimited = function(message, writer) {
         return this.encode(message, writer).ldelim();
@@ -26713,7 +27786,7 @@ $root.ADVEncryptionType = function() {
         if (null != message.lastSystemMessageTimestamp && message.hasOwnProperty("lastSystemMessageTimestamp") && !($util.isInteger(message.lastSystemMessageTimestamp) || message.lastSystemMessageTimestamp && $util.isInteger(message.lastSystemMessageTimestamp.low) && $util.isInteger(message.lastSystemMessageTimestamp.high))) return "lastSystemMessageTimestamp: integer|Long expected";
         if (null != message.messages && message.hasOwnProperty("messages")) {
             if (!Array.isArray(message.messages)) return "messages: array expected";
-            for (var i = 0; i < message.messages.length; ++i) {
+            for (let i = 0; i < message.messages.length; ++i) {
                 var error = $root.SyncActionValue.SyncActionMessage.verify(message.messages[i]);
                 if (error) return "messages." + error;
             }
@@ -26727,22 +27800,26 @@ $root.ADVEncryptionType = function() {
         object.messages) {
             if (!Array.isArray(object.messages)) throw TypeError(".SyncActionValue.SyncActionMessageRange.messages: array expected");
             message.messages = [];
-            for (var i = 0; i < object.messages.length; ++i) {
+            for (let i = 0; i < object.messages.length; ++i) {
                 if ("object" != typeof object.messages[i]) throw TypeError(".SyncActionValue.SyncActionMessageRange.messages: object expected");
                 message.messages[i] = $root.SyncActionValue.SyncActionMessage.fromObject(object.messages[i]);
             }
         }
         return message;
     }, SyncActionMessageRange.toObject = function(message, options) {
+        options = options || {};
         var long, object = {};
-        if (((options = options || {}).arrays || options.defaults) && (object.messages = []), 
-        options.defaults && ($util.Long ? (long = new $util.Long(0, 0, !1), object.lastMessageTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.lastMessageTimestamp = options.longs === String ? "0" : 0, 
-        $util.Long ? (long = new $util.Long(0, 0, !1), object.lastSystemMessageTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.lastSystemMessageTimestamp = options.longs === String ? "0" : 0), 
-        null != message.lastMessageTimestamp && message.hasOwnProperty("lastMessageTimestamp") && ("number" == typeof message.lastMessageTimestamp ? object.lastMessageTimestamp = options.longs === String ? String(message.lastMessageTimestamp) : message.lastMessageTimestamp : object.lastMessageTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.lastMessageTimestamp) : options.longs === Number ? new $util.LongBits(message.lastMessageTimestamp.low >>> 0, message.lastMessageTimestamp.high >>> 0).toNumber() : message.lastMessageTimestamp), 
+        if ((options.arrays || options.defaults) && (object.messages = []), options.defaults) if ($util.Long ? (long = new $util.Long(0, 0, !1), 
+        object.lastMessageTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.lastMessageTimestamp = options.longs === String ? "0" : 0, 
+        $util.Long) {
+            let long = new $util.Long(0, 0, !1);
+            object.lastSystemMessageTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+        } else object.lastSystemMessageTimestamp = options.longs === String ? "0" : 0;
+        if (null != message.lastMessageTimestamp && message.hasOwnProperty("lastMessageTimestamp") && ("number" == typeof message.lastMessageTimestamp ? object.lastMessageTimestamp = options.longs === String ? String(message.lastMessageTimestamp) : message.lastMessageTimestamp : object.lastMessageTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.lastMessageTimestamp) : options.longs === Number ? new $util.LongBits(message.lastMessageTimestamp.low >>> 0, message.lastMessageTimestamp.high >>> 0).toNumber() : message.lastMessageTimestamp), 
         null != message.lastSystemMessageTimestamp && message.hasOwnProperty("lastSystemMessageTimestamp") && ("number" == typeof message.lastSystemMessageTimestamp ? object.lastSystemMessageTimestamp = options.longs === String ? String(message.lastSystemMessageTimestamp) : message.lastSystemMessageTimestamp : object.lastSystemMessageTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.lastSystemMessageTimestamp) : options.longs === Number ? new $util.LongBits(message.lastSystemMessageTimestamp.low >>> 0, message.lastSystemMessageTimestamp.high >>> 0).toNumber() : message.lastSystemMessageTimestamp), 
         message.messages && message.messages.length) {
             object.messages = [];
-            for (var j = 0; j < message.messages.length; ++j) object.messages[j] = $root.SyncActionValue.SyncActionMessage.toObject(message.messages[j], options);
+            for (let j = 0; j < message.messages.length; ++j) object.messages[j] = $root.SyncActionValue.SyncActionMessage.toObject(message.messages[j], options);
         }
         return object;
     }, SyncActionMessageRange.prototype.toJSON = function() {
@@ -27028,7 +28105,7 @@ $root.ADVEncryptionType = function() {
     RecentEmojiWeightsAction.create = function(properties) {
         return new RecentEmojiWeightsAction(properties);
     }, RecentEmojiWeightsAction.encode = function(message, writer) {
-        if (writer = writer || $Writer.create(), null != message.weights && message.weights.length) for (var i = 0; i < message.weights.length; ++i) $root.RecentEmojiWeight.encode(message.weights[i], writer.uint32(10).fork()).ldelim();
+        if (writer = writer || $Writer.create(), null != message.weights && message.weights.length) for (let i = 0; i < message.weights.length; ++i) $root.RecentEmojiWeight.encode(message.weights[i], writer.uint32(10).fork()).ldelim();
         return writer;
     }, RecentEmojiWeightsAction.encodeDelimited = function(message, writer) {
         return this.encode(message, writer).ldelim();
@@ -27046,7 +28123,7 @@ $root.ADVEncryptionType = function() {
         if ("object" != typeof message || null === message) return "object expected";
         if (null != message.weights && message.hasOwnProperty("weights")) {
             if (!Array.isArray(message.weights)) return "weights: array expected";
-            for (var i = 0; i < message.weights.length; ++i) {
+            for (let i = 0; i < message.weights.length; ++i) {
                 var error = $root.RecentEmojiWeight.verify(message.weights[i]);
                 if (error) return "weights." + error;
             }
@@ -27058,7 +28135,7 @@ $root.ADVEncryptionType = function() {
         if (object.weights) {
             if (!Array.isArray(object.weights)) throw TypeError(".SyncActionValue.RecentEmojiWeightsAction.weights: array expected");
             message.weights = [];
-            for (var i = 0; i < object.weights.length; ++i) {
+            for (let i = 0; i < object.weights.length; ++i) {
                 if ("object" != typeof object.weights[i]) throw TypeError(".SyncActionValue.RecentEmojiWeightsAction.weights: object expected");
                 message.weights[i] = $root.RecentEmojiWeight.fromObject(object.weights[i]);
             }
@@ -27069,7 +28146,7 @@ $root.ADVEncryptionType = function() {
         if (((options = options || {}).arrays || options.defaults) && (object.weights = []), 
         message.weights && message.weights.length) {
             object.weights = [];
-            for (var j = 0; j < message.weights.length; ++j) object.weights[j] = $root.RecentEmojiWeight.toObject(message.weights[j], options);
+            for (let j = 0; j < message.weights.length; ++j) object.weights[j] = $root.RecentEmojiWeight.toObject(message.weights[j], options);
         }
         return object;
     }, RecentEmojiWeightsAction.prototype.toJSON = function() {
@@ -27183,7 +28260,7 @@ $root.ADVEncryptionType = function() {
     }, QuickReplyAction.encode = function(message, writer) {
         if (writer = writer || $Writer.create(), null != message.shortcut && Object.hasOwnProperty.call(message, "shortcut") && writer.uint32(10).string(message.shortcut), 
         null != message.message && Object.hasOwnProperty.call(message, "message") && writer.uint32(18).string(message.message), 
-        null != message.keywords && message.keywords.length) for (var i = 0; i < message.keywords.length; ++i) writer.uint32(26).string(message.keywords[i]);
+        null != message.keywords && message.keywords.length) for (let i = 0; i < message.keywords.length; ++i) writer.uint32(26).string(message.keywords[i]);
         return null != message.count && Object.hasOwnProperty.call(message, "count") && writer.uint32(32).int32(message.count), 
         null != message.deleted && Object.hasOwnProperty.call(message, "deleted") && writer.uint32(40).bool(message.deleted), 
         writer;
@@ -27228,7 +28305,7 @@ $root.ADVEncryptionType = function() {
         if (null != message.message && message.hasOwnProperty("message") && !$util.isString(message.message)) return "message: string expected";
         if (null != message.keywords && message.hasOwnProperty("keywords")) {
             if (!Array.isArray(message.keywords)) return "keywords: array expected";
-            for (var i = 0; i < message.keywords.length; ++i) if (!$util.isString(message.keywords[i])) return "keywords: string[] expected";
+            for (let i = 0; i < message.keywords.length; ++i) if (!$util.isString(message.keywords[i])) return "keywords: string[] expected";
         }
         return null != message.count && message.hasOwnProperty("count") && !$util.isInteger(message.count) ? "count: integer expected" : null != message.deleted && message.hasOwnProperty("deleted") && "boolean" != typeof message.deleted ? "deleted: boolean expected" : null;
     }, QuickReplyAction.fromObject = function(object) {
@@ -27238,7 +28315,7 @@ $root.ADVEncryptionType = function() {
         null != object.message && (message.message = String(object.message)), object.keywords) {
             if (!Array.isArray(object.keywords)) throw TypeError(".SyncActionValue.QuickReplyAction.keywords: array expected");
             message.keywords = [];
-            for (var i = 0; i < object.keywords.length; ++i) message.keywords[i] = String(object.keywords[i]);
+            for (let i = 0; i < object.keywords.length; ++i) message.keywords[i] = String(object.keywords[i]);
         }
         return null != object.count && (message.count = 0 | object.count), null != object.deleted && (message.deleted = Boolean(object.deleted)), 
         message;
@@ -27250,7 +28327,7 @@ $root.ADVEncryptionType = function() {
         null != message.message && message.hasOwnProperty("message") && (object.message = message.message), 
         message.keywords && message.keywords.length) {
             object.keywords = [];
-            for (var j = 0; j < message.keywords.length; ++j) object.keywords[j] = message.keywords[j];
+            for (let j = 0; j < message.keywords.length; ++j) object.keywords[j] = message.keywords[j];
         }
         return null != message.count && message.hasOwnProperty("count") && (object.count = message.count), 
         null != message.deleted && message.hasOwnProperty("deleted") && (object.deleted = message.deleted), 
@@ -27533,9 +28610,9 @@ $root.ADVEncryptionType = function() {
     }, StarAction.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/SyncActionValue.StarAction";
     }, StarAction), SyncActionValue;
-}(), $root.SyncActionData = function() {
+})(), SyncActionData = $root.SyncActionData = (() => {
     function SyncActionData(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return SyncActionData.prototype.index = $util.newBuffer([]), SyncActionData.prototype.value = null, 
     SyncActionData.prototype.padding = $util.newBuffer([]), SyncActionData.prototype.version = 0, 
@@ -27611,9 +28688,9 @@ $root.ADVEncryptionType = function() {
     }, SyncActionData.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/SyncActionData";
     }, SyncActionData;
-}(), $root.PatchDebugData = function() {
+})(), PatchDebugData = $root.PatchDebugData = (() => {
     function PatchDebugData(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     var valuesById, values;
     return PatchDebugData.prototype.currentLthash = $util.newBuffer([]), PatchDebugData.prototype.newLthash = $util.newBuffer([]), 
@@ -27808,16 +28885,16 @@ $root.ADVEncryptionType = function() {
     values[valuesById[1] = "SMBA"] = 1, values[valuesById[2] = "IPHONE"] = 2, values[valuesById[3] = "SMBI"] = 3, 
     values[valuesById[4] = "WEB"] = 4, values[valuesById[5] = "UWP"] = 5, values[valuesById[6] = "DARWIN"] = 6, 
     values), PatchDebugData;
-}(), $root.UserPassword = function() {
+})(), UserPassword = $root.UserPassword = (() => {
     function UserPassword(properties) {
-        if (this.transformerArg = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (this.transformerArg = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     var values, valuesById;
     function TransformerArg(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function Value(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return UserPassword.prototype.encoding = 0, UserPassword.prototype.transformer = 0, 
     UserPassword.prototype.transformerArg = $util.emptyArray, UserPassword.prototype.transformedData = $util.newBuffer([]), 
@@ -27826,7 +28903,7 @@ $root.ADVEncryptionType = function() {
     }, UserPassword.encode = function(message, writer) {
         if (writer = writer || $Writer.create(), null != message.encoding && Object.hasOwnProperty.call(message, "encoding") && writer.uint32(8).int32(message.encoding), 
         null != message.transformer && Object.hasOwnProperty.call(message, "transformer") && writer.uint32(16).int32(message.transformer), 
-        null != message.transformerArg && message.transformerArg.length) for (var i = 0; i < message.transformerArg.length; ++i) $root.UserPassword.TransformerArg.encode(message.transformerArg[i], writer.uint32(26).fork()).ldelim();
+        null != message.transformerArg && message.transformerArg.length) for (let i = 0; i < message.transformerArg.length; ++i) $root.UserPassword.TransformerArg.encode(message.transformerArg[i], writer.uint32(26).fork()).ldelim();
         return null != message.transformedData && Object.hasOwnProperty.call(message, "transformedData") && writer.uint32(34).bytes(message.transformedData), 
         writer;
     }, UserPassword.encodeDelimited = function(message, writer) {
@@ -27879,7 +28956,7 @@ $root.ADVEncryptionType = function() {
         }
         if (null != message.transformerArg && message.hasOwnProperty("transformerArg")) {
             if (!Array.isArray(message.transformerArg)) return "transformerArg: array expected";
-            for (var i = 0; i < message.transformerArg.length; ++i) {
+            for (let i = 0; i < message.transformerArg.length; ++i) {
                 var error = $root.UserPassword.TransformerArg.verify(message.transformerArg[i]);
                 if (error) return "transformerArg." + error;
             }
@@ -27924,7 +29001,7 @@ $root.ADVEncryptionType = function() {
         if (object.transformerArg) {
             if (!Array.isArray(object.transformerArg)) throw TypeError(".UserPassword.transformerArg: array expected");
             message.transformerArg = [];
-            for (var i = 0; i < object.transformerArg.length; ++i) {
+            for (let i = 0; i < object.transformerArg.length; ++i) {
                 if ("object" != typeof object.transformerArg[i]) throw TypeError(".UserPassword.transformerArg: object expected");
                 message.transformerArg[i] = $root.UserPassword.TransformerArg.fromObject(object.transformerArg[i]);
             }
@@ -27941,7 +29018,7 @@ $root.ADVEncryptionType = function() {
         null != message.transformer && message.hasOwnProperty("transformer") && (object.transformer = options.enums !== String || void 0 === $root.UserPassword.Transformer[message.transformer] ? message.transformer : $root.UserPassword.Transformer[message.transformer]), 
         message.transformerArg && message.transformerArg.length) {
             object.transformerArg = [];
-            for (var j = 0; j < message.transformerArg.length; ++j) object.transformerArg[j] = $root.UserPassword.TransformerArg.toObject(message.transformerArg[j], options);
+            for (let j = 0; j < message.transformerArg.length; ++j) object.transformerArg[j] = $root.UserPassword.TransformerArg.toObject(message.transformerArg[j], options);
         }
         return null != message.transformedData && message.hasOwnProperty("transformedData") && (object.transformedData = options.bytes === String ? $util.base64.encode(message.transformedData, 0, message.transformedData.length) : options.bytes === Array ? Array.prototype.slice.call(message.transformedData) : message.transformedData), 
         object;
@@ -28069,9 +29146,9 @@ $root.ADVEncryptionType = function() {
     }, Value.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/UserPassword.TransformerArg.Value";
     }, Value), TransformerArg), UserPassword;
-}(), $root.LocalizedName = function() {
+})(), LocalizedName = $root.LocalizedName = (() => {
     function LocalizedName(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return LocalizedName.prototype.lg = "", LocalizedName.prototype.lc = "", LocalizedName.prototype.verifiedName = "", 
     LocalizedName.create = function(properties) {
@@ -28127,12 +29204,12 @@ $root.ADVEncryptionType = function() {
     }, LocalizedName.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/LocalizedName";
     }, LocalizedName;
-}(), $root.VerifiedNameCertificate = function() {
+})(), VerifiedNameCertificate = $root.VerifiedNameCertificate = (() => {
     function VerifiedNameCertificate(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function Details(properties) {
-        if (this.localizedNames = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (this.localizedNames = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return VerifiedNameCertificate.prototype.details = $util.newBuffer([]), VerifiedNameCertificate.prototype.signature = $util.newBuffer([]), 
     VerifiedNameCertificate.prototype.serverSignature = $util.newBuffer([]), VerifiedNameCertificate.create = function(properties) {
@@ -28202,7 +29279,7 @@ $root.ADVEncryptionType = function() {
         if (writer = writer || $Writer.create(), null != message.serial && Object.hasOwnProperty.call(message, "serial") && writer.uint32(8).uint64(message.serial), 
         null != message.issuer && Object.hasOwnProperty.call(message, "issuer") && writer.uint32(18).string(message.issuer), 
         null != message.verifiedName && Object.hasOwnProperty.call(message, "verifiedName") && writer.uint32(34).string(message.verifiedName), 
-        null != message.localizedNames && message.localizedNames.length) for (var i = 0; i < message.localizedNames.length; ++i) $root.LocalizedName.encode(message.localizedNames[i], writer.uint32(66).fork()).ldelim();
+        null != message.localizedNames && message.localizedNames.length) for (let i = 0; i < message.localizedNames.length; ++i) $root.LocalizedName.encode(message.localizedNames[i], writer.uint32(66).fork()).ldelim();
         return null != message.issueTime && Object.hasOwnProperty.call(message, "issueTime") && writer.uint32(80).uint64(message.issueTime), 
         writer;
     }, Details.encodeDelimited = function(message, writer) {
@@ -28247,7 +29324,7 @@ $root.ADVEncryptionType = function() {
         if (null != message.verifiedName && message.hasOwnProperty("verifiedName") && !$util.isString(message.verifiedName)) return "verifiedName: string expected";
         if (null != message.localizedNames && message.hasOwnProperty("localizedNames")) {
             if (!Array.isArray(message.localizedNames)) return "localizedNames: array expected";
-            for (var i = 0; i < message.localizedNames.length; ++i) {
+            for (let i = 0; i < message.localizedNames.length; ++i) {
                 var error = $root.LocalizedName.verify(message.localizedNames[i]);
                 if (error) return "localizedNames." + error;
             }
@@ -28261,7 +29338,7 @@ $root.ADVEncryptionType = function() {
         object.localizedNames) {
             if (!Array.isArray(object.localizedNames)) throw TypeError(".VerifiedNameCertificate.Details.localizedNames: array expected");
             message.localizedNames = [];
-            for (var i = 0; i < object.localizedNames.length; ++i) {
+            for (let i = 0; i < object.localizedNames.length; ++i) {
                 if ("object" != typeof object.localizedNames[i]) throw TypeError(".VerifiedNameCertificate.Details.localizedNames: object expected");
                 message.localizedNames[i] = $root.LocalizedName.fromObject(object.localizedNames[i]);
             }
@@ -28269,17 +29346,20 @@ $root.ADVEncryptionType = function() {
         return null != object.issueTime && ($util.Long ? (message.issueTime = $util.Long.fromValue(object.issueTime)).unsigned = !0 : "string" == typeof object.issueTime ? message.issueTime = parseInt(object.issueTime, 10) : "number" == typeof object.issueTime ? message.issueTime = object.issueTime : "object" == typeof object.issueTime && (message.issueTime = new $util.LongBits(object.issueTime.low >>> 0, object.issueTime.high >>> 0).toNumber(!0))), 
         message;
     }, Details.toObject = function(message, options) {
+        options = options || {};
         var long, object = {};
-        if (((options = options || {}).arrays || options.defaults) && (object.localizedNames = []), 
-        options.defaults && ($util.Long ? (long = new $util.Long(0, 0, !0), object.serial = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.serial = options.longs === String ? "0" : 0, 
-        object.issuer = "", object.verifiedName = "", $util.Long ? (long = new $util.Long(0, 0, !0), 
-        object.issueTime = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.issueTime = options.longs === String ? "0" : 0), 
-        null != message.serial && message.hasOwnProperty("serial") && ("number" == typeof message.serial ? object.serial = options.longs === String ? String(message.serial) : message.serial : object.serial = options.longs === String ? $util.Long.prototype.toString.call(message.serial) : options.longs === Number ? new $util.LongBits(message.serial.low >>> 0, message.serial.high >>> 0).toNumber(!0) : message.serial), 
+        if ((options.arrays || options.defaults) && (object.localizedNames = []), 
+        options.defaults) if ($util.Long ? (long = new $util.Long(0, 0, !0), object.serial = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.serial = options.longs === String ? "0" : 0, 
+        object.issuer = "", object.verifiedName = "", $util.Long) {
+            let long = new $util.Long(0, 0, !0);
+            object.issueTime = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+        } else object.issueTime = options.longs === String ? "0" : 0;
+        if (null != message.serial && message.hasOwnProperty("serial") && ("number" == typeof message.serial ? object.serial = options.longs === String ? String(message.serial) : message.serial : object.serial = options.longs === String ? $util.Long.prototype.toString.call(message.serial) : options.longs === Number ? new $util.LongBits(message.serial.low >>> 0, message.serial.high >>> 0).toNumber(!0) : message.serial), 
         null != message.issuer && message.hasOwnProperty("issuer") && (object.issuer = message.issuer), 
         null != message.verifiedName && message.hasOwnProperty("verifiedName") && (object.verifiedName = message.verifiedName), 
         message.localizedNames && message.localizedNames.length) {
             object.localizedNames = [];
-            for (var j = 0; j < message.localizedNames.length; ++j) object.localizedNames[j] = $root.LocalizedName.toObject(message.localizedNames[j], options);
+            for (let j = 0; j < message.localizedNames.length; ++j) object.localizedNames[j] = $root.LocalizedName.toObject(message.localizedNames[j], options);
         }
         return null != message.issueTime && message.hasOwnProperty("issueTime") && ("number" == typeof message.issueTime ? object.issueTime = options.longs === String ? String(message.issueTime) : message.issueTime : object.issueTime = options.longs === String ? $util.Long.prototype.toString.call(message.issueTime) : options.longs === Number ? new $util.LongBits(message.issueTime.low >>> 0, message.issueTime.high >>> 0).toNumber(!0) : message.issueTime), 
         object;
@@ -28288,9 +29368,9 @@ $root.ADVEncryptionType = function() {
     }, Details.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/VerifiedNameCertificate.Details";
     }, Details), VerifiedNameCertificate;
-}(), $root.BizAccountPayload = function() {
+})(), BizAccountPayload = $root.BizAccountPayload = (() => {
     function BizAccountPayload(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return BizAccountPayload.prototype.vnameCert = null, BizAccountPayload.prototype.bizAcctLinkInfo = $util.newBuffer([]), 
     BizAccountPayload.create = function(properties) {
@@ -28349,9 +29429,9 @@ $root.ADVEncryptionType = function() {
     }, BizAccountPayload.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/BizAccountPayload";
     }, BizAccountPayload;
-}(), $root.BizAccountLinkInfo = function() {
+})(), BizAccountLinkInfo = $root.BizAccountLinkInfo = (() => {
     function BizAccountLinkInfo(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     var valuesById, values;
     return BizAccountLinkInfo.prototype.whatsappBizAcctFbid = $util.Long ? $util.Long.fromBits(0, 0, !0) : 0, 
@@ -28445,12 +29525,15 @@ $root.ADVEncryptionType = function() {
         return message;
     }, BizAccountLinkInfo.toObject = function(message, options) {
         var long, object = {};
-        return (options = options || {}).defaults && ($util.Long ? (long = new $util.Long(0, 0, !0), 
-        object.whatsappBizAcctFbid = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.whatsappBizAcctFbid = options.longs === String ? "0" : 0, 
-        object.whatsappAcctNumber = "", $util.Long ? (long = new $util.Long(0, 0, !0), 
-        object.issueTime = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.issueTime = options.longs === String ? "0" : 0, 
-        object.hostStorage = options.enums === String ? "ON_PREMISE" : 0, object.accountType = options.enums === String ? "ENTERPRISE" : 0), 
-        null != message.whatsappBizAcctFbid && message.hasOwnProperty("whatsappBizAcctFbid") && ("number" == typeof message.whatsappBizAcctFbid ? object.whatsappBizAcctFbid = options.longs === String ? String(message.whatsappBizAcctFbid) : message.whatsappBizAcctFbid : object.whatsappBizAcctFbid = options.longs === String ? $util.Long.prototype.toString.call(message.whatsappBizAcctFbid) : options.longs === Number ? new $util.LongBits(message.whatsappBizAcctFbid.low >>> 0, message.whatsappBizAcctFbid.high >>> 0).toNumber(!0) : message.whatsappBizAcctFbid), 
+        if ((options = options || {}).defaults) {
+            if ($util.Long ? (long = new $util.Long(0, 0, !0), object.whatsappBizAcctFbid = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.whatsappBizAcctFbid = options.longs === String ? "0" : 0, 
+            object.whatsappAcctNumber = "", $util.Long) {
+                let long = new $util.Long(0, 0, !0);
+                object.issueTime = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+            } else object.issueTime = options.longs === String ? "0" : 0;
+            object.hostStorage = options.enums === String ? "ON_PREMISE" : 0, object.accountType = options.enums === String ? "ENTERPRISE" : 0;
+        }
+        return null != message.whatsappBizAcctFbid && message.hasOwnProperty("whatsappBizAcctFbid") && ("number" == typeof message.whatsappBizAcctFbid ? object.whatsappBizAcctFbid = options.longs === String ? String(message.whatsappBizAcctFbid) : message.whatsappBizAcctFbid : object.whatsappBizAcctFbid = options.longs === String ? $util.Long.prototype.toString.call(message.whatsappBizAcctFbid) : options.longs === Number ? new $util.LongBits(message.whatsappBizAcctFbid.low >>> 0, message.whatsappBizAcctFbid.high >>> 0).toNumber(!0) : message.whatsappBizAcctFbid), 
         null != message.whatsappAcctNumber && message.hasOwnProperty("whatsappAcctNumber") && (object.whatsappAcctNumber = message.whatsappAcctNumber), 
         null != message.issueTime && message.hasOwnProperty("issueTime") && ("number" == typeof message.issueTime ? object.issueTime = options.longs === String ? String(message.issueTime) : message.issueTime : object.issueTime = options.longs === String ? $util.Long.prototype.toString.call(message.issueTime) : options.longs === Number ? new $util.LongBits(message.issueTime.low >>> 0, message.issueTime.high >>> 0).toNumber(!0) : message.issueTime), 
         null != message.hostStorage && message.hasOwnProperty("hostStorage") && (object.hostStorage = options.enums !== String || void 0 === $root.BizAccountLinkInfo.HostStorageType[message.hostStorage] ? message.hostStorage : $root.BizAccountLinkInfo.HostStorageType[message.hostStorage]), 
@@ -28466,9 +29549,9 @@ $root.ADVEncryptionType = function() {
         return values[valuesById[0] = "ON_PREMISE"] = 0, values[valuesById[1] = "FACEBOOK"] = 1, 
         values;
     }(), BizAccountLinkInfo;
-}(), $root.BizIdentityInfo = function() {
+})(), BizIdentityInfo = $root.BizIdentityInfo = (() => {
     function BizIdentityInfo(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     var valuesById, values;
     return BizIdentityInfo.prototype.vlevel = 0, BizIdentityInfo.prototype.vnameCert = null, 
@@ -28624,13 +29707,17 @@ $root.ADVEncryptionType = function() {
         null != object.featureControls && ($util.Long ? (message.featureControls = $util.Long.fromValue(object.featureControls)).unsigned = !0 : "string" == typeof object.featureControls ? message.featureControls = parseInt(object.featureControls, 10) : "number" == typeof object.featureControls ? message.featureControls = object.featureControls : "object" == typeof object.featureControls && (message.featureControls = new $util.LongBits(object.featureControls.low >>> 0, object.featureControls.high >>> 0).toNumber(!0))), 
         message;
     }, BizIdentityInfo.toObject = function(message, options) {
+        options = options || {};
         var long, object = {};
-        return (options = options || {}).defaults && (object.vlevel = options.enums === String ? "UNKNOWN" : 0, 
+        if (options.defaults) if (object.vlevel = options.enums === String ? "UNKNOWN" : 0, 
         object.vnameCert = null, object.signed = !1, object.revoked = !1, object.hostStorage = options.enums === String ? "ON_PREMISE" : 0, 
         object.actualActors = options.enums === String ? "SELF" : 0, $util.Long ? (long = new $util.Long(0, 0, !0), 
         object.privacyModeTs = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.privacyModeTs = options.longs === String ? "0" : 0, 
-        $util.Long ? (long = new $util.Long(0, 0, !0), object.featureControls = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.featureControls = options.longs === String ? "0" : 0), 
-        null != message.vlevel && message.hasOwnProperty("vlevel") && (object.vlevel = options.enums !== String || void 0 === $root.BizIdentityInfo.VerifiedLevelValue[message.vlevel] ? message.vlevel : $root.BizIdentityInfo.VerifiedLevelValue[message.vlevel]), 
+        $util.Long) {
+            let long = new $util.Long(0, 0, !0);
+            object.featureControls = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+        } else object.featureControls = options.longs === String ? "0" : 0;
+        return null != message.vlevel && message.hasOwnProperty("vlevel") && (object.vlevel = options.enums !== String || void 0 === $root.BizIdentityInfo.VerifiedLevelValue[message.vlevel] ? message.vlevel : $root.BizIdentityInfo.VerifiedLevelValue[message.vlevel]), 
         null != message.vnameCert && message.hasOwnProperty("vnameCert") && (object.vnameCert = $root.VerifiedNameCertificate.toObject(message.vnameCert, options)), 
         null != message.signed && message.hasOwnProperty("signed") && (object.signed = message.signed), 
         null != message.revoked && message.hasOwnProperty("revoked") && (object.revoked = message.revoked), 
@@ -28653,18 +29740,18 @@ $root.ADVEncryptionType = function() {
         return values[valuesById[0] = "UNKNOWN"] = 0, values[valuesById[1] = "LOW"] = 1, 
         values[valuesById[2] = "HIGH"] = 2, values;
     }(), BizIdentityInfo;
-}(), $root.HandshakeMessage = function() {
+})(), HandshakeMessage = $root.HandshakeMessage = (() => {
     function HandshakeMessage(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function ClientFinish(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function ServerHello(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function ClientHello(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return HandshakeMessage.prototype.clientHello = null, HandshakeMessage.prototype.serverHello = null, 
     HandshakeMessage.prototype.clientFinish = null, HandshakeMessage.create = function(properties) {
@@ -28702,10 +29789,18 @@ $root.ADVEncryptionType = function() {
         return reader instanceof $Reader || (reader = new $Reader(reader)), this.decode(reader, reader.uint32());
     }, HandshakeMessage.verify = function(message) {
         if ("object" != typeof message || null === message) return "object expected";
-        var error;
-        if (null != message.clientHello && message.hasOwnProperty("clientHello") && (error = $root.HandshakeMessage.ClientHello.verify(message.clientHello))) return "clientHello." + error;
-        if (null != message.serverHello && message.hasOwnProperty("serverHello") && (error = $root.HandshakeMessage.ServerHello.verify(message.serverHello))) return "serverHello." + error;
-        if (null != message.clientFinish && message.hasOwnProperty("clientFinish") && (error = $root.HandshakeMessage.ClientFinish.verify(message.clientFinish))) return "clientFinish." + error;
+        if (null != message.clientHello && message.hasOwnProperty("clientHello")) {
+            var error = $root.HandshakeMessage.ClientHello.verify(message.clientHello);
+            if (error) return "clientHello." + error;
+        }
+        if (null != message.serverHello && message.hasOwnProperty("serverHello")) {
+            let error = $root.HandshakeMessage.ServerHello.verify(message.serverHello);
+            if (error) return "serverHello." + error;
+        }
+        if (null != message.clientFinish && message.hasOwnProperty("clientFinish")) {
+            let error = $root.HandshakeMessage.ClientFinish.verify(message.clientFinish);
+            if (error) return "clientFinish." + error;
+        }
         return null;
     }, HandshakeMessage.fromObject = function(object) {
         if (object instanceof $root.HandshakeMessage) return object;
@@ -28900,16 +29995,16 @@ $root.ADVEncryptionType = function() {
     }, ClientHello.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/HandshakeMessage.ClientHello";
     }, ClientHello), HandshakeMessage;
-}(), $root.ClientPayload = function() {
+})(), ClientPayload = $root.ClientPayload = (() => {
     function ClientPayload(properties) {
-        if (this.shards = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (this.shards = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     var valuesById, values;
     function InteropData(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     function DevicePairingRegistrationData(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return ClientPayload.prototype.username = $util.Long ? $util.Long.fromBits(0, 0, !0) : 0, 
     ClientPayload.prototype.passive = !1, ClientPayload.prototype.userAgent = null, 
@@ -28939,7 +30034,7 @@ $root.ADVEncryptionType = function() {
         null != message.connectReason && Object.hasOwnProperty.call(message, "connectReason") && writer.uint32(104).int32(message.connectReason), 
         null != message.shards && message.shards.length) {
             writer.uint32(114).fork();
-            for (var i = 0; i < message.shards.length; ++i) writer.int32(message.shards[i]);
+            for (let i = 0; i < message.shards.length; ++i) writer.int32(message.shards[i]);
             writer.ldelim();
         }
         return null != message.dnsSource && Object.hasOwnProperty.call(message, "dnsSource") && $root.ClientPayload.DNSSource.encode(message.dnsSource, writer.uint32(122).fork()).ldelim(), 
@@ -29092,9 +30187,14 @@ $root.ADVEncryptionType = function() {
         if ("object" != typeof message || null === message) return "object expected";
         if (null != message.username && message.hasOwnProperty("username") && !($util.isInteger(message.username) || message.username && $util.isInteger(message.username.low) && $util.isInteger(message.username.high))) return "username: integer|Long expected";
         if (null != message.passive && message.hasOwnProperty("passive") && "boolean" != typeof message.passive) return "passive: boolean expected";
-        var error;
-        if (null != message.userAgent && message.hasOwnProperty("userAgent") && (error = $root.ClientPayload.UserAgent.verify(message.userAgent))) return "userAgent." + error;
-        if (null != message.webInfo && message.hasOwnProperty("webInfo") && (error = $root.ClientPayload.WebInfo.verify(message.webInfo))) return "webInfo." + error;
+        if (null != message.userAgent && message.hasOwnProperty("userAgent")) {
+            var error = $root.ClientPayload.UserAgent.verify(message.userAgent);
+            if (error) return "userAgent." + error;
+        }
+        if (null != message.webInfo && message.hasOwnProperty("webInfo")) {
+            let error = $root.ClientPayload.WebInfo.verify(message.webInfo);
+            if (error) return "webInfo." + error;
+        }
         if (null != message.pushName && message.hasOwnProperty("pushName") && !$util.isString(message.pushName)) return "pushName: string expected";
         if (null != message.sessionId && message.hasOwnProperty("sessionId") && !$util.isInteger(message.sessionId)) return "sessionId: integer expected";
         if (null != message.shortConnect && message.hasOwnProperty("shortConnect") && "boolean" != typeof message.shortConnect) return "shortConnect: boolean expected";
@@ -29132,12 +30232,18 @@ $root.ADVEncryptionType = function() {
         }
         if (null != message.shards && message.hasOwnProperty("shards")) {
             if (!Array.isArray(message.shards)) return "shards: array expected";
-            for (var i = 0; i < message.shards.length; ++i) if (!$util.isInteger(message.shards[i])) return "shards: integer[] expected";
+            for (let i = 0; i < message.shards.length; ++i) if (!$util.isInteger(message.shards[i])) return "shards: integer[] expected";
         }
-        if (null != message.dnsSource && message.hasOwnProperty("dnsSource") && (error = $root.ClientPayload.DNSSource.verify(message.dnsSource))) return "dnsSource." + error;
+        if (null != message.dnsSource && message.hasOwnProperty("dnsSource")) {
+            let error = $root.ClientPayload.DNSSource.verify(message.dnsSource);
+            if (error) return "dnsSource." + error;
+        }
         if (null != message.connectAttemptCount && message.hasOwnProperty("connectAttemptCount") && !$util.isInteger(message.connectAttemptCount)) return "connectAttemptCount: integer expected";
         if (null != message.device && message.hasOwnProperty("device") && !$util.isInteger(message.device)) return "device: integer expected";
-        if (null != message.devicePairingData && message.hasOwnProperty("devicePairingData") && (error = $root.ClientPayload.DevicePairingRegistrationData.verify(message.devicePairingData))) return "devicePairingData." + error;
+        if (null != message.devicePairingData && message.hasOwnProperty("devicePairingData")) {
+            let error = $root.ClientPayload.DevicePairingRegistrationData.verify(message.devicePairingData);
+            if (error) return "devicePairingData." + error;
+        }
         if (null != message.product && message.hasOwnProperty("product")) switch (message.product) {
           default:
             return "product: enum value expected";
@@ -29165,7 +30271,10 @@ $root.ADVEncryptionType = function() {
         if (null != message.paddingBytes && message.hasOwnProperty("paddingBytes") && !(message.paddingBytes && "number" == typeof message.paddingBytes.length || $util.isString(message.paddingBytes))) return "paddingBytes: buffer expected";
         if (null != message.yearClass && message.hasOwnProperty("yearClass") && !$util.isInteger(message.yearClass)) return "yearClass: integer expected";
         if (null != message.memClass && message.hasOwnProperty("memClass") && !$util.isInteger(message.memClass)) return "memClass: integer expected";
-        if (null != message.interopData && message.hasOwnProperty("interopData") && (error = $root.ClientPayload.InteropData.verify(message.interopData))) return "interopData." + error;
+        if (null != message.interopData && message.hasOwnProperty("interopData")) {
+            let error = $root.ClientPayload.InteropData.verify(message.interopData);
+            if (error) return "interopData." + error;
+        }
         return null != message.isPcr && message.hasOwnProperty("isPcr") && "boolean" != typeof message.isPcr ? "isPcr: boolean expected" : null;
     }, ClientPayload.fromObject = function(object) {
         if (object instanceof $root.ClientPayload) return object;
@@ -29303,7 +30412,7 @@ $root.ADVEncryptionType = function() {
         if (object.shards) {
             if (!Array.isArray(object.shards)) throw TypeError(".ClientPayload.shards: array expected");
             message.shards = [];
-            for (var i = 0; i < object.shards.length; ++i) message.shards[i] = 0 | object.shards[i];
+            for (let i = 0; i < object.shards.length; ++i) message.shards[i] = 0 | object.shards[i];
         }
         if (null != object.dnsSource) {
             if ("object" != typeof object.dnsSource) throw TypeError(".ClientPayload.dnsSource: object expected");
@@ -29373,23 +30482,30 @@ $root.ADVEncryptionType = function() {
     }, ClientPayload.toObject = function(message, options) {
         var long, object = {};
         if (((options = options || {}).arrays || options.defaults) && (object.shards = []), 
-        options.defaults && ($util.Long ? (long = new $util.Long(0, 0, !0), object.username = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.username = options.longs === String ? "0" : 0, 
-        object.passive = !1, object.userAgent = null, object.webInfo = null, object.pushName = "", 
-        object.sessionId = 0, object.shortConnect = !1, object.connectType = options.enums === String ? "CELLULAR_UNKNOWN" : 0, 
-        object.connectReason = options.enums === String ? "PUSH" : 0, object.dnsSource = null, 
-        object.connectAttemptCount = 0, object.device = 0, object.devicePairingData = null, 
-        object.product = options.enums === String ? "WHATSAPP" : 0, options.bytes === String ? object.fbCat = "" : (object.fbCat = [], 
-        options.bytes !== Array && (object.fbCat = $util.newBuffer(object.fbCat))), 
-        options.bytes === String ? object.fbUserAgent = "" : (object.fbUserAgent = [], 
-        options.bytes !== Array && (object.fbUserAgent = $util.newBuffer(object.fbUserAgent))), 
-        object.oc = !1, object.lc = 0, object.iosAppExtension = options.enums === String ? "SHARE_EXTENSION" : 0, 
-        $util.Long ? (long = new $util.Long(0, 0, !0), object.fbAppId = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.fbAppId = options.longs === String ? "0" : 0, 
-        options.bytes === String ? object.fbDeviceId = "" : (object.fbDeviceId = [], 
-        options.bytes !== Array && (object.fbDeviceId = $util.newBuffer(object.fbDeviceId))), 
-        object.pull = !1, options.bytes === String ? object.paddingBytes = "" : (object.paddingBytes = [], 
-        options.bytes !== Array && (object.paddingBytes = $util.newBuffer(object.paddingBytes))), 
-        object.yearClass = 0, object.memClass = 0, object.interopData = null, object.isPcr = !1), 
-        null != message.username && message.hasOwnProperty("username") && ("number" == typeof message.username ? object.username = options.longs === String ? String(message.username) : message.username : object.username = options.longs === String ? $util.Long.prototype.toString.call(message.username) : options.longs === Number ? new $util.LongBits(message.username.low >>> 0, message.username.high >>> 0).toNumber(!0) : message.username), 
+        options.defaults) {
+            if ($util.Long ? (long = new $util.Long(0, 0, !0), object.username = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.username = options.longs === String ? "0" : 0, 
+            object.passive = !1, object.userAgent = null, object.webInfo = null, 
+            object.pushName = "", object.sessionId = 0, object.shortConnect = !1, 
+            object.connectType = options.enums === String ? "CELLULAR_UNKNOWN" : 0, 
+            object.connectReason = options.enums === String ? "PUSH" : 0, object.dnsSource = null, 
+            object.connectAttemptCount = 0, object.device = 0, object.devicePairingData = null, 
+            object.product = options.enums === String ? "WHATSAPP" : 0, options.bytes === String ? object.fbCat = "" : (object.fbCat = [], 
+            options.bytes !== Array && (object.fbCat = $util.newBuffer(object.fbCat))), 
+            options.bytes === String ? object.fbUserAgent = "" : (object.fbUserAgent = [], 
+            options.bytes !== Array && (object.fbUserAgent = $util.newBuffer(object.fbUserAgent))), 
+            object.oc = !1, object.lc = 0, object.iosAppExtension = options.enums === String ? "SHARE_EXTENSION" : 0, 
+            $util.Long) {
+                let long = new $util.Long(0, 0, !0);
+                object.fbAppId = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+            } else object.fbAppId = options.longs === String ? "0" : 0;
+            options.bytes === String ? object.fbDeviceId = "" : (object.fbDeviceId = [], 
+            options.bytes !== Array && (object.fbDeviceId = $util.newBuffer(object.fbDeviceId))), 
+            object.pull = !1, options.bytes === String ? object.paddingBytes = "" : (object.paddingBytes = [], 
+            options.bytes !== Array && (object.paddingBytes = $util.newBuffer(object.paddingBytes))), 
+            object.yearClass = 0, object.memClass = 0, object.interopData = null, 
+            object.isPcr = !1;
+        }
+        if (null != message.username && message.hasOwnProperty("username") && ("number" == typeof message.username ? object.username = options.longs === String ? String(message.username) : message.username : object.username = options.longs === String ? $util.Long.prototype.toString.call(message.username) : options.longs === Number ? new $util.LongBits(message.username.low >>> 0, message.username.high >>> 0).toNumber(!0) : message.username), 
         null != message.passive && message.hasOwnProperty("passive") && (object.passive = message.passive), 
         null != message.userAgent && message.hasOwnProperty("userAgent") && (object.userAgent = $root.ClientPayload.UserAgent.toObject(message.userAgent, options)), 
         null != message.webInfo && message.hasOwnProperty("webInfo") && (object.webInfo = $root.ClientPayload.WebInfo.toObject(message.webInfo, options)), 
@@ -29400,7 +30516,7 @@ $root.ADVEncryptionType = function() {
         null != message.connectReason && message.hasOwnProperty("connectReason") && (object.connectReason = options.enums !== String || void 0 === $root.ClientPayload.ConnectReason[message.connectReason] ? message.connectReason : $root.ClientPayload.ConnectReason[message.connectReason]), 
         message.shards && message.shards.length) {
             object.shards = [];
-            for (var j = 0; j < message.shards.length; ++j) object.shards[j] = message.shards[j];
+            for (let j = 0; j < message.shards.length; ++j) object.shards[j] = message.shards[j];
         }
         return null != message.dnsSource && message.hasOwnProperty("dnsSource") && (object.dnsSource = $root.ClientPayload.DNSSource.toObject(message.dnsSource, options)), 
         null != message.connectAttemptCount && message.hasOwnProperty("connectAttemptCount") && (object.connectAttemptCount = message.connectAttemptCount), 
@@ -29603,7 +30719,7 @@ $root.ADVEncryptionType = function() {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/ClientPayload.DevicePairingRegistrationData";
     }, DevicePairingRegistrationData), ClientPayload.DNSSource = function() {
         function DNSSource(properties) {
-            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         var valuesById, values;
         return DNSSource.prototype.dnsMethod = 0, DNSSource.prototype.appCached = !1, 
@@ -29699,11 +30815,11 @@ $root.ADVEncryptionType = function() {
         values), DNSSource;
     }(), ClientPayload.WebInfo = function() {
         function WebInfo(properties) {
-            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         var valuesById, values;
         function WebdPayload(properties) {
-            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         return WebInfo.prototype.refToken = "", WebInfo.prototype.version = "", 
         WebInfo.prototype.webdPayload = null, WebInfo.prototype.webSubPlatform = 0, 
@@ -29944,11 +31060,11 @@ $root.ADVEncryptionType = function() {
         }, WebdPayload), WebInfo;
     }(), ClientPayload.UserAgent = function() {
         function UserAgent(properties) {
-            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         var valuesById, values;
         function AppVersion(properties) {
-            if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+            if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
         }
         return UserAgent.prototype.platform = 0, UserAgent.prototype.appVersion = null, 
         UserAgent.prototype.mcc = "", UserAgent.prototype.mnc = "", UserAgent.prototype.osVersion = "", 
@@ -30519,11 +31635,11 @@ $root.ADVEncryptionType = function() {
             return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/ClientPayload.UserAgent.AppVersion";
         }, AppVersion), UserAgent;
     }(), ClientPayload;
-}(), $root.WebMessageInfo = function() {
+})(), WebMessageInfo = $root.WebMessageInfo = (() => {
     function WebMessageInfo(properties) {
         if (this.messageStubParameters = [], this.labels = [], this.userReceipt = [], 
         this.reactions = [], this.pollUpdates = [], this.eventResponses = [], this.statusMentions = [], 
-        this.messageAddOns = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        this.messageAddOns = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     var valuesById, values;
     return WebMessageInfo.prototype.key = null, WebMessageInfo.prototype.message = null, 
@@ -30575,9 +31691,9 @@ $root.ADVEncryptionType = function() {
         null != message.urlNumber && Object.hasOwnProperty.call(message, "urlNumber") && writer.uint32(184).bool(message.urlNumber), 
         null != message.messageStubType && Object.hasOwnProperty.call(message, "messageStubType") && writer.uint32(192).int32(message.messageStubType), 
         null != message.clearMedia && Object.hasOwnProperty.call(message, "clearMedia") && writer.uint32(200).bool(message.clearMedia), 
-        null != message.messageStubParameters && message.messageStubParameters.length) for (var i = 0; i < message.messageStubParameters.length; ++i) writer.uint32(210).string(message.messageStubParameters[i]);
+        null != message.messageStubParameters && message.messageStubParameters.length) for (let i = 0; i < message.messageStubParameters.length; ++i) writer.uint32(210).string(message.messageStubParameters[i]);
         if (null != message.duration && Object.hasOwnProperty.call(message, "duration") && writer.uint32(216).uint32(message.duration), 
-        null != message.labels && message.labels.length) for (i = 0; i < message.labels.length; ++i) writer.uint32(226).string(message.labels[i]);
+        null != message.labels && message.labels.length) for (let i = 0; i < message.labels.length; ++i) writer.uint32(226).string(message.labels[i]);
         if (null != message.paymentInfo && Object.hasOwnProperty.call(message, "paymentInfo") && $root.PaymentInfo.encode(message.paymentInfo, writer.uint32(234).fork()).ldelim(), 
         null != message.finalLiveLocation && Object.hasOwnProperty.call(message, "finalLiveLocation") && $root.Message.LiveLocationMessage.encode(message.finalLiveLocation, writer.uint32(242).fork()).ldelim(), 
         null != message.quotedPaymentInfo && Object.hasOwnProperty.call(message, "quotedPaymentInfo") && $root.PaymentInfo.encode(message.quotedPaymentInfo, writer.uint32(250).fork()).ldelim(), 
@@ -30589,12 +31705,12 @@ $root.ADVEncryptionType = function() {
         null != message.verifiedBizName && Object.hasOwnProperty.call(message, "verifiedBizName") && writer.uint32(298).string(message.verifiedBizName), 
         null != message.mediaData && Object.hasOwnProperty.call(message, "mediaData") && $root.MediaData.encode(message.mediaData, writer.uint32(306).fork()).ldelim(), 
         null != message.photoChange && Object.hasOwnProperty.call(message, "photoChange") && $root.PhotoChange.encode(message.photoChange, writer.uint32(314).fork()).ldelim(), 
-        null != message.userReceipt && message.userReceipt.length) for (i = 0; i < message.userReceipt.length; ++i) $root.UserReceipt.encode(message.userReceipt[i], writer.uint32(322).fork()).ldelim();
-        if (null != message.reactions && message.reactions.length) for (i = 0; i < message.reactions.length; ++i) $root.Reaction.encode(message.reactions[i], writer.uint32(330).fork()).ldelim();
+        null != message.userReceipt && message.userReceipt.length) for (let i = 0; i < message.userReceipt.length; ++i) $root.UserReceipt.encode(message.userReceipt[i], writer.uint32(322).fork()).ldelim();
+        if (null != message.reactions && message.reactions.length) for (let i = 0; i < message.reactions.length; ++i) $root.Reaction.encode(message.reactions[i], writer.uint32(330).fork()).ldelim();
         if (null != message.quotedStickerData && Object.hasOwnProperty.call(message, "quotedStickerData") && $root.MediaData.encode(message.quotedStickerData, writer.uint32(338).fork()).ldelim(), 
         null != message.futureproofData && Object.hasOwnProperty.call(message, "futureproofData") && writer.uint32(346).bytes(message.futureproofData), 
         null != message.statusPsa && Object.hasOwnProperty.call(message, "statusPsa") && $root.StatusPSA.encode(message.statusPsa, writer.uint32(354).fork()).ldelim(), 
-        null != message.pollUpdates && message.pollUpdates.length) for (i = 0; i < message.pollUpdates.length; ++i) $root.PollUpdate.encode(message.pollUpdates[i], writer.uint32(362).fork()).ldelim();
+        null != message.pollUpdates && message.pollUpdates.length) for (let i = 0; i < message.pollUpdates.length; ++i) $root.PollUpdate.encode(message.pollUpdates[i], writer.uint32(362).fork()).ldelim();
         if (null != message.pollAdditionalMetadata && Object.hasOwnProperty.call(message, "pollAdditionalMetadata") && $root.PollAdditionalMetadata.encode(message.pollAdditionalMetadata, writer.uint32(370).fork()).ldelim(), 
         null != message.agentId && Object.hasOwnProperty.call(message, "agentId") && writer.uint32(378).string(message.agentId), 
         null != message.statusAlreadyViewed && Object.hasOwnProperty.call(message, "statusAlreadyViewed") && writer.uint32(384).bool(message.statusAlreadyViewed), 
@@ -30608,14 +31724,14 @@ $root.ADVEncryptionType = function() {
         null != message.isGroupHistoryMessage && Object.hasOwnProperty.call(message, "isGroupHistoryMessage") && writer.uint32(456).bool(message.isGroupHistoryMessage), 
         null != message.botMessageInvokerJid && Object.hasOwnProperty.call(message, "botMessageInvokerJid") && writer.uint32(466).string(message.botMessageInvokerJid), 
         null != message.commentMetadata && Object.hasOwnProperty.call(message, "commentMetadata") && $root.CommentMetadata.encode(message.commentMetadata, writer.uint32(474).fork()).ldelim(), 
-        null != message.eventResponses && message.eventResponses.length) for (i = 0; i < message.eventResponses.length; ++i) $root.EventResponse.encode(message.eventResponses[i], writer.uint32(490).fork()).ldelim();
+        null != message.eventResponses && message.eventResponses.length) for (let i = 0; i < message.eventResponses.length; ++i) $root.EventResponse.encode(message.eventResponses[i], writer.uint32(490).fork()).ldelim();
         if (null != message.reportingTokenInfo && Object.hasOwnProperty.call(message, "reportingTokenInfo") && $root.ReportingTokenInfo.encode(message.reportingTokenInfo, writer.uint32(498).fork()).ldelim(), 
         null != message.newsletterServerId && Object.hasOwnProperty.call(message, "newsletterServerId") && writer.uint32(504).uint64(message.newsletterServerId), 
         null != message.eventAdditionalMetadata && Object.hasOwnProperty.call(message, "eventAdditionalMetadata") && $root.EventAdditionalMetadata.encode(message.eventAdditionalMetadata, writer.uint32(514).fork()).ldelim(), 
         null != message.isMentionedInStatus && Object.hasOwnProperty.call(message, "isMentionedInStatus") && writer.uint32(520).bool(message.isMentionedInStatus), 
-        null != message.statusMentions && message.statusMentions.length) for (i = 0; i < message.statusMentions.length; ++i) writer.uint32(530).string(message.statusMentions[i]);
+        null != message.statusMentions && message.statusMentions.length) for (let i = 0; i < message.statusMentions.length; ++i) writer.uint32(530).string(message.statusMentions[i]);
         if (null != message.targetMessageId && Object.hasOwnProperty.call(message, "targetMessageId") && $root.MessageKey.encode(message.targetMessageId, writer.uint32(538).fork()).ldelim(), 
-        null != message.messageAddOns && message.messageAddOns.length) for (i = 0; i < message.messageAddOns.length; ++i) $root.MessageAddOn.encode(message.messageAddOns[i], writer.uint32(546).fork()).ldelim();
+        null != message.messageAddOns && message.messageAddOns.length) for (let i = 0; i < message.messageAddOns.length; ++i) $root.MessageAddOn.encode(message.messageAddOns[i], writer.uint32(546).fork()).ldelim();
         return writer;
     }, WebMessageInfo.encodeDelimited = function(message, writer) {
         return this.encode(message, writer).ldelim();
@@ -30872,8 +31988,12 @@ $root.ADVEncryptionType = function() {
         return reader instanceof $Reader || (reader = new $Reader(reader)), this.decode(reader, reader.uint32());
     }, WebMessageInfo.verify = function(message) {
         if ("object" != typeof message || null === message) return "object expected";
-        if (error = $root.MessageKey.verify(message.key)) return "key." + error;
-        if (null != message.message && message.hasOwnProperty("message") && (error = $root.Message.verify(message.message))) return "message." + error;
+        var error = $root.MessageKey.verify(message.key);
+        if (error) return "key." + error;
+        if (null != message.message && message.hasOwnProperty("message")) {
+            let error = $root.Message.verify(message.message);
+            if (error) return "message." + error;
+        }
         if (null != message.messageTimestamp && message.hasOwnProperty("messageTimestamp") && !($util.isInteger(message.messageTimestamp) || message.messageTimestamp && $util.isInteger(message.messageTimestamp.low) && $util.isInteger(message.messageTimestamp.high))) return "messageTimestamp: integer|Long expected";
         if (null != message.status && message.hasOwnProperty("status")) switch (message.status) {
           default:
@@ -31112,16 +32232,25 @@ $root.ADVEncryptionType = function() {
         if (null != message.clearMedia && message.hasOwnProperty("clearMedia") && "boolean" != typeof message.clearMedia) return "clearMedia: boolean expected";
         if (null != message.messageStubParameters && message.hasOwnProperty("messageStubParameters")) {
             if (!Array.isArray(message.messageStubParameters)) return "messageStubParameters: array expected";
-            for (var i = 0; i < message.messageStubParameters.length; ++i) if (!$util.isString(message.messageStubParameters[i])) return "messageStubParameters: string[] expected";
+            for (let i = 0; i < message.messageStubParameters.length; ++i) if (!$util.isString(message.messageStubParameters[i])) return "messageStubParameters: string[] expected";
         }
         if (null != message.duration && message.hasOwnProperty("duration") && !$util.isInteger(message.duration)) return "duration: integer expected";
         if (null != message.labels && message.hasOwnProperty("labels")) {
             if (!Array.isArray(message.labels)) return "labels: array expected";
-            for (i = 0; i < message.labels.length; ++i) if (!$util.isString(message.labels[i])) return "labels: string[] expected";
+            for (let i = 0; i < message.labels.length; ++i) if (!$util.isString(message.labels[i])) return "labels: string[] expected";
         }
-        if (null != message.paymentInfo && message.hasOwnProperty("paymentInfo") && (error = $root.PaymentInfo.verify(message.paymentInfo))) return "paymentInfo." + error;
-        if (null != message.finalLiveLocation && message.hasOwnProperty("finalLiveLocation") && (error = $root.Message.LiveLocationMessage.verify(message.finalLiveLocation))) return "finalLiveLocation." + error;
-        if (null != message.quotedPaymentInfo && message.hasOwnProperty("quotedPaymentInfo") && (error = $root.PaymentInfo.verify(message.quotedPaymentInfo))) return "quotedPaymentInfo." + error;
+        if (null != message.paymentInfo && message.hasOwnProperty("paymentInfo")) {
+            let error = $root.PaymentInfo.verify(message.paymentInfo);
+            if (error) return "paymentInfo." + error;
+        }
+        if (null != message.finalLiveLocation && message.hasOwnProperty("finalLiveLocation")) {
+            let error = $root.Message.LiveLocationMessage.verify(message.finalLiveLocation);
+            if (error) return "finalLiveLocation." + error;
+        }
+        if (null != message.quotedPaymentInfo && message.hasOwnProperty("quotedPaymentInfo")) {
+            let error = $root.PaymentInfo.verify(message.quotedPaymentInfo);
+            if (error) return "quotedPaymentInfo." + error;
+        }
         if (null != message.ephemeralStartTimestamp && message.hasOwnProperty("ephemeralStartTimestamp") && !($util.isInteger(message.ephemeralStartTimestamp) || message.ephemeralStartTimestamp && $util.isInteger(message.ephemeralStartTimestamp.low) && $util.isInteger(message.ephemeralStartTimestamp.high))) return "ephemeralStartTimestamp: integer|Long expected";
         if (null != message.ephemeralDuration && message.hasOwnProperty("ephemeralDuration") && !$util.isInteger(message.ephemeralDuration)) return "ephemeralDuration: integer expected";
         if (null != message.ephemeralOffToOn && message.hasOwnProperty("ephemeralOffToOn") && "boolean" != typeof message.ephemeralOffToOn) return "ephemeralOffToOn: boolean expected";
@@ -31136,52 +32265,103 @@ $root.ADVEncryptionType = function() {
           case 3:
         }
         if (null != message.verifiedBizName && message.hasOwnProperty("verifiedBizName") && !$util.isString(message.verifiedBizName)) return "verifiedBizName: string expected";
-        if (null != message.mediaData && message.hasOwnProperty("mediaData") && (error = $root.MediaData.verify(message.mediaData))) return "mediaData." + error;
-        if (null != message.photoChange && message.hasOwnProperty("photoChange") && (error = $root.PhotoChange.verify(message.photoChange))) return "photoChange." + error;
+        if (null != message.mediaData && message.hasOwnProperty("mediaData")) {
+            let error = $root.MediaData.verify(message.mediaData);
+            if (error) return "mediaData." + error;
+        }
+        if (null != message.photoChange && message.hasOwnProperty("photoChange")) {
+            let error = $root.PhotoChange.verify(message.photoChange);
+            if (error) return "photoChange." + error;
+        }
         if (null != message.userReceipt && message.hasOwnProperty("userReceipt")) {
             if (!Array.isArray(message.userReceipt)) return "userReceipt: array expected";
-            for (i = 0; i < message.userReceipt.length; ++i) if (error = $root.UserReceipt.verify(message.userReceipt[i])) return "userReceipt." + error;
+            for (let i = 0; i < message.userReceipt.length; ++i) {
+                let error = $root.UserReceipt.verify(message.userReceipt[i]);
+                if (error) return "userReceipt." + error;
+            }
         }
         if (null != message.reactions && message.hasOwnProperty("reactions")) {
             if (!Array.isArray(message.reactions)) return "reactions: array expected";
-            for (i = 0; i < message.reactions.length; ++i) if (error = $root.Reaction.verify(message.reactions[i])) return "reactions." + error;
+            for (let i = 0; i < message.reactions.length; ++i) {
+                let error = $root.Reaction.verify(message.reactions[i]);
+                if (error) return "reactions." + error;
+            }
         }
-        if (null != message.quotedStickerData && message.hasOwnProperty("quotedStickerData") && (error = $root.MediaData.verify(message.quotedStickerData))) return "quotedStickerData." + error;
+        if (null != message.quotedStickerData && message.hasOwnProperty("quotedStickerData")) {
+            let error = $root.MediaData.verify(message.quotedStickerData);
+            if (error) return "quotedStickerData." + error;
+        }
         if (null != message.futureproofData && message.hasOwnProperty("futureproofData") && !(message.futureproofData && "number" == typeof message.futureproofData.length || $util.isString(message.futureproofData))) return "futureproofData: buffer expected";
-        if (null != message.statusPsa && message.hasOwnProperty("statusPsa") && (error = $root.StatusPSA.verify(message.statusPsa))) return "statusPsa." + error;
+        if (null != message.statusPsa && message.hasOwnProperty("statusPsa")) {
+            let error = $root.StatusPSA.verify(message.statusPsa);
+            if (error) return "statusPsa." + error;
+        }
         if (null != message.pollUpdates && message.hasOwnProperty("pollUpdates")) {
             if (!Array.isArray(message.pollUpdates)) return "pollUpdates: array expected";
-            for (i = 0; i < message.pollUpdates.length; ++i) if (error = $root.PollUpdate.verify(message.pollUpdates[i])) return "pollUpdates." + error;
+            for (let i = 0; i < message.pollUpdates.length; ++i) {
+                let error = $root.PollUpdate.verify(message.pollUpdates[i]);
+                if (error) return "pollUpdates." + error;
+            }
         }
-        if (null != message.pollAdditionalMetadata && message.hasOwnProperty("pollAdditionalMetadata") && (error = $root.PollAdditionalMetadata.verify(message.pollAdditionalMetadata))) return "pollAdditionalMetadata." + error;
+        if (null != message.pollAdditionalMetadata && message.hasOwnProperty("pollAdditionalMetadata")) {
+            let error = $root.PollAdditionalMetadata.verify(message.pollAdditionalMetadata);
+            if (error) return "pollAdditionalMetadata." + error;
+        }
         if (null != message.agentId && message.hasOwnProperty("agentId") && !$util.isString(message.agentId)) return "agentId: string expected";
         if (null != message.statusAlreadyViewed && message.hasOwnProperty("statusAlreadyViewed") && "boolean" != typeof message.statusAlreadyViewed) return "statusAlreadyViewed: boolean expected";
         if (null != message.messageSecret && message.hasOwnProperty("messageSecret") && !(message.messageSecret && "number" == typeof message.messageSecret.length || $util.isString(message.messageSecret))) return "messageSecret: buffer expected";
-        if (null != message.keepInChat && message.hasOwnProperty("keepInChat") && (error = $root.KeepInChat.verify(message.keepInChat))) return "keepInChat." + error;
+        if (null != message.keepInChat && message.hasOwnProperty("keepInChat")) {
+            let error = $root.KeepInChat.verify(message.keepInChat);
+            if (error) return "keepInChat." + error;
+        }
         if (null != message.originalSelfAuthorUserJidString && message.hasOwnProperty("originalSelfAuthorUserJidString") && !$util.isString(message.originalSelfAuthorUserJidString)) return "originalSelfAuthorUserJidString: string expected";
         if (null != message.revokeMessageTimestamp && message.hasOwnProperty("revokeMessageTimestamp") && !($util.isInteger(message.revokeMessageTimestamp) || message.revokeMessageTimestamp && $util.isInteger(message.revokeMessageTimestamp.low) && $util.isInteger(message.revokeMessageTimestamp.high))) return "revokeMessageTimestamp: integer|Long expected";
-        if (null != message.pinInChat && message.hasOwnProperty("pinInChat") && (error = $root.PinInChat.verify(message.pinInChat))) return "pinInChat." + error;
-        if (null != message.premiumMessageInfo && message.hasOwnProperty("premiumMessageInfo") && (error = $root.PremiumMessageInfo.verify(message.premiumMessageInfo))) return "premiumMessageInfo." + error;
+        if (null != message.pinInChat && message.hasOwnProperty("pinInChat")) {
+            let error = $root.PinInChat.verify(message.pinInChat);
+            if (error) return "pinInChat." + error;
+        }
+        if (null != message.premiumMessageInfo && message.hasOwnProperty("premiumMessageInfo")) {
+            let error = $root.PremiumMessageInfo.verify(message.premiumMessageInfo);
+            if (error) return "premiumMessageInfo." + error;
+        }
         if (null != message.is1PBizBotMessage && message.hasOwnProperty("is1PBizBotMessage") && "boolean" != typeof message.is1PBizBotMessage) return "is1PBizBotMessage: boolean expected";
         if (null != message.isGroupHistoryMessage && message.hasOwnProperty("isGroupHistoryMessage") && "boolean" != typeof message.isGroupHistoryMessage) return "isGroupHistoryMessage: boolean expected";
         if (null != message.botMessageInvokerJid && message.hasOwnProperty("botMessageInvokerJid") && !$util.isString(message.botMessageInvokerJid)) return "botMessageInvokerJid: string expected";
-        if (null != message.commentMetadata && message.hasOwnProperty("commentMetadata") && (error = $root.CommentMetadata.verify(message.commentMetadata))) return "commentMetadata." + error;
+        if (null != message.commentMetadata && message.hasOwnProperty("commentMetadata")) {
+            let error = $root.CommentMetadata.verify(message.commentMetadata);
+            if (error) return "commentMetadata." + error;
+        }
         if (null != message.eventResponses && message.hasOwnProperty("eventResponses")) {
             if (!Array.isArray(message.eventResponses)) return "eventResponses: array expected";
-            for (i = 0; i < message.eventResponses.length; ++i) if (error = $root.EventResponse.verify(message.eventResponses[i])) return "eventResponses." + error;
+            for (let i = 0; i < message.eventResponses.length; ++i) {
+                let error = $root.EventResponse.verify(message.eventResponses[i]);
+                if (error) return "eventResponses." + error;
+            }
         }
-        if (null != message.reportingTokenInfo && message.hasOwnProperty("reportingTokenInfo") && (error = $root.ReportingTokenInfo.verify(message.reportingTokenInfo))) return "reportingTokenInfo." + error;
+        if (null != message.reportingTokenInfo && message.hasOwnProperty("reportingTokenInfo")) {
+            let error = $root.ReportingTokenInfo.verify(message.reportingTokenInfo);
+            if (error) return "reportingTokenInfo." + error;
+        }
         if (null != message.newsletterServerId && message.hasOwnProperty("newsletterServerId") && !($util.isInteger(message.newsletterServerId) || message.newsletterServerId && $util.isInteger(message.newsletterServerId.low) && $util.isInteger(message.newsletterServerId.high))) return "newsletterServerId: integer|Long expected";
-        if (null != message.eventAdditionalMetadata && message.hasOwnProperty("eventAdditionalMetadata") && (error = $root.EventAdditionalMetadata.verify(message.eventAdditionalMetadata))) return "eventAdditionalMetadata." + error;
+        if (null != message.eventAdditionalMetadata && message.hasOwnProperty("eventAdditionalMetadata")) {
+            let error = $root.EventAdditionalMetadata.verify(message.eventAdditionalMetadata);
+            if (error) return "eventAdditionalMetadata." + error;
+        }
         if (null != message.isMentionedInStatus && message.hasOwnProperty("isMentionedInStatus") && "boolean" != typeof message.isMentionedInStatus) return "isMentionedInStatus: boolean expected";
         if (null != message.statusMentions && message.hasOwnProperty("statusMentions")) {
             if (!Array.isArray(message.statusMentions)) return "statusMentions: array expected";
-            for (i = 0; i < message.statusMentions.length; ++i) if (!$util.isString(message.statusMentions[i])) return "statusMentions: string[] expected";
+            for (let i = 0; i < message.statusMentions.length; ++i) if (!$util.isString(message.statusMentions[i])) return "statusMentions: string[] expected";
         }
-        if (null != message.targetMessageId && message.hasOwnProperty("targetMessageId") && (error = $root.MessageKey.verify(message.targetMessageId))) return "targetMessageId." + error;
+        if (null != message.targetMessageId && message.hasOwnProperty("targetMessageId")) {
+            let error = $root.MessageKey.verify(message.targetMessageId);
+            if (error) return "targetMessageId." + error;
+        }
         if (null != message.messageAddOns && message.hasOwnProperty("messageAddOns")) {
             if (!Array.isArray(message.messageAddOns)) return "messageAddOns: array expected";
-            for (var error, i = 0; i < message.messageAddOns.length; ++i) if (error = $root.MessageAddOn.verify(message.messageAddOns[i])) return "messageAddOns." + error;
+            for (let i = 0; i < message.messageAddOns.length; ++i) {
+                let error = $root.MessageAddOn.verify(message.messageAddOns[i]);
+                if (error) return "messageAddOns." + error;
+            }
         }
         return null;
     }, WebMessageInfo.fromObject = function(object) {
@@ -32286,13 +33466,13 @@ $root.ADVEncryptionType = function() {
         object.messageStubParameters) {
             if (!Array.isArray(object.messageStubParameters)) throw TypeError(".WebMessageInfo.messageStubParameters: array expected");
             message.messageStubParameters = [];
-            for (var i = 0; i < object.messageStubParameters.length; ++i) message.messageStubParameters[i] = String(object.messageStubParameters[i]);
+            for (let i = 0; i < object.messageStubParameters.length; ++i) message.messageStubParameters[i] = String(object.messageStubParameters[i]);
         }
         if (null != object.duration && (message.duration = object.duration >>> 0), 
         object.labels) {
             if (!Array.isArray(object.labels)) throw TypeError(".WebMessageInfo.labels: array expected");
             message.labels = [];
-            for (i = 0; i < object.labels.length; ++i) message.labels[i] = String(object.labels[i]);
+            for (let i = 0; i < object.labels.length; ++i) message.labels[i] = String(object.labels[i]);
         }
         if (null != object.paymentInfo) {
             if ("object" != typeof object.paymentInfo) throw TypeError(".WebMessageInfo.paymentInfo: object expected");
@@ -32346,7 +33526,7 @@ $root.ADVEncryptionType = function() {
         if (object.userReceipt) {
             if (!Array.isArray(object.userReceipt)) throw TypeError(".WebMessageInfo.userReceipt: array expected");
             message.userReceipt = [];
-            for (i = 0; i < object.userReceipt.length; ++i) {
+            for (let i = 0; i < object.userReceipt.length; ++i) {
                 if ("object" != typeof object.userReceipt[i]) throw TypeError(".WebMessageInfo.userReceipt: object expected");
                 message.userReceipt[i] = $root.UserReceipt.fromObject(object.userReceipt[i]);
             }
@@ -32354,7 +33534,7 @@ $root.ADVEncryptionType = function() {
         if (object.reactions) {
             if (!Array.isArray(object.reactions)) throw TypeError(".WebMessageInfo.reactions: array expected");
             message.reactions = [];
-            for (i = 0; i < object.reactions.length; ++i) {
+            for (let i = 0; i < object.reactions.length; ++i) {
                 if ("object" != typeof object.reactions[i]) throw TypeError(".WebMessageInfo.reactions: object expected");
                 message.reactions[i] = $root.Reaction.fromObject(object.reactions[i]);
             }
@@ -32371,7 +33551,7 @@ $root.ADVEncryptionType = function() {
         if (object.pollUpdates) {
             if (!Array.isArray(object.pollUpdates)) throw TypeError(".WebMessageInfo.pollUpdates: array expected");
             message.pollUpdates = [];
-            for (i = 0; i < object.pollUpdates.length; ++i) {
+            for (let i = 0; i < object.pollUpdates.length; ++i) {
                 if ("object" != typeof object.pollUpdates[i]) throw TypeError(".WebMessageInfo.pollUpdates: object expected");
                 message.pollUpdates[i] = $root.PollUpdate.fromObject(object.pollUpdates[i]);
             }
@@ -32407,7 +33587,7 @@ $root.ADVEncryptionType = function() {
         if (object.eventResponses) {
             if (!Array.isArray(object.eventResponses)) throw TypeError(".WebMessageInfo.eventResponses: array expected");
             message.eventResponses = [];
-            for (i = 0; i < object.eventResponses.length; ++i) {
+            for (let i = 0; i < object.eventResponses.length; ++i) {
                 if ("object" != typeof object.eventResponses[i]) throw TypeError(".WebMessageInfo.eventResponses: object expected");
                 message.eventResponses[i] = $root.EventResponse.fromObject(object.eventResponses[i]);
             }
@@ -32425,7 +33605,7 @@ $root.ADVEncryptionType = function() {
         object.statusMentions) {
             if (!Array.isArray(object.statusMentions)) throw TypeError(".WebMessageInfo.statusMentions: array expected");
             message.statusMentions = [];
-            for (i = 0; i < object.statusMentions.length; ++i) message.statusMentions[i] = String(object.statusMentions[i]);
+            for (let i = 0; i < object.statusMentions.length; ++i) message.statusMentions[i] = String(object.statusMentions[i]);
         }
         if (null != object.targetMessageId) {
             if ("object" != typeof object.targetMessageId) throw TypeError(".WebMessageInfo.targetMessageId: object expected");
@@ -32434,7 +33614,7 @@ $root.ADVEncryptionType = function() {
         if (object.messageAddOns) {
             if (!Array.isArray(object.messageAddOns)) throw TypeError(".WebMessageInfo.messageAddOns: array expected");
             message.messageAddOns = [];
-            for (i = 0; i < object.messageAddOns.length; ++i) {
+            for (let i = 0; i < object.messageAddOns.length; ++i) {
                 if ("object" != typeof object.messageAddOns[i]) throw TypeError(".WebMessageInfo.messageAddOns: object expected");
                 message.messageAddOns[i] = $root.MessageAddOn.fromObject(object.messageAddOns[i]);
             }
@@ -32445,33 +33625,46 @@ $root.ADVEncryptionType = function() {
         if (((options = options || {}).arrays || options.defaults) && (object.messageStubParameters = [], 
         object.labels = [], object.userReceipt = [], object.reactions = [], object.pollUpdates = [], 
         object.eventResponses = [], object.statusMentions = [], object.messageAddOns = []), 
-        options.defaults && (object.key = null, object.message = null, $util.Long ? (long = new $util.Long(0, 0, !0), 
-        object.messageTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.messageTimestamp = options.longs === String ? "0" : 0, 
-        object.status = options.enums === String ? "ERROR" : 0, object.participant = "", 
-        $util.Long ? (long = new $util.Long(0, 0, !0), object.messageC2STimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.messageC2STimestamp = options.longs === String ? "0" : 0, 
-        object.ignore = !1, object.starred = !1, object.broadcast = !1, object.pushName = "", 
-        options.bytes === String ? object.mediaCiphertextSha256 = "" : (object.mediaCiphertextSha256 = [], 
-        options.bytes !== Array && (object.mediaCiphertextSha256 = $util.newBuffer(object.mediaCiphertextSha256))), 
-        object.multicast = !1, object.urlText = !1, object.urlNumber = !1, object.messageStubType = options.enums === String ? "UNKNOWN" : 0, 
-        object.clearMedia = !1, object.duration = 0, object.paymentInfo = null, 
-        object.finalLiveLocation = null, object.quotedPaymentInfo = null, $util.Long ? (long = new $util.Long(0, 0, !0), 
-        object.ephemeralStartTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.ephemeralStartTimestamp = options.longs === String ? "0" : 0, 
-        object.ephemeralDuration = 0, object.ephemeralOffToOn = !1, object.ephemeralOutOfSync = !1, 
-        object.bizPrivacyStatus = options.enums === String ? "E2EE" : 0, object.verifiedBizName = "", 
-        object.mediaData = null, object.photoChange = null, object.quotedStickerData = null, 
-        options.bytes === String ? object.futureproofData = "" : (object.futureproofData = [], 
-        options.bytes !== Array && (object.futureproofData = $util.newBuffer(object.futureproofData))), 
-        object.statusPsa = null, object.pollAdditionalMetadata = null, object.agentId = "", 
-        object.statusAlreadyViewed = !1, options.bytes === String ? object.messageSecret = "" : (object.messageSecret = [], 
-        options.bytes !== Array && (object.messageSecret = $util.newBuffer(object.messageSecret))), 
-        object.keepInChat = null, object.originalSelfAuthorUserJidString = "", $util.Long ? (long = new $util.Long(0, 0, !0), 
-        object.revokeMessageTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.revokeMessageTimestamp = options.longs === String ? "0" : 0, 
-        object.pinInChat = null, object.premiumMessageInfo = null, object.is1PBizBotMessage = !1, 
-        object.isGroupHistoryMessage = !1, object.botMessageInvokerJid = "", object.commentMetadata = null, 
-        object.reportingTokenInfo = null, $util.Long ? (long = new $util.Long(0, 0, !0), 
-        object.newsletterServerId = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.newsletterServerId = options.longs === String ? "0" : 0, 
-        object.eventAdditionalMetadata = null, object.isMentionedInStatus = !1, 
-        object.targetMessageId = null), null != message.key && message.hasOwnProperty("key") && (object.key = $root.MessageKey.toObject(message.key, options)), 
+        options.defaults) {
+            if (object.key = null, object.message = null, $util.Long ? (long = new $util.Long(0, 0, !0), 
+            object.messageTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.messageTimestamp = options.longs === String ? "0" : 0, 
+            object.status = options.enums === String ? "ERROR" : 0, object.participant = "", 
+            $util.Long) {
+                let long = new $util.Long(0, 0, !0);
+                object.messageC2STimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+            } else object.messageC2STimestamp = options.longs === String ? "0" : 0;
+            if (object.ignore = !1, object.starred = !1, object.broadcast = !1, 
+            object.pushName = "", options.bytes === String ? object.mediaCiphertextSha256 = "" : (object.mediaCiphertextSha256 = [], 
+            options.bytes !== Array && (object.mediaCiphertextSha256 = $util.newBuffer(object.mediaCiphertextSha256))), 
+            object.multicast = !1, object.urlText = !1, object.urlNumber = !1, object.messageStubType = options.enums === String ? "UNKNOWN" : 0, 
+            object.clearMedia = !1, object.duration = 0, object.paymentInfo = null, 
+            object.finalLiveLocation = null, object.quotedPaymentInfo = null, $util.Long) {
+                let long = new $util.Long(0, 0, !0);
+                object.ephemeralStartTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+            } else object.ephemeralStartTimestamp = options.longs === String ? "0" : 0;
+            if (object.ephemeralDuration = 0, object.ephemeralOffToOn = !1, object.ephemeralOutOfSync = !1, 
+            object.bizPrivacyStatus = options.enums === String ? "E2EE" : 0, object.verifiedBizName = "", 
+            object.mediaData = null, object.photoChange = null, object.quotedStickerData = null, 
+            options.bytes === String ? object.futureproofData = "" : (object.futureproofData = [], 
+            options.bytes !== Array && (object.futureproofData = $util.newBuffer(object.futureproofData))), 
+            object.statusPsa = null, object.pollAdditionalMetadata = null, object.agentId = "", 
+            object.statusAlreadyViewed = !1, options.bytes === String ? object.messageSecret = "" : (object.messageSecret = [], 
+            options.bytes !== Array && (object.messageSecret = $util.newBuffer(object.messageSecret))), 
+            object.keepInChat = null, object.originalSelfAuthorUserJidString = "", 
+            $util.Long) {
+                let long = new $util.Long(0, 0, !0);
+                object.revokeMessageTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+            } else object.revokeMessageTimestamp = options.longs === String ? "0" : 0;
+            if (object.pinInChat = null, object.premiumMessageInfo = null, object.is1PBizBotMessage = !1, 
+            object.isGroupHistoryMessage = !1, object.botMessageInvokerJid = "", 
+            object.commentMetadata = null, object.reportingTokenInfo = null, $util.Long) {
+                let long = new $util.Long(0, 0, !0);
+                object.newsletterServerId = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+            } else object.newsletterServerId = options.longs === String ? "0" : 0;
+            object.eventAdditionalMetadata = null, object.isMentionedInStatus = !1, 
+            object.targetMessageId = null;
+        }
+        if (null != message.key && message.hasOwnProperty("key") && (object.key = $root.MessageKey.toObject(message.key, options)), 
         null != message.message && message.hasOwnProperty("message") && (object.message = $root.Message.toObject(message.message, options)), 
         null != message.messageTimestamp && message.hasOwnProperty("messageTimestamp") && ("number" == typeof message.messageTimestamp ? object.messageTimestamp = options.longs === String ? String(message.messageTimestamp) : message.messageTimestamp : object.messageTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.messageTimestamp) : options.longs === Number ? new $util.LongBits(message.messageTimestamp.low >>> 0, message.messageTimestamp.high >>> 0).toNumber(!0) : message.messageTimestamp), 
         null != message.status && message.hasOwnProperty("status") && (object.status = options.enums !== String || void 0 === $root.WebMessageInfo.Status[message.status] ? message.status : $root.WebMessageInfo.Status[message.status]), 
@@ -32489,12 +33682,12 @@ $root.ADVEncryptionType = function() {
         null != message.clearMedia && message.hasOwnProperty("clearMedia") && (object.clearMedia = message.clearMedia), 
         message.messageStubParameters && message.messageStubParameters.length) {
             object.messageStubParameters = [];
-            for (var j = 0; j < message.messageStubParameters.length; ++j) object.messageStubParameters[j] = message.messageStubParameters[j];
+            for (let j = 0; j < message.messageStubParameters.length; ++j) object.messageStubParameters[j] = message.messageStubParameters[j];
         }
         if (null != message.duration && message.hasOwnProperty("duration") && (object.duration = message.duration), 
         message.labels && message.labels.length) {
             object.labels = [];
-            for (j = 0; j < message.labels.length; ++j) object.labels[j] = message.labels[j];
+            for (let j = 0; j < message.labels.length; ++j) object.labels[j] = message.labels[j];
         }
         if (null != message.paymentInfo && message.hasOwnProperty("paymentInfo") && (object.paymentInfo = $root.PaymentInfo.toObject(message.paymentInfo, options)), 
         null != message.finalLiveLocation && message.hasOwnProperty("finalLiveLocation") && (object.finalLiveLocation = $root.Message.LiveLocationMessage.toObject(message.finalLiveLocation, options)), 
@@ -32509,18 +33702,18 @@ $root.ADVEncryptionType = function() {
         null != message.photoChange && message.hasOwnProperty("photoChange") && (object.photoChange = $root.PhotoChange.toObject(message.photoChange, options)), 
         message.userReceipt && message.userReceipt.length) {
             object.userReceipt = [];
-            for (j = 0; j < message.userReceipt.length; ++j) object.userReceipt[j] = $root.UserReceipt.toObject(message.userReceipt[j], options);
+            for (let j = 0; j < message.userReceipt.length; ++j) object.userReceipt[j] = $root.UserReceipt.toObject(message.userReceipt[j], options);
         }
         if (message.reactions && message.reactions.length) {
             object.reactions = [];
-            for (j = 0; j < message.reactions.length; ++j) object.reactions[j] = $root.Reaction.toObject(message.reactions[j], options);
+            for (let j = 0; j < message.reactions.length; ++j) object.reactions[j] = $root.Reaction.toObject(message.reactions[j], options);
         }
         if (null != message.quotedStickerData && message.hasOwnProperty("quotedStickerData") && (object.quotedStickerData = $root.MediaData.toObject(message.quotedStickerData, options)), 
         null != message.futureproofData && message.hasOwnProperty("futureproofData") && (object.futureproofData = options.bytes === String ? $util.base64.encode(message.futureproofData, 0, message.futureproofData.length) : options.bytes === Array ? Array.prototype.slice.call(message.futureproofData) : message.futureproofData), 
         null != message.statusPsa && message.hasOwnProperty("statusPsa") && (object.statusPsa = $root.StatusPSA.toObject(message.statusPsa, options)), 
         message.pollUpdates && message.pollUpdates.length) {
             object.pollUpdates = [];
-            for (j = 0; j < message.pollUpdates.length; ++j) object.pollUpdates[j] = $root.PollUpdate.toObject(message.pollUpdates[j], options);
+            for (let j = 0; j < message.pollUpdates.length; ++j) object.pollUpdates[j] = $root.PollUpdate.toObject(message.pollUpdates[j], options);
         }
         if (null != message.pollAdditionalMetadata && message.hasOwnProperty("pollAdditionalMetadata") && (object.pollAdditionalMetadata = $root.PollAdditionalMetadata.toObject(message.pollAdditionalMetadata, options)), 
         null != message.agentId && message.hasOwnProperty("agentId") && (object.agentId = message.agentId), 
@@ -32537,7 +33730,7 @@ $root.ADVEncryptionType = function() {
         null != message.commentMetadata && message.hasOwnProperty("commentMetadata") && (object.commentMetadata = $root.CommentMetadata.toObject(message.commentMetadata, options)), 
         message.eventResponses && message.eventResponses.length) {
             object.eventResponses = [];
-            for (j = 0; j < message.eventResponses.length; ++j) object.eventResponses[j] = $root.EventResponse.toObject(message.eventResponses[j], options);
+            for (let j = 0; j < message.eventResponses.length; ++j) object.eventResponses[j] = $root.EventResponse.toObject(message.eventResponses[j], options);
         }
         if (null != message.reportingTokenInfo && message.hasOwnProperty("reportingTokenInfo") && (object.reportingTokenInfo = $root.ReportingTokenInfo.toObject(message.reportingTokenInfo, options)), 
         null != message.newsletterServerId && message.hasOwnProperty("newsletterServerId") && ("number" == typeof message.newsletterServerId ? object.newsletterServerId = options.longs === String ? String(message.newsletterServerId) : message.newsletterServerId : object.newsletterServerId = options.longs === String ? $util.Long.prototype.toString.call(message.newsletterServerId) : options.longs === Number ? new $util.LongBits(message.newsletterServerId.low >>> 0, message.newsletterServerId.high >>> 0).toNumber(!0) : message.newsletterServerId), 
@@ -32545,12 +33738,12 @@ $root.ADVEncryptionType = function() {
         null != message.isMentionedInStatus && message.hasOwnProperty("isMentionedInStatus") && (object.isMentionedInStatus = message.isMentionedInStatus), 
         message.statusMentions && message.statusMentions.length) {
             object.statusMentions = [];
-            for (j = 0; j < message.statusMentions.length; ++j) object.statusMentions[j] = message.statusMentions[j];
+            for (let j = 0; j < message.statusMentions.length; ++j) object.statusMentions[j] = message.statusMentions[j];
         }
         if (null != message.targetMessageId && message.hasOwnProperty("targetMessageId") && (object.targetMessageId = $root.MessageKey.toObject(message.targetMessageId, options)), 
         message.messageAddOns && message.messageAddOns.length) {
             object.messageAddOns = [];
-            for (j = 0; j < message.messageAddOns.length; ++j) object.messageAddOns[j] = $root.MessageAddOn.toObject(message.messageAddOns[j], options);
+            for (let j = 0; j < message.messageAddOns.length; ++j) object.messageAddOns[j] = $root.MessageAddOn.toObject(message.messageAddOns[j], options);
         }
         return object;
     }, WebMessageInfo.prototype.toJSON = function() {
@@ -32686,9 +33879,9 @@ $root.ADVEncryptionType = function() {
         values[valuesById[4] = "READ"] = 4, values[valuesById[5] = "PLAYED"] = 5, 
         values;
     }(), WebMessageInfo;
-}(), $root.CommentMetadata = function() {
+})(), CommentMetadata = $root.CommentMetadata = (() => {
     function CommentMetadata(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return CommentMetadata.prototype.commentParentKey = null, CommentMetadata.prototype.replyCount = 0, 
     CommentMetadata.create = function(properties) {
@@ -32746,9 +33939,9 @@ $root.ADVEncryptionType = function() {
     }, CommentMetadata.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/CommentMetadata";
     }, CommentMetadata;
-}(), $root.PaymentInfo = function() {
+})(), PaymentInfo = $root.PaymentInfo = (() => {
     function PaymentInfo(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     var valuesById, values;
     return PaymentInfo.prototype.currencyDeprecated = 0, PaymentInfo.prototype.amount1000 = $util.Long ? $util.Long.fromBits(0, 0, !0) : 0, 
@@ -32869,8 +34062,10 @@ $root.ADVEncryptionType = function() {
           case 11:
         }
         if (null != message.transactionTimestamp && message.hasOwnProperty("transactionTimestamp") && !($util.isInteger(message.transactionTimestamp) || message.transactionTimestamp && $util.isInteger(message.transactionTimestamp.low) && $util.isInteger(message.transactionTimestamp.high))) return "transactionTimestamp: integer|Long expected";
-        var error;
-        if (null != message.requestMessageKey && message.hasOwnProperty("requestMessageKey") && (error = $root.MessageKey.verify(message.requestMessageKey))) return "requestMessageKey." + error;
+        if (null != message.requestMessageKey && message.hasOwnProperty("requestMessageKey")) {
+            var error = $root.MessageKey.verify(message.requestMessageKey);
+            if (error) return "requestMessageKey." + error;
+        }
         if (null != message.expiryTimestamp && message.hasOwnProperty("expiryTimestamp") && !($util.isInteger(message.expiryTimestamp) || message.expiryTimestamp && $util.isInteger(message.expiryTimestamp.low) && $util.isInteger(message.expiryTimestamp.high))) return "expiryTimestamp: integer|Long expected";
         if (null != message.futureproofed && message.hasOwnProperty("futureproofed") && "boolean" != typeof message.futureproofed) return "futureproofed: boolean expected";
         if (null != message.currency && message.hasOwnProperty("currency") && !$util.isString(message.currency)) return "currency: string expected";
@@ -32912,8 +34107,14 @@ $root.ADVEncryptionType = function() {
           case 31:
         }
         if (null != message.useNoviFiatFormat && message.hasOwnProperty("useNoviFiatFormat") && "boolean" != typeof message.useNoviFiatFormat) return "useNoviFiatFormat: boolean expected";
-        if (null != message.primaryAmount && message.hasOwnProperty("primaryAmount") && (error = $root.Money.verify(message.primaryAmount))) return "primaryAmount." + error;
-        if (null != message.exchangeAmount && message.hasOwnProperty("exchangeAmount") && (error = $root.Money.verify(message.exchangeAmount))) return "exchangeAmount." + error;
+        if (null != message.primaryAmount && message.hasOwnProperty("primaryAmount")) {
+            let error = $root.Money.verify(message.primaryAmount);
+            if (error) return "primaryAmount." + error;
+        }
+        if (null != message.exchangeAmount && message.hasOwnProperty("exchangeAmount")) {
+            let error = $root.Money.verify(message.exchangeAmount);
+            if (error) return "exchangeAmount." + error;
+        }
         return null;
     }, PaymentInfo.fromObject = function(object) {
         if (object instanceof $root.PaymentInfo) return object;
@@ -33182,15 +34383,22 @@ $root.ADVEncryptionType = function() {
         return message;
     }, PaymentInfo.toObject = function(message, options) {
         var long, object = {};
-        return (options = options || {}).defaults && (object.currencyDeprecated = options.enums === String ? "UNKNOWN_CURRENCY" : 0, 
-        $util.Long ? (long = new $util.Long(0, 0, !0), object.amount1000 = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.amount1000 = options.longs === String ? "0" : 0, 
-        object.receiverJid = "", object.status = options.enums === String ? "UNKNOWN_STATUS" : 0, 
-        $util.Long ? (long = new $util.Long(0, 0, !0), object.transactionTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.transactionTimestamp = options.longs === String ? "0" : 0, 
-        object.requestMessageKey = null, $util.Long ? (long = new $util.Long(0, 0, !0), 
-        object.expiryTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.expiryTimestamp = options.longs === String ? "0" : 0, 
-        object.futureproofed = !1, object.currency = "", object.txnStatus = options.enums === String ? "UNKNOWN" : 0, 
-        object.useNoviFiatFormat = !1, object.primaryAmount = null, object.exchangeAmount = null), 
-        null != message.currencyDeprecated && message.hasOwnProperty("currencyDeprecated") && (object.currencyDeprecated = options.enums !== String || void 0 === $root.PaymentInfo.Currency[message.currencyDeprecated] ? message.currencyDeprecated : $root.PaymentInfo.Currency[message.currencyDeprecated]), 
+        if ((options = options || {}).defaults) {
+            if (object.currencyDeprecated = options.enums === String ? "UNKNOWN_CURRENCY" : 0, 
+            $util.Long ? (long = new $util.Long(0, 0, !0), object.amount1000 = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.amount1000 = options.longs === String ? "0" : 0, 
+            object.receiverJid = "", object.status = options.enums === String ? "UNKNOWN_STATUS" : 0, 
+            $util.Long) {
+                let long = new $util.Long(0, 0, !0);
+                object.transactionTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+            } else object.transactionTimestamp = options.longs === String ? "0" : 0;
+            if (object.requestMessageKey = null, $util.Long) {
+                let long = new $util.Long(0, 0, !0);
+                object.expiryTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+            } else object.expiryTimestamp = options.longs === String ? "0" : 0;
+            object.futureproofed = !1, object.currency = "", object.txnStatus = options.enums === String ? "UNKNOWN" : 0, 
+            object.useNoviFiatFormat = !1, object.primaryAmount = null, object.exchangeAmount = null;
+        }
+        return null != message.currencyDeprecated && message.hasOwnProperty("currencyDeprecated") && (object.currencyDeprecated = options.enums !== String || void 0 === $root.PaymentInfo.Currency[message.currencyDeprecated] ? message.currencyDeprecated : $root.PaymentInfo.Currency[message.currencyDeprecated]), 
         null != message.amount1000 && message.hasOwnProperty("amount1000") && ("number" == typeof message.amount1000 ? object.amount1000 = options.longs === String ? String(message.amount1000) : message.amount1000 : object.amount1000 = options.longs === String ? $util.Long.prototype.toString.call(message.amount1000) : options.longs === Number ? new $util.LongBits(message.amount1000.low >>> 0, message.amount1000.high >>> 0).toNumber(!0) : message.amount1000), 
         null != message.receiverJid && message.hasOwnProperty("receiverJid") && (object.receiverJid = message.receiverJid), 
         null != message.status && message.hasOwnProperty("status") && (object.status = options.enums !== String || void 0 === $root.PaymentInfo.Status[message.status] ? message.status : $root.PaymentInfo.Status[message.status]), 
@@ -33238,9 +34446,9 @@ $root.ADVEncryptionType = function() {
         return values[valuesById[0] = "UNKNOWN_CURRENCY"] = 0, values[valuesById[1] = "INR"] = 1, 
         values;
     }(), PaymentInfo;
-}(), $root.WebNotificationsInfo = function() {
+})(), WebNotificationsInfo = $root.WebNotificationsInfo = (() => {
     function WebNotificationsInfo(properties) {
-        if (this.notifyMessages = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (this.notifyMessages = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return WebNotificationsInfo.prototype.timestamp = $util.Long ? $util.Long.fromBits(0, 0, !0) : 0, 
     WebNotificationsInfo.prototype.unreadChats = 0, WebNotificationsInfo.prototype.notifyMessageCount = 0, 
@@ -33250,7 +34458,7 @@ $root.ADVEncryptionType = function() {
         if (writer = writer || $Writer.create(), null != message.timestamp && Object.hasOwnProperty.call(message, "timestamp") && writer.uint32(16).uint64(message.timestamp), 
         null != message.unreadChats && Object.hasOwnProperty.call(message, "unreadChats") && writer.uint32(24).uint32(message.unreadChats), 
         null != message.notifyMessageCount && Object.hasOwnProperty.call(message, "notifyMessageCount") && writer.uint32(32).uint32(message.notifyMessageCount), 
-        null != message.notifyMessages && message.notifyMessages.length) for (var i = 0; i < message.notifyMessages.length; ++i) $root.WebMessageInfo.encode(message.notifyMessages[i], writer.uint32(42).fork()).ldelim();
+        null != message.notifyMessages && message.notifyMessages.length) for (let i = 0; i < message.notifyMessages.length; ++i) $root.WebMessageInfo.encode(message.notifyMessages[i], writer.uint32(42).fork()).ldelim();
         return writer;
     }, WebNotificationsInfo.encodeDelimited = function(message, writer) {
         return this.encode(message, writer).ldelim();
@@ -33290,7 +34498,7 @@ $root.ADVEncryptionType = function() {
         if (null != message.notifyMessageCount && message.hasOwnProperty("notifyMessageCount") && !$util.isInteger(message.notifyMessageCount)) return "notifyMessageCount: integer expected";
         if (null != message.notifyMessages && message.hasOwnProperty("notifyMessages")) {
             if (!Array.isArray(message.notifyMessages)) return "notifyMessages: array expected";
-            for (var i = 0; i < message.notifyMessages.length; ++i) {
+            for (let i = 0; i < message.notifyMessages.length; ++i) {
                 var error = $root.WebMessageInfo.verify(message.notifyMessages[i]);
                 if (error) return "notifyMessages." + error;
             }
@@ -33305,7 +34513,7 @@ $root.ADVEncryptionType = function() {
         object.notifyMessages) {
             if (!Array.isArray(object.notifyMessages)) throw TypeError(".WebNotificationsInfo.notifyMessages: array expected");
             message.notifyMessages = [];
-            for (var i = 0; i < object.notifyMessages.length; ++i) {
+            for (let i = 0; i < object.notifyMessages.length; ++i) {
                 if ("object" != typeof object.notifyMessages[i]) throw TypeError(".WebNotificationsInfo.notifyMessages: object expected");
                 message.notifyMessages[i] = $root.WebMessageInfo.fromObject(object.notifyMessages[i]);
             }
@@ -33320,7 +34528,7 @@ $root.ADVEncryptionType = function() {
         null != message.notifyMessageCount && message.hasOwnProperty("notifyMessageCount") && (object.notifyMessageCount = message.notifyMessageCount), 
         message.notifyMessages && message.notifyMessages.length) {
             object.notifyMessages = [];
-            for (var j = 0; j < message.notifyMessages.length; ++j) object.notifyMessages[j] = $root.WebMessageInfo.toObject(message.notifyMessages[j], options);
+            for (let j = 0; j < message.notifyMessages.length; ++j) object.notifyMessages[j] = $root.WebMessageInfo.toObject(message.notifyMessages[j], options);
         }
         return object;
     }, WebNotificationsInfo.prototype.toJSON = function() {
@@ -33328,9 +34536,9 @@ $root.ADVEncryptionType = function() {
     }, WebNotificationsInfo.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/WebNotificationsInfo";
     }, WebNotificationsInfo;
-}(), $root.NotificationMessageInfo = function() {
+})(), NotificationMessageInfo = $root.NotificationMessageInfo = (() => {
     function NotificationMessageInfo(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return NotificationMessageInfo.prototype.key = null, NotificationMessageInfo.prototype.message = null, 
     NotificationMessageInfo.prototype.messageTimestamp = $util.Long ? $util.Long.fromBits(0, 0, !0) : 0, 
@@ -33374,9 +34582,14 @@ $root.ADVEncryptionType = function() {
         return reader instanceof $Reader || (reader = new $Reader(reader)), this.decode(reader, reader.uint32());
     }, NotificationMessageInfo.verify = function(message) {
         if ("object" != typeof message || null === message) return "object expected";
-        var error;
-        if (null != message.key && message.hasOwnProperty("key") && (error = $root.MessageKey.verify(message.key))) return "key." + error;
-        if (null != message.message && message.hasOwnProperty("message") && (error = $root.Message.verify(message.message))) return "message." + error;
+        if (null != message.key && message.hasOwnProperty("key")) {
+            var error = $root.MessageKey.verify(message.key);
+            if (error) return "key." + error;
+        }
+        if (null != message.message && message.hasOwnProperty("message")) {
+            let error = $root.Message.verify(message.message);
+            if (error) return "message." + error;
+        }
         return null != message.messageTimestamp && message.hasOwnProperty("messageTimestamp") && !($util.isInteger(message.messageTimestamp) || message.messageTimestamp && $util.isInteger(message.messageTimestamp.low) && $util.isInteger(message.messageTimestamp.high)) ? "messageTimestamp: integer|Long expected" : null != message.participant && message.hasOwnProperty("participant") && !$util.isString(message.participant) ? "participant: string expected" : null;
     }, NotificationMessageInfo.fromObject = function(object) {
         if (object instanceof $root.NotificationMessageInfo) return object;
@@ -33406,9 +34619,9 @@ $root.ADVEncryptionType = function() {
     }, NotificationMessageInfo.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/NotificationMessageInfo";
     }, NotificationMessageInfo;
-}(), $root.WebFeatures = function() {
+})(), WebFeatures = $root.WebFeatures = (() => {
     function WebFeatures(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     var valuesById, values;
     return WebFeatures.prototype.labelsDisplay = 0, WebFeatures.prototype.voipIndividualOutgoing = 0, 
@@ -35254,9 +36467,9 @@ $root.ADVEncryptionType = function() {
     }, WebFeatures.Flag = (valuesById = {}, (values = Object.create(valuesById))[valuesById[0] = "NOT_STARTED"] = 0, 
     values[valuesById[1] = "FORCE_UPGRADE"] = 1, values[valuesById[2] = "DEVELOPMENT"] = 2, 
     values[valuesById[3] = "PRODUCTION"] = 3, values), WebFeatures;
-}(), $root.ReportingTokenInfo = function() {
+})(), ReportingTokenInfo = $root.ReportingTokenInfo = (() => {
     function ReportingTokenInfo(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return ReportingTokenInfo.prototype.reportingTag = $util.newBuffer([]), ReportingTokenInfo.create = function(properties) {
         return new ReportingTokenInfo(properties);
@@ -35292,9 +36505,9 @@ $root.ADVEncryptionType = function() {
     }, ReportingTokenInfo.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/ReportingTokenInfo";
     }, ReportingTokenInfo;
-}(), $root.MediaData = function() {
+})(), MediaData = $root.MediaData = (() => {
     function MediaData(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return MediaData.prototype.localPath = "", MediaData.create = function(properties) {
         return new MediaData(properties);
@@ -35328,9 +36541,9 @@ $root.ADVEncryptionType = function() {
     }, MediaData.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/MediaData";
     }, MediaData;
-}(), $root.PhotoChange = function() {
+})(), PhotoChange = $root.PhotoChange = (() => {
     function PhotoChange(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return PhotoChange.prototype.oldPhoto = $util.newBuffer([]), PhotoChange.prototype.newPhoto = $util.newBuffer([]), 
     PhotoChange.prototype.newPhotoId = 0, PhotoChange.create = function(properties) {
@@ -35390,9 +36603,9 @@ $root.ADVEncryptionType = function() {
     }, PhotoChange.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/PhotoChange";
     }, PhotoChange;
-}(), $root.StatusPSA = function() {
+})(), StatusPSA = $root.StatusPSA = (() => {
     function StatusPSA(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return StatusPSA.prototype.campaignId = $util.Long ? $util.Long.fromBits(0, 0, !0) : 0, 
     StatusPSA.prototype.campaignExpirationTimestamp = $util.Long ? $util.Long.fromBits(0, 0, !0) : 0, 
@@ -35436,11 +36649,15 @@ $root.ADVEncryptionType = function() {
         null != object.campaignExpirationTimestamp && ($util.Long ? (message.campaignExpirationTimestamp = $util.Long.fromValue(object.campaignExpirationTimestamp)).unsigned = !0 : "string" == typeof object.campaignExpirationTimestamp ? message.campaignExpirationTimestamp = parseInt(object.campaignExpirationTimestamp, 10) : "number" == typeof object.campaignExpirationTimestamp ? message.campaignExpirationTimestamp = object.campaignExpirationTimestamp : "object" == typeof object.campaignExpirationTimestamp && (message.campaignExpirationTimestamp = new $util.LongBits(object.campaignExpirationTimestamp.low >>> 0, object.campaignExpirationTimestamp.high >>> 0).toNumber(!0))), 
         message);
     }, StatusPSA.toObject = function(message, options) {
+        options = options || {};
         var long, object = {};
-        return (options = options || {}).defaults && ($util.Long ? (long = new $util.Long(0, 0, !0), 
+        if (options.defaults) if ($util.Long ? (long = new $util.Long(0, 0, !0), 
         object.campaignId = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.campaignId = options.longs === String ? "0" : 0, 
-        $util.Long ? (long = new $util.Long(0, 0, !0), object.campaignExpirationTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.campaignExpirationTimestamp = options.longs === String ? "0" : 0), 
-        null != message.campaignId && message.hasOwnProperty("campaignId") && ("number" == typeof message.campaignId ? object.campaignId = options.longs === String ? String(message.campaignId) : message.campaignId : object.campaignId = options.longs === String ? $util.Long.prototype.toString.call(message.campaignId) : options.longs === Number ? new $util.LongBits(message.campaignId.low >>> 0, message.campaignId.high >>> 0).toNumber(!0) : message.campaignId), 
+        $util.Long) {
+            let long = new $util.Long(0, 0, !0);
+            object.campaignExpirationTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+        } else object.campaignExpirationTimestamp = options.longs === String ? "0" : 0;
+        return null != message.campaignId && message.hasOwnProperty("campaignId") && ("number" == typeof message.campaignId ? object.campaignId = options.longs === String ? String(message.campaignId) : message.campaignId : object.campaignId = options.longs === String ? $util.Long.prototype.toString.call(message.campaignId) : options.longs === Number ? new $util.LongBits(message.campaignId.low >>> 0, message.campaignId.high >>> 0).toNumber(!0) : message.campaignId), 
         null != message.campaignExpirationTimestamp && message.hasOwnProperty("campaignExpirationTimestamp") && ("number" == typeof message.campaignExpirationTimestamp ? object.campaignExpirationTimestamp = options.longs === String ? String(message.campaignExpirationTimestamp) : message.campaignExpirationTimestamp : object.campaignExpirationTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.campaignExpirationTimestamp) : options.longs === Number ? new $util.LongBits(message.campaignExpirationTimestamp.low >>> 0, message.campaignExpirationTimestamp.high >>> 0).toNumber(!0) : message.campaignExpirationTimestamp), 
         object;
     }, StatusPSA.prototype.toJSON = function() {
@@ -35448,9 +36665,9 @@ $root.ADVEncryptionType = function() {
     }, StatusPSA.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/StatusPSA";
     }, StatusPSA;
-}(), $root.UserReceipt = function() {
+})(), UserReceipt = $root.UserReceipt = (() => {
     function UserReceipt(properties) {
-        if (this.pendingDeviceJid = [], this.deliveredDeviceJid = [], properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (this.pendingDeviceJid = [], this.deliveredDeviceJid = [], properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return UserReceipt.prototype.userJid = "", UserReceipt.prototype.receiptTimestamp = $util.Long ? $util.Long.fromBits(0, 0, !1) : 0, 
     UserReceipt.prototype.readTimestamp = $util.Long ? $util.Long.fromBits(0, 0, !1) : 0, 
@@ -35463,8 +36680,8 @@ $root.ADVEncryptionType = function() {
         null != message.receiptTimestamp && Object.hasOwnProperty.call(message, "receiptTimestamp") && writer.uint32(16).int64(message.receiptTimestamp), 
         null != message.readTimestamp && Object.hasOwnProperty.call(message, "readTimestamp") && writer.uint32(24).int64(message.readTimestamp), 
         null != message.playedTimestamp && Object.hasOwnProperty.call(message, "playedTimestamp") && writer.uint32(32).int64(message.playedTimestamp), 
-        null != message.pendingDeviceJid && message.pendingDeviceJid.length) for (var i = 0; i < message.pendingDeviceJid.length; ++i) writer.uint32(42).string(message.pendingDeviceJid[i]);
-        if (null != message.deliveredDeviceJid && message.deliveredDeviceJid.length) for (i = 0; i < message.deliveredDeviceJid.length; ++i) writer.uint32(50).string(message.deliveredDeviceJid[i]);
+        null != message.pendingDeviceJid && message.pendingDeviceJid.length) for (let i = 0; i < message.pendingDeviceJid.length; ++i) writer.uint32(42).string(message.pendingDeviceJid[i]);
+        if (null != message.deliveredDeviceJid && message.deliveredDeviceJid.length) for (let i = 0; i < message.deliveredDeviceJid.length; ++i) writer.uint32(50).string(message.deliveredDeviceJid[i]);
         return writer;
     }, UserReceipt.encodeDelimited = function(message, writer) {
         return this.encode(message, writer).ldelim();
@@ -35517,11 +36734,11 @@ $root.ADVEncryptionType = function() {
         if (null != message.playedTimestamp && message.hasOwnProperty("playedTimestamp") && !($util.isInteger(message.playedTimestamp) || message.playedTimestamp && $util.isInteger(message.playedTimestamp.low) && $util.isInteger(message.playedTimestamp.high))) return "playedTimestamp: integer|Long expected";
         if (null != message.pendingDeviceJid && message.hasOwnProperty("pendingDeviceJid")) {
             if (!Array.isArray(message.pendingDeviceJid)) return "pendingDeviceJid: array expected";
-            for (var i = 0; i < message.pendingDeviceJid.length; ++i) if (!$util.isString(message.pendingDeviceJid[i])) return "pendingDeviceJid: string[] expected";
+            for (let i = 0; i < message.pendingDeviceJid.length; ++i) if (!$util.isString(message.pendingDeviceJid[i])) return "pendingDeviceJid: string[] expected";
         }
         if (null != message.deliveredDeviceJid && message.hasOwnProperty("deliveredDeviceJid")) {
             if (!Array.isArray(message.deliveredDeviceJid)) return "deliveredDeviceJid: array expected";
-            for (i = 0; i < message.deliveredDeviceJid.length; ++i) if (!$util.isString(message.deliveredDeviceJid[i])) return "deliveredDeviceJid: string[] expected";
+            for (let i = 0; i < message.deliveredDeviceJid.length; ++i) if (!$util.isString(message.deliveredDeviceJid[i])) return "deliveredDeviceJid: string[] expected";
         }
         return null;
     }, UserReceipt.fromObject = function(object) {
@@ -35534,32 +36751,40 @@ $root.ADVEncryptionType = function() {
         object.pendingDeviceJid) {
             if (!Array.isArray(object.pendingDeviceJid)) throw TypeError(".UserReceipt.pendingDeviceJid: array expected");
             message.pendingDeviceJid = [];
-            for (var i = 0; i < object.pendingDeviceJid.length; ++i) message.pendingDeviceJid[i] = String(object.pendingDeviceJid[i]);
+            for (let i = 0; i < object.pendingDeviceJid.length; ++i) message.pendingDeviceJid[i] = String(object.pendingDeviceJid[i]);
         }
         if (object.deliveredDeviceJid) {
             if (!Array.isArray(object.deliveredDeviceJid)) throw TypeError(".UserReceipt.deliveredDeviceJid: array expected");
             message.deliveredDeviceJid = [];
-            for (i = 0; i < object.deliveredDeviceJid.length; ++i) message.deliveredDeviceJid[i] = String(object.deliveredDeviceJid[i]);
+            for (let i = 0; i < object.deliveredDeviceJid.length; ++i) message.deliveredDeviceJid[i] = String(object.deliveredDeviceJid[i]);
         }
         return message;
     }, UserReceipt.toObject = function(message, options) {
         var long, object = {};
         if (((options = options || {}).arrays || options.defaults) && (object.pendingDeviceJid = [], 
-        object.deliveredDeviceJid = []), options.defaults && (object.userJid = "", 
-        $util.Long ? (long = new $util.Long(0, 0, !1), object.receiptTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.receiptTimestamp = options.longs === String ? "0" : 0, 
-        $util.Long ? (long = new $util.Long(0, 0, !1), object.readTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.readTimestamp = options.longs === String ? "0" : 0, 
-        $util.Long ? (long = new $util.Long(0, 0, !1), object.playedTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.playedTimestamp = options.longs === String ? "0" : 0), 
-        null != message.userJid && message.hasOwnProperty("userJid") && (object.userJid = message.userJid), 
+        object.deliveredDeviceJid = []), options.defaults) {
+            if (object.userJid = "", $util.Long ? (long = new $util.Long(0, 0, !1), 
+            object.receiptTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.receiptTimestamp = options.longs === String ? "0" : 0, 
+            $util.Long) {
+                let long = new $util.Long(0, 0, !1);
+                object.readTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+            } else object.readTimestamp = options.longs === String ? "0" : 0;
+            if ($util.Long) {
+                let long = new $util.Long(0, 0, !1);
+                object.playedTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+            } else object.playedTimestamp = options.longs === String ? "0" : 0;
+        }
+        if (null != message.userJid && message.hasOwnProperty("userJid") && (object.userJid = message.userJid), 
         null != message.receiptTimestamp && message.hasOwnProperty("receiptTimestamp") && ("number" == typeof message.receiptTimestamp ? object.receiptTimestamp = options.longs === String ? String(message.receiptTimestamp) : message.receiptTimestamp : object.receiptTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.receiptTimestamp) : options.longs === Number ? new $util.LongBits(message.receiptTimestamp.low >>> 0, message.receiptTimestamp.high >>> 0).toNumber() : message.receiptTimestamp), 
         null != message.readTimestamp && message.hasOwnProperty("readTimestamp") && ("number" == typeof message.readTimestamp ? object.readTimestamp = options.longs === String ? String(message.readTimestamp) : message.readTimestamp : object.readTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.readTimestamp) : options.longs === Number ? new $util.LongBits(message.readTimestamp.low >>> 0, message.readTimestamp.high >>> 0).toNumber() : message.readTimestamp), 
         null != message.playedTimestamp && message.hasOwnProperty("playedTimestamp") && ("number" == typeof message.playedTimestamp ? object.playedTimestamp = options.longs === String ? String(message.playedTimestamp) : message.playedTimestamp : object.playedTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.playedTimestamp) : options.longs === Number ? new $util.LongBits(message.playedTimestamp.low >>> 0, message.playedTimestamp.high >>> 0).toNumber() : message.playedTimestamp), 
         message.pendingDeviceJid && message.pendingDeviceJid.length) {
             object.pendingDeviceJid = [];
-            for (var j = 0; j < message.pendingDeviceJid.length; ++j) object.pendingDeviceJid[j] = message.pendingDeviceJid[j];
+            for (let j = 0; j < message.pendingDeviceJid.length; ++j) object.pendingDeviceJid[j] = message.pendingDeviceJid[j];
         }
         if (message.deliveredDeviceJid && message.deliveredDeviceJid.length) {
             object.deliveredDeviceJid = [];
-            for (j = 0; j < message.deliveredDeviceJid.length; ++j) object.deliveredDeviceJid[j] = message.deliveredDeviceJid[j];
+            for (let j = 0; j < message.deliveredDeviceJid.length; ++j) object.deliveredDeviceJid[j] = message.deliveredDeviceJid[j];
         }
         return object;
     }, UserReceipt.prototype.toJSON = function() {
@@ -35567,9 +36792,9 @@ $root.ADVEncryptionType = function() {
     }, UserReceipt.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/UserReceipt";
     }, UserReceipt;
-}(), $root.Reaction = function() {
+})(), Reaction = $root.Reaction = (() => {
     function Reaction(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return Reaction.prototype.key = null, Reaction.prototype.text = "", Reaction.prototype.groupingKey = "", 
     Reaction.prototype.senderTimestampMs = $util.Long ? $util.Long.fromBits(0, 0, !1) : 0, 
@@ -35649,9 +36874,9 @@ $root.ADVEncryptionType = function() {
     }, Reaction.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/Reaction";
     }, Reaction;
-}(), $root.PollUpdate = function() {
+})(), PollUpdate = $root.PollUpdate = (() => {
     function PollUpdate(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return PollUpdate.prototype.pollUpdateMessageKey = null, PollUpdate.prototype.vote = null, 
     PollUpdate.prototype.senderTimestampMs = $util.Long ? $util.Long.fromBits(0, 0, !1) : 0, 
@@ -35701,9 +36926,14 @@ $root.ADVEncryptionType = function() {
         return reader instanceof $Reader || (reader = new $Reader(reader)), this.decode(reader, reader.uint32());
     }, PollUpdate.verify = function(message) {
         if ("object" != typeof message || null === message) return "object expected";
-        var error;
-        if (null != message.pollUpdateMessageKey && message.hasOwnProperty("pollUpdateMessageKey") && (error = $root.MessageKey.verify(message.pollUpdateMessageKey))) return "pollUpdateMessageKey." + error;
-        if (null != message.vote && message.hasOwnProperty("vote") && (error = $root.Message.PollVoteMessage.verify(message.vote))) return "vote." + error;
+        if (null != message.pollUpdateMessageKey && message.hasOwnProperty("pollUpdateMessageKey")) {
+            var error = $root.MessageKey.verify(message.pollUpdateMessageKey);
+            if (error) return "pollUpdateMessageKey." + error;
+        }
+        if (null != message.vote && message.hasOwnProperty("vote")) {
+            let error = $root.Message.PollVoteMessage.verify(message.vote);
+            if (error) return "vote." + error;
+        }
         return null != message.senderTimestampMs && message.hasOwnProperty("senderTimestampMs") && !($util.isInteger(message.senderTimestampMs) || message.senderTimestampMs && $util.isInteger(message.senderTimestampMs.low) && $util.isInteger(message.senderTimestampMs.high)) ? "senderTimestampMs: integer|Long expected" : null != message.serverTimestampMs && message.hasOwnProperty("serverTimestampMs") && !($util.isInteger(message.serverTimestampMs) || message.serverTimestampMs && $util.isInteger(message.serverTimestampMs.low) && $util.isInteger(message.serverTimestampMs.high)) ? "serverTimestampMs: integer|Long expected" : null != message.unread && message.hasOwnProperty("unread") && "boolean" != typeof message.unread ? "unread: boolean expected" : null;
     }, PollUpdate.fromObject = function(object) {
         if (object instanceof $root.PollUpdate) return object;
@@ -35721,10 +36951,16 @@ $root.ADVEncryptionType = function() {
         null != object.unread && (message.unread = Boolean(object.unread)), message;
     }, PollUpdate.toObject = function(message, options) {
         var long, object = {};
-        return (options = options || {}).defaults && (object.pollUpdateMessageKey = null, 
-        object.vote = null, $util.Long ? (long = new $util.Long(0, 0, !1), object.senderTimestampMs = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.senderTimestampMs = options.longs === String ? "0" : 0, 
-        $util.Long ? (long = new $util.Long(0, 0, !1), object.serverTimestampMs = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.serverTimestampMs = options.longs === String ? "0" : 0, 
-        object.unread = !1), null != message.pollUpdateMessageKey && message.hasOwnProperty("pollUpdateMessageKey") && (object.pollUpdateMessageKey = $root.MessageKey.toObject(message.pollUpdateMessageKey, options)), 
+        if ((options = options || {}).defaults) {
+            if (object.pollUpdateMessageKey = null, object.vote = null, $util.Long ? (long = new $util.Long(0, 0, !1), 
+            object.senderTimestampMs = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.senderTimestampMs = options.longs === String ? "0" : 0, 
+            $util.Long) {
+                let long = new $util.Long(0, 0, !1);
+                object.serverTimestampMs = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+            } else object.serverTimestampMs = options.longs === String ? "0" : 0;
+            object.unread = !1;
+        }
+        return null != message.pollUpdateMessageKey && message.hasOwnProperty("pollUpdateMessageKey") && (object.pollUpdateMessageKey = $root.MessageKey.toObject(message.pollUpdateMessageKey, options)), 
         null != message.vote && message.hasOwnProperty("vote") && (object.vote = $root.Message.PollVoteMessage.toObject(message.vote, options)), 
         null != message.senderTimestampMs && message.hasOwnProperty("senderTimestampMs") && ("number" == typeof message.senderTimestampMs ? object.senderTimestampMs = options.longs === String ? String(message.senderTimestampMs) : message.senderTimestampMs : object.senderTimestampMs = options.longs === String ? $util.Long.prototype.toString.call(message.senderTimestampMs) : options.longs === Number ? new $util.LongBits(message.senderTimestampMs.low >>> 0, message.senderTimestampMs.high >>> 0).toNumber() : message.senderTimestampMs), 
         null != message.serverTimestampMs && message.hasOwnProperty("serverTimestampMs") && ("number" == typeof message.serverTimestampMs ? object.serverTimestampMs = options.longs === String ? String(message.serverTimestampMs) : message.serverTimestampMs : object.serverTimestampMs = options.longs === String ? $util.Long.prototype.toString.call(message.serverTimestampMs) : options.longs === Number ? new $util.LongBits(message.serverTimestampMs.low >>> 0, message.serverTimestampMs.high >>> 0).toNumber() : message.serverTimestampMs), 
@@ -35735,9 +36971,9 @@ $root.ADVEncryptionType = function() {
     }, PollUpdate.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/PollUpdate";
     }, PollUpdate;
-}(), $root.PollAdditionalMetadata = function() {
+})(), PollAdditionalMetadata = $root.PollAdditionalMetadata = (() => {
     function PollAdditionalMetadata(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return PollAdditionalMetadata.prototype.pollInvalidated = !1, PollAdditionalMetadata.create = function(properties) {
         return new PollAdditionalMetadata(properties);
@@ -35772,9 +37008,9 @@ $root.ADVEncryptionType = function() {
     }, PollAdditionalMetadata.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/PollAdditionalMetadata";
     }, PollAdditionalMetadata;
-}(), $root.EventAdditionalMetadata = function() {
+})(), EventAdditionalMetadata = $root.EventAdditionalMetadata = (() => {
     function EventAdditionalMetadata(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return EventAdditionalMetadata.prototype.isStale = !1, EventAdditionalMetadata.create = function(properties) {
         return new EventAdditionalMetadata(properties);
@@ -35807,9 +37043,9 @@ $root.ADVEncryptionType = function() {
     }, EventAdditionalMetadata.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/EventAdditionalMetadata";
     }, EventAdditionalMetadata;
-}(), $root.KeepInChat = function() {
+})(), KeepInChat = $root.KeepInChat = (() => {
     function KeepInChat(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return KeepInChat.prototype.keepType = 0, KeepInChat.prototype.serverTimestamp = $util.Long ? $util.Long.fromBits(0, 0, !1) : 0, 
     KeepInChat.prototype.key = null, KeepInChat.prototype.deviceJid = "", KeepInChat.prototype.clientTimestampMs = $util.Long ? $util.Long.fromBits(0, 0, !1) : 0, 
@@ -35911,12 +37147,19 @@ $root.ADVEncryptionType = function() {
         message;
     }, KeepInChat.toObject = function(message, options) {
         var long, object = {};
-        return (options = options || {}).defaults && (object.keepType = options.enums === String ? "UNKNOWN" : 0, 
-        $util.Long ? (long = new $util.Long(0, 0, !1), object.serverTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.serverTimestamp = options.longs === String ? "0" : 0, 
-        object.key = null, object.deviceJid = "", $util.Long ? (long = new $util.Long(0, 0, !1), 
-        object.clientTimestampMs = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.clientTimestampMs = options.longs === String ? "0" : 0, 
-        $util.Long ? (long = new $util.Long(0, 0, !1), object.serverTimestampMs = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.serverTimestampMs = options.longs === String ? "0" : 0), 
-        null != message.keepType && message.hasOwnProperty("keepType") && (object.keepType = options.enums !== String || void 0 === $root.KeepType[message.keepType] ? message.keepType : $root.KeepType[message.keepType]), 
+        if ((options = options || {}).defaults) {
+            if (object.keepType = options.enums === String ? "UNKNOWN" : 0, $util.Long ? (long = new $util.Long(0, 0, !1), 
+            object.serverTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.serverTimestamp = options.longs === String ? "0" : 0, 
+            object.key = null, object.deviceJid = "", $util.Long) {
+                let long = new $util.Long(0, 0, !1);
+                object.clientTimestampMs = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+            } else object.clientTimestampMs = options.longs === String ? "0" : 0;
+            if ($util.Long) {
+                let long = new $util.Long(0, 0, !1);
+                object.serverTimestampMs = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+            } else object.serverTimestampMs = options.longs === String ? "0" : 0;
+        }
+        return null != message.keepType && message.hasOwnProperty("keepType") && (object.keepType = options.enums !== String || void 0 === $root.KeepType[message.keepType] ? message.keepType : $root.KeepType[message.keepType]), 
         null != message.serverTimestamp && message.hasOwnProperty("serverTimestamp") && ("number" == typeof message.serverTimestamp ? object.serverTimestamp = options.longs === String ? String(message.serverTimestamp) : message.serverTimestamp : object.serverTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.serverTimestamp) : options.longs === Number ? new $util.LongBits(message.serverTimestamp.low >>> 0, message.serverTimestamp.high >>> 0).toNumber() : message.serverTimestamp), 
         null != message.key && message.hasOwnProperty("key") && (object.key = $root.MessageKey.toObject(message.key, options)), 
         null != message.deviceJid && message.hasOwnProperty("deviceJid") && (object.deviceJid = message.deviceJid), 
@@ -35928,9 +37171,9 @@ $root.ADVEncryptionType = function() {
     }, KeepInChat.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/KeepInChat";
     }, KeepInChat;
-}(), $root.PinInChat = function() {
+})(), PinInChat = $root.PinInChat = (() => {
     function PinInChat(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     var valuesById, values;
     return PinInChat.prototype.type = 0, PinInChat.prototype.key = null, PinInChat.prototype.senderTimestampMs = $util.Long ? $util.Long.fromBits(0, 0, !1) : 0, 
@@ -35988,11 +37231,16 @@ $root.ADVEncryptionType = function() {
           case 1:
           case 2:
         }
-        var error;
-        if (null != message.key && message.hasOwnProperty("key") && (error = $root.MessageKey.verify(message.key))) return "key." + error;
+        if (null != message.key && message.hasOwnProperty("key")) {
+            var error = $root.MessageKey.verify(message.key);
+            if (error) return "key." + error;
+        }
         if (null != message.senderTimestampMs && message.hasOwnProperty("senderTimestampMs") && !($util.isInteger(message.senderTimestampMs) || message.senderTimestampMs && $util.isInteger(message.senderTimestampMs.low) && $util.isInteger(message.senderTimestampMs.high))) return "senderTimestampMs: integer|Long expected";
         if (null != message.serverTimestampMs && message.hasOwnProperty("serverTimestampMs") && !($util.isInteger(message.serverTimestampMs) || message.serverTimestampMs && $util.isInteger(message.serverTimestampMs.low) && $util.isInteger(message.serverTimestampMs.high))) return "serverTimestampMs: integer|Long expected";
-        if (null != message.messageAddOnContextInfo && message.hasOwnProperty("messageAddOnContextInfo") && (error = $root.MessageAddOnContextInfo.verify(message.messageAddOnContextInfo))) return "messageAddOnContextInfo." + error;
+        if (null != message.messageAddOnContextInfo && message.hasOwnProperty("messageAddOnContextInfo")) {
+            let error = $root.MessageAddOnContextInfo.verify(message.messageAddOnContextInfo);
+            if (error) return "messageAddOnContextInfo." + error;
+        }
         return null;
     }, PinInChat.fromObject = function(object) {
         if (object instanceof $root.PinInChat) return object;
@@ -36029,10 +37277,16 @@ $root.ADVEncryptionType = function() {
         return message;
     }, PinInChat.toObject = function(message, options) {
         var long, object = {};
-        return (options = options || {}).defaults && (object.type = options.enums === String ? "UNKNOWN_TYPE" : 0, 
-        object.key = null, $util.Long ? (long = new $util.Long(0, 0, !1), object.senderTimestampMs = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.senderTimestampMs = options.longs === String ? "0" : 0, 
-        $util.Long ? (long = new $util.Long(0, 0, !1), object.serverTimestampMs = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.serverTimestampMs = options.longs === String ? "0" : 0, 
-        object.messageAddOnContextInfo = null), null != message.type && message.hasOwnProperty("type") && (object.type = options.enums !== String || void 0 === $root.PinInChat.Type[message.type] ? message.type : $root.PinInChat.Type[message.type]), 
+        if ((options = options || {}).defaults) {
+            if (object.type = options.enums === String ? "UNKNOWN_TYPE" : 0, object.key = null, 
+            $util.Long ? (long = new $util.Long(0, 0, !1), object.senderTimestampMs = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.senderTimestampMs = options.longs === String ? "0" : 0, 
+            $util.Long) {
+                let long = new $util.Long(0, 0, !1);
+                object.serverTimestampMs = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+            } else object.serverTimestampMs = options.longs === String ? "0" : 0;
+            object.messageAddOnContextInfo = null;
+        }
+        return null != message.type && message.hasOwnProperty("type") && (object.type = options.enums !== String || void 0 === $root.PinInChat.Type[message.type] ? message.type : $root.PinInChat.Type[message.type]), 
         null != message.key && message.hasOwnProperty("key") && (object.key = $root.MessageKey.toObject(message.key, options)), 
         null != message.senderTimestampMs && message.hasOwnProperty("senderTimestampMs") && ("number" == typeof message.senderTimestampMs ? object.senderTimestampMs = options.longs === String ? String(message.senderTimestampMs) : message.senderTimestampMs : object.senderTimestampMs = options.longs === String ? $util.Long.prototype.toString.call(message.senderTimestampMs) : options.longs === Number ? new $util.LongBits(message.senderTimestampMs.low >>> 0, message.senderTimestampMs.high >>> 0).toNumber() : message.senderTimestampMs), 
         null != message.serverTimestampMs && message.hasOwnProperty("serverTimestampMs") && ("number" == typeof message.serverTimestampMs ? object.serverTimestampMs = options.longs === String ? String(message.serverTimestampMs) : message.serverTimestampMs : object.serverTimestampMs = options.longs === String ? $util.Long.prototype.toString.call(message.serverTimestampMs) : options.longs === Number ? new $util.LongBits(message.serverTimestampMs.low >>> 0, message.serverTimestampMs.high >>> 0).toNumber() : message.serverTimestampMs), 
@@ -36045,9 +37299,9 @@ $root.ADVEncryptionType = function() {
     }, PinInChat.Type = (valuesById = {}, (values = Object.create(valuesById))[valuesById[0] = "UNKNOWN_TYPE"] = 0, 
     values[valuesById[1] = "PIN_FOR_ALL"] = 1, values[valuesById[2] = "UNPIN_FOR_ALL"] = 2, 
     values), PinInChat;
-}(), $root.MessageAddOnContextInfo = function() {
+})(), MessageAddOnContextInfo = $root.MessageAddOnContextInfo = (() => {
     function MessageAddOnContextInfo(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return MessageAddOnContextInfo.prototype.messageAddOnDurationInSecs = 0, MessageAddOnContextInfo.prototype.messageAddOnExpiryType = 1, 
     MessageAddOnContextInfo.create = function(properties) {
@@ -36120,9 +37374,9 @@ $root.ADVEncryptionType = function() {
     }, MessageAddOnContextInfo.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/MessageAddOnContextInfo";
     }, MessageAddOnContextInfo;
-}(), $root.PremiumMessageInfo = function() {
+})(), PremiumMessageInfo = $root.PremiumMessageInfo = (() => {
     function PremiumMessageInfo(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return PremiumMessageInfo.prototype.serverCampaignId = "", PremiumMessageInfo.create = function(properties) {
         return new PremiumMessageInfo(properties);
@@ -36157,9 +37411,9 @@ $root.ADVEncryptionType = function() {
     }, PremiumMessageInfo.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/PremiumMessageInfo";
     }, PremiumMessageInfo;
-}(), $root.EventResponse = function() {
+})(), EventResponse = $root.EventResponse = (() => {
     function EventResponse(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     return EventResponse.prototype.eventResponseMessageKey = null, EventResponse.prototype.timestampMs = $util.Long ? $util.Long.fromBits(0, 0, !1) : 0, 
     EventResponse.prototype.eventResponseMessage = null, EventResponse.prototype.unread = !1, 
@@ -36203,10 +37457,15 @@ $root.ADVEncryptionType = function() {
         return reader instanceof $Reader || (reader = new $Reader(reader)), this.decode(reader, reader.uint32());
     }, EventResponse.verify = function(message) {
         if ("object" != typeof message || null === message) return "object expected";
-        var error;
-        if (null != message.eventResponseMessageKey && message.hasOwnProperty("eventResponseMessageKey") && (error = $root.MessageKey.verify(message.eventResponseMessageKey))) return "eventResponseMessageKey." + error;
+        if (null != message.eventResponseMessageKey && message.hasOwnProperty("eventResponseMessageKey")) {
+            var error = $root.MessageKey.verify(message.eventResponseMessageKey);
+            if (error) return "eventResponseMessageKey." + error;
+        }
         if (null != message.timestampMs && message.hasOwnProperty("timestampMs") && !($util.isInteger(message.timestampMs) || message.timestampMs && $util.isInteger(message.timestampMs.low) && $util.isInteger(message.timestampMs.high))) return "timestampMs: integer|Long expected";
-        if (null != message.eventResponseMessage && message.hasOwnProperty("eventResponseMessage") && (error = $root.Message.EventResponseMessage.verify(message.eventResponseMessage))) return "eventResponseMessage." + error;
+        if (null != message.eventResponseMessage && message.hasOwnProperty("eventResponseMessage")) {
+            let error = $root.Message.EventResponseMessage.verify(message.eventResponseMessage);
+            if (error) return "eventResponseMessage." + error;
+        }
         return null != message.unread && message.hasOwnProperty("unread") && "boolean" != typeof message.unread ? "unread: boolean expected" : null;
     }, EventResponse.fromObject = function(object) {
         if (object instanceof $root.EventResponse) return object;
@@ -36236,9 +37495,9 @@ $root.ADVEncryptionType = function() {
     }, EventResponse.getTypeUrl = function(typeUrlPrefix) {
         return (typeUrlPrefix = void 0 === typeUrlPrefix ? "type.googleapis.com" : typeUrlPrefix) + "/EventResponse";
     }, EventResponse;
-}(), $root.MessageAddOn = function() {
+})(), MessageAddOn = $root.MessageAddOn = (() => {
     function MessageAddOn(properties) {
-        if (properties) for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
+        if (properties) for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i) null != properties[keys[i]] && (this[keys[i]] = properties[keys[i]]);
     }
     var valuesById, values;
     return MessageAddOn.prototype.messageAddOnType = 0, MessageAddOn.prototype.messageAddOn = null, 
@@ -36305,8 +37564,10 @@ $root.ADVEncryptionType = function() {
           case 3:
           case 4:
         }
-        var error;
-        if (null != message.messageAddOn && message.hasOwnProperty("messageAddOn") && (error = $root.Message.verify(message.messageAddOn))) return "messageAddOn." + error;
+        if (null != message.messageAddOn && message.hasOwnProperty("messageAddOn")) {
+            var error = $root.Message.verify(message.messageAddOn);
+            if (error) return "messageAddOn." + error;
+        }
         if (null != message.senderTimestampMs && message.hasOwnProperty("senderTimestampMs") && !($util.isInteger(message.senderTimestampMs) || message.senderTimestampMs && $util.isInteger(message.senderTimestampMs.low) && $util.isInteger(message.senderTimestampMs.high))) return "senderTimestampMs: integer|Long expected";
         if (null != message.serverTimestampMs && message.hasOwnProperty("serverTimestampMs") && !($util.isInteger(message.serverTimestampMs) || message.serverTimestampMs && $util.isInteger(message.serverTimestampMs.low) && $util.isInteger(message.serverTimestampMs.high))) return "serverTimestampMs: integer|Long expected";
         if (null != message.status && message.hasOwnProperty("status")) switch (message.status) {
@@ -36320,7 +37581,10 @@ $root.ADVEncryptionType = function() {
           case 4:
           case 5:
         }
-        if (null != message.addOnContextInfo && message.hasOwnProperty("addOnContextInfo") && (error = $root.MessageAddOnContextInfo.verify(message.addOnContextInfo))) return "addOnContextInfo." + error;
+        if (null != message.addOnContextInfo && message.hasOwnProperty("addOnContextInfo")) {
+            let error = $root.MessageAddOnContextInfo.verify(message.addOnContextInfo);
+            if (error) return "addOnContextInfo." + error;
+        }
         return null;
     }, MessageAddOn.fromObject = function(object) {
         if (object instanceof $root.MessageAddOn) return object;
@@ -36401,12 +37665,17 @@ $root.ADVEncryptionType = function() {
         return message;
     }, MessageAddOn.toObject = function(message, options) {
         var long, object = {};
-        return (options = options || {}).defaults && (object.messageAddOnType = options.enums === String ? "UNDEFINED" : 0, 
-        object.messageAddOn = null, $util.Long ? (long = new $util.Long(0, 0, !1), 
-        object.senderTimestampMs = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.senderTimestampMs = options.longs === String ? "0" : 0, 
-        $util.Long ? (long = new $util.Long(0, 0, !1), object.serverTimestampMs = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.serverTimestampMs = options.longs === String ? "0" : 0, 
-        object.status = options.enums === String ? "ERROR" : 0, object.addOnContextInfo = null), 
-        null != message.messageAddOnType && message.hasOwnProperty("messageAddOnType") && (object.messageAddOnType = options.enums !== String || void 0 === $root.MessageAddOn.MessageAddOnType[message.messageAddOnType] ? message.messageAddOnType : $root.MessageAddOn.MessageAddOnType[message.messageAddOnType]), 
+        if ((options = options || {}).defaults) {
+            if (object.messageAddOnType = options.enums === String ? "UNDEFINED" : 0, 
+            object.messageAddOn = null, $util.Long ? (long = new $util.Long(0, 0, !1), 
+            object.senderTimestampMs = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long) : object.senderTimestampMs = options.longs === String ? "0" : 0, 
+            $util.Long) {
+                let long = new $util.Long(0, 0, !1);
+                object.serverTimestampMs = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+            } else object.serverTimestampMs = options.longs === String ? "0" : 0;
+            object.status = options.enums === String ? "ERROR" : 0, object.addOnContextInfo = null;
+        }
+        return null != message.messageAddOnType && message.hasOwnProperty("messageAddOnType") && (object.messageAddOnType = options.enums !== String || void 0 === $root.MessageAddOn.MessageAddOnType[message.messageAddOnType] ? message.messageAddOnType : $root.MessageAddOn.MessageAddOnType[message.messageAddOnType]), 
         null != message.messageAddOn && message.hasOwnProperty("messageAddOn") && (object.messageAddOn = $root.Message.toObject(message.messageAddOn, options)), 
         null != message.senderTimestampMs && message.hasOwnProperty("senderTimestampMs") && ("number" == typeof message.senderTimestampMs ? object.senderTimestampMs = options.longs === String ? String(message.senderTimestampMs) : message.senderTimestampMs : object.senderTimestampMs = options.longs === String ? $util.Long.prototype.toString.call(message.senderTimestampMs) : options.longs === Number ? new $util.LongBits(message.senderTimestampMs.low >>> 0, message.senderTimestampMs.high >>> 0).toNumber() : message.senderTimestampMs), 
         null != message.serverTimestampMs && message.hasOwnProperty("serverTimestampMs") && ("number" == typeof message.serverTimestampMs ? object.serverTimestampMs = options.longs === String ? String(message.serverTimestampMs) : message.serverTimestampMs : object.serverTimestampMs = options.longs === String ? $util.Long.prototype.toString.call(message.serverTimestampMs) : options.longs === Number ? new $util.LongBits(message.serverTimestampMs.low >>> 0, message.serverTimestampMs.high >>> 0).toNumber() : message.serverTimestampMs), 
@@ -36421,4 +37690,131 @@ $root.ADVEncryptionType = function() {
     values[valuesById[1] = "REACTION"] = 1, values[valuesById[2] = "EVENT_RESPONSE"] = 2, 
     values[valuesById[3] = "POLL_UPDATE"] = 3, values[valuesById[4] = "PIN_IN_CHAT"] = 4, 
     values), MessageAddOn;
-}(), module.exports = $root;
+})();
+
+export {
+    ADVEncryptionType,
+    ADVKeyIndexList,
+    ADVSignedKeyIndexList,
+    ADVDeviceIdentity,
+    ADVSignedDeviceIdentity,
+    ADVSignedDeviceIdentityHMAC,
+    NoiseCertificate,
+    CertChain,
+    ChatLockSettings,
+    DeviceProps,
+    DeviceCapabilities,
+    KeepType,
+    Message,
+    ContextInfo,
+    BotAvatarMetadata,
+    BotPluginMetadata,
+    BotSuggestedPromptMetadata,
+    BotSearchMetadata,
+    BotMediaMetadata,
+    BotMemuMetadata,
+    BotMetadata,
+    MessageAssociation,
+    MessageContextInfo,
+    DeviceListMetadata,
+    InteractiveAnnotation,
+    Point,
+    Location,
+    TemplateButton,
+    HydratedTemplateButton,
+    Money,
+    PaymentBackground,
+    DisappearingMode,
+    ActionLink,
+    GroupMention,
+    MessageSecretMessage,
+    MediaNotifyMessage,
+    LIDMigrationMappingSyncMessage,
+    ProcessedVideo,
+    EphemeralSetting,
+    MediaVisibility,
+    PrivacySystemMessage,
+    HistorySync,
+    Conversation,
+    PhoneNumberToLIDMapping,
+    HistorySyncMsg,
+    Pushname,
+    GroupParticipant,
+    WallpaperSettings,
+    GlobalSettings,
+    AutoDownloadSettings,
+    StickerMetadata,
+    PastParticipants,
+    PastParticipant,
+    AvatarUserSettings,
+    NotificationSettings,
+    ChatRowOpaqueData,
+    MsgRowOpaqueData,
+    PollEncValue,
+    MsgOpaqueData,
+    MediaEntry,
+    MediaRetryNotification,
+    ServerErrorReceipt,
+    MessageKey,
+    QP,
+    RoutingInfo,
+    SyncdVersion,
+    ExitCode,
+    SyncdIndex,
+    SyncdValue,
+    KeyId,
+    SyncdRecord,
+    ExternalBlobReference,
+    SyncdSnapshot,
+    SyncdMutations,
+    SyncdMutation,
+    SyncdPatch,
+    SessionStructure,
+    RecordStructure,
+    PreKeyRecordStructure,
+    SignedPreKeyRecordStructure,
+    IdentityKeyPairStructure,
+    SenderKeyStateStructure,
+    SenderKeyRecordStructure,
+    SignalMessage,
+    PreKeySignalMessage,
+    KeyExchangeMessage,
+    SenderKeyMessage,
+    SenderKeyDistributionMessage,
+    DeviceConsistencyCodeMessage,
+    RecentEmojiWeight,
+    CallLogRecord,
+    SyncActionValue,
+    SyncActionData,
+    PatchDebugData,
+    UserPassword,
+    LocalizedName,
+    VerifiedNameCertificate,
+    BizAccountPayload,
+    BizAccountLinkInfo,
+    BizIdentityInfo,
+    HandshakeMessage,
+    ClientPayload,
+    WebMessageInfo,
+    CommentMetadata,
+    PaymentInfo,
+    WebNotificationsInfo,
+    NotificationMessageInfo,
+    WebFeatures,
+    ReportingTokenInfo,
+    MediaData,
+    PhotoChange,
+    StatusPSA,
+    UserReceipt,
+    Reaction,
+    PollUpdate,
+    PollAdditionalMetadata,
+    EventAdditionalMetadata,
+    KeepInChat,
+    PinInChat,
+    MessageAddOnContextInfo,
+    PremiumMessageInfo,
+    EventResponse,
+    MessageAddOn,
+    $root as default
+};

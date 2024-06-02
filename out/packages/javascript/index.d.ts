@@ -6,6 +6,25 @@ export enum ADVEncryptionType {
     HOSTED = 1
 }
 
+/** Properties of a ADVKeyIndexList. */
+export interface IADVKeyIndexList {
+
+    /** ADVKeyIndexList rawId */
+    rawId?: (number|null);
+
+    /** ADVKeyIndexList timestamp */
+    timestamp?: (number|Long|null);
+
+    /** ADVKeyIndexList currentIndex */
+    currentIndex?: (number|null);
+
+    /** ADVKeyIndexList validIndexes */
+    validIndexes?: (number[]|null);
+
+    /** ADVKeyIndexList accountType */
+    accountType?: (ADVEncryptionType|null);
+}
+
 /** Represents a ADVKeyIndexList. */
 export class ADVKeyIndexList implements IADVKeyIndexList {
 
@@ -108,6 +127,19 @@ export class ADVKeyIndexList implements IADVKeyIndexList {
     public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
+/** Properties of a ADVSignedKeyIndexList. */
+export interface IADVSignedKeyIndexList {
+
+    /** ADVSignedKeyIndexList details */
+    details?: (Uint8Array|null);
+
+    /** ADVSignedKeyIndexList accountSignature */
+    accountSignature?: (Uint8Array|null);
+
+    /** ADVSignedKeyIndexList accountSignatureKey */
+    accountSignatureKey?: (Uint8Array|null);
+}
+
 /** Represents a ADVSignedKeyIndexList. */
 export class ADVSignedKeyIndexList implements IADVSignedKeyIndexList {
 
@@ -202,6 +234,25 @@ export class ADVSignedKeyIndexList implements IADVSignedKeyIndexList {
      * @returns The default type url
      */
     public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Properties of a ADVDeviceIdentity. */
+export interface IADVDeviceIdentity {
+
+    /** ADVDeviceIdentity rawId */
+    rawId?: (number|null);
+
+    /** ADVDeviceIdentity timestamp */
+    timestamp?: (number|Long|null);
+
+    /** ADVDeviceIdentity keyIndex */
+    keyIndex?: (number|null);
+
+    /** ADVDeviceIdentity accountType */
+    accountType?: (ADVEncryptionType|null);
+
+    /** ADVDeviceIdentity deviceType */
+    deviceType?: (ADVEncryptionType|null);
 }
 
 /** Represents a ADVDeviceIdentity. */
@@ -306,6 +357,22 @@ export class ADVDeviceIdentity implements IADVDeviceIdentity {
     public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
+/** Properties of a ADVSignedDeviceIdentity. */
+export interface IADVSignedDeviceIdentity {
+
+    /** ADVSignedDeviceIdentity details */
+    details?: (Uint8Array|null);
+
+    /** ADVSignedDeviceIdentity accountSignatureKey */
+    accountSignatureKey?: (Uint8Array|null);
+
+    /** ADVSignedDeviceIdentity accountSignature */
+    accountSignature?: (Uint8Array|null);
+
+    /** ADVSignedDeviceIdentity deviceSignature */
+    deviceSignature?: (Uint8Array|null);
+}
+
 /** Represents a ADVSignedDeviceIdentity. */
 export class ADVSignedDeviceIdentity implements IADVSignedDeviceIdentity {
 
@@ -405,6 +472,19 @@ export class ADVSignedDeviceIdentity implements IADVSignedDeviceIdentity {
     public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
+/** Properties of a ADVSignedDeviceIdentityHMAC. */
+export interface IADVSignedDeviceIdentityHMAC {
+
+    /** ADVSignedDeviceIdentityHMAC details */
+    details?: (Uint8Array|null);
+
+    /** ADVSignedDeviceIdentityHMAC hmac */
+    hmac?: (Uint8Array|null);
+
+    /** ADVSignedDeviceIdentityHMAC accountType */
+    accountType?: (ADVEncryptionType|null);
+}
+
 /** Represents a ADVSignedDeviceIdentityHMAC. */
 export class ADVSignedDeviceIdentityHMAC implements IADVSignedDeviceIdentityHMAC {
 
@@ -499,6 +579,16 @@ export class ADVSignedDeviceIdentityHMAC implements IADVSignedDeviceIdentityHMAC
      * @returns The default type url
      */
     public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Properties of a NoiseCertificate. */
+export interface INoiseCertificate {
+
+    /** NoiseCertificate details */
+    details?: (Uint8Array|null);
+
+    /** NoiseCertificate signature */
+    signature?: (Uint8Array|null);
 }
 
 /** Represents a NoiseCertificate. */
@@ -716,6 +806,16 @@ export namespace NoiseCertificate {
          */
         public static getTypeUrl(typeUrlPrefix?: string): string;
     }
+}
+
+/** Properties of a CertChain. */
+export interface ICertChain {
+
+    /** CertChain leaf */
+    leaf?: (CertChain.INoiseCertificate|null);
+
+    /** CertChain intermediate */
+    intermediate?: (CertChain.INoiseCertificate|null);
 }
 
 /** Represents a CertChain. */
@@ -1041,6 +1141,16 @@ export namespace CertChain {
     }
 }
 
+/** Properties of a ChatLockSettings. */
+export interface IChatLockSettings {
+
+    /** ChatLockSettings hideLockedChats */
+    hideLockedChats?: (boolean|null);
+
+    /** ChatLockSettings secretCode */
+    secretCode?: (IUserPassword|null);
+}
+
 /** Represents a ChatLockSettings. */
 export class ChatLockSettings implements IChatLockSettings {
 
@@ -1132,6 +1242,25 @@ export class ChatLockSettings implements IChatLockSettings {
      * @returns The default type url
      */
     public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Properties of a DeviceProps. */
+export interface IDeviceProps {
+
+    /** DeviceProps os */
+    os?: (string|null);
+
+    /** DeviceProps version */
+    version?: (DeviceProps.IAppVersion|null);
+
+    /** DeviceProps platformType */
+    platformType?: (DeviceProps.PlatformType|null);
+
+    /** DeviceProps requireFullSync */
+    requireFullSync?: (boolean|null);
+
+    /** DeviceProps historySyncConfig */
+    historySyncConfig?: (DeviceProps.IHistorySyncConfig|null);
 }
 
 /** Represents a DeviceProps. */
@@ -1539,6 +1668,13 @@ export namespace DeviceProps {
     }
 }
 
+/** Properties of a DeviceCapabilities. */
+export interface IDeviceCapabilities {
+
+    /** DeviceCapabilities chatLockSupportLevel */
+    chatLockSupportLevel?: (DeviceCapabilities.ChatLockSupportLevel|null);
+}
+
 /** Represents a DeviceCapabilities. */
 export class DeviceCapabilities implements IDeviceCapabilities {
 
@@ -1644,6 +1780,217 @@ export enum KeepType {
     UNKNOWN = 0,
     KEEP_FOR_ALL = 1,
     UNDO_KEEP_FOR_ALL = 2
+}
+
+/** Properties of a Message. */
+export interface IMessage {
+
+    /** Message conversation */
+    conversation?: (string|null);
+
+    /** Message senderKeyDistributionMessage */
+    senderKeyDistributionMessage?: (Message.ISenderKeyDistributionMessage|null);
+
+    /** Message imageMessage */
+    imageMessage?: (Message.IImageMessage|null);
+
+    /** Message contactMessage */
+    contactMessage?: (Message.IContactMessage|null);
+
+    /** Message locationMessage */
+    locationMessage?: (Message.ILocationMessage|null);
+
+    /** Message extendedTextMessage */
+    extendedTextMessage?: (Message.IExtendedTextMessage|null);
+
+    /** Message documentMessage */
+    documentMessage?: (Message.IDocumentMessage|null);
+
+    /** Message audioMessage */
+    audioMessage?: (Message.IAudioMessage|null);
+
+    /** Message videoMessage */
+    videoMessage?: (Message.IVideoMessage|null);
+
+    /** Message call */
+    call?: (Message.ICall|null);
+
+    /** Message chat */
+    chat?: (Message.IChat|null);
+
+    /** Message protocolMessage */
+    protocolMessage?: (Message.IProtocolMessage|null);
+
+    /** Message contactsArrayMessage */
+    contactsArrayMessage?: (Message.IContactsArrayMessage|null);
+
+    /** Message highlyStructuredMessage */
+    highlyStructuredMessage?: (Message.IHighlyStructuredMessage|null);
+
+    /** Message fastRatchetKeySenderKeyDistributionMessage */
+    fastRatchetKeySenderKeyDistributionMessage?: (Message.ISenderKeyDistributionMessage|null);
+
+    /** Message sendPaymentMessage */
+    sendPaymentMessage?: (Message.ISendPaymentMessage|null);
+
+    /** Message liveLocationMessage */
+    liveLocationMessage?: (Message.ILiveLocationMessage|null);
+
+    /** Message requestPaymentMessage */
+    requestPaymentMessage?: (Message.IRequestPaymentMessage|null);
+
+    /** Message declinePaymentRequestMessage */
+    declinePaymentRequestMessage?: (Message.IDeclinePaymentRequestMessage|null);
+
+    /** Message cancelPaymentRequestMessage */
+    cancelPaymentRequestMessage?: (Message.ICancelPaymentRequestMessage|null);
+
+    /** Message templateMessage */
+    templateMessage?: (Message.ITemplateMessage|null);
+
+    /** Message stickerMessage */
+    stickerMessage?: (Message.IStickerMessage|null);
+
+    /** Message groupInviteMessage */
+    groupInviteMessage?: (Message.IGroupInviteMessage|null);
+
+    /** Message templateButtonReplyMessage */
+    templateButtonReplyMessage?: (Message.ITemplateButtonReplyMessage|null);
+
+    /** Message productMessage */
+    productMessage?: (Message.IProductMessage|null);
+
+    /** Message deviceSentMessage */
+    deviceSentMessage?: (Message.IDeviceSentMessage|null);
+
+    /** Message messageContextInfo */
+    messageContextInfo?: (IMessageContextInfo|null);
+
+    /** Message listMessage */
+    listMessage?: (Message.IListMessage|null);
+
+    /** Message viewOnceMessage */
+    viewOnceMessage?: (Message.IFutureProofMessage|null);
+
+    /** Message orderMessage */
+    orderMessage?: (Message.IOrderMessage|null);
+
+    /** Message listResponseMessage */
+    listResponseMessage?: (Message.IListResponseMessage|null);
+
+    /** Message ephemeralMessage */
+    ephemeralMessage?: (Message.IFutureProofMessage|null);
+
+    /** Message invoiceMessage */
+    invoiceMessage?: (Message.IInvoiceMessage|null);
+
+    /** Message buttonsMessage */
+    buttonsMessage?: (Message.IButtonsMessage|null);
+
+    /** Message buttonsResponseMessage */
+    buttonsResponseMessage?: (Message.IButtonsResponseMessage|null);
+
+    /** Message paymentInviteMessage */
+    paymentInviteMessage?: (Message.IPaymentInviteMessage|null);
+
+    /** Message interactiveMessage */
+    interactiveMessage?: (Message.IInteractiveMessage|null);
+
+    /** Message reactionMessage */
+    reactionMessage?: (Message.IReactionMessage|null);
+
+    /** Message stickerSyncRmrMessage */
+    stickerSyncRmrMessage?: (Message.IStickerSyncRMRMessage|null);
+
+    /** Message interactiveResponseMessage */
+    interactiveResponseMessage?: (Message.IInteractiveResponseMessage|null);
+
+    /** Message pollCreationMessage */
+    pollCreationMessage?: (Message.IPollCreationMessage|null);
+
+    /** Message pollUpdateMessage */
+    pollUpdateMessage?: (Message.IPollUpdateMessage|null);
+
+    /** Message keepInChatMessage */
+    keepInChatMessage?: (Message.IKeepInChatMessage|null);
+
+    /** Message documentWithCaptionMessage */
+    documentWithCaptionMessage?: (Message.IFutureProofMessage|null);
+
+    /** Message requestPhoneNumberMessage */
+    requestPhoneNumberMessage?: (Message.IRequestPhoneNumberMessage|null);
+
+    /** Message viewOnceMessageV2 */
+    viewOnceMessageV2?: (Message.IFutureProofMessage|null);
+
+    /** Message encReactionMessage */
+    encReactionMessage?: (Message.IEncReactionMessage|null);
+
+    /** Message editedMessage */
+    editedMessage?: (Message.IFutureProofMessage|null);
+
+    /** Message viewOnceMessageV2Extension */
+    viewOnceMessageV2Extension?: (Message.IFutureProofMessage|null);
+
+    /** Message pollCreationMessageV2 */
+    pollCreationMessageV2?: (Message.IPollCreationMessage|null);
+
+    /** Message scheduledCallCreationMessage */
+    scheduledCallCreationMessage?: (Message.IScheduledCallCreationMessage|null);
+
+    /** Message groupMentionedMessage */
+    groupMentionedMessage?: (Message.IFutureProofMessage|null);
+
+    /** Message pinInChatMessage */
+    pinInChatMessage?: (Message.IPinInChatMessage|null);
+
+    /** Message pollCreationMessageV3 */
+    pollCreationMessageV3?: (Message.IPollCreationMessage|null);
+
+    /** Message scheduledCallEditMessage */
+    scheduledCallEditMessage?: (Message.IScheduledCallEditMessage|null);
+
+    /** Message ptvMessage */
+    ptvMessage?: (Message.IVideoMessage|null);
+
+    /** Message botInvokeMessage */
+    botInvokeMessage?: (Message.IFutureProofMessage|null);
+
+    /** Message callLogMesssage */
+    callLogMesssage?: (Message.ICallLogMessage|null);
+
+    /** Message messageHistoryBundle */
+    messageHistoryBundle?: (Message.IMessageHistoryBundle|null);
+
+    /** Message encCommentMessage */
+    encCommentMessage?: (Message.IEncCommentMessage|null);
+
+    /** Message bcallMessage */
+    bcallMessage?: (Message.IBCallMessage|null);
+
+    /** Message lottieStickerMessage */
+    lottieStickerMessage?: (Message.IFutureProofMessage|null);
+
+    /** Message eventMessage */
+    eventMessage?: (Message.IEventMessage|null);
+
+    /** Message encEventResponseMessage */
+    encEventResponseMessage?: (Message.IEncEventResponseMessage|null);
+
+    /** Message commentMessage */
+    commentMessage?: (Message.ICommentMessage|null);
+
+    /** Message newsletterAdminInviteMessage */
+    newsletterAdminInviteMessage?: (Message.INewsletterAdminInviteMessage|null);
+
+    /** Message placeholderMessage */
+    placeholderMessage?: (Message.IPlaceholderMessage|null);
+
+    /** Message secretEncryptedMessage */
+    secretEncryptedMessage?: (Message.ISecretEncryptedMessage|null);
+
+    /** Message albumMessage */
+    albumMessage?: (Message.IAlbumMessage|null);
 }
 
 /** Represents a Message. */
@@ -16089,6 +16436,115 @@ export namespace Message {
     }
 }
 
+/** Properties of a ContextInfo. */
+export interface IContextInfo {
+
+    /** ContextInfo stanzaId */
+    stanzaId?: (string|null);
+
+    /** ContextInfo participant */
+    participant?: (string|null);
+
+    /** ContextInfo quotedMessage */
+    quotedMessage?: (IMessage|null);
+
+    /** ContextInfo remoteJid */
+    remoteJid?: (string|null);
+
+    /** ContextInfo mentionedJid */
+    mentionedJid?: (string[]|null);
+
+    /** ContextInfo conversionSource */
+    conversionSource?: (string|null);
+
+    /** ContextInfo conversionData */
+    conversionData?: (Uint8Array|null);
+
+    /** ContextInfo conversionDelaySeconds */
+    conversionDelaySeconds?: (number|null);
+
+    /** ContextInfo forwardingScore */
+    forwardingScore?: (number|null);
+
+    /** ContextInfo isForwarded */
+    isForwarded?: (boolean|null);
+
+    /** ContextInfo quotedAd */
+    quotedAd?: (ContextInfo.IAdReplyInfo|null);
+
+    /** ContextInfo placeholderKey */
+    placeholderKey?: (IMessageKey|null);
+
+    /** ContextInfo expiration */
+    expiration?: (number|null);
+
+    /** ContextInfo ephemeralSettingTimestamp */
+    ephemeralSettingTimestamp?: (number|Long|null);
+
+    /** ContextInfo ephemeralSharedSecret */
+    ephemeralSharedSecret?: (Uint8Array|null);
+
+    /** ContextInfo externalAdReply */
+    externalAdReply?: (ContextInfo.IExternalAdReplyInfo|null);
+
+    /** ContextInfo entryPointConversionSource */
+    entryPointConversionSource?: (string|null);
+
+    /** ContextInfo entryPointConversionApp */
+    entryPointConversionApp?: (string|null);
+
+    /** ContextInfo entryPointConversionDelaySeconds */
+    entryPointConversionDelaySeconds?: (number|null);
+
+    /** ContextInfo disappearingMode */
+    disappearingMode?: (IDisappearingMode|null);
+
+    /** ContextInfo actionLink */
+    actionLink?: (IActionLink|null);
+
+    /** ContextInfo groupSubject */
+    groupSubject?: (string|null);
+
+    /** ContextInfo parentGroupJid */
+    parentGroupJid?: (string|null);
+
+    /** ContextInfo trustBannerType */
+    trustBannerType?: (string|null);
+
+    /** ContextInfo trustBannerAction */
+    trustBannerAction?: (number|null);
+
+    /** ContextInfo isSampled */
+    isSampled?: (boolean|null);
+
+    /** ContextInfo groupMentions */
+    groupMentions?: (IGroupMention[]|null);
+
+    /** ContextInfo utm */
+    utm?: (ContextInfo.IUTMInfo|null);
+
+    /** ContextInfo forwardedNewsletterMessageInfo */
+    forwardedNewsletterMessageInfo?: (ContextInfo.IForwardedNewsletterMessageInfo|null);
+
+    /** ContextInfo businessMessageForwardInfo */
+    businessMessageForwardInfo?: (ContextInfo.IBusinessMessageForwardInfo|null);
+
+    /** ContextInfo smbClientCampaignId */
+    smbClientCampaignId?: (string|null);
+
+    /** ContextInfo smbServerCampaignId */
+    smbServerCampaignId?: (string|null);
+
+    /** ContextInfo dataSharingContext */
+    dataSharingContext?: (ContextInfo.IDataSharingContext|null);
+
+    /** ContextInfo alwaysShowAdAttribution */
+    alwaysShowAdAttribution?: (boolean|null);
+
+    /** ContextInfo featureEligibilities */
+    featureEligibilities?: (ContextInfo.IFeatureEligibilities|null);
+}
+
 /** Represents a ContextInfo. */
 export class ContextInfo implements IContextInfo {
 
@@ -17125,6 +17581,25 @@ export namespace ContextInfo {
     }
 }
 
+/** Properties of a BotAvatarMetadata. */
+export interface IBotAvatarMetadata {
+
+    /** BotAvatarMetadata sentiment */
+    sentiment?: (number|null);
+
+    /** BotAvatarMetadata behaviorGraph */
+    behaviorGraph?: (string|null);
+
+    /** BotAvatarMetadata action */
+    action?: (number|null);
+
+    /** BotAvatarMetadata intensity */
+    intensity?: (number|null);
+
+    /** BotAvatarMetadata wordCount */
+    wordCount?: (number|null);
+}
+
 /** Represents a BotAvatarMetadata. */
 export class BotAvatarMetadata implements IBotAvatarMetadata {
 
@@ -17225,6 +17700,40 @@ export class BotAvatarMetadata implements IBotAvatarMetadata {
      * @returns The default type url
      */
     public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Properties of a BotPluginMetadata. */
+export interface IBotPluginMetadata {
+
+    /** BotPluginMetadata provider */
+    provider?: (BotPluginMetadata.SearchProvider|null);
+
+    /** BotPluginMetadata pluginType */
+    pluginType?: (BotPluginMetadata.PluginType|null);
+
+    /** BotPluginMetadata thumbnailCdnUrl */
+    thumbnailCdnUrl?: (string|null);
+
+    /** BotPluginMetadata profilePhotoCdnUrl */
+    profilePhotoCdnUrl?: (string|null);
+
+    /** BotPluginMetadata searchProviderUrl */
+    searchProviderUrl?: (string|null);
+
+    /** BotPluginMetadata referenceIndex */
+    referenceIndex?: (number|null);
+
+    /** BotPluginMetadata expectedLinksCount */
+    expectedLinksCount?: (number|null);
+
+    /** BotPluginMetadata searchQuery */
+    searchQuery?: (string|null);
+
+    /** BotPluginMetadata parentPluginMessageKey */
+    parentPluginMessageKey?: (IMessageKey|null);
+
+    /** BotPluginMetadata parentPluginType */
+    parentPluginType?: (BotPluginMetadata.PluginType|null);
 }
 
 /** Represents a BotPluginMetadata. */
@@ -17359,6 +17868,16 @@ export namespace BotPluginMetadata {
     }
 }
 
+/** Properties of a BotSuggestedPromptMetadata. */
+export interface IBotSuggestedPromptMetadata {
+
+    /** BotSuggestedPromptMetadata suggestedPrompts */
+    suggestedPrompts?: (string[]|null);
+
+    /** BotSuggestedPromptMetadata selectedPromptIndex */
+    selectedPromptIndex?: (number|null);
+}
+
 /** Represents a BotSuggestedPromptMetadata. */
 export class BotSuggestedPromptMetadata implements IBotSuggestedPromptMetadata {
 
@@ -17450,6 +17969,16 @@ export class BotSuggestedPromptMetadata implements IBotSuggestedPromptMetadata {
      * @returns The default type url
      */
     public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Properties of a BotSearchMetadata. */
+export interface IBotSearchMetadata {
+
+    /** BotSearchMetadata sessionId */
+    sessionId?: (string|null);
+
+    /** BotSearchMetadata sessionSource */
+    sessionSource?: (BotSearchMetadata.SessionSource|null);
 }
 
 /** Represents a BotSearchMetadata. */
@@ -17557,6 +18086,28 @@ export namespace BotSearchMetadata {
     }
 }
 
+/** Properties of a BotMediaMetadata. */
+export interface IBotMediaMetadata {
+
+    /** BotMediaMetadata fileSha256 */
+    fileSha256?: (Uint8Array|null);
+
+    /** BotMediaMetadata mediaKey */
+    mediaKey?: (Uint8Array|null);
+
+    /** BotMediaMetadata fileEncSha256 */
+    fileEncSha256?: (Uint8Array|null);
+
+    /** BotMediaMetadata directPath */
+    directPath?: (string|null);
+
+    /** BotMediaMetadata mediaKeyTimestamp */
+    mediaKeyTimestamp?: (number|Long|null);
+
+    /** BotMediaMetadata mimetype */
+    mimetype?: (string|null);
+}
+
 /** Represents a BotMediaMetadata. */
 export class BotMediaMetadata implements IBotMediaMetadata {
 
@@ -17662,6 +18213,13 @@ export class BotMediaMetadata implements IBotMediaMetadata {
     public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
+/** Properties of a BotMemuMetadata. */
+export interface IBotMemuMetadata {
+
+    /** BotMemuMetadata faceImages */
+    faceImages?: (IBotMediaMetadata[]|null);
+}
+
 /** Represents a BotMemuMetadata. */
 export class BotMemuMetadata implements IBotMemuMetadata {
 
@@ -17750,6 +18308,31 @@ export class BotMemuMetadata implements IBotMemuMetadata {
      * @returns The default type url
      */
     public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Properties of a BotMetadata. */
+export interface IBotMetadata {
+
+    /** BotMetadata avatarMetadata */
+    avatarMetadata?: (IBotAvatarMetadata|null);
+
+    /** BotMetadata personaId */
+    personaId?: (string|null);
+
+    /** BotMetadata pluginMetadata */
+    pluginMetadata?: (IBotPluginMetadata|null);
+
+    /** BotMetadata suggestedPromptMetadata */
+    suggestedPromptMetadata?: (IBotSuggestedPromptMetadata|null);
+
+    /** BotMetadata invokerJid */
+    invokerJid?: (string|null);
+
+    /** BotMetadata searchMetadata */
+    searchMetadata?: (IBotSearchMetadata|null);
+
+    /** BotMetadata memuMetadata */
+    memuMetadata?: (IBotMemuMetadata|null);
 }
 
 /** Represents a BotMetadata. */
@@ -17860,6 +18443,16 @@ export class BotMetadata implements IBotMetadata {
     public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
+/** Properties of a MessageAssociation. */
+export interface IMessageAssociation {
+
+    /** MessageAssociation associationType */
+    associationType?: (MessageAssociation.AssociationType|null);
+
+    /** MessageAssociation parentMessageKey */
+    parentMessageKey?: (IMessageKey|null);
+}
+
 /** Represents a MessageAssociation. */
 export class MessageAssociation implements IMessageAssociation {
 
@@ -17961,6 +18554,40 @@ export namespace MessageAssociation {
         BOT_PLUGIN = 2,
         EVENT_COVER_IMAGE = 3
     }
+}
+
+/** Properties of a MessageContextInfo. */
+export interface IMessageContextInfo {
+
+    /** MessageContextInfo deviceListMetadata */
+    deviceListMetadata?: (IDeviceListMetadata|null);
+
+    /** MessageContextInfo deviceListMetadataVersion */
+    deviceListMetadataVersion?: (number|null);
+
+    /** MessageContextInfo messageSecret */
+    messageSecret?: (Uint8Array|null);
+
+    /** MessageContextInfo paddingBytes */
+    paddingBytes?: (Uint8Array|null);
+
+    /** MessageContextInfo messageAddOnDurationInSecs */
+    messageAddOnDurationInSecs?: (number|null);
+
+    /** MessageContextInfo botMessageSecret */
+    botMessageSecret?: (Uint8Array|null);
+
+    /** MessageContextInfo botMetadata */
+    botMetadata?: (IBotMetadata|null);
+
+    /** MessageContextInfo reportingTokenVersion */
+    reportingTokenVersion?: (number|null);
+
+    /** MessageContextInfo messageAddOnExpiryType */
+    messageAddOnExpiryType?: (MessageContextInfo.MessageAddonExpiryType|null);
+
+    /** MessageContextInfo messageAssociation */
+    messageAssociation?: (IMessageAssociation|null);
 }
 
 /** Represents a MessageContextInfo. */
@@ -18089,6 +18716,34 @@ export namespace MessageContextInfo {
     }
 }
 
+/** Properties of a DeviceListMetadata. */
+export interface IDeviceListMetadata {
+
+    /** DeviceListMetadata senderKeyHash */
+    senderKeyHash?: (Uint8Array|null);
+
+    /** DeviceListMetadata senderTimestamp */
+    senderTimestamp?: (number|Long|null);
+
+    /** DeviceListMetadata senderKeyIndexes */
+    senderKeyIndexes?: (number[]|null);
+
+    /** DeviceListMetadata senderAccountType */
+    senderAccountType?: (ADVEncryptionType|null);
+
+    /** DeviceListMetadata receiverAccountType */
+    receiverAccountType?: (ADVEncryptionType|null);
+
+    /** DeviceListMetadata recipientKeyHash */
+    recipientKeyHash?: (Uint8Array|null);
+
+    /** DeviceListMetadata recipientTimestamp */
+    recipientTimestamp?: (number|Long|null);
+
+    /** DeviceListMetadata recipientKeyIndexes */
+    recipientKeyIndexes?: (number[]|null);
+}
+
 /** Represents a DeviceListMetadata. */
 export class DeviceListMetadata implements IDeviceListMetadata {
 
@@ -18200,6 +18855,22 @@ export class DeviceListMetadata implements IDeviceListMetadata {
     public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
+/** Properties of an InteractiveAnnotation. */
+export interface IInteractiveAnnotation {
+
+    /** InteractiveAnnotation polygonVertices */
+    polygonVertices?: (IPoint[]|null);
+
+    /** InteractiveAnnotation shouldSkipConfirmation */
+    shouldSkipConfirmation?: (boolean|null);
+
+    /** InteractiveAnnotation location */
+    location?: (ILocation|null);
+
+    /** InteractiveAnnotation newsletter */
+    newsletter?: (ContextInfo.IForwardedNewsletterMessageInfo|null);
+}
+
 /** Represents an InteractiveAnnotation. */
 export class InteractiveAnnotation implements IInteractiveAnnotation {
 
@@ -18302,6 +18973,22 @@ export class InteractiveAnnotation implements IInteractiveAnnotation {
     public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
+/** Properties of a Point. */
+export interface IPoint {
+
+    /** Point xDeprecated */
+    xDeprecated?: (number|null);
+
+    /** Point yDeprecated */
+    yDeprecated?: (number|null);
+
+    /** Point x */
+    x?: (number|null);
+
+    /** Point y */
+    y?: (number|null);
+}
+
 /** Represents a Point. */
 export class Point implements IPoint {
 
@@ -18401,6 +19088,19 @@ export class Point implements IPoint {
     public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
+/** Properties of a Location. */
+export interface ILocation {
+
+    /** Location degreesLatitude */
+    degreesLatitude?: (number|null);
+
+    /** Location degreesLongitude */
+    degreesLongitude?: (number|null);
+
+    /** Location name */
+    name?: (string|null);
+}
+
 /** Represents a Location. */
 export class Location implements ILocation {
 
@@ -18495,6 +19195,22 @@ export class Location implements ILocation {
      * @returns The default type url
      */
     public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Properties of a TemplateButton. */
+export interface ITemplateButton {
+
+    /** TemplateButton index */
+    index?: (number|null);
+
+    /** TemplateButton quickReplyButton */
+    quickReplyButton?: (TemplateButton.IQuickReplyButton|null);
+
+    /** TemplateButton urlButton */
+    urlButton?: (TemplateButton.IURLButton|null);
+
+    /** TemplateButton callButton */
+    callButton?: (TemplateButton.ICallButton|null);
 }
 
 /** Represents a TemplateButton. */
@@ -18909,6 +19625,22 @@ export namespace TemplateButton {
          */
         public static getTypeUrl(typeUrlPrefix?: string): string;
     }
+}
+
+/** Properties of a HydratedTemplateButton. */
+export interface IHydratedTemplateButton {
+
+    /** HydratedTemplateButton index */
+    index?: (number|null);
+
+    /** HydratedTemplateButton quickReplyButton */
+    quickReplyButton?: (HydratedTemplateButton.IHydratedQuickReplyButton|null);
+
+    /** HydratedTemplateButton urlButton */
+    urlButton?: (HydratedTemplateButton.IHydratedURLButton|null);
+
+    /** HydratedTemplateButton callButton */
+    callButton?: (HydratedTemplateButton.IHydratedCallButton|null);
 }
 
 /** Represents a HydratedTemplateButton. */
@@ -19347,6 +20079,19 @@ export namespace HydratedTemplateButton {
     }
 }
 
+/** Properties of a Money. */
+export interface IMoney {
+
+    /** Money value */
+    value?: (number|Long|null);
+
+    /** Money offset */
+    offset?: (number|null);
+
+    /** Money currencyCode */
+    currencyCode?: (string|null);
+}
+
 /** Represents a Money. */
 export class Money implements IMoney {
 
@@ -19441,6 +20186,40 @@ export class Money implements IMoney {
      * @returns The default type url
      */
     public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Properties of a PaymentBackground. */
+export interface IPaymentBackground {
+
+    /** PaymentBackground id */
+    id?: (string|null);
+
+    /** PaymentBackground fileLength */
+    fileLength?: (number|Long|null);
+
+    /** PaymentBackground width */
+    width?: (number|null);
+
+    /** PaymentBackground height */
+    height?: (number|null);
+
+    /** PaymentBackground mimetype */
+    mimetype?: (string|null);
+
+    /** PaymentBackground placeholderArgb */
+    placeholderArgb?: (number|null);
+
+    /** PaymentBackground textArgb */
+    textArgb?: (number|null);
+
+    /** PaymentBackground subtextArgb */
+    subtextArgb?: (number|null);
+
+    /** PaymentBackground mediaData */
+    mediaData?: (PaymentBackground.IMediaData|null);
+
+    /** PaymentBackground type */
+    type?: (PaymentBackground.Type|null);
 }
 
 /** Represents a PaymentBackground. */
@@ -19690,6 +20469,22 @@ export namespace PaymentBackground {
     }
 }
 
+/** Properties of a DisappearingMode. */
+export interface IDisappearingMode {
+
+    /** DisappearingMode initiator */
+    initiator?: (DisappearingMode.Initiator|null);
+
+    /** DisappearingMode trigger */
+    trigger?: (DisappearingMode.Trigger|null);
+
+    /** DisappearingMode initiatorDeviceJid */
+    initiatorDeviceJid?: (string|null);
+
+    /** DisappearingMode initiatedByMe */
+    initiatedByMe?: (boolean|null);
+}
+
 /** Represents a DisappearingMode. */
 export class DisappearingMode implements IDisappearingMode {
 
@@ -19809,6 +20604,16 @@ export namespace DisappearingMode {
     }
 }
 
+/** Properties of an ActionLink. */
+export interface IActionLink {
+
+    /** ActionLink url */
+    url?: (string|null);
+
+    /** ActionLink buttonTitle */
+    buttonTitle?: (string|null);
+}
+
 /** Represents an ActionLink. */
 export class ActionLink implements IActionLink {
 
@@ -19902,6 +20707,16 @@ export class ActionLink implements IActionLink {
     public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
+/** Properties of a GroupMention. */
+export interface IGroupMention {
+
+    /** GroupMention groupJid */
+    groupJid?: (string|null);
+
+    /** GroupMention groupSubject */
+    groupSubject?: (string|null);
+}
+
 /** Represents a GroupMention. */
 export class GroupMention implements IGroupMention {
 
@@ -19993,6 +20808,19 @@ export class GroupMention implements IGroupMention {
      * @returns The default type url
      */
     public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Properties of a MessageSecretMessage. */
+export interface IMessageSecretMessage {
+
+    /** MessageSecretMessage version */
+    version?: (number|null);
+
+    /** MessageSecretMessage encIv */
+    encIv?: (Uint8Array|null);
+
+    /** MessageSecretMessage encPayload */
+    encPayload?: (Uint8Array|null);
 }
 
 /** Represents a MessageSecretMessage. */
@@ -20091,6 +20919,19 @@ export class MessageSecretMessage implements IMessageSecretMessage {
     public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
+/** Properties of a MediaNotifyMessage. */
+export interface IMediaNotifyMessage {
+
+    /** MediaNotifyMessage expressPathUrl */
+    expressPathUrl?: (string|null);
+
+    /** MediaNotifyMessage fileEncSha256 */
+    fileEncSha256?: (Uint8Array|null);
+
+    /** MediaNotifyMessage fileLength */
+    fileLength?: (number|Long|null);
+}
+
 /** Represents a MediaNotifyMessage. */
 export class MediaNotifyMessage implements IMediaNotifyMessage {
 
@@ -20187,6 +21028,13 @@ export class MediaNotifyMessage implements IMediaNotifyMessage {
     public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
+/** Properties of a LIDMigrationMappingSyncMessage. */
+export interface ILIDMigrationMappingSyncMessage {
+
+    /** LIDMigrationMappingSyncMessage encodedMappingPayload */
+    encodedMappingPayload?: (Uint8Array|null);
+}
+
 /** Represents a LIDMigrationMappingSyncMessage. */
 export class LIDMigrationMappingSyncMessage implements ILIDMigrationMappingSyncMessage {
 
@@ -20275,6 +21123,34 @@ export class LIDMigrationMappingSyncMessage implements ILIDMigrationMappingSyncM
      * @returns The default type url
      */
     public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Properties of a ProcessedVideo. */
+export interface IProcessedVideo {
+
+    /** ProcessedVideo directPath */
+    directPath?: (string|null);
+
+    /** ProcessedVideo fileSha256 */
+    fileSha256?: (Uint8Array|null);
+
+    /** ProcessedVideo height */
+    height?: (number|null);
+
+    /** ProcessedVideo width */
+    width?: (number|null);
+
+    /** ProcessedVideo fileLength */
+    fileLength?: (number|Long|null);
+
+    /** ProcessedVideo bitrate */
+    bitrate?: (number|null);
+
+    /** ProcessedVideo quality */
+    quality?: (ProcessedVideo.VideoQuality|null);
+
+    /** ProcessedVideo capabilities */
+    capabilities?: (string[]|null);
 }
 
 /** Represents a ProcessedVideo. */
@@ -20399,6 +21275,16 @@ export namespace ProcessedVideo {
     }
 }
 
+/** Properties of an EphemeralSetting. */
+export interface IEphemeralSetting {
+
+    /** EphemeralSetting duration */
+    duration?: (number|null);
+
+    /** EphemeralSetting timestamp */
+    timestamp?: (number|Long|null);
+}
+
 /** Represents an EphemeralSetting. */
 export class EphemeralSetting implements IEphemeralSetting {
 
@@ -20504,6 +21390,52 @@ export enum PrivacySystemMessage {
     E2EE_MSG = 1,
     NE2EE_SELF = 2,
     NE2EE_OTHER = 3
+}
+
+/** Properties of a HistorySync. */
+export interface IHistorySync {
+
+    /** HistorySync syncType */
+    syncType: HistorySync.HistorySyncType;
+
+    /** HistorySync conversations */
+    conversations?: (IConversation[]|null);
+
+    /** HistorySync statusV3Messages */
+    statusV3Messages?: (IWebMessageInfo[]|null);
+
+    /** HistorySync chunkOrder */
+    chunkOrder?: (number|null);
+
+    /** HistorySync progress */
+    progress?: (number|null);
+
+    /** HistorySync pushnames */
+    pushnames?: (IPushname[]|null);
+
+    /** HistorySync globalSettings */
+    globalSettings?: (IGlobalSettings|null);
+
+    /** HistorySync threadIdUserSecret */
+    threadIdUserSecret?: (Uint8Array|null);
+
+    /** HistorySync threadDsTimeframeOffset */
+    threadDsTimeframeOffset?: (number|null);
+
+    /** HistorySync recentStickers */
+    recentStickers?: (IStickerMetadata[]|null);
+
+    /** HistorySync pastParticipants */
+    pastParticipants?: (IPastParticipants[]|null);
+
+    /** HistorySync callLogRecords */
+    callLogRecords?: (ICallLogRecord[]|null);
+
+    /** HistorySync aiWaitListState */
+    aiWaitListState?: (HistorySync.BotAIWaitListState|null);
+
+    /** HistorySync phoneNumberToLidMappings */
+    phoneNumberToLidMappings?: (IPhoneNumberToLIDMapping[]|null);
 }
 
 /** Represents a HistorySync. */
@@ -20653,6 +21585,151 @@ export namespace HistorySync {
         NON_BLOCKING_DATA = 5,
         ON_DEMAND = 6
     }
+}
+
+/** Properties of a Conversation. */
+export interface IConversation {
+
+    /** Conversation id */
+    id: string;
+
+    /** Conversation messages */
+    messages?: (IHistorySyncMsg[]|null);
+
+    /** Conversation newJid */
+    newJid?: (string|null);
+
+    /** Conversation oldJid */
+    oldJid?: (string|null);
+
+    /** Conversation lastMsgTimestamp */
+    lastMsgTimestamp?: (number|Long|null);
+
+    /** Conversation unreadCount */
+    unreadCount?: (number|null);
+
+    /** Conversation readOnly */
+    readOnly?: (boolean|null);
+
+    /** Conversation endOfHistoryTransfer */
+    endOfHistoryTransfer?: (boolean|null);
+
+    /** Conversation ephemeralExpiration */
+    ephemeralExpiration?: (number|null);
+
+    /** Conversation ephemeralSettingTimestamp */
+    ephemeralSettingTimestamp?: (number|Long|null);
+
+    /** Conversation endOfHistoryTransferType */
+    endOfHistoryTransferType?: (Conversation.EndOfHistoryTransferType|null);
+
+    /** Conversation conversationTimestamp */
+    conversationTimestamp?: (number|Long|null);
+
+    /** Conversation name */
+    name?: (string|null);
+
+    /** Conversation pHash */
+    pHash?: (string|null);
+
+    /** Conversation notSpam */
+    notSpam?: (boolean|null);
+
+    /** Conversation archived */
+    archived?: (boolean|null);
+
+    /** Conversation disappearingMode */
+    disappearingMode?: (IDisappearingMode|null);
+
+    /** Conversation unreadMentionCount */
+    unreadMentionCount?: (number|null);
+
+    /** Conversation markedAsUnread */
+    markedAsUnread?: (boolean|null);
+
+    /** Conversation participant */
+    participant?: (IGroupParticipant[]|null);
+
+    /** Conversation tcToken */
+    tcToken?: (Uint8Array|null);
+
+    /** Conversation tcTokenTimestamp */
+    tcTokenTimestamp?: (number|Long|null);
+
+    /** Conversation contactPrimaryIdentityKey */
+    contactPrimaryIdentityKey?: (Uint8Array|null);
+
+    /** Conversation pinned */
+    pinned?: (number|null);
+
+    /** Conversation muteEndTime */
+    muteEndTime?: (number|Long|null);
+
+    /** Conversation wallpaper */
+    wallpaper?: (IWallpaperSettings|null);
+
+    /** Conversation mediaVisibility */
+    mediaVisibility?: (MediaVisibility|null);
+
+    /** Conversation tcTokenSenderTimestamp */
+    tcTokenSenderTimestamp?: (number|Long|null);
+
+    /** Conversation suspended */
+    suspended?: (boolean|null);
+
+    /** Conversation terminated */
+    terminated?: (boolean|null);
+
+    /** Conversation createdAt */
+    createdAt?: (number|Long|null);
+
+    /** Conversation createdBy */
+    createdBy?: (string|null);
+
+    /** Conversation description */
+    description?: (string|null);
+
+    /** Conversation support */
+    support?: (boolean|null);
+
+    /** Conversation isParentGroup */
+    isParentGroup?: (boolean|null);
+
+    /** Conversation parentGroupId */
+    parentGroupId?: (string|null);
+
+    /** Conversation isDefaultSubgroup */
+    isDefaultSubgroup?: (boolean|null);
+
+    /** Conversation displayName */
+    displayName?: (string|null);
+
+    /** Conversation pnJid */
+    pnJid?: (string|null);
+
+    /** Conversation shareOwnPn */
+    shareOwnPn?: (boolean|null);
+
+    /** Conversation pnhDuplicateLidThread */
+    pnhDuplicateLidThread?: (boolean|null);
+
+    /** Conversation lidJid */
+    lidJid?: (string|null);
+
+    /** Conversation username */
+    username?: (string|null);
+
+    /** Conversation lidOriginType */
+    lidOriginType?: (string|null);
+
+    /** Conversation commentsCount */
+    commentsCount?: (number|null);
+
+    /** Conversation locked */
+    locked?: (boolean|null);
+
+    /** Conversation systemMessageToInsert */
+    systemMessageToInsert?: (PrivacySystemMessage|null);
 }
 
 /** Represents a Conversation. */
@@ -20893,6 +21970,16 @@ export namespace Conversation {
     }
 }
 
+/** Properties of a PhoneNumberToLIDMapping. */
+export interface IPhoneNumberToLIDMapping {
+
+    /** PhoneNumberToLIDMapping pnJid */
+    pnJid?: (string|null);
+
+    /** PhoneNumberToLIDMapping lidJid */
+    lidJid?: (string|null);
+}
+
 /** Represents a PhoneNumberToLIDMapping. */
 export class PhoneNumberToLIDMapping implements IPhoneNumberToLIDMapping {
 
@@ -20984,6 +22071,16 @@ export class PhoneNumberToLIDMapping implements IPhoneNumberToLIDMapping {
      * @returns The default type url
      */
     public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Properties of a HistorySyncMsg. */
+export interface IHistorySyncMsg {
+
+    /** HistorySyncMsg message */
+    message?: (IWebMessageInfo|null);
+
+    /** HistorySyncMsg msgOrderId */
+    msgOrderId?: (number|Long|null);
 }
 
 /** Represents a HistorySyncMsg. */
@@ -21079,6 +22176,16 @@ export class HistorySyncMsg implements IHistorySyncMsg {
     public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
+/** Properties of a Pushname. */
+export interface IPushname {
+
+    /** Pushname id */
+    id?: (string|null);
+
+    /** Pushname pushname */
+    pushname?: (string|null);
+}
+
 /** Represents a Pushname. */
 export class Pushname implements IPushname {
 
@@ -21170,6 +22277,16 @@ export class Pushname implements IPushname {
      * @returns The default type url
      */
     public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Properties of a GroupParticipant. */
+export interface IGroupParticipant {
+
+    /** GroupParticipant userJid */
+    userJid: string;
+
+    /** GroupParticipant rank */
+    rank?: (GroupParticipant.Rank|null);
 }
 
 /** Represents a GroupParticipant. */
@@ -21275,6 +22392,16 @@ export namespace GroupParticipant {
     }
 }
 
+/** Properties of a WallpaperSettings. */
+export interface IWallpaperSettings {
+
+    /** WallpaperSettings filename */
+    filename?: (string|null);
+
+    /** WallpaperSettings opacity */
+    opacity?: (number|null);
+}
+
 /** Represents a WallpaperSettings. */
 export class WallpaperSettings implements IWallpaperSettings {
 
@@ -21366,6 +22493,67 @@ export class WallpaperSettings implements IWallpaperSettings {
      * @returns The default type url
      */
     public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Properties of a GlobalSettings. */
+export interface IGlobalSettings {
+
+    /** GlobalSettings lightThemeWallpaper */
+    lightThemeWallpaper?: (IWallpaperSettings|null);
+
+    /** GlobalSettings mediaVisibility */
+    mediaVisibility?: (MediaVisibility|null);
+
+    /** GlobalSettings darkThemeWallpaper */
+    darkThemeWallpaper?: (IWallpaperSettings|null);
+
+    /** GlobalSettings autoDownloadWiFi */
+    autoDownloadWiFi?: (IAutoDownloadSettings|null);
+
+    /** GlobalSettings autoDownloadCellular */
+    autoDownloadCellular?: (IAutoDownloadSettings|null);
+
+    /** GlobalSettings autoDownloadRoaming */
+    autoDownloadRoaming?: (IAutoDownloadSettings|null);
+
+    /** GlobalSettings showIndividualNotificationsPreview */
+    showIndividualNotificationsPreview?: (boolean|null);
+
+    /** GlobalSettings showGroupNotificationsPreview */
+    showGroupNotificationsPreview?: (boolean|null);
+
+    /** GlobalSettings disappearingModeDuration */
+    disappearingModeDuration?: (number|null);
+
+    /** GlobalSettings disappearingModeTimestamp */
+    disappearingModeTimestamp?: (number|Long|null);
+
+    /** GlobalSettings avatarUserSettings */
+    avatarUserSettings?: (IAvatarUserSettings|null);
+
+    /** GlobalSettings fontSize */
+    fontSize?: (number|null);
+
+    /** GlobalSettings securityNotifications */
+    securityNotifications?: (boolean|null);
+
+    /** GlobalSettings autoUnarchiveChats */
+    autoUnarchiveChats?: (boolean|null);
+
+    /** GlobalSettings videoQualityMode */
+    videoQualityMode?: (number|null);
+
+    /** GlobalSettings photoQualityMode */
+    photoQualityMode?: (number|null);
+
+    /** GlobalSettings individualNotificationSettings */
+    individualNotificationSettings?: (INotificationSettings|null);
+
+    /** GlobalSettings groupNotificationSettings */
+    groupNotificationSettings?: (INotificationSettings|null);
+
+    /** GlobalSettings chatLockSettings */
+    chatLockSettings?: (IChatLockSettings|null);
 }
 
 /** Represents a GlobalSettings. */
@@ -21512,6 +22700,22 @@ export class GlobalSettings implements IGlobalSettings {
     public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
+/** Properties of an AutoDownloadSettings. */
+export interface IAutoDownloadSettings {
+
+    /** AutoDownloadSettings downloadImages */
+    downloadImages?: (boolean|null);
+
+    /** AutoDownloadSettings downloadAudio */
+    downloadAudio?: (boolean|null);
+
+    /** AutoDownloadSettings downloadVideo */
+    downloadVideo?: (boolean|null);
+
+    /** AutoDownloadSettings downloadDocuments */
+    downloadDocuments?: (boolean|null);
+}
+
 /** Represents an AutoDownloadSettings. */
 export class AutoDownloadSettings implements IAutoDownloadSettings {
 
@@ -21609,6 +22813,46 @@ export class AutoDownloadSettings implements IAutoDownloadSettings {
      * @returns The default type url
      */
     public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Properties of a StickerMetadata. */
+export interface IStickerMetadata {
+
+    /** StickerMetadata url */
+    url?: (string|null);
+
+    /** StickerMetadata fileSha256 */
+    fileSha256?: (Uint8Array|null);
+
+    /** StickerMetadata fileEncSha256 */
+    fileEncSha256?: (Uint8Array|null);
+
+    /** StickerMetadata mediaKey */
+    mediaKey?: (Uint8Array|null);
+
+    /** StickerMetadata mimetype */
+    mimetype?: (string|null);
+
+    /** StickerMetadata height */
+    height?: (number|null);
+
+    /** StickerMetadata width */
+    width?: (number|null);
+
+    /** StickerMetadata directPath */
+    directPath?: (string|null);
+
+    /** StickerMetadata fileLength */
+    fileLength?: (number|Long|null);
+
+    /** StickerMetadata weight */
+    weight?: (number|null);
+
+    /** StickerMetadata lastStickerSentTs */
+    lastStickerSentTs?: (number|Long|null);
+
+    /** StickerMetadata isLottie */
+    isLottie?: (boolean|null);
 }
 
 /** Represents a StickerMetadata. */
@@ -21734,6 +22978,16 @@ export class StickerMetadata implements IStickerMetadata {
     public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
+/** Properties of a PastParticipants. */
+export interface IPastParticipants {
+
+    /** PastParticipants groupJid */
+    groupJid?: (string|null);
+
+    /** PastParticipants pastParticipants */
+    pastParticipants?: (IPastParticipant[]|null);
+}
+
 /** Represents a PastParticipants. */
 export class PastParticipants implements IPastParticipants {
 
@@ -21825,6 +23079,19 @@ export class PastParticipants implements IPastParticipants {
      * @returns The default type url
      */
     public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Properties of a PastParticipant. */
+export interface IPastParticipant {
+
+    /** PastParticipant userJid */
+    userJid?: (string|null);
+
+    /** PastParticipant leaveReason */
+    leaveReason?: (PastParticipant.LeaveReason|null);
+
+    /** PastParticipant leaveTs */
+    leaveTs?: (number|Long|null);
 }
 
 /** Represents a PastParticipant. */
@@ -21932,6 +23199,16 @@ export namespace PastParticipant {
     }
 }
 
+/** Properties of an AvatarUserSettings. */
+export interface IAvatarUserSettings {
+
+    /** AvatarUserSettings fbid */
+    fbid?: (string|null);
+
+    /** AvatarUserSettings password */
+    password?: (string|null);
+}
+
 /** Represents an AvatarUserSettings. */
 export class AvatarUserSettings implements IAvatarUserSettings {
 
@@ -22023,6 +23300,28 @@ export class AvatarUserSettings implements IAvatarUserSettings {
      * @returns The default type url
      */
     public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Properties of a NotificationSettings. */
+export interface INotificationSettings {
+
+    /** NotificationSettings messageVibrate */
+    messageVibrate?: (string|null);
+
+    /** NotificationSettings messagePopup */
+    messagePopup?: (string|null);
+
+    /** NotificationSettings messageLight */
+    messageLight?: (string|null);
+
+    /** NotificationSettings lowPriorityNotifications */
+    lowPriorityNotifications?: (boolean|null);
+
+    /** NotificationSettings reactionsMuted */
+    reactionsMuted?: (boolean|null);
+
+    /** NotificationSettings callVibrate */
+    callVibrate?: (string|null);
 }
 
 /** Represents a NotificationSettings. */
@@ -22128,6 +23427,13 @@ export class NotificationSettings implements INotificationSettings {
      * @returns The default type url
      */
     public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Properties of a ChatRowOpaqueData. */
+export interface IChatRowOpaqueData {
+
+    /** ChatRowOpaqueData draftMessage */
+    draftMessage?: (ChatRowOpaqueData.IDraftMessage|null);
 }
 
 /** Represents a ChatRowOpaqueData. */
@@ -22635,6 +23941,16 @@ export namespace ChatRowOpaqueData {
     }
 }
 
+/** Properties of a MsgRowOpaqueData. */
+export interface IMsgRowOpaqueData {
+
+    /** MsgRowOpaqueData currentMsg */
+    currentMsg?: (IMsgOpaqueData|null);
+
+    /** MsgRowOpaqueData quotedMsg */
+    quotedMsg?: (IMsgOpaqueData|null);
+}
+
 /** Represents a MsgRowOpaqueData. */
 export class MsgRowOpaqueData implements IMsgRowOpaqueData {
 
@@ -22728,6 +24044,16 @@ export class MsgRowOpaqueData implements IMsgRowOpaqueData {
     public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
+/** Properties of a PollEncValue. */
+export interface IPollEncValue {
+
+    /** PollEncValue encPayload */
+    encPayload?: (Uint8Array|null);
+
+    /** PollEncValue encIv */
+    encIv?: (Uint8Array|null);
+}
+
 /** Represents a PollEncValue. */
 export class PollEncValue implements IPollEncValue {
 
@@ -22819,6 +24145,118 @@ export class PollEncValue implements IPollEncValue {
      * @returns The default type url
      */
     public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Properties of a MsgOpaqueData. */
+export interface IMsgOpaqueData {
+
+    /** MsgOpaqueData body */
+    body?: (string|null);
+
+    /** MsgOpaqueData caption */
+    caption?: (string|null);
+
+    /** MsgOpaqueData lng */
+    lng?: (number|null);
+
+    /** MsgOpaqueData isLive */
+    isLive?: (boolean|null);
+
+    /** MsgOpaqueData lat */
+    lat?: (number|null);
+
+    /** MsgOpaqueData paymentAmount1000 */
+    paymentAmount1000?: (number|null);
+
+    /** MsgOpaqueData paymentNoteMsgBody */
+    paymentNoteMsgBody?: (string|null);
+
+    /** MsgOpaqueData canonicalUrl */
+    canonicalUrl?: (string|null);
+
+    /** MsgOpaqueData matchedText */
+    matchedText?: (string|null);
+
+    /** MsgOpaqueData title */
+    title?: (string|null);
+
+    /** MsgOpaqueData description */
+    description?: (string|null);
+
+    /** MsgOpaqueData futureproofBuffer */
+    futureproofBuffer?: (Uint8Array|null);
+
+    /** MsgOpaqueData clientUrl */
+    clientUrl?: (string|null);
+
+    /** MsgOpaqueData loc */
+    loc?: (string|null);
+
+    /** MsgOpaqueData pollName */
+    pollName?: (string|null);
+
+    /** MsgOpaqueData pollOptions */
+    pollOptions?: (MsgOpaqueData.IPollOption[]|null);
+
+    /** MsgOpaqueData pollSelectableOptionsCount */
+    pollSelectableOptionsCount?: (number|null);
+
+    /** MsgOpaqueData messageSecret */
+    messageSecret?: (Uint8Array|null);
+
+    /** MsgOpaqueData originalSelfAuthor */
+    originalSelfAuthor?: (string|null);
+
+    /** MsgOpaqueData senderTimestampMs */
+    senderTimestampMs?: (number|Long|null);
+
+    /** MsgOpaqueData pollUpdateParentKey */
+    pollUpdateParentKey?: (string|null);
+
+    /** MsgOpaqueData encPollVote */
+    encPollVote?: (IPollEncValue|null);
+
+    /** MsgOpaqueData isSentCagPollCreation */
+    isSentCagPollCreation?: (boolean|null);
+
+    /** MsgOpaqueData encReactionTargetMessageKey */
+    encReactionTargetMessageKey?: (string|null);
+
+    /** MsgOpaqueData encReactionEncPayload */
+    encReactionEncPayload?: (Uint8Array|null);
+
+    /** MsgOpaqueData encReactionEncIv */
+    encReactionEncIv?: (Uint8Array|null);
+
+    /** MsgOpaqueData botMessageSecret */
+    botMessageSecret?: (Uint8Array|null);
+
+    /** MsgOpaqueData targetMessageKey */
+    targetMessageKey?: (string|null);
+
+    /** MsgOpaqueData encPayload */
+    encPayload?: (Uint8Array|null);
+
+    /** MsgOpaqueData encIv */
+    encIv?: (Uint8Array|null);
+
+    /** MsgOpaqueData eventName */
+    eventName?: (string|null);
+
+    /** MsgOpaqueData isEventCanceled */
+    isEventCanceled?: (boolean|null);
+
+    /** MsgOpaqueData eventDescription */
+    eventDescription?: (string|null);
+
+    /** MsgOpaqueData eventJoinLink */
+    eventJoinLink?: (string|null);
+
+    /** MsgOpaqueData eventStartTime */
+    eventStartTime?: (number|Long|null);
+
+    /** MsgOpaqueData eventLocation */
+    eventLocation?: (MsgOpaqueData.IEventLocation|null);
 }
 
 /** Represents a MsgOpaqueData. */
@@ -23243,6 +24681,55 @@ export namespace MsgOpaqueData {
     }
 }
 
+/** Properties of a MediaEntry. */
+export interface IMediaEntry {
+
+    /** MediaEntry fileSha256 */
+    fileSha256?: (Uint8Array|null);
+
+    /** MediaEntry mediaKey */
+    mediaKey?: (Uint8Array|null);
+
+    /** MediaEntry fileEncSha256 */
+    fileEncSha256?: (Uint8Array|null);
+
+    /** MediaEntry directPath */
+    directPath?: (string|null);
+
+    /** MediaEntry mediaKeyTimestamp */
+    mediaKeyTimestamp?: (number|Long|null);
+
+    /** MediaEntry serverMediaType */
+    serverMediaType?: (string|null);
+
+    /** MediaEntry uploadToken */
+    uploadToken?: (Uint8Array|null);
+
+    /** MediaEntry validatedTimestamp */
+    validatedTimestamp?: (Uint8Array|null);
+
+    /** MediaEntry sidecar */
+    sidecar?: (Uint8Array|null);
+
+    /** MediaEntry objectId */
+    objectId?: (string|null);
+
+    /** MediaEntry fbid */
+    fbid?: (string|null);
+
+    /** MediaEntry downloadableThumbnail */
+    downloadableThumbnail?: (MediaEntry.IDownloadableThumbnail|null);
+
+    /** MediaEntry handle */
+    handle?: (string|null);
+
+    /** MediaEntry filename */
+    filename?: (string|null);
+
+    /** MediaEntry progressiveJpegDetails */
+    progressiveJpegDetails?: (MediaEntry.IProgressiveJpegDetails|null);
+}
+
 /** Represents a MediaEntry. */
 export class MediaEntry implements IMediaEntry {
 
@@ -23608,6 +25095,19 @@ export namespace MediaEntry {
     }
 }
 
+/** Properties of a MediaRetryNotification. */
+export interface IMediaRetryNotification {
+
+    /** MediaRetryNotification stanzaId */
+    stanzaId?: (string|null);
+
+    /** MediaRetryNotification directPath */
+    directPath?: (string|null);
+
+    /** MediaRetryNotification result */
+    result?: (MediaRetryNotification.ResultType|null);
+}
+
 /** Represents a MediaRetryNotification. */
 export class MediaRetryNotification implements IMediaRetryNotification {
 
@@ -23715,6 +25215,13 @@ export namespace MediaRetryNotification {
     }
 }
 
+/** Properties of a ServerErrorReceipt. */
+export interface IServerErrorReceipt {
+
+    /** ServerErrorReceipt stanzaId */
+    stanzaId?: (string|null);
+}
+
 /** Represents a ServerErrorReceipt. */
 export class ServerErrorReceipt implements IServerErrorReceipt {
 
@@ -23803,6 +25310,22 @@ export class ServerErrorReceipt implements IServerErrorReceipt {
      * @returns The default type url
      */
     public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Properties of a MessageKey. */
+export interface IMessageKey {
+
+    /** MessageKey remoteJid */
+    remoteJid?: (string|null);
+
+    /** MessageKey fromMe */
+    fromMe?: (boolean|null);
+
+    /** MessageKey id */
+    id?: (string|null);
+
+    /** MessageKey participant */
+    participant?: (string|null);
 }
 
 /** Represents a MessageKey. */
@@ -23902,6 +25425,10 @@ export class MessageKey implements IMessageKey {
      * @returns The default type url
      */
     public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Properties of a QP. */
+export interface IQP {
 }
 
 /** Represents a QP. */
@@ -24341,6 +25868,28 @@ export namespace QP {
     }
 }
 
+/** Properties of a RoutingInfo. */
+export interface IRoutingInfo {
+
+    /** RoutingInfo regionId */
+    regionId?: (number[]|null);
+
+    /** RoutingInfo clusterId */
+    clusterId?: (number[]|null);
+
+    /** RoutingInfo taskId */
+    taskId?: (number|null);
+
+    /** RoutingInfo debug */
+    debug?: (boolean|null);
+
+    /** RoutingInfo tcpBbr */
+    tcpBbr?: (boolean|null);
+
+    /** RoutingInfo tcpKeepalive */
+    tcpKeepalive?: (boolean|null);
+}
+
 /** Represents a RoutingInfo. */
 export class RoutingInfo implements IRoutingInfo {
 
@@ -24446,6 +25995,13 @@ export class RoutingInfo implements IRoutingInfo {
     public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
+/** Properties of a SyncdVersion. */
+export interface ISyncdVersion {
+
+    /** SyncdVersion version */
+    version?: (number|Long|null);
+}
+
 /** Represents a SyncdVersion. */
 export class SyncdVersion implements ISyncdVersion {
 
@@ -24534,6 +26090,16 @@ export class SyncdVersion implements ISyncdVersion {
      * @returns The default type url
      */
     public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Properties of an ExitCode. */
+export interface IExitCode {
+
+    /** ExitCode code */
+    code?: (number|Long|null);
+
+    /** ExitCode text */
+    text?: (string|null);
 }
 
 /** Represents an ExitCode. */
@@ -24629,6 +26195,13 @@ export class ExitCode implements IExitCode {
     public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
+/** Properties of a SyncdIndex. */
+export interface ISyncdIndex {
+
+    /** SyncdIndex blob */
+    blob?: (Uint8Array|null);
+}
+
 /** Represents a SyncdIndex. */
 export class SyncdIndex implements ISyncdIndex {
 
@@ -24717,6 +26290,13 @@ export class SyncdIndex implements ISyncdIndex {
      * @returns The default type url
      */
     public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Properties of a SyncdValue. */
+export interface ISyncdValue {
+
+    /** SyncdValue blob */
+    blob?: (Uint8Array|null);
 }
 
 /** Represents a SyncdValue. */
@@ -24809,6 +26389,13 @@ export class SyncdValue implements ISyncdValue {
     public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
+/** Properties of a KeyId. */
+export interface IKeyId {
+
+    /** KeyId id */
+    id?: (Uint8Array|null);
+}
+
 /** Represents a KeyId. */
 export class KeyId implements IKeyId {
 
@@ -24897,6 +26484,19 @@ export class KeyId implements IKeyId {
      * @returns The default type url
      */
     public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Properties of a SyncdRecord. */
+export interface ISyncdRecord {
+
+    /** SyncdRecord index */
+    index?: (ISyncdIndex|null);
+
+    /** SyncdRecord value */
+    value?: (ISyncdValue|null);
+
+    /** SyncdRecord keyId */
+    keyId?: (IKeyId|null);
 }
 
 /** Represents a SyncdRecord. */
@@ -24993,6 +26593,28 @@ export class SyncdRecord implements ISyncdRecord {
      * @returns The default type url
      */
     public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Properties of an ExternalBlobReference. */
+export interface IExternalBlobReference {
+
+    /** ExternalBlobReference mediaKey */
+    mediaKey?: (Uint8Array|null);
+
+    /** ExternalBlobReference directPath */
+    directPath?: (string|null);
+
+    /** ExternalBlobReference handle */
+    handle?: (string|null);
+
+    /** ExternalBlobReference fileSizeBytes */
+    fileSizeBytes?: (number|Long|null);
+
+    /** ExternalBlobReference fileSha256 */
+    fileSha256?: (Uint8Array|null);
+
+    /** ExternalBlobReference fileEncSha256 */
+    fileEncSha256?: (Uint8Array|null);
 }
 
 /** Represents an ExternalBlobReference. */
@@ -25100,6 +26722,22 @@ export class ExternalBlobReference implements IExternalBlobReference {
     public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
+/** Properties of a SyncdSnapshot. */
+export interface ISyncdSnapshot {
+
+    /** SyncdSnapshot version */
+    version?: (ISyncdVersion|null);
+
+    /** SyncdSnapshot records */
+    records?: (ISyncdRecord[]|null);
+
+    /** SyncdSnapshot mac */
+    mac?: (Uint8Array|null);
+
+    /** SyncdSnapshot keyId */
+    keyId?: (IKeyId|null);
+}
+
 /** Represents a SyncdSnapshot. */
 export class SyncdSnapshot implements ISyncdSnapshot {
 
@@ -25199,6 +26837,13 @@ export class SyncdSnapshot implements ISyncdSnapshot {
     public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
+/** Properties of a SyncdMutations. */
+export interface ISyncdMutations {
+
+    /** SyncdMutations mutations */
+    mutations?: (ISyncdMutation[]|null);
+}
+
 /** Represents a SyncdMutations. */
 export class SyncdMutations implements ISyncdMutations {
 
@@ -25287,6 +26932,16 @@ export class SyncdMutations implements ISyncdMutations {
      * @returns The default type url
      */
     public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Properties of a SyncdMutation. */
+export interface ISyncdMutation {
+
+    /** SyncdMutation operation */
+    operation?: (SyncdMutation.SyncdOperation|null);
+
+    /** SyncdMutation record */
+    record?: (ISyncdRecord|null);
 }
 
 /** Represents a SyncdMutation. */
@@ -25389,6 +27044,37 @@ export namespace SyncdMutation {
         SET = 0,
         REMOVE = 1
     }
+}
+
+/** Properties of a SyncdPatch. */
+export interface ISyncdPatch {
+
+    /** SyncdPatch version */
+    version?: (ISyncdVersion|null);
+
+    /** SyncdPatch mutations */
+    mutations?: (ISyncdMutation[]|null);
+
+    /** SyncdPatch externalMutations */
+    externalMutations?: (IExternalBlobReference|null);
+
+    /** SyncdPatch snapshotMac */
+    snapshotMac?: (Uint8Array|null);
+
+    /** SyncdPatch patchMac */
+    patchMac?: (Uint8Array|null);
+
+    /** SyncdPatch keyId */
+    keyId?: (IKeyId|null);
+
+    /** SyncdPatch exitCode */
+    exitCode?: (IExitCode|null);
+
+    /** SyncdPatch deviceIndex */
+    deviceIndex?: (number|null);
+
+    /** SyncdPatch clientDebugData */
+    clientDebugData?: (Uint8Array|null);
 }
 
 /** Represents a SyncdPatch. */
@@ -25503,6 +27189,49 @@ export class SyncdPatch implements ISyncdPatch {
      * @returns The default type url
      */
     public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Properties of a SessionStructure. */
+export interface ISessionStructure {
+
+    /** SessionStructure sessionVersion */
+    sessionVersion?: (number|null);
+
+    /** SessionStructure localIdentityPublic */
+    localIdentityPublic?: (Uint8Array|null);
+
+    /** SessionStructure remoteIdentityPublic */
+    remoteIdentityPublic?: (Uint8Array|null);
+
+    /** SessionStructure rootKey */
+    rootKey?: (Uint8Array|null);
+
+    /** SessionStructure previousCounter */
+    previousCounter?: (number|null);
+
+    /** SessionStructure senderChain */
+    senderChain?: (SessionStructure.IChain|null);
+
+    /** SessionStructure receiverChains */
+    receiverChains?: (SessionStructure.IChain[]|null);
+
+    /** SessionStructure pendingKeyExchange */
+    pendingKeyExchange?: (SessionStructure.IPendingKeyExchange|null);
+
+    /** SessionStructure pendingPreKey */
+    pendingPreKey?: (SessionStructure.IPendingPreKey|null);
+
+    /** SessionStructure remoteRegistrationId */
+    remoteRegistrationId?: (number|null);
+
+    /** SessionStructure localRegistrationId */
+    localRegistrationId?: (number|null);
+
+    /** SessionStructure needsRefresh */
+    needsRefresh?: (boolean|null);
+
+    /** SessionStructure aliceBaseKey */
+    aliceBaseKey?: (Uint8Array|null);
 }
 
 /** Represents a SessionStructure. */
@@ -26212,6 +27941,16 @@ export namespace SessionStructure {
     }
 }
 
+/** Properties of a RecordStructure. */
+export interface IRecordStructure {
+
+    /** RecordStructure currentSession */
+    currentSession?: (ISessionStructure|null);
+
+    /** RecordStructure previousSessions */
+    previousSessions?: (ISessionStructure[]|null);
+}
+
 /** Represents a RecordStructure. */
 export class RecordStructure implements IRecordStructure {
 
@@ -26303,6 +28042,19 @@ export class RecordStructure implements IRecordStructure {
      * @returns The default type url
      */
     public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Properties of a PreKeyRecordStructure. */
+export interface IPreKeyRecordStructure {
+
+    /** PreKeyRecordStructure id */
+    id?: (number|null);
+
+    /** PreKeyRecordStructure publicKey */
+    publicKey?: (Uint8Array|null);
+
+    /** PreKeyRecordStructure privateKey */
+    privateKey?: (Uint8Array|null);
 }
 
 /** Represents a PreKeyRecordStructure. */
@@ -26399,6 +28151,25 @@ export class PreKeyRecordStructure implements IPreKeyRecordStructure {
      * @returns The default type url
      */
     public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Properties of a SignedPreKeyRecordStructure. */
+export interface ISignedPreKeyRecordStructure {
+
+    /** SignedPreKeyRecordStructure id */
+    id?: (number|null);
+
+    /** SignedPreKeyRecordStructure publicKey */
+    publicKey?: (Uint8Array|null);
+
+    /** SignedPreKeyRecordStructure privateKey */
+    privateKey?: (Uint8Array|null);
+
+    /** SignedPreKeyRecordStructure signature */
+    signature?: (Uint8Array|null);
+
+    /** SignedPreKeyRecordStructure timestamp */
+    timestamp?: (number|Long|null);
 }
 
 /** Represents a SignedPreKeyRecordStructure. */
@@ -26503,6 +28274,16 @@ export class SignedPreKeyRecordStructure implements ISignedPreKeyRecordStructure
     public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
+/** Properties of an IdentityKeyPairStructure. */
+export interface IIdentityKeyPairStructure {
+
+    /** IdentityKeyPairStructure publicKey */
+    publicKey?: (Uint8Array|null);
+
+    /** IdentityKeyPairStructure privateKey */
+    privateKey?: (Uint8Array|null);
+}
+
 /** Represents an IdentityKeyPairStructure. */
 export class IdentityKeyPairStructure implements IIdentityKeyPairStructure {
 
@@ -26594,6 +28375,22 @@ export class IdentityKeyPairStructure implements IIdentityKeyPairStructure {
      * @returns The default type url
      */
     public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Properties of a SenderKeyStateStructure. */
+export interface ISenderKeyStateStructure {
+
+    /** SenderKeyStateStructure senderKeyId */
+    senderKeyId?: (number|null);
+
+    /** SenderKeyStateStructure senderChainKey */
+    senderChainKey?: (SenderKeyStateStructure.ISenderChainKey|null);
+
+    /** SenderKeyStateStructure senderSigningKey */
+    senderSigningKey?: (SenderKeyStateStructure.ISenderSigningKey|null);
+
+    /** SenderKeyStateStructure senderMessageKeys */
+    senderMessageKeys?: (SenderKeyStateStructure.ISenderMessageKey[]|null);
 }
 
 /** Represents a SenderKeyStateStructure. */
@@ -27007,6 +28804,13 @@ export namespace SenderKeyStateStructure {
     }
 }
 
+/** Properties of a SenderKeyRecordStructure. */
+export interface ISenderKeyRecordStructure {
+
+    /** SenderKeyRecordStructure senderKeyStates */
+    senderKeyStates?: (ISenderKeyStateStructure[]|null);
+}
+
 /** Represents a SenderKeyRecordStructure. */
 export class SenderKeyRecordStructure implements ISenderKeyRecordStructure {
 
@@ -27095,6 +28899,22 @@ export class SenderKeyRecordStructure implements ISenderKeyRecordStructure {
      * @returns The default type url
      */
     public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Properties of a SignalMessage. */
+export interface ISignalMessage {
+
+    /** SignalMessage ratchetKey */
+    ratchetKey?: (Uint8Array|null);
+
+    /** SignalMessage counter */
+    counter?: (number|null);
+
+    /** SignalMessage previousCounter */
+    previousCounter?: (number|null);
+
+    /** SignalMessage ciphertext */
+    ciphertext?: (Uint8Array|null);
 }
 
 /** Represents a SignalMessage. */
@@ -27194,6 +29014,28 @@ export class SignalMessage implements ISignalMessage {
      * @returns The default type url
      */
     public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Properties of a PreKeySignalMessage. */
+export interface IPreKeySignalMessage {
+
+    /** PreKeySignalMessage registrationId */
+    registrationId?: (number|null);
+
+    /** PreKeySignalMessage preKeyId */
+    preKeyId?: (number|null);
+
+    /** PreKeySignalMessage signedPreKeyId */
+    signedPreKeyId?: (number|null);
+
+    /** PreKeySignalMessage baseKey */
+    baseKey?: (Uint8Array|null);
+
+    /** PreKeySignalMessage identityKey */
+    identityKey?: (Uint8Array|null);
+
+    /** PreKeySignalMessage message */
+    message?: (Uint8Array|null);
 }
 
 /** Represents a PreKeySignalMessage. */
@@ -27301,6 +29143,25 @@ export class PreKeySignalMessage implements IPreKeySignalMessage {
     public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
+/** Properties of a KeyExchangeMessage. */
+export interface IKeyExchangeMessage {
+
+    /** KeyExchangeMessage id */
+    id?: (number|null);
+
+    /** KeyExchangeMessage baseKey */
+    baseKey?: (Uint8Array|null);
+
+    /** KeyExchangeMessage ratchetKey */
+    ratchetKey?: (Uint8Array|null);
+
+    /** KeyExchangeMessage identityKey */
+    identityKey?: (Uint8Array|null);
+
+    /** KeyExchangeMessage baseKeySignature */
+    baseKeySignature?: (Uint8Array|null);
+}
+
 /** Represents a KeyExchangeMessage. */
 export class KeyExchangeMessage implements IKeyExchangeMessage {
 
@@ -27403,6 +29264,19 @@ export class KeyExchangeMessage implements IKeyExchangeMessage {
     public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
+/** Properties of a SenderKeyMessage. */
+export interface ISenderKeyMessage {
+
+    /** SenderKeyMessage id */
+    id?: (number|null);
+
+    /** SenderKeyMessage iteration */
+    iteration?: (number|null);
+
+    /** SenderKeyMessage ciphertext */
+    ciphertext?: (Uint8Array|null);
+}
+
 /** Represents a SenderKeyMessage. */
 export class SenderKeyMessage implements ISenderKeyMessage {
 
@@ -27497,6 +29371,22 @@ export class SenderKeyMessage implements ISenderKeyMessage {
      * @returns The default type url
      */
     public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Properties of a SenderKeyDistributionMessage. */
+export interface ISenderKeyDistributionMessage {
+
+    /** SenderKeyDistributionMessage id */
+    id?: (number|null);
+
+    /** SenderKeyDistributionMessage iteration */
+    iteration?: (number|null);
+
+    /** SenderKeyDistributionMessage chainKey */
+    chainKey?: (Uint8Array|null);
+
+    /** SenderKeyDistributionMessage signingKey */
+    signingKey?: (Uint8Array|null);
 }
 
 /** Represents a SenderKeyDistributionMessage. */
@@ -27598,6 +29488,16 @@ export class SenderKeyDistributionMessage implements ISenderKeyDistributionMessa
     public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
+/** Properties of a DeviceConsistencyCodeMessage. */
+export interface IDeviceConsistencyCodeMessage {
+
+    /** DeviceConsistencyCodeMessage generation */
+    generation?: (number|null);
+
+    /** DeviceConsistencyCodeMessage signature */
+    signature?: (Uint8Array|null);
+}
+
 /** Represents a DeviceConsistencyCodeMessage. */
 export class DeviceConsistencyCodeMessage implements IDeviceConsistencyCodeMessage {
 
@@ -27691,6 +29591,16 @@ export class DeviceConsistencyCodeMessage implements IDeviceConsistencyCodeMessa
     public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
+/** Properties of a RecentEmojiWeight. */
+export interface IRecentEmojiWeight {
+
+    /** RecentEmojiWeight emoji */
+    emoji?: (string|null);
+
+    /** RecentEmojiWeight weight */
+    weight?: (number|null);
+}
+
 /** Represents a RecentEmojiWeight. */
 export class RecentEmojiWeight implements IRecentEmojiWeight {
 
@@ -27782,6 +29692,55 @@ export class RecentEmojiWeight implements IRecentEmojiWeight {
      * @returns The default type url
      */
     public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Properties of a CallLogRecord. */
+export interface ICallLogRecord {
+
+    /** CallLogRecord callResult */
+    callResult?: (CallLogRecord.CallResult|null);
+
+    /** CallLogRecord isDndMode */
+    isDndMode?: (boolean|null);
+
+    /** CallLogRecord silenceReason */
+    silenceReason?: (CallLogRecord.SilenceReason|null);
+
+    /** CallLogRecord duration */
+    duration?: (number|Long|null);
+
+    /** CallLogRecord startTime */
+    startTime?: (number|Long|null);
+
+    /** CallLogRecord isIncoming */
+    isIncoming?: (boolean|null);
+
+    /** CallLogRecord isVideo */
+    isVideo?: (boolean|null);
+
+    /** CallLogRecord isCallLink */
+    isCallLink?: (boolean|null);
+
+    /** CallLogRecord callLinkToken */
+    callLinkToken?: (string|null);
+
+    /** CallLogRecord scheduledCallId */
+    scheduledCallId?: (string|null);
+
+    /** CallLogRecord callId */
+    callId?: (string|null);
+
+    /** CallLogRecord callCreatorJid */
+    callCreatorJid?: (string|null);
+
+    /** CallLogRecord groupJid */
+    groupJid?: (string|null);
+
+    /** CallLogRecord participants */
+    participants?: (CallLogRecord.IParticipantInfo[]|null);
+
+    /** CallLogRecord callType */
+    callType?: (CallLogRecord.CallType|null);
 }
 
 /** Represents a CallLogRecord. */
@@ -28050,6 +30009,166 @@ export namespace CallLogRecord {
          */
         public static getTypeUrl(typeUrlPrefix?: string): string;
     }
+}
+
+/** Properties of a SyncActionValue. */
+export interface ISyncActionValue {
+
+    /** SyncActionValue timestamp */
+    timestamp?: (number|Long|null);
+
+    /** SyncActionValue starAction */
+    starAction?: (SyncActionValue.IStarAction|null);
+
+    /** SyncActionValue contactAction */
+    contactAction?: (SyncActionValue.IContactAction|null);
+
+    /** SyncActionValue muteAction */
+    muteAction?: (SyncActionValue.IMuteAction|null);
+
+    /** SyncActionValue pinAction */
+    pinAction?: (SyncActionValue.IPinAction|null);
+
+    /** SyncActionValue securityNotificationSetting */
+    securityNotificationSetting?: (SyncActionValue.ISecurityNotificationSetting|null);
+
+    /** SyncActionValue pushNameSetting */
+    pushNameSetting?: (SyncActionValue.IPushNameSetting|null);
+
+    /** SyncActionValue quickReplyAction */
+    quickReplyAction?: (SyncActionValue.IQuickReplyAction|null);
+
+    /** SyncActionValue recentEmojiWeightsAction */
+    recentEmojiWeightsAction?: (SyncActionValue.IRecentEmojiWeightsAction|null);
+
+    /** SyncActionValue labelEditAction */
+    labelEditAction?: (SyncActionValue.ILabelEditAction|null);
+
+    /** SyncActionValue labelAssociationAction */
+    labelAssociationAction?: (SyncActionValue.ILabelAssociationAction|null);
+
+    /** SyncActionValue localeSetting */
+    localeSetting?: (SyncActionValue.ILocaleSetting|null);
+
+    /** SyncActionValue archiveChatAction */
+    archiveChatAction?: (SyncActionValue.IArchiveChatAction|null);
+
+    /** SyncActionValue deleteMessageForMeAction */
+    deleteMessageForMeAction?: (SyncActionValue.IDeleteMessageForMeAction|null);
+
+    /** SyncActionValue keyExpiration */
+    keyExpiration?: (SyncActionValue.IKeyExpiration|null);
+
+    /** SyncActionValue markChatAsReadAction */
+    markChatAsReadAction?: (SyncActionValue.IMarkChatAsReadAction|null);
+
+    /** SyncActionValue clearChatAction */
+    clearChatAction?: (SyncActionValue.IClearChatAction|null);
+
+    /** SyncActionValue deleteChatAction */
+    deleteChatAction?: (SyncActionValue.IDeleteChatAction|null);
+
+    /** SyncActionValue unarchiveChatsSetting */
+    unarchiveChatsSetting?: (SyncActionValue.IUnarchiveChatsSetting|null);
+
+    /** SyncActionValue primaryFeature */
+    primaryFeature?: (SyncActionValue.IPrimaryFeature|null);
+
+    /** SyncActionValue androidUnsupportedActions */
+    androidUnsupportedActions?: (SyncActionValue.IAndroidUnsupportedActions|null);
+
+    /** SyncActionValue agentAction */
+    agentAction?: (SyncActionValue.IAgentAction|null);
+
+    /** SyncActionValue subscriptionAction */
+    subscriptionAction?: (SyncActionValue.ISubscriptionAction|null);
+
+    /** SyncActionValue userStatusMuteAction */
+    userStatusMuteAction?: (SyncActionValue.IUserStatusMuteAction|null);
+
+    /** SyncActionValue timeFormatAction */
+    timeFormatAction?: (SyncActionValue.ITimeFormatAction|null);
+
+    /** SyncActionValue nuxAction */
+    nuxAction?: (SyncActionValue.INuxAction|null);
+
+    /** SyncActionValue primaryVersionAction */
+    primaryVersionAction?: (SyncActionValue.IPrimaryVersionAction|null);
+
+    /** SyncActionValue stickerAction */
+    stickerAction?: (SyncActionValue.IStickerAction|null);
+
+    /** SyncActionValue removeRecentStickerAction */
+    removeRecentStickerAction?: (SyncActionValue.IRemoveRecentStickerAction|null);
+
+    /** SyncActionValue chatAssignment */
+    chatAssignment?: (SyncActionValue.IChatAssignmentAction|null);
+
+    /** SyncActionValue chatAssignmentOpenedStatus */
+    chatAssignmentOpenedStatus?: (SyncActionValue.IChatAssignmentOpenedStatusAction|null);
+
+    /** SyncActionValue pnForLidChatAction */
+    pnForLidChatAction?: (SyncActionValue.IPnForLidChatAction|null);
+
+    /** SyncActionValue marketingMessageAction */
+    marketingMessageAction?: (SyncActionValue.IMarketingMessageAction|null);
+
+    /** SyncActionValue marketingMessageBroadcastAction */
+    marketingMessageBroadcastAction?: (SyncActionValue.IMarketingMessageBroadcastAction|null);
+
+    /** SyncActionValue externalWebBetaAction */
+    externalWebBetaAction?: (SyncActionValue.IExternalWebBetaAction|null);
+
+    /** SyncActionValue privacySettingRelayAllCalls */
+    privacySettingRelayAllCalls?: (SyncActionValue.IPrivacySettingRelayAllCalls|null);
+
+    /** SyncActionValue callLogAction */
+    callLogAction?: (SyncActionValue.ICallLogAction|null);
+
+    /** SyncActionValue statusPrivacy */
+    statusPrivacy?: (SyncActionValue.IStatusPrivacyAction|null);
+
+    /** SyncActionValue botWelcomeRequestAction */
+    botWelcomeRequestAction?: (SyncActionValue.IBotWelcomeRequestAction|null);
+
+    /** SyncActionValue deleteIndividualCallLog */
+    deleteIndividualCallLog?: (SyncActionValue.IDeleteIndividualCallLogAction|null);
+
+    /** SyncActionValue labelReorderingAction */
+    labelReorderingAction?: (SyncActionValue.ILabelReorderingAction|null);
+
+    /** SyncActionValue paymentInfoAction */
+    paymentInfoAction?: (SyncActionValue.IPaymentInfoAction|null);
+
+    /** SyncActionValue customPaymentMethodsAction */
+    customPaymentMethodsAction?: (SyncActionValue.ICustomPaymentMethodsAction|null);
+
+    /** SyncActionValue lockChatAction */
+    lockChatAction?: (SyncActionValue.ILockChatAction|null);
+
+    /** SyncActionValue chatLockSettings */
+    chatLockSettings?: (IChatLockSettings|null);
+
+    /** SyncActionValue wamoUserIdentifierAction */
+    wamoUserIdentifierAction?: (SyncActionValue.IWamoUserIdentifierAction|null);
+
+    /** SyncActionValue privacySettingDisableLinkPreviewsAction */
+    privacySettingDisableLinkPreviewsAction?: (SyncActionValue.IPrivacySettingDisableLinkPreviewsAction|null);
+
+    /** SyncActionValue deviceCapabilities */
+    deviceCapabilities?: (IDeviceCapabilities|null);
+
+    /** SyncActionValue noteEditAction */
+    noteEditAction?: (SyncActionValue.INoteEditAction|null);
+
+    /** SyncActionValue favorites */
+    favorites?: (SyncActionValue.IFavoritesAction|null);
+
+    /** SyncActionValue merchantPaymentPartnerAction */
+    merchantPaymentPartnerAction?: (SyncActionValue.IMerchantPaymentPartnerAction|null);
+
+    /** SyncActionValue waffleAccountLinkStateAction */
+    waffleAccountLinkStateAction?: (SyncActionValue.IWaffleAccountLinkStateAction|null);
 }
 
 /** Represents a SyncActionValue. */
@@ -33897,6 +36016,22 @@ export namespace SyncActionValue {
     }
 }
 
+/** Properties of a SyncActionData. */
+export interface ISyncActionData {
+
+    /** SyncActionData index */
+    index?: (Uint8Array|null);
+
+    /** SyncActionData value */
+    value?: (ISyncActionValue|null);
+
+    /** SyncActionData padding */
+    padding?: (Uint8Array|null);
+
+    /** SyncActionData version */
+    version?: (number|null);
+}
+
 /** Represents a SyncActionData. */
 export class SyncActionData implements ISyncActionData {
 
@@ -33994,6 +36129,43 @@ export class SyncActionData implements ISyncActionData {
      * @returns The default type url
      */
     public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Properties of a PatchDebugData. */
+export interface IPatchDebugData {
+
+    /** PatchDebugData currentLthash */
+    currentLthash?: (Uint8Array|null);
+
+    /** PatchDebugData newLthash */
+    newLthash?: (Uint8Array|null);
+
+    /** PatchDebugData patchVersion */
+    patchVersion?: (Uint8Array|null);
+
+    /** PatchDebugData collectionName */
+    collectionName?: (Uint8Array|null);
+
+    /** PatchDebugData firstFourBytesFromAHashOfSnapshotMacKey */
+    firstFourBytesFromAHashOfSnapshotMacKey?: (Uint8Array|null);
+
+    /** PatchDebugData newLthashSubtract */
+    newLthashSubtract?: (Uint8Array|null);
+
+    /** PatchDebugData numberAdd */
+    numberAdd?: (number|null);
+
+    /** PatchDebugData numberRemove */
+    numberRemove?: (number|null);
+
+    /** PatchDebugData numberOverride */
+    numberOverride?: (number|null);
+
+    /** PatchDebugData senderPlatform */
+    senderPlatform?: (PatchDebugData.Platform|null);
+
+    /** PatchDebugData isSenderPrimary */
+    isSenderPrimary?: (boolean|null);
 }
 
 /** Represents a PatchDebugData. */
@@ -34128,6 +36300,22 @@ export namespace PatchDebugData {
         UWP = 5,
         DARWIN = 6
     }
+}
+
+/** Properties of a UserPassword. */
+export interface IUserPassword {
+
+    /** UserPassword encoding */
+    encoding?: (UserPassword.Encoding|null);
+
+    /** UserPassword transformer */
+    transformer?: (UserPassword.Transformer|null);
+
+    /** UserPassword transformerArg */
+    transformerArg?: (UserPassword.ITransformerArg[]|null);
+
+    /** UserPassword transformedData */
+    transformedData?: (Uint8Array|null);
 }
 
 /** Represents a UserPassword. */
@@ -34457,6 +36645,19 @@ export namespace UserPassword {
     }
 }
 
+/** Properties of a LocalizedName. */
+export interface ILocalizedName {
+
+    /** LocalizedName lg */
+    lg?: (string|null);
+
+    /** LocalizedName lc */
+    lc?: (string|null);
+
+    /** LocalizedName verifiedName */
+    verifiedName?: (string|null);
+}
+
 /** Represents a LocalizedName. */
 export class LocalizedName implements ILocalizedName {
 
@@ -34551,6 +36752,19 @@ export class LocalizedName implements ILocalizedName {
      * @returns The default type url
      */
     public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Properties of a VerifiedNameCertificate. */
+export interface IVerifiedNameCertificate {
+
+    /** VerifiedNameCertificate details */
+    details?: (Uint8Array|null);
+
+    /** VerifiedNameCertificate signature */
+    signature?: (Uint8Array|null);
+
+    /** VerifiedNameCertificate serverSignature */
+    serverSignature?: (Uint8Array|null);
 }
 
 /** Represents a VerifiedNameCertificate. */
@@ -34773,6 +36987,16 @@ export namespace VerifiedNameCertificate {
     }
 }
 
+/** Properties of a BizAccountPayload. */
+export interface IBizAccountPayload {
+
+    /** BizAccountPayload vnameCert */
+    vnameCert?: (IVerifiedNameCertificate|null);
+
+    /** BizAccountPayload bizAcctLinkInfo */
+    bizAcctLinkInfo?: (Uint8Array|null);
+}
+
 /** Represents a BizAccountPayload. */
 export class BizAccountPayload implements IBizAccountPayload {
 
@@ -34864,6 +37088,25 @@ export class BizAccountPayload implements IBizAccountPayload {
      * @returns The default type url
      */
     public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Properties of a BizAccountLinkInfo. */
+export interface IBizAccountLinkInfo {
+
+    /** BizAccountLinkInfo whatsappBizAcctFbid */
+    whatsappBizAcctFbid?: (number|Long|null);
+
+    /** BizAccountLinkInfo whatsappAcctNumber */
+    whatsappAcctNumber?: (string|null);
+
+    /** BizAccountLinkInfo issueTime */
+    issueTime?: (number|Long|null);
+
+    /** BizAccountLinkInfo hostStorage */
+    hostStorage?: (BizAccountLinkInfo.HostStorageType|null);
+
+    /** BizAccountLinkInfo accountType */
+    accountType?: (BizAccountLinkInfo.AccountType|null);
 }
 
 /** Represents a BizAccountLinkInfo. */
@@ -34980,6 +37223,34 @@ export namespace BizAccountLinkInfo {
         ON_PREMISE = 0,
         FACEBOOK = 1
     }
+}
+
+/** Properties of a BizIdentityInfo. */
+export interface IBizIdentityInfo {
+
+    /** BizIdentityInfo vlevel */
+    vlevel?: (BizIdentityInfo.VerifiedLevelValue|null);
+
+    /** BizIdentityInfo vnameCert */
+    vnameCert?: (IVerifiedNameCertificate|null);
+
+    /** BizIdentityInfo signed */
+    signed?: (boolean|null);
+
+    /** BizIdentityInfo revoked */
+    revoked?: (boolean|null);
+
+    /** BizIdentityInfo hostStorage */
+    hostStorage?: (BizIdentityInfo.HostStorageType|null);
+
+    /** BizIdentityInfo actualActors */
+    actualActors?: (BizIdentityInfo.ActualActorsType|null);
+
+    /** BizIdentityInfo privacyModeTs */
+    privacyModeTs?: (number|Long|null);
+
+    /** BizIdentityInfo featureControls */
+    featureControls?: (number|Long|null);
 }
 
 /** Represents a BizIdentityInfo. */
@@ -35113,6 +37384,19 @@ export namespace BizIdentityInfo {
         LOW = 1,
         HIGH = 2
     }
+}
+
+/** Properties of a HandshakeMessage. */
+export interface IHandshakeMessage {
+
+    /** HandshakeMessage clientHello */
+    clientHello?: (HandshakeMessage.IClientHello|null);
+
+    /** HandshakeMessage serverHello */
+    serverHello?: (HandshakeMessage.IServerHello|null);
+
+    /** HandshakeMessage clientFinish */
+    clientFinish?: (HandshakeMessage.IClientFinish|null);
 }
 
 /** Represents a HandshakeMessage. */
@@ -35533,6 +37817,94 @@ export namespace HandshakeMessage {
          */
         public static getTypeUrl(typeUrlPrefix?: string): string;
     }
+}
+
+/** Properties of a ClientPayload. */
+export interface IClientPayload {
+
+    /** ClientPayload username */
+    username?: (number|Long|null);
+
+    /** ClientPayload passive */
+    passive?: (boolean|null);
+
+    /** ClientPayload userAgent */
+    userAgent?: (ClientPayload.IUserAgent|null);
+
+    /** ClientPayload webInfo */
+    webInfo?: (ClientPayload.IWebInfo|null);
+
+    /** ClientPayload pushName */
+    pushName?: (string|null);
+
+    /** ClientPayload sessionId */
+    sessionId?: (number|null);
+
+    /** ClientPayload shortConnect */
+    shortConnect?: (boolean|null);
+
+    /** ClientPayload connectType */
+    connectType?: (ClientPayload.ConnectType|null);
+
+    /** ClientPayload connectReason */
+    connectReason?: (ClientPayload.ConnectReason|null);
+
+    /** ClientPayload shards */
+    shards?: (number[]|null);
+
+    /** ClientPayload dnsSource */
+    dnsSource?: (ClientPayload.IDNSSource|null);
+
+    /** ClientPayload connectAttemptCount */
+    connectAttemptCount?: (number|null);
+
+    /** ClientPayload device */
+    device?: (number|null);
+
+    /** ClientPayload devicePairingData */
+    devicePairingData?: (ClientPayload.IDevicePairingRegistrationData|null);
+
+    /** ClientPayload product */
+    product?: (ClientPayload.Product|null);
+
+    /** ClientPayload fbCat */
+    fbCat?: (Uint8Array|null);
+
+    /** ClientPayload fbUserAgent */
+    fbUserAgent?: (Uint8Array|null);
+
+    /** ClientPayload oc */
+    oc?: (boolean|null);
+
+    /** ClientPayload lc */
+    lc?: (number|null);
+
+    /** ClientPayload iosAppExtension */
+    iosAppExtension?: (ClientPayload.IOSAppExtension|null);
+
+    /** ClientPayload fbAppId */
+    fbAppId?: (number|Long|null);
+
+    /** ClientPayload fbDeviceId */
+    fbDeviceId?: (Uint8Array|null);
+
+    /** ClientPayload pull */
+    pull?: (boolean|null);
+
+    /** ClientPayload paddingBytes */
+    paddingBytes?: (Uint8Array|null);
+
+    /** ClientPayload yearClass */
+    yearClass?: (number|null);
+
+    /** ClientPayload memClass */
+    memClass?: (number|null);
+
+    /** ClientPayload interopData */
+    interopData?: (ClientPayload.IInteropData|null);
+
+    /** ClientPayload isPcr */
+    isPcr?: (boolean|null);
 }
 
 /** Represents a ClientPayload. */
@@ -36763,6 +39135,181 @@ export namespace ClientPayload {
     }
 }
 
+/** Properties of a WebMessageInfo. */
+export interface IWebMessageInfo {
+
+    /** WebMessageInfo key */
+    key: IMessageKey;
+
+    /** WebMessageInfo message */
+    message?: (IMessage|null);
+
+    /** WebMessageInfo messageTimestamp */
+    messageTimestamp?: (number|Long|null);
+
+    /** WebMessageInfo status */
+    status?: (WebMessageInfo.Status|null);
+
+    /** WebMessageInfo participant */
+    participant?: (string|null);
+
+    /** WebMessageInfo messageC2STimestamp */
+    messageC2STimestamp?: (number|Long|null);
+
+    /** WebMessageInfo ignore */
+    ignore?: (boolean|null);
+
+    /** WebMessageInfo starred */
+    starred?: (boolean|null);
+
+    /** WebMessageInfo broadcast */
+    broadcast?: (boolean|null);
+
+    /** WebMessageInfo pushName */
+    pushName?: (string|null);
+
+    /** WebMessageInfo mediaCiphertextSha256 */
+    mediaCiphertextSha256?: (Uint8Array|null);
+
+    /** WebMessageInfo multicast */
+    multicast?: (boolean|null);
+
+    /** WebMessageInfo urlText */
+    urlText?: (boolean|null);
+
+    /** WebMessageInfo urlNumber */
+    urlNumber?: (boolean|null);
+
+    /** WebMessageInfo messageStubType */
+    messageStubType?: (WebMessageInfo.StubType|null);
+
+    /** WebMessageInfo clearMedia */
+    clearMedia?: (boolean|null);
+
+    /** WebMessageInfo messageStubParameters */
+    messageStubParameters?: (string[]|null);
+
+    /** WebMessageInfo duration */
+    duration?: (number|null);
+
+    /** WebMessageInfo labels */
+    labels?: (string[]|null);
+
+    /** WebMessageInfo paymentInfo */
+    paymentInfo?: (IPaymentInfo|null);
+
+    /** WebMessageInfo finalLiveLocation */
+    finalLiveLocation?: (Message.ILiveLocationMessage|null);
+
+    /** WebMessageInfo quotedPaymentInfo */
+    quotedPaymentInfo?: (IPaymentInfo|null);
+
+    /** WebMessageInfo ephemeralStartTimestamp */
+    ephemeralStartTimestamp?: (number|Long|null);
+
+    /** WebMessageInfo ephemeralDuration */
+    ephemeralDuration?: (number|null);
+
+    /** WebMessageInfo ephemeralOffToOn */
+    ephemeralOffToOn?: (boolean|null);
+
+    /** WebMessageInfo ephemeralOutOfSync */
+    ephemeralOutOfSync?: (boolean|null);
+
+    /** WebMessageInfo bizPrivacyStatus */
+    bizPrivacyStatus?: (WebMessageInfo.BizPrivacyStatus|null);
+
+    /** WebMessageInfo verifiedBizName */
+    verifiedBizName?: (string|null);
+
+    /** WebMessageInfo mediaData */
+    mediaData?: (IMediaData|null);
+
+    /** WebMessageInfo photoChange */
+    photoChange?: (IPhotoChange|null);
+
+    /** WebMessageInfo userReceipt */
+    userReceipt?: (IUserReceipt[]|null);
+
+    /** WebMessageInfo reactions */
+    reactions?: (IReaction[]|null);
+
+    /** WebMessageInfo quotedStickerData */
+    quotedStickerData?: (IMediaData|null);
+
+    /** WebMessageInfo futureproofData */
+    futureproofData?: (Uint8Array|null);
+
+    /** WebMessageInfo statusPsa */
+    statusPsa?: (IStatusPSA|null);
+
+    /** WebMessageInfo pollUpdates */
+    pollUpdates?: (IPollUpdate[]|null);
+
+    /** WebMessageInfo pollAdditionalMetadata */
+    pollAdditionalMetadata?: (IPollAdditionalMetadata|null);
+
+    /** WebMessageInfo agentId */
+    agentId?: (string|null);
+
+    /** WebMessageInfo statusAlreadyViewed */
+    statusAlreadyViewed?: (boolean|null);
+
+    /** WebMessageInfo messageSecret */
+    messageSecret?: (Uint8Array|null);
+
+    /** WebMessageInfo keepInChat */
+    keepInChat?: (IKeepInChat|null);
+
+    /** WebMessageInfo originalSelfAuthorUserJidString */
+    originalSelfAuthorUserJidString?: (string|null);
+
+    /** WebMessageInfo revokeMessageTimestamp */
+    revokeMessageTimestamp?: (number|Long|null);
+
+    /** WebMessageInfo pinInChat */
+    pinInChat?: (IPinInChat|null);
+
+    /** WebMessageInfo premiumMessageInfo */
+    premiumMessageInfo?: (IPremiumMessageInfo|null);
+
+    /** WebMessageInfo is1PBizBotMessage */
+    is1PBizBotMessage?: (boolean|null);
+
+    /** WebMessageInfo isGroupHistoryMessage */
+    isGroupHistoryMessage?: (boolean|null);
+
+    /** WebMessageInfo botMessageInvokerJid */
+    botMessageInvokerJid?: (string|null);
+
+    /** WebMessageInfo commentMetadata */
+    commentMetadata?: (ICommentMetadata|null);
+
+    /** WebMessageInfo eventResponses */
+    eventResponses?: (IEventResponse[]|null);
+
+    /** WebMessageInfo reportingTokenInfo */
+    reportingTokenInfo?: (IReportingTokenInfo|null);
+
+    /** WebMessageInfo newsletterServerId */
+    newsletterServerId?: (number|Long|null);
+
+    /** WebMessageInfo eventAdditionalMetadata */
+    eventAdditionalMetadata?: (IEventAdditionalMetadata|null);
+
+    /** WebMessageInfo isMentionedInStatus */
+    isMentionedInStatus?: (boolean|null);
+
+    /** WebMessageInfo statusMentions */
+    statusMentions?: (string[]|null);
+
+    /** WebMessageInfo targetMessageId */
+    targetMessageId?: (IMessageKey|null);
+
+    /** WebMessageInfo messageAddOns */
+    messageAddOns?: (IMessageAddOn[]|null);
+}
+
 /** Represents a WebMessageInfo. */
 export class WebMessageInfo implements IWebMessageInfo {
 
@@ -37254,6 +39801,16 @@ export namespace WebMessageInfo {
     }
 }
 
+/** Properties of a CommentMetadata. */
+export interface ICommentMetadata {
+
+    /** CommentMetadata commentParentKey */
+    commentParentKey?: (IMessageKey|null);
+
+    /** CommentMetadata replyCount */
+    replyCount?: (number|null);
+}
+
 /** Represents a CommentMetadata. */
 export class CommentMetadata implements ICommentMetadata {
 
@@ -37345,6 +39902,49 @@ export class CommentMetadata implements ICommentMetadata {
      * @returns The default type url
      */
     public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Properties of a PaymentInfo. */
+export interface IPaymentInfo {
+
+    /** PaymentInfo currencyDeprecated */
+    currencyDeprecated?: (PaymentInfo.Currency|null);
+
+    /** PaymentInfo amount1000 */
+    amount1000?: (number|Long|null);
+
+    /** PaymentInfo receiverJid */
+    receiverJid?: (string|null);
+
+    /** PaymentInfo status */
+    status?: (PaymentInfo.Status|null);
+
+    /** PaymentInfo transactionTimestamp */
+    transactionTimestamp?: (number|Long|null);
+
+    /** PaymentInfo requestMessageKey */
+    requestMessageKey?: (IMessageKey|null);
+
+    /** PaymentInfo expiryTimestamp */
+    expiryTimestamp?: (number|Long|null);
+
+    /** PaymentInfo futureproofed */
+    futureproofed?: (boolean|null);
+
+    /** PaymentInfo currency */
+    currency?: (string|null);
+
+    /** PaymentInfo txnStatus */
+    txnStatus?: (PaymentInfo.TxnStatus|null);
+
+    /** PaymentInfo useNoviFiatFormat */
+    useNoviFiatFormat?: (boolean|null);
+
+    /** PaymentInfo primaryAmount */
+    primaryAmount?: (IMoney|null);
+
+    /** PaymentInfo exchangeAmount */
+    exchangeAmount?: (IMoney|null);
 }
 
 /** Represents a PaymentInfo. */
@@ -37534,6 +40134,22 @@ export namespace PaymentInfo {
     }
 }
 
+/** Properties of a WebNotificationsInfo. */
+export interface IWebNotificationsInfo {
+
+    /** WebNotificationsInfo timestamp */
+    timestamp?: (number|Long|null);
+
+    /** WebNotificationsInfo unreadChats */
+    unreadChats?: (number|null);
+
+    /** WebNotificationsInfo notifyMessageCount */
+    notifyMessageCount?: (number|null);
+
+    /** WebNotificationsInfo notifyMessages */
+    notifyMessages?: (IWebMessageInfo[]|null);
+}
+
 /** Represents a WebNotificationsInfo. */
 export class WebNotificationsInfo implements IWebNotificationsInfo {
 
@@ -37633,6 +40249,22 @@ export class WebNotificationsInfo implements IWebNotificationsInfo {
     public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
+/** Properties of a NotificationMessageInfo. */
+export interface INotificationMessageInfo {
+
+    /** NotificationMessageInfo key */
+    key?: (IMessageKey|null);
+
+    /** NotificationMessageInfo message */
+    message?: (IMessage|null);
+
+    /** NotificationMessageInfo messageTimestamp */
+    messageTimestamp?: (number|Long|null);
+
+    /** NotificationMessageInfo participant */
+    participant?: (string|null);
+}
+
 /** Represents a NotificationMessageInfo. */
 export class NotificationMessageInfo implements INotificationMessageInfo {
 
@@ -37730,6 +40362,145 @@ export class NotificationMessageInfo implements INotificationMessageInfo {
      * @returns The default type url
      */
     public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Properties of a WebFeatures. */
+export interface IWebFeatures {
+
+    /** WebFeatures labelsDisplay */
+    labelsDisplay?: (WebFeatures.Flag|null);
+
+    /** WebFeatures voipIndividualOutgoing */
+    voipIndividualOutgoing?: (WebFeatures.Flag|null);
+
+    /** WebFeatures groupsV3 */
+    groupsV3?: (WebFeatures.Flag|null);
+
+    /** WebFeatures groupsV3Create */
+    groupsV3Create?: (WebFeatures.Flag|null);
+
+    /** WebFeatures changeNumberV2 */
+    changeNumberV2?: (WebFeatures.Flag|null);
+
+    /** WebFeatures queryStatusV3Thumbnail */
+    queryStatusV3Thumbnail?: (WebFeatures.Flag|null);
+
+    /** WebFeatures liveLocations */
+    liveLocations?: (WebFeatures.Flag|null);
+
+    /** WebFeatures queryVname */
+    queryVname?: (WebFeatures.Flag|null);
+
+    /** WebFeatures voipIndividualIncoming */
+    voipIndividualIncoming?: (WebFeatures.Flag|null);
+
+    /** WebFeatures quickRepliesQuery */
+    quickRepliesQuery?: (WebFeatures.Flag|null);
+
+    /** WebFeatures payments */
+    payments?: (WebFeatures.Flag|null);
+
+    /** WebFeatures stickerPackQuery */
+    stickerPackQuery?: (WebFeatures.Flag|null);
+
+    /** WebFeatures liveLocationsFinal */
+    liveLocationsFinal?: (WebFeatures.Flag|null);
+
+    /** WebFeatures labelsEdit */
+    labelsEdit?: (WebFeatures.Flag|null);
+
+    /** WebFeatures mediaUpload */
+    mediaUpload?: (WebFeatures.Flag|null);
+
+    /** WebFeatures mediaUploadRichQuickReplies */
+    mediaUploadRichQuickReplies?: (WebFeatures.Flag|null);
+
+    /** WebFeatures vnameV2 */
+    vnameV2?: (WebFeatures.Flag|null);
+
+    /** WebFeatures videoPlaybackUrl */
+    videoPlaybackUrl?: (WebFeatures.Flag|null);
+
+    /** WebFeatures statusRanking */
+    statusRanking?: (WebFeatures.Flag|null);
+
+    /** WebFeatures voipIndividualVideo */
+    voipIndividualVideo?: (WebFeatures.Flag|null);
+
+    /** WebFeatures thirdPartyStickers */
+    thirdPartyStickers?: (WebFeatures.Flag|null);
+
+    /** WebFeatures frequentlyForwardedSetting */
+    frequentlyForwardedSetting?: (WebFeatures.Flag|null);
+
+    /** WebFeatures groupsV4JoinPermission */
+    groupsV4JoinPermission?: (WebFeatures.Flag|null);
+
+    /** WebFeatures recentStickers */
+    recentStickers?: (WebFeatures.Flag|null);
+
+    /** WebFeatures catalog */
+    catalog?: (WebFeatures.Flag|null);
+
+    /** WebFeatures starredStickers */
+    starredStickers?: (WebFeatures.Flag|null);
+
+    /** WebFeatures voipGroupCall */
+    voipGroupCall?: (WebFeatures.Flag|null);
+
+    /** WebFeatures templateMessage */
+    templateMessage?: (WebFeatures.Flag|null);
+
+    /** WebFeatures templateMessageInteractivity */
+    templateMessageInteractivity?: (WebFeatures.Flag|null);
+
+    /** WebFeatures ephemeralMessages */
+    ephemeralMessages?: (WebFeatures.Flag|null);
+
+    /** WebFeatures e2ENotificationSync */
+    e2ENotificationSync?: (WebFeatures.Flag|null);
+
+    /** WebFeatures recentStickersV2 */
+    recentStickersV2?: (WebFeatures.Flag|null);
+
+    /** WebFeatures recentStickersV3 */
+    recentStickersV3?: (WebFeatures.Flag|null);
+
+    /** WebFeatures userNotice */
+    userNotice?: (WebFeatures.Flag|null);
+
+    /** WebFeatures support */
+    support?: (WebFeatures.Flag|null);
+
+    /** WebFeatures groupUiiCleanup */
+    groupUiiCleanup?: (WebFeatures.Flag|null);
+
+    /** WebFeatures groupDogfoodingInternalOnly */
+    groupDogfoodingInternalOnly?: (WebFeatures.Flag|null);
+
+    /** WebFeatures settingsSync */
+    settingsSync?: (WebFeatures.Flag|null);
+
+    /** WebFeatures archiveV2 */
+    archiveV2?: (WebFeatures.Flag|null);
+
+    /** WebFeatures ephemeralAllowGroupMembers */
+    ephemeralAllowGroupMembers?: (WebFeatures.Flag|null);
+
+    /** WebFeatures ephemeral24HDuration */
+    ephemeral24HDuration?: (WebFeatures.Flag|null);
+
+    /** WebFeatures mdForceUpgrade */
+    mdForceUpgrade?: (WebFeatures.Flag|null);
+
+    /** WebFeatures disappearingMode */
+    disappearingMode?: (WebFeatures.Flag|null);
+
+    /** WebFeatures externalMdOptInAvailable */
+    externalMdOptInAvailable?: (WebFeatures.Flag|null);
+
+    /** WebFeatures noDeleteMessageTimeLimit */
+    noDeleteMessageTimeLimit?: (WebFeatures.Flag|null);
 }
 
 /** Represents a WebFeatures. */
@@ -37965,6 +40736,13 @@ export namespace WebFeatures {
     }
 }
 
+/** Properties of a ReportingTokenInfo. */
+export interface IReportingTokenInfo {
+
+    /** ReportingTokenInfo reportingTag */
+    reportingTag?: (Uint8Array|null);
+}
+
 /** Represents a ReportingTokenInfo. */
 export class ReportingTokenInfo implements IReportingTokenInfo {
 
@@ -38055,6 +40833,13 @@ export class ReportingTokenInfo implements IReportingTokenInfo {
     public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
+/** Properties of a MediaData. */
+export interface IMediaData {
+
+    /** MediaData localPath */
+    localPath?: (string|null);
+}
+
 /** Represents a MediaData. */
 export class MediaData implements IMediaData {
 
@@ -38143,6 +40928,19 @@ export class MediaData implements IMediaData {
      * @returns The default type url
      */
     public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Properties of a PhotoChange. */
+export interface IPhotoChange {
+
+    /** PhotoChange oldPhoto */
+    oldPhoto?: (Uint8Array|null);
+
+    /** PhotoChange newPhoto */
+    newPhoto?: (Uint8Array|null);
+
+    /** PhotoChange newPhotoId */
+    newPhotoId?: (number|null);
 }
 
 /** Represents a PhotoChange. */
@@ -38241,6 +41039,16 @@ export class PhotoChange implements IPhotoChange {
     public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
+/** Properties of a StatusPSA. */
+export interface IStatusPSA {
+
+    /** StatusPSA campaignId */
+    campaignId: (number|Long);
+
+    /** StatusPSA campaignExpirationTimestamp */
+    campaignExpirationTimestamp?: (number|Long|null);
+}
+
 /** Represents a StatusPSA. */
 export class StatusPSA implements IStatusPSA {
 
@@ -38332,6 +41140,28 @@ export class StatusPSA implements IStatusPSA {
      * @returns The default type url
      */
     public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Properties of a UserReceipt. */
+export interface IUserReceipt {
+
+    /** UserReceipt userJid */
+    userJid: string;
+
+    /** UserReceipt receiptTimestamp */
+    receiptTimestamp?: (number|Long|null);
+
+    /** UserReceipt readTimestamp */
+    readTimestamp?: (number|Long|null);
+
+    /** UserReceipt playedTimestamp */
+    playedTimestamp?: (number|Long|null);
+
+    /** UserReceipt pendingDeviceJid */
+    pendingDeviceJid?: (string[]|null);
+
+    /** UserReceipt deliveredDeviceJid */
+    deliveredDeviceJid?: (string[]|null);
 }
 
 /** Represents a UserReceipt. */
@@ -38439,6 +41269,25 @@ export class UserReceipt implements IUserReceipt {
     public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
+/** Properties of a Reaction. */
+export interface IReaction {
+
+    /** Reaction key */
+    key?: (IMessageKey|null);
+
+    /** Reaction text */
+    text?: (string|null);
+
+    /** Reaction groupingKey */
+    groupingKey?: (string|null);
+
+    /** Reaction senderTimestampMs */
+    senderTimestampMs?: (number|Long|null);
+
+    /** Reaction unread */
+    unread?: (boolean|null);
+}
+
 /** Represents a Reaction. */
 export class Reaction implements IReaction {
 
@@ -38539,6 +41388,25 @@ export class Reaction implements IReaction {
      * @returns The default type url
      */
     public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Properties of a PollUpdate. */
+export interface IPollUpdate {
+
+    /** PollUpdate pollUpdateMessageKey */
+    pollUpdateMessageKey?: (IMessageKey|null);
+
+    /** PollUpdate vote */
+    vote?: (Message.IPollVoteMessage|null);
+
+    /** PollUpdate senderTimestampMs */
+    senderTimestampMs?: (number|Long|null);
+
+    /** PollUpdate serverTimestampMs */
+    serverTimestampMs?: (number|Long|null);
+
+    /** PollUpdate unread */
+    unread?: (boolean|null);
 }
 
 /** Represents a PollUpdate. */
@@ -38643,6 +41511,13 @@ export class PollUpdate implements IPollUpdate {
     public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
+/** Properties of a PollAdditionalMetadata. */
+export interface IPollAdditionalMetadata {
+
+    /** PollAdditionalMetadata pollInvalidated */
+    pollInvalidated?: (boolean|null);
+}
+
 /** Represents a PollAdditionalMetadata. */
 export class PollAdditionalMetadata implements IPollAdditionalMetadata {
 
@@ -38733,6 +41608,13 @@ export class PollAdditionalMetadata implements IPollAdditionalMetadata {
     public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
+/** Properties of an EventAdditionalMetadata. */
+export interface IEventAdditionalMetadata {
+
+    /** EventAdditionalMetadata isStale */
+    isStale?: (boolean|null);
+}
+
 /** Represents an EventAdditionalMetadata. */
 export class EventAdditionalMetadata implements IEventAdditionalMetadata {
 
@@ -38821,6 +41703,28 @@ export class EventAdditionalMetadata implements IEventAdditionalMetadata {
      * @returns The default type url
      */
     public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Properties of a KeepInChat. */
+export interface IKeepInChat {
+
+    /** KeepInChat keepType */
+    keepType?: (KeepType|null);
+
+    /** KeepInChat serverTimestamp */
+    serverTimestamp?: (number|Long|null);
+
+    /** KeepInChat key */
+    key?: (IMessageKey|null);
+
+    /** KeepInChat deviceJid */
+    deviceJid?: (string|null);
+
+    /** KeepInChat clientTimestampMs */
+    clientTimestampMs?: (number|Long|null);
+
+    /** KeepInChat serverTimestampMs */
+    serverTimestampMs?: (number|Long|null);
 }
 
 /** Represents a KeepInChat. */
@@ -38926,6 +41830,25 @@ export class KeepInChat implements IKeepInChat {
      * @returns The default type url
      */
     public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Properties of a PinInChat. */
+export interface IPinInChat {
+
+    /** PinInChat type */
+    type?: (PinInChat.Type|null);
+
+    /** PinInChat key */
+    key?: (IMessageKey|null);
+
+    /** PinInChat senderTimestampMs */
+    senderTimestampMs?: (number|Long|null);
+
+    /** PinInChat serverTimestampMs */
+    serverTimestampMs?: (number|Long|null);
+
+    /** PinInChat messageAddOnContextInfo */
+    messageAddOnContextInfo?: (IMessageAddOnContextInfo|null);
 }
 
 /** Represents a PinInChat. */
@@ -39040,6 +41963,16 @@ export namespace PinInChat {
     }
 }
 
+/** Properties of a MessageAddOnContextInfo. */
+export interface IMessageAddOnContextInfo {
+
+    /** MessageAddOnContextInfo messageAddOnDurationInSecs */
+    messageAddOnDurationInSecs?: (number|null);
+
+    /** MessageAddOnContextInfo messageAddOnExpiryType */
+    messageAddOnExpiryType?: (MessageContextInfo.MessageAddonExpiryType|null);
+}
+
 /** Represents a MessageAddOnContextInfo. */
 export class MessageAddOnContextInfo implements IMessageAddOnContextInfo {
 
@@ -39133,6 +42066,13 @@ export class MessageAddOnContextInfo implements IMessageAddOnContextInfo {
     public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
+/** Properties of a PremiumMessageInfo. */
+export interface IPremiumMessageInfo {
+
+    /** PremiumMessageInfo serverCampaignId */
+    serverCampaignId?: (string|null);
+}
+
 /** Represents a PremiumMessageInfo. */
 export class PremiumMessageInfo implements IPremiumMessageInfo {
 
@@ -39221,6 +42161,22 @@ export class PremiumMessageInfo implements IPremiumMessageInfo {
      * @returns The default type url
      */
     public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Properties of an EventResponse. */
+export interface IEventResponse {
+
+    /** EventResponse eventResponseMessageKey */
+    eventResponseMessageKey?: (IMessageKey|null);
+
+    /** EventResponse timestampMs */
+    timestampMs?: (number|Long|null);
+
+    /** EventResponse eventResponseMessage */
+    eventResponseMessage?: (Message.IEventResponseMessage|null);
+
+    /** EventResponse unread */
+    unread?: (boolean|null);
 }
 
 /** Represents an EventResponse. */
@@ -39320,6 +42276,28 @@ export class EventResponse implements IEventResponse {
      * @returns The default type url
      */
     public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Properties of a MessageAddOn. */
+export interface IMessageAddOn {
+
+    /** MessageAddOn messageAddOnType */
+    messageAddOnType?: (MessageAddOn.MessageAddOnType|null);
+
+    /** MessageAddOn messageAddOn */
+    messageAddOn?: (IMessage|null);
+
+    /** MessageAddOn senderTimestampMs */
+    senderTimestampMs?: (number|Long|null);
+
+    /** MessageAddOn serverTimestampMs */
+    serverTimestampMs?: (number|Long|null);
+
+    /** MessageAddOn status */
+    status?: (WebMessageInfo.Status|null);
+
+    /** MessageAddOn addOnContextInfo */
+    addOnContextInfo?: (IMessageAddOnContextInfo|null);
 }
 
 /** Represents a MessageAddOn. */
