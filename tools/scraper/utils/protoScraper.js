@@ -84,8 +84,6 @@ function extractFieldInfo(fieldSpec) {
         .filter(flag => flagsValue & FLAGS[flag])
         .map(flag => flag.toLowerCase());
 
-    if (!flags.length) flags.push("optional");
-
     const options = Object.keys(OPTIONS)
         .filter(flag => flagsValue & OPTIONS[flag])
         .map(flag => flag.toLowerCase());
@@ -227,7 +225,7 @@ const protoBufDefinitions = {};
 for (const protoName in protoFiles) {
     const protoFileTree = protoFiles[protoName];
 
-    let protoContent = `syntax = "proto2";\n\n`;
+    let protoContent = `syntax = "proto3";\n\n`;
     // protoContent += `package ${protoName};\n\n`;
     protoContent += protoFileTree.map(node => serializeNode(node)).join("\n\n");
 
