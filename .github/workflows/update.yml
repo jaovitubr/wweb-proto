@@ -56,7 +56,7 @@ jobs:
       - name: Install dependencies
         if: env.update_needed == 'true'
         run: |
-          npm i -g protobufjs-cli
+          npm i -g protobufjs-cli uglify-js
           cd tools/scraper && npm i
 
       - name: Scrap proto files
