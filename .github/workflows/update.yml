@@ -71,6 +71,7 @@ jobs:
           OUT_DIR: ${{ github.workspace }}/out/proto
 
       - name: Check if package update is needed
+        if: env.update_needed == 'true'
         run: |
           if [[ "${{ env.WA_PROTO_MD5 }}" == "${{ env.NEWEST_WA_PROTO_MD5 }}" ]]; then
             echo "Versions are the same."
