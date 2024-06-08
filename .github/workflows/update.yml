@@ -26,7 +26,7 @@ jobs:
         run: |
           mkdir -p out/packages
 
-          WA_VERSION=$(cat out/.version)
+          WA_VERSION=$(cat out/proto/.version)
           WA_PROTO_MD5=$(cat out/proto/.md5)
 
           echo "WA_VERSION=$WA_VERSION" >> $GITHUB_ENV
@@ -39,9 +39,7 @@ jobs:
         run: |
           NEWEST_WA_VERSION=$(node tools/version)
 
-          echo $NEWEST_WA_VERSION > out/.version
           echo "NEWEST_WA_VERSION=$NEWEST_WA_VERSION" >> $GITHUB_ENV
-
           echo "Newest WhatsApp Web version: $NEWEST_WA_VERSION"
 
       - name: Check if update is needed
@@ -56,17 +54,22 @@ jobs:
       - name: Install dependencies
         if: env.update_needed == 'true'
         run: |
-          npm i -g https://gitpkg.now.sh/jaovitubr/protobuf.js/cli?master # protobufjs-cli
-          npm i -g uglify-js
+          apt install -y protobuf-compiler
+          npm i -g @bufbuild/protoc-gen-es typescript uglify-js
           cd tools/scraper && npm i
 
       - name: Scrap proto files
         if: env.update_needed == 'true'
         run: |
           node tools/scraper
+
+          NEWEST_WA_VERSION=$(cat out/proto/.version)
           NEWEST_WA_PROTO_MD5=$(cat out/proto/.md5)
 
+          echo "NEWEST_WA_VERSION=$NEWEST_WA_VERSION" >> $GITHUB_ENV
           echo "NEWEST_WA_PROTO_MD5=$NEWEST_WA_PROTO_MD5" >> $GITHUB_ENV
+
+          echo "Newest wpp version: $NEWEST_WA_VERSION"
           echo "Newest proto md5: $NEWEST_WA_PROTO_MD5"
         env:
           OUT_DIR: ${{ github.workspace }}/out/proto
@@ -88,13 +91,22 @@ jobs:
         env:
           OUT_DIR: ${{ github.workspace }}/out/packages
 
-      - name: Publish packages
+      - name: Upload artifacts
         if: env.package_update_needed == 'true'
-        run: ./publish.sh
-        working-directory: tools/packager
-        env:
-          OUT_DIR: ${{ github.workspace }}/out/packages
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: out
+          path: |
+            out
+            !node_modules
+
+      # - name: Publish packages
+      #   if: env.package_update_needed == 'true'
+      #   run: ./publish.sh
+      #   working-directory: tools/packager
+      #   env:
+      #     OUT_DIR: ${{ github.workspace }}/out/packages
+      #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Commit changes
         if: env.update_needed == 'true'

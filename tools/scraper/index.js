@@ -20,6 +20,11 @@ const browser = await puppeteer.launch({
 
 const [page] = await browser.pages();
 
+await page.setUserAgent(
+    (await browser.userAgent())
+        .replace("HeadlessChrome", "Chrome")
+);
+
 await page.goto("https://web.whatsapp.com/");
 
 const [
@@ -32,17 +37,21 @@ const [
 
 await page.evaluate(moduleRaidScript);
 const protos = await page.evaluate(new Function("scrap", scrapScript));
+const WWEB_VERSION = await page.evaluate(() => window.Debug.VERSION);
 
 if (!IS_DEBUG) await browser.close();
 
 const protosMd5 = calculateProtosMd5(protos);
+
 const protosMd5FilePath = path.join(OUT_DIR, ".md5");
+const wwebVersionFilePath = path.join(OUT_DIR, ".version");
 
 await fs.rm(OUT_DIR, { recursive: true })
     .then(() => fs.mkdir(OUT_DIR))
     .catch(() => fs.mkdir(OUT_DIR));
 
 await fs.writeFile(protosMd5FilePath, protosMd5);
+await fs.writeFile(wwebVersionFilePath, WWEB_VERSION);
 
 await Promise.all(
     Object.entries(protos).map(([protoName, proto]) => {

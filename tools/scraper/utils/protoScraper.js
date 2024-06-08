@@ -84,13 +84,34 @@ function extractFieldInfo(fieldSpec) {
         .filter(flag => flagsValue & FLAGS[flag])
         .map(flag => flag.toLowerCase());
 
-    if (!flags.length) flags.push("optional");
+    if (!flags.length && !["map", ""].includes(type)) flags.push("optional");
 
     const options = Object.keys(OPTIONS)
         .filter(flag => flagsValue & OPTIONS[flag])
         .map(flag => flag.toLowerCase());
 
     return { order, type, typeSpec, flags, options };
+}
+
+function extractMapFieldSpecNames(fieldSpec) {
+    const [spec1, spec2] = fieldSpec;
+
+    function getTypeNameOfSpec(spec) {
+        if (typeof spec === "number") {
+            const typeValue = spec & protoConstants.TYPE_MASK;
+
+            return Object.keys(protoConstants.TYPES)
+                .find(key => protoConstants.TYPES[key] === typeValue)
+                ?.toLowerCase();
+        } else if (typeof spec === "object") {
+            return determineFieldSpecName(spec);
+        }
+    }
+
+    return [
+        getTypeNameOfSpec(spec1),
+        getTypeNameOfSpec(spec2),
+    ];
 }
 
 function determineFieldSpecFileName(typeSpec) {
@@ -184,11 +205,16 @@ function serializeOneOfGroups(node) {
 function serializeField(node, fieldName, fieldSpec, isOneOf = false) {
     if (node.type === "message") {
         let { order, type, typeSpec, flags, options } = extractFieldInfo(fieldSpec);
-        const typeSpecName = determineFieldSpecName(typeSpec, node.path) || type;
+        let typeSpecName = type;
 
-        if (isOneOf) {
-            flags = flags.filter(flag => !["required", "optional"].includes(flag));
+        if (type === "map") {
+            const [specName1, specName2] = extractMapFieldSpecNames(typeSpec);
+            typeSpecName = `map<${specName1}, ${specName2}>`;
+        } else if (["message", "enum"].includes(type)) {
+            typeSpecName = determineFieldSpecName(typeSpec, node.path)
         }
+
+        if (isOneOf) flags = [];
 
         const flagsStr = flags.length ? `${flags.join(" ")} ` : "";
         const optionsStr = options.length ? ` [${options.map(option => `${option}=true`).join(", ")}]` : "";
@@ -260,7 +286,6 @@ function findImports(protoName, protoFileTree) {
             if (!typeSpec) return;
 
             const typeFileName = determineFieldSpecFileName(typeSpec);
-            if (protoName === "Reporting") console.log({ fieldName, fieldSpec })
             if (!typeFileName) return;
 
             if (typeFileName !== protoName) {
@@ -281,7 +306,7 @@ for (const protoName in protoFiles) {
     const protoImports = findImports(protoName, protoFileTree);
 
     let protoContent = `syntax = "proto2";\n\n`;
-    console.log(protoName, protoImports)
+
     if (protoImports.length > 0) protoContent += protoImports
         .map(fileName => `import "${fileName}.proto";`)
         .join("\n") + "\n\n";
