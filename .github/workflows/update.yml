@@ -26,8 +26,8 @@ jobs:
         run: |
           mkdir -p out/packages
 
-          WA_VERSION=$(cat out/proto/.version)
-          WA_PROTO_MD5=$(cat out/proto/.md5)
+          WA_VERSION=$(cat out/proto/.version 2>/dev/null)
+          WA_PROTO_MD5=$(cat out/proto/.md5 2>/dev/null)
 
           echo "WA_VERSION=$WA_VERSION" >> $GITHUB_ENV
           echo "WA_PROTO_MD5=$WA_PROTO_MD5" >> $GITHUB_ENV
