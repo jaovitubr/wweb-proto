@@ -1,7 +1,7 @@
 #!/bin/bash
 
-OUT_DIR=../../../out
-NEWEST_WA_VERSION=1.0.0
+# OUT_DIR=../../../out
+# NEWEST_WA_VERSION=1.0.0
 
 PROTO_DIR=$OUT_DIR/proto
 OUT=$OUT_DIR/packages/javascript

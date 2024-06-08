@@ -25,10 +25,9 @@ await page.setUserAgent(
         .replace("HeadlessChrome", "Chrome")
 );
 
-await page.goto("https://web.whatsapp.com/");
-
-const userAgent = await page.evaluate(() => navigator.userAgent);
-console.log(userAgent);
+await page.goto("https://web.whatsapp.com/", {
+    waitUntil: "networkidle0",
+});
 
 const [
     moduleRaidScript,
