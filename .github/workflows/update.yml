@@ -89,7 +89,7 @@ jobs:
         run: ./generate.sh
         working-directory: tools/packager
         env:
-          OUT_DIR: ${{ github.workspace }}/out/packages
+          OUT_DIR: ${{ github.workspace }}/out
 
       - name: Upload artifacts
         if: env.package_update_needed == 'true'
