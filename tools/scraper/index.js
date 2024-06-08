@@ -19,6 +19,7 @@ const browser = await puppeteer.launch({
 });
 
 const [page] = await browser.pages();
+console.log((await browser.userAgent()))
 
 await page.setUserAgent(
     (await browser.userAgent())
