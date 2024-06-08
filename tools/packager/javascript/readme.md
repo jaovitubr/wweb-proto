@@ -4,7 +4,7 @@ The [package `wweb-proto`](https://www.npmjs.com/package/wweb-proto) allows java
 
 ✨ The proto files were last modified in **WhatsApp Web version**: `{{WA_VERSION}}`.
 
-**⚠️ This package automatically updates when a new version of the proto files is detected.**
+**⚠️ This package is automatically updated when a change is detected in the proto files.**
 
 ## Installation
 
