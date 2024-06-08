@@ -3,19 +3,35 @@
   "description": "WhatsApp Web Protocol Buffers",
   "version": "{{WA_VERSION}}",
   "private": false,
-  "main": "./cjs/index.js",
-  "module": "./esm/index.js",
-  "types": "./types/index.d.ts",
+  "main": "./index.js",
+  "module": "./index.mjs",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./index.mjs",
+      "require": "./index.js",
+      "types": "./index.d.ts"
+    },
+    "./*_pb": {
+      "import": "./*_pb.mjs",
+      "require": "./*_pb.js",
+      "types": "./*_pb.d.ts"
+    }
+  },
   "keywords": [
     "whatsapp",
     "protobuf",
     "typescript"
   ],
-  "author": "João Vitor Machado",
-  "license": "ISC",
+  "license": "MIT",
+  "author": "João Vitor Machado <joaovmachado10@gmail.com>",
+  "homepage": "https://github.com/jaovitubr/wweb-proto",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jaovitubr/wweb-proto.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jaovitubr/wweb-proto/issues"
   },
   "dependencies": {
     "@bufbuild/protobuf": "^1.10.0"

@@ -6,22 +6,18 @@
 PROTO_DIR=$OUT_DIR/proto
 OUT=$OUT_DIR/packages/javascript
 TS_OUT=$OUT/ts
-CJS_OUT=$OUT/cjs
 ESM_OUT=$OUT/esm
-TYPES_OUT=$OUT/types
 
 tsIndexPath=$TS_OUT/index.ts
 
 setup() {
     echo "Setup..."
-
+    
     rm -rf $OUT
     
     mkdir $OUT
     mkdir $TS_OUT
-    mkdir $CJS_OUT
     mkdir $ESM_OUT
-    mkdir $TYPES_OUT
     
     cp package.json $OUT/package.json
     cp readme.md $OUT/readme.md
@@ -59,18 +55,27 @@ compile_proto() {
 
 compile_ts() {
     (
-        tsc $tsIndexPath --module commonjs --outdir $CJS_OUT
-        echo "Compiled commonjs $CJS_OUT"
+        tsc $tsIndexPath --declaration --emitDeclarationOnly --outdir $OUT
+        echo "Compiled types"
+    ) &
+    
+    (
+        tsc $tsIndexPath --module commonjs --outdir $OUT
+        echo "Compiled commonjs"
     ) &
     
     (
         tsc $tsIndexPath --module esnext --outdir $ESM_OUT
-        echo "Compiled esnext $ESM_OUT"
-    ) &
-    
-    (
-        tsc $tsIndexPath --declaration --emitDeclarationOnly --outdir $TYPES_OUT
-        echo "Compiled types $TYPES_OUT"
+        
+        for file in $ESM_OUT/*.js; do
+            baseName=$(basename $file)
+            fileName="${baseName%.js}"
+            
+            mv "$file" "$OUT/$fileName.mjs"
+        done
+        
+        rm -rf $ESM_OUT
+        echo "Compiled esnext"
     ) &
     
     wait
@@ -78,9 +83,7 @@ compile_ts() {
 }
 
 minify() {
-    jsFiles=($CJS_OUT/*.js $ESM_OUT/*.js)
-    
-    for filePath in "${jsFiles[@]}"; do
+    for filePath in $OUT/*.{js,mjs}; do
         (
             uglifyjs $filePath \
             --compress \
