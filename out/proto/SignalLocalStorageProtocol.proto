@@ -1,99 +1,99 @@
-syntax = "proto3";
+syntax = "proto2";
 
 message SessionStructure {
-	uint32 sessionVersion = 1;
-	bytes localIdentityPublic = 2;
-	bytes remoteIdentityPublic = 3;
-	bytes rootKey = 4;
-	uint32 previousCounter = 5;
-	Chain senderChain = 6;
+	optional uint32 sessionVersion = 1;
+	optional bytes localIdentityPublic = 2;
+	optional bytes remoteIdentityPublic = 3;
+	optional bytes rootKey = 4;
+	optional uint32 previousCounter = 5;
+	optional Chain senderChain = 6;
 	repeated Chain receiverChains = 7;
-	PendingKeyExchange pendingKeyExchange = 8;
-	PendingPreKey pendingPreKey = 9;
-	uint32 remoteRegistrationId = 10;
-	uint32 localRegistrationId = 11;
-	bool needsRefresh = 12;
-	bytes aliceBaseKey = 13;
+	optional PendingKeyExchange pendingKeyExchange = 8;
+	optional PendingPreKey pendingPreKey = 9;
+	optional uint32 remoteRegistrationId = 10;
+	optional uint32 localRegistrationId = 11;
+	optional bool needsRefresh = 12;
+	optional bytes aliceBaseKey = 13;
 
 	message PendingPreKey {
-		uint32 preKeyId = 1;
-		int32 signedPreKeyId = 3;
-		bytes baseKey = 2;
+		optional uint32 preKeyId = 1;
+		optional int32 signedPreKeyId = 3;
+		optional bytes baseKey = 2;
 	}
 
 	message PendingKeyExchange {
-		uint32 sequence = 1;
-		bytes localBaseKey = 2;
-		bytes localBaseKeyPrivate = 3;
-		bytes localRatchetKey = 4;
-		bytes localRatchetKeyPrivate = 5;
-		bytes localIdentityKey = 7;
-		bytes localIdentityKeyPrivate = 8;
+		optional uint32 sequence = 1;
+		optional bytes localBaseKey = 2;
+		optional bytes localBaseKeyPrivate = 3;
+		optional bytes localRatchetKey = 4;
+		optional bytes localRatchetKeyPrivate = 5;
+		optional bytes localIdentityKey = 7;
+		optional bytes localIdentityKeyPrivate = 8;
 	}
 
 	message Chain {
-		bytes senderRatchetKey = 1;
-		bytes senderRatchetKeyPrivate = 2;
-		ChainKey chainKey = 3;
+		optional bytes senderRatchetKey = 1;
+		optional bytes senderRatchetKeyPrivate = 2;
+		optional ChainKey chainKey = 3;
 		repeated MessageKey messageKeys = 4;
 	
 		message MessageKey {
-			uint32 index = 1;
-			bytes cipherKey = 2;
-			bytes macKey = 3;
-			bytes iv = 4;
+			optional uint32 index = 1;
+			optional bytes cipherKey = 2;
+			optional bytes macKey = 3;
+			optional bytes iv = 4;
 		}
 	
 		message ChainKey {
-			uint32 index = 1;
-			bytes key = 2;
+			optional uint32 index = 1;
+			optional bytes key = 2;
 		}
 	}
 }
 
 message RecordStructure {
-	SessionStructure currentSession = 1;
+	optional SessionStructure currentSession = 1;
 	repeated SessionStructure previousSessions = 2;
 }
 
 message PreKeyRecordStructure {
-	uint32 id = 1;
-	bytes publicKey = 2;
-	bytes privateKey = 3;
+	optional uint32 id = 1;
+	optional bytes publicKey = 2;
+	optional bytes privateKey = 3;
 }
 
 message SignedPreKeyRecordStructure {
-	uint32 id = 1;
-	bytes publicKey = 2;
-	bytes privateKey = 3;
-	bytes signature = 4;
-	fixed64 timestamp = 5;
+	optional uint32 id = 1;
+	optional bytes publicKey = 2;
+	optional bytes privateKey = 3;
+	optional bytes signature = 4;
+	optional fixed64 timestamp = 5;
 }
 
 message IdentityKeyPairStructure {
-	bytes publicKey = 1;
-	bytes privateKey = 2;
+	optional bytes publicKey = 1;
+	optional bytes privateKey = 2;
 }
 
 message SenderKeyStateStructure {
-	uint32 senderKeyId = 1;
-	SenderChainKey senderChainKey = 2;
-	SenderSigningKey senderSigningKey = 3;
+	optional uint32 senderKeyId = 1;
+	optional SenderChainKey senderChainKey = 2;
+	optional SenderSigningKey senderSigningKey = 3;
 	repeated SenderMessageKey senderMessageKeys = 4;
 
 	message SenderSigningKey {
-		bytes public = 1;
-		bytes private = 2;
+		optional bytes public = 1;
+		optional bytes private = 2;
 	}
 
 	message SenderMessageKey {
-		uint32 iteration = 1;
-		bytes seed = 2;
+		optional uint32 iteration = 1;
+		optional bytes seed = 2;
 	}
 
 	message SenderChainKey {
-		uint32 iteration = 1;
-		bytes seed = 2;
+		optional uint32 iteration = 1;
+		optional bytes seed = 2;
 	}
 }
 

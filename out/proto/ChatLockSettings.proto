@@ -1,6 +1,8 @@
-syntax = "proto3";
+syntax = "proto2";
+
+import "UserPassword.proto";
 
 message ChatLockSettings {
-	bool hideLockedChats = 1;
-	UserPassword secretCode = 2;
+	optional bool hideLockedChats = 1;
+	optional UserPassword secretCode = 2;
 }

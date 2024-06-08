@@ -1,63 +1,63 @@
-syntax = "proto3";
+syntax = "proto2";
 
 message MsgRowOpaqueData {
-	MsgOpaqueData currentMsg = 1;
-	MsgOpaqueData quotedMsg = 2;
+	optional MsgOpaqueData currentMsg = 1;
+	optional MsgOpaqueData quotedMsg = 2;
 }
 
 message PollEncValue {
-	bytes encPayload = 1;
-	bytes encIv = 2;
+	optional bytes encPayload = 1;
+	optional bytes encIv = 2;
 }
 
 message MsgOpaqueData {
-	string body = 1;
-	string caption = 3;
-	double lng = 5;
-	bool isLive = 6;
-	double lat = 7;
-	int32 paymentAmount1000 = 8;
-	string paymentNoteMsgBody = 9;
-	string canonicalUrl = 10;
-	string matchedText = 11;
-	string title = 12;
-	string description = 13;
-	bytes futureproofBuffer = 14;
-	string clientUrl = 15;
-	string loc = 16;
-	string pollName = 17;
+	optional string body = 1;
+	optional string caption = 3;
+	optional double lng = 5;
+	optional bool isLive = 6;
+	optional double lat = 7;
+	optional int32 paymentAmount1000 = 8;
+	optional string paymentNoteMsgBody = 9;
+	optional string canonicalUrl = 10;
+	optional string matchedText = 11;
+	optional string title = 12;
+	optional string description = 13;
+	optional bytes futureproofBuffer = 14;
+	optional string clientUrl = 15;
+	optional string loc = 16;
+	optional string pollName = 17;
 	repeated PollOption pollOptions = 18;
-	uint32 pollSelectableOptionsCount = 20;
-	bytes messageSecret = 21;
-	string originalSelfAuthor = 51;
-	int64 senderTimestampMs = 22;
-	string pollUpdateParentKey = 23;
-	PollEncValue encPollVote = 24;
-	bool isSentCagPollCreation = 28;
-	string encReactionTargetMessageKey = 25;
-	bytes encReactionEncPayload = 26;
-	bytes encReactionEncIv = 27;
-	bytes botMessageSecret = 29;
-	string targetMessageKey = 30;
-	bytes encPayload = 31;
-	bytes encIv = 32;
-	string eventName = 33;
-	bool isEventCanceled = 34;
-	string eventDescription = 35;
-	string eventJoinLink = 36;
-	int64 eventStartTime = 37;
-	EventLocation eventLocation = 38;
+	optional uint32 pollSelectableOptionsCount = 20;
+	optional bytes messageSecret = 21;
+	optional string originalSelfAuthor = 51;
+	optional int64 senderTimestampMs = 22;
+	optional string pollUpdateParentKey = 23;
+	optional PollEncValue encPollVote = 24;
+	optional bool isSentCagPollCreation = 28;
+	optional string encReactionTargetMessageKey = 25;
+	optional bytes encReactionEncPayload = 26;
+	optional bytes encReactionEncIv = 27;
+	optional bytes botMessageSecret = 29;
+	optional string targetMessageKey = 30;
+	optional bytes encPayload = 31;
+	optional bytes encIv = 32;
+	optional string eventName = 33;
+	optional bool isEventCanceled = 34;
+	optional string eventDescription = 35;
+	optional string eventJoinLink = 36;
+	optional int64 eventStartTime = 37;
+	optional EventLocation eventLocation = 38;
 
 	message EventLocation {
-		double degreesLatitude = 1;
-		double degreesLongitude = 2;
-		string name = 3;
-		string address = 4;
-		string url = 5;
-		bytes jpegThumbnail = 6;
+		optional double degreesLatitude = 1;
+		optional double degreesLongitude = 2;
+		optional string name = 3;
+		optional string address = 4;
+		optional string url = 5;
+		optional bytes jpegThumbnail = 6;
 	}
 
 	message PollOption {
-		string name = 1;
+		optional string name = 1;
 	}
 }

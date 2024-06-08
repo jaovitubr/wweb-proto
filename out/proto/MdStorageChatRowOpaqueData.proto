@@ -1,28 +1,28 @@
-syntax = "proto3";
+syntax = "proto2";
 
 message ChatRowOpaqueData {
-	DraftMessage draftMessage = 1;
+	optional DraftMessage draftMessage = 1;
 
 	message DraftMessage {
-		string text = 1;
-		string omittedUrl = 2;
-		CtwaContextLinkData ctwaContextLinkData = 3;
-		CtwaContextData ctwaContext = 4;
-		int64 timestamp = 5;
+		optional string text = 1;
+		optional string omittedUrl = 2;
+		optional CtwaContextLinkData ctwaContextLinkData = 3;
+		optional CtwaContextData ctwaContext = 4;
+		optional int64 timestamp = 5;
 	
 		message CtwaContextData {
-			string conversionSource = 1;
-			bytes conversionData = 2;
-			string sourceUrl = 3;
-			string sourceId = 4;
-			string sourceType = 5;
-			string title = 6;
-			string description = 7;
-			string thumbnail = 8;
-			string thumbnailUrl = 9;
-			ContextInfoExternalAdReplyInfoMediaType mediaType = 10;
-			string mediaUrl = 11;
-			bool isSuspiciousLink = 12;
+			optional string conversionSource = 1;
+			optional bytes conversionData = 2;
+			optional string sourceUrl = 3;
+			optional string sourceId = 4;
+			optional string sourceType = 5;
+			optional string title = 6;
+			optional string description = 7;
+			optional string thumbnail = 8;
+			optional string thumbnailUrl = 9;
+			optional ContextInfoExternalAdReplyInfoMediaType mediaType = 10;
+			optional string mediaUrl = 11;
+			optional bool isSuspiciousLink = 12;
 		
 			enum ContextInfoExternalAdReplyInfoMediaType {
 				NONE = 0;
@@ -32,10 +32,10 @@ message ChatRowOpaqueData {
 		}
 	
 		message CtwaContextLinkData {
-			string context = 1;
-			string sourceUrl = 2;
-			string icebreaker = 3;
-			string phone = 4;
+			optional string context = 1;
+			optional string sourceUrl = 2;
+			optional string icebreaker = 3;
+			optional string phone = 4;
 		}
 	}
 }

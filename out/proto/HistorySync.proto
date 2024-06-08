@@ -1,4 +1,9 @@
-syntax = "proto3";
+syntax = "proto2";
+
+import "Web.proto";
+import "SyncAction.proto";
+import "E2E.proto";
+import "ChatLockSettings.proto";
 
 enum MediaVisibility {
 	DEFAULT = 0;
@@ -16,16 +21,16 @@ message HistorySync {
 	required HistorySyncType syncType = 1;
 	repeated Conversation conversations = 2;
 	repeated WebMessageInfo statusV3Messages = 3;
-	uint32 chunkOrder = 5;
-	uint32 progress = 6;
+	optional uint32 chunkOrder = 5;
+	optional uint32 progress = 6;
 	repeated Pushname pushnames = 7;
-	GlobalSettings globalSettings = 8;
-	bytes threadIdUserSecret = 9;
-	uint32 threadDsTimeframeOffset = 10;
+	optional GlobalSettings globalSettings = 8;
+	optional bytes threadIdUserSecret = 9;
+	optional uint32 threadDsTimeframeOffset = 10;
 	repeated StickerMetadata recentStickers = 11;
 	repeated PastParticipants pastParticipants = 12;
 	repeated CallLogRecord callLogRecords = 13;
-	BotAIWaitListState aiWaitListState = 14;
+	optional BotAIWaitListState aiWaitListState = 14;
 	repeated PhoneNumberToLIDMapping phoneNumberToLidMappings = 15;
 
 	enum BotAIWaitListState {
@@ -47,51 +52,51 @@ message HistorySync {
 message Conversation {
 	required string id = 1;
 	repeated HistorySyncMsg messages = 2;
-	string newJid = 3;
-	string oldJid = 4;
-	uint64 lastMsgTimestamp = 5;
-	uint32 unreadCount = 6;
-	bool readOnly = 7;
-	bool endOfHistoryTransfer = 8;
-	uint32 ephemeralExpiration = 9;
-	int64 ephemeralSettingTimestamp = 10;
-	EndOfHistoryTransferType endOfHistoryTransferType = 11;
-	uint64 conversationTimestamp = 12;
-	string name = 13;
-	string pHash = 14;
-	bool notSpam = 15;
-	bool archived = 16;
-	DisappearingMode disappearingMode = 17;
-	uint32 unreadMentionCount = 18;
-	bool markedAsUnread = 19;
+	optional string newJid = 3;
+	optional string oldJid = 4;
+	optional uint64 lastMsgTimestamp = 5;
+	optional uint32 unreadCount = 6;
+	optional bool readOnly = 7;
+	optional bool endOfHistoryTransfer = 8;
+	optional uint32 ephemeralExpiration = 9;
+	optional int64 ephemeralSettingTimestamp = 10;
+	optional EndOfHistoryTransferType endOfHistoryTransferType = 11;
+	optional uint64 conversationTimestamp = 12;
+	optional string name = 13;
+	optional string pHash = 14;
+	optional bool notSpam = 15;
+	optional bool archived = 16;
+	optional DisappearingMode disappearingMode = 17;
+	optional uint32 unreadMentionCount = 18;
+	optional bool markedAsUnread = 19;
 	repeated GroupParticipant participant = 20;
-	bytes tcToken = 21;
-	uint64 tcTokenTimestamp = 22;
-	bytes contactPrimaryIdentityKey = 23;
-	uint32 pinned = 24;
-	uint64 muteEndTime = 25;
-	WallpaperSettings wallpaper = 26;
-	MediaVisibility mediaVisibility = 27;
-	uint64 tcTokenSenderTimestamp = 28;
-	bool suspended = 29;
-	bool terminated = 30;
-	uint64 createdAt = 31;
-	string createdBy = 32;
-	string description = 33;
-	bool support = 34;
-	bool isParentGroup = 35;
-	string parentGroupId = 37;
-	bool isDefaultSubgroup = 36;
-	string displayName = 38;
-	string pnJid = 39;
-	bool shareOwnPn = 40;
-	bool pnhDuplicateLidThread = 41;
-	string lidJid = 42;
-	string username = 43;
-	string lidOriginType = 44;
-	uint32 commentsCount = 45;
-	bool locked = 46;
-	PrivacySystemMessage systemMessageToInsert = 47;
+	optional bytes tcToken = 21;
+	optional uint64 tcTokenTimestamp = 22;
+	optional bytes contactPrimaryIdentityKey = 23;
+	optional uint32 pinned = 24;
+	optional uint64 muteEndTime = 25;
+	optional WallpaperSettings wallpaper = 26;
+	optional MediaVisibility mediaVisibility = 27;
+	optional uint64 tcTokenSenderTimestamp = 28;
+	optional bool suspended = 29;
+	optional bool terminated = 30;
+	optional uint64 createdAt = 31;
+	optional string createdBy = 32;
+	optional string description = 33;
+	optional bool support = 34;
+	optional bool isParentGroup = 35;
+	optional string parentGroupId = 37;
+	optional bool isDefaultSubgroup = 36;
+	optional string displayName = 38;
+	optional string pnJid = 39;
+	optional bool shareOwnPn = 40;
+	optional bool pnhDuplicateLidThread = 41;
+	optional string lidJid = 42;
+	optional string username = 43;
+	optional string lidOriginType = 44;
+	optional uint32 commentsCount = 45;
+	optional bool locked = 46;
+	optional PrivacySystemMessage systemMessageToInsert = 47;
 
 	enum EndOfHistoryTransferType {
 		COMPLETE_BUT_MORE_MESSAGES_REMAIN_ON_PRIMARY = 0;
@@ -101,23 +106,23 @@ message Conversation {
 }
 
 message PhoneNumberToLIDMapping {
-	string pnJid = 1;
-	string lidJid = 2;
+	optional string pnJid = 1;
+	optional string lidJid = 2;
 }
 
 message HistorySyncMsg {
-	WebMessageInfo message = 1;
-	uint64 msgOrderId = 2;
+	optional WebMessageInfo message = 1;
+	optional uint64 msgOrderId = 2;
 }
 
 message Pushname {
-	string id = 1;
-	string pushname = 2;
+	optional string id = 1;
+	optional string pushname = 2;
 }
 
 message GroupParticipant {
 	required string userJid = 1;
-	Rank rank = 2;
+	optional Rank rank = 2;
 
 	enum Rank {
 		REGULAR = 0;
@@ -127,63 +132,63 @@ message GroupParticipant {
 }
 
 message WallpaperSettings {
-	string filename = 1;
-	uint32 opacity = 2;
+	optional string filename = 1;
+	optional uint32 opacity = 2;
 }
 
 message GlobalSettings {
-	WallpaperSettings lightThemeWallpaper = 1;
-	MediaVisibility mediaVisibility = 2;
-	WallpaperSettings darkThemeWallpaper = 3;
-	AutoDownloadSettings autoDownloadWiFi = 4;
-	AutoDownloadSettings autoDownloadCellular = 5;
-	AutoDownloadSettings autoDownloadRoaming = 6;
-	bool showIndividualNotificationsPreview = 7;
-	bool showGroupNotificationsPreview = 8;
-	int32 disappearingModeDuration = 9;
-	int64 disappearingModeTimestamp = 10;
-	AvatarUserSettings avatarUserSettings = 11;
-	int32 fontSize = 12;
-	bool securityNotifications = 13;
-	bool autoUnarchiveChats = 14;
-	int32 videoQualityMode = 15;
-	int32 photoQualityMode = 16;
-	NotificationSettings individualNotificationSettings = 17;
-	NotificationSettings groupNotificationSettings = 18;
-	ChatLockSettings chatLockSettings = 19;
+	optional WallpaperSettings lightThemeWallpaper = 1;
+	optional MediaVisibility mediaVisibility = 2;
+	optional WallpaperSettings darkThemeWallpaper = 3;
+	optional AutoDownloadSettings autoDownloadWiFi = 4;
+	optional AutoDownloadSettings autoDownloadCellular = 5;
+	optional AutoDownloadSettings autoDownloadRoaming = 6;
+	optional bool showIndividualNotificationsPreview = 7;
+	optional bool showGroupNotificationsPreview = 8;
+	optional int32 disappearingModeDuration = 9;
+	optional int64 disappearingModeTimestamp = 10;
+	optional AvatarUserSettings avatarUserSettings = 11;
+	optional int32 fontSize = 12;
+	optional bool securityNotifications = 13;
+	optional bool autoUnarchiveChats = 14;
+	optional int32 videoQualityMode = 15;
+	optional int32 photoQualityMode = 16;
+	optional NotificationSettings individualNotificationSettings = 17;
+	optional NotificationSettings groupNotificationSettings = 18;
+	optional ChatLockSettings chatLockSettings = 19;
 }
 
 message AutoDownloadSettings {
-	bool downloadImages = 1;
-	bool downloadAudio = 2;
-	bool downloadVideo = 3;
-	bool downloadDocuments = 4;
+	optional bool downloadImages = 1;
+	optional bool downloadAudio = 2;
+	optional bool downloadVideo = 3;
+	optional bool downloadDocuments = 4;
 }
 
 message StickerMetadata {
-	string url = 1;
-	bytes fileSha256 = 2;
-	bytes fileEncSha256 = 3;
-	bytes mediaKey = 4;
-	string mimetype = 5;
-	uint32 height = 6;
-	uint32 width = 7;
-	string directPath = 8;
-	uint64 fileLength = 9;
-	float weight = 10;
-	int64 lastStickerSentTs = 11;
-	bool isLottie = 12;
+	optional string url = 1;
+	optional bytes fileSha256 = 2;
+	optional bytes fileEncSha256 = 3;
+	optional bytes mediaKey = 4;
+	optional string mimetype = 5;
+	optional uint32 height = 6;
+	optional uint32 width = 7;
+	optional string directPath = 8;
+	optional uint64 fileLength = 9;
+	optional float weight = 10;
+	optional int64 lastStickerSentTs = 11;
+	optional bool isLottie = 12;
 }
 
 message PastParticipants {
-	string groupJid = 1;
+	optional string groupJid = 1;
 	repeated PastParticipant pastParticipants = 2;
 }
 
 message PastParticipant {
-	string userJid = 1;
-	LeaveReason leaveReason = 2;
-	uint64 leaveTs = 3;
+	optional string userJid = 1;
+	optional LeaveReason leaveReason = 2;
+	optional uint64 leaveTs = 3;
 
 	enum LeaveReason {
 		LEFT = 0;
@@ -192,15 +197,15 @@ message PastParticipant {
 }
 
 message AvatarUserSettings {
-	string fbid = 1;
-	string password = 2;
+	optional string fbid = 1;
+	optional string password = 2;
 }
 
 message NotificationSettings {
-	string messageVibrate = 1;
-	string messagePopup = 2;
-	string messageLight = 3;
-	bool lowPriorityNotifications = 4;
-	bool reactionsMuted = 5;
-	string callVibrate = 6;
+	optional string messageVibrate = 1;
+	optional string messagePopup = 2;
+	optional string messageLight = 3;
+	optional bool lowPriorityNotifications = 4;
+	optional bool reactionsMuted = 5;
+	optional string callVibrate = 6;
 }

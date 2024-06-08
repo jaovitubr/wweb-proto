@@ -1,0 +1,19 @@
+syntax = "proto2";
+
+message Reportable {
+	optional uint32 minVersion = 1;
+	optional uint32 maxVersion = 2;
+	optional uint32 notReportableMinVersion = 3;
+}
+
+message Config {
+	optional map field = 1;
+}
+
+message Field {
+	optional uint32 minVersion = 1;
+	optional uint32 maxVersion = 2;
+	optional uint32 notReportableMinVersion = 3;
+	optional bool isMessage = 4;
+	optional map subfield = 5;
+}

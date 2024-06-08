@@ -2,7 +2,7 @@
 
 The package `wweb-proto` allows javascript developers to easily access the ProtoBuffer definitions used by WhatsApp Web. This enables the programmatic analysis and manipulation of messages and other data from WhatsApp Web using the `protobufjs` library.
 
-✨ The proto files were last modified in **WhatsApp Web version**: `2.3000.0`.
+✨ The proto files were last modified in **WhatsApp Web version**: `1.0.0`.
 
 **⚠️ This package automatically updates when a new version of the proto files is detected.**
 

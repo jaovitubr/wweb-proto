@@ -93,6 +93,29 @@ function extractFieldInfo(fieldSpec) {
     return { order, type, typeSpec, flags, options };
 }
 
+function determineFieldSpecFileName(typeSpec) {
+    if (!typeSpec) return null;
+
+    function findInNodes(nodes) {
+        for (const node of nodes) {
+            if (typeSpec === node.data) return true;
+
+            if (
+                node.children.length > 0 &&
+                findInNodes(node.children)
+            ) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    for (const [protoName, protoFileTree] of Object.entries(protoFiles)) {
+        if (findInNodes(protoFileTree)) return protoName;
+    }
+}
+
 function determineFieldSpecName(typeSpec, currentPath = []) {
     if (!typeSpec) return null;
 
@@ -222,14 +245,50 @@ function serializeNode(node, level = 0) {
     return nodeProto;
 }
 
+function findImports(protoName, protoFileTree) {
+    const imports = [];
+
+    for (const node of protoFileTree) {
+        if (node.type !== "message") continue;
+
+        const { internalSpec } = node.data;
+
+        Object.entries(internalSpec).forEach(([fieldName, fieldSpec]) => {
+            if (fieldName === protoConstants.KEYS.ONEOF) return;
+
+            const { typeSpec } = extractFieldInfo(fieldSpec);
+            if (!typeSpec) return;
+
+            const typeFileName = determineFieldSpecFileName(typeSpec);
+            if (protoName === "Reporting") console.log({ fieldName, fieldSpec })
+            if (!typeFileName) return;
+
+            if (typeFileName !== protoName) {
+                imports.push(typeFileName);
+            }
+        });
+
+        imports.push(...findImports(protoName, node.children));
+    }
+
+    return [...new Set(imports)];
+}
+
 const protoBufDefinitions = {};
 
 for (const protoName in protoFiles) {
     const protoFileTree = protoFiles[protoName];
+    const protoImports = findImports(protoName, protoFileTree);
 
     let protoContent = `syntax = "proto2";\n\n`;
-    // protoContent += `package ${protoName};\n\n`;
-    protoContent += protoFileTree.map(node => serializeNode(node)).join("\n\n");
+    console.log(protoName, protoImports)
+    if (protoImports.length > 0) protoContent += protoImports
+        .map(fileName => `import "${fileName}.proto";`)
+        .join("\n") + "\n\n";
+
+    protoContent += protoFileTree
+        .map(node => serializeNode(node))
+        .join("\n\n");
 
     protoBufDefinitions[protoName] = protoContent;
 }

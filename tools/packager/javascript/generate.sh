@@ -1,19 +1,74 @@
 #!/bin/bash
 
-OUT=$OUT_DIR/javascript
+OUT_DIR=../../../out
+NEWEST_WA_VERSION=1.0.0
 
-rm -rf $OUT
-mkdir $OUT
+PROTO_DIR=$OUT_DIR/proto
+OUT=$OUT_DIR/packages/javascript
+TS_OUT=$OUT/ts
+CJS_OUT=$OUT/cjs
+ESM_OUT=$OUT/esm
+TYPES_OUT=$OUT/types
 
-cp package.json $OUT/package.json
-cp readme.md $OUT/readme.md
+tsIndexPath=$TS_OUT/index.ts
 
-sed -i 's/{{WA_VERSION}}/'"$NEWEST_WA_VERSION"'/g' $OUT/package.json
-sed -i 's/{{WA_VERSION}}/'"$NEWEST_WA_VERSION"'/g' $OUT/readme.md
+setup() {
+    rm -rf $OUT
 
-pbjs -t static-module -w commonjs -o $OUT/index.js $OUT_DIR/proto/*.proto
-pbjs -t static-module -w es6 -o $OUT/index.mjs $OUT_DIR/proto/*.proto
-pbts -o $OUT/index.d.ts $OUT/index.js
+    mkdir $OUT
+    mkdir $TS_OUT
+    mkdir $CJS_OUT
+    mkdir $ESM_OUT
+    mkdir $TYPES_OUT
 
-uglifyjs --compress --beautify -o $OUT/index.js $OUT/index.js
-uglifyjs --compress --beautify -o $OUT/index.mjs $OUT/index.mjs
+    cp package.json $OUT/package.json
+    cp readme.md $OUT/readme.md
+
+    sed -i 's/{{WA_VERSION}}/'"$NEWEST_WA_VERSION"'/g' $OUT/package.json
+    sed -i 's/{{WA_VERSION}}/'"$NEWEST_WA_VERSION"'/g' $OUT/readme.md
+}
+
+compile_proto() {
+    protoFiles=$PROTO_DIR/*.proto
+
+    echo "" > $tsIndexPath
+
+    for filePath in $protoFiles; do
+        fileName=$(basename $filePath .proto)_pb.js
+        echo "export * from './$fileName';" >> $tsIndexPath
+    done
+
+    protoc \
+        --es_out $TS_OUT \
+        --es_opt target=ts \
+        --proto_path $OUT_DIR/proto/ \
+        $protoFiles
+
+    # protoc --es_out ./out/packages/javascript/ts --es_opt target=ts --proto_path ./out/proto/ ./out/proto/*.proto
+}
+
+compile_ts() {
+    tsc $tsIndexPath --module commonjs --outdir $CJS_OUT
+    tsc $tsIndexPath --module esnext --outdir $ESM_OUT
+    tsc $tsIndexPath --declaration --emitDeclarationOnly --outdir $TYPES_OUT
+}
+
+minify() {
+    jsFiles=($CJS_OUT/*.js $ESM_OUT/*.js)
+
+    for filePath in $jsFiles; do
+        uglifyjs $filePath \
+            --compress \
+            --beautify \
+            -o $filePath
+
+        echo Minified "$filePath".
+    done
+}
+
+set -e
+
+setup
+compile_proto
+compile_ts
+minify

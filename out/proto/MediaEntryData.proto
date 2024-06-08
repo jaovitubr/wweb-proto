@@ -1,33 +1,34 @@
-syntax = "proto3";
+syntax = "proto2";
 
 message MediaEntry {
-	bytes fileSha256 = 1;
-	bytes mediaKey = 2;
-	bytes fileEncSha256 = 3;
-	string directPath = 4;
-	int64 mediaKeyTimestamp = 5;
-	string serverMediaType = 6;
-	bytes uploadToken = 7;
-	bytes validatedTimestamp = 8;
-	bytes sidecar = 9;
-	string objectId = 10;
-	string fbid = 11;
-	DownloadableThumbnail downloadableThumbnail = 12;
-	string handle = 13;
-	string filename = 14;
-	ProgressiveJpegDetails progressiveJpegDetails = 15;
+	optional bytes fileSha256 = 1;
+	optional bytes mediaKey = 2;
+	optional bytes fileEncSha256 = 3;
+	optional string directPath = 4;
+	optional int64 mediaKeyTimestamp = 5;
+	optional string serverMediaType = 6;
+	optional bytes uploadToken = 7;
+	optional bytes validatedTimestamp = 8;
+	optional bytes sidecar = 9;
+	optional string objectId = 10;
+	optional string fbid = 11;
+	optional DownloadableThumbnail downloadableThumbnail = 12;
+	optional string handle = 13;
+	optional string filename = 14;
+	optional ProgressiveJpegDetails progressiveJpegDetails = 15;
+	optional int64 size = 16;
 
 	message ProgressiveJpegDetails {
 		repeated uint32 scanLengths = 1;
-		bytes sidecar = 2;
+		optional bytes sidecar = 2;
 	}
 
 	message DownloadableThumbnail {
-		bytes fileSha256 = 1;
-		bytes fileEncSha256 = 2;
-		string directPath = 3;
-		bytes mediaKey = 4;
-		int64 mediaKeyTimestamp = 5;
-		string objectId = 6;
+		optional bytes fileSha256 = 1;
+		optional bytes fileEncSha256 = 2;
+		optional string directPath = 3;
+		optional bytes mediaKey = 4;
+		optional int64 mediaKeyTimestamp = 5;
+		optional string objectId = 6;
 	}
 }

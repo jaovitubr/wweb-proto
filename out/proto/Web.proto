@@ -1,62 +1,65 @@
-syntax = "proto3";
+syntax = "proto2";
+
+import "Protocol.proto";
+import "E2E.proto";
 
 message WebMessageInfo {
 	required MessageKey key = 1;
-	Message message = 2;
-	uint64 messageTimestamp = 3;
-	Status status = 4;
-	string participant = 5;
-	uint64 messageC2STimestamp = 6;
-	bool ignore = 16;
-	bool starred = 17;
-	bool broadcast = 18;
-	string pushName = 19;
-	bytes mediaCiphertextSha256 = 20;
-	bool multicast = 21;
-	bool urlText = 22;
-	bool urlNumber = 23;
-	StubType messageStubType = 24;
-	bool clearMedia = 25;
+	optional Message message = 2;
+	optional uint64 messageTimestamp = 3;
+	optional Status status = 4;
+	optional string participant = 5;
+	optional uint64 messageC2STimestamp = 6;
+	optional bool ignore = 16;
+	optional bool starred = 17;
+	optional bool broadcast = 18;
+	optional string pushName = 19;
+	optional bytes mediaCiphertextSha256 = 20;
+	optional bool multicast = 21;
+	optional bool urlText = 22;
+	optional bool urlNumber = 23;
+	optional StubType messageStubType = 24;
+	optional bool clearMedia = 25;
 	repeated string messageStubParameters = 26;
-	uint32 duration = 27;
+	optional uint32 duration = 27;
 	repeated string labels = 28;
-	PaymentInfo paymentInfo = 29;
-	Message.LiveLocationMessage finalLiveLocation = 30;
-	PaymentInfo quotedPaymentInfo = 31;
-	uint64 ephemeralStartTimestamp = 32;
-	uint32 ephemeralDuration = 33;
-	bool ephemeralOffToOn = 34;
-	bool ephemeralOutOfSync = 35;
-	BizPrivacyStatus bizPrivacyStatus = 36;
-	string verifiedBizName = 37;
-	MediaData mediaData = 38;
-	PhotoChange photoChange = 39;
+	optional PaymentInfo paymentInfo = 29;
+	optional Message.LiveLocationMessage finalLiveLocation = 30;
+	optional PaymentInfo quotedPaymentInfo = 31;
+	optional uint64 ephemeralStartTimestamp = 32;
+	optional uint32 ephemeralDuration = 33;
+	optional bool ephemeralOffToOn = 34;
+	optional bool ephemeralOutOfSync = 35;
+	optional BizPrivacyStatus bizPrivacyStatus = 36;
+	optional string verifiedBizName = 37;
+	optional MediaData mediaData = 38;
+	optional PhotoChange photoChange = 39;
 	repeated UserReceipt userReceipt = 40;
 	repeated Reaction reactions = 41;
-	MediaData quotedStickerData = 42;
-	bytes futureproofData = 43;
-	StatusPSA statusPsa = 44;
+	optional MediaData quotedStickerData = 42;
+	optional bytes futureproofData = 43;
+	optional StatusPSA statusPsa = 44;
 	repeated PollUpdate pollUpdates = 45;
-	PollAdditionalMetadata pollAdditionalMetadata = 46;
-	string agentId = 47;
-	bool statusAlreadyViewed = 48;
-	bytes messageSecret = 49;
-	KeepInChat keepInChat = 50;
-	string originalSelfAuthorUserJidString = 51;
-	uint64 revokeMessageTimestamp = 52;
-	PinInChat pinInChat = 54;
-	PremiumMessageInfo premiumMessageInfo = 55;
-	bool is1PBizBotMessage = 56;
-	bool isGroupHistoryMessage = 57;
-	string botMessageInvokerJid = 58;
-	CommentMetadata commentMetadata = 59;
+	optional PollAdditionalMetadata pollAdditionalMetadata = 46;
+	optional string agentId = 47;
+	optional bool statusAlreadyViewed = 48;
+	optional bytes messageSecret = 49;
+	optional KeepInChat keepInChat = 50;
+	optional string originalSelfAuthorUserJidString = 51;
+	optional uint64 revokeMessageTimestamp = 52;
+	optional PinInChat pinInChat = 54;
+	optional PremiumMessageInfo premiumMessageInfo = 55;
+	optional bool is1PBizBotMessage = 56;
+	optional bool isGroupHistoryMessage = 57;
+	optional string botMessageInvokerJid = 58;
+	optional CommentMetadata commentMetadata = 59;
 	repeated EventResponse eventResponses = 61;
-	ReportingTokenInfo reportingTokenInfo = 62;
-	uint64 newsletterServerId = 63;
-	EventAdditionalMetadata eventAdditionalMetadata = 64;
-	bool isMentionedInStatus = 65;
+	optional ReportingTokenInfo reportingTokenInfo = 62;
+	optional uint64 newsletterServerId = 63;
+	optional EventAdditionalMetadata eventAdditionalMetadata = 64;
+	optional bool isMentionedInStatus = 65;
 	repeated string statusMentions = 66;
-	MessageKey targetMessageId = 67;
+	optional MessageKey targetMessageId = 67;
 	repeated MessageAddOn messageAddOns = 68;
 
 	enum BizPrivacyStatus {
@@ -288,24 +291,24 @@ message WebMessageInfo {
 }
 
 message CommentMetadata {
-	MessageKey commentParentKey = 1;
-	uint32 replyCount = 2;
+	optional MessageKey commentParentKey = 1;
+	optional uint32 replyCount = 2;
 }
 
 message PaymentInfo {
-	Currency currencyDeprecated = 1;
-	uint64 amount1000 = 2;
-	string receiverJid = 3;
-	Status status = 4;
-	uint64 transactionTimestamp = 5;
-	MessageKey requestMessageKey = 6;
-	uint64 expiryTimestamp = 7;
-	bool futureproofed = 8;
-	string currency = 9;
-	TxnStatus txnStatus = 10;
-	bool useNoviFiatFormat = 11;
-	Money primaryAmount = 12;
-	Money exchangeAmount = 13;
+	optional Currency currencyDeprecated = 1;
+	optional uint64 amount1000 = 2;
+	optional string receiverJid = 3;
+	optional Status status = 4;
+	optional uint64 transactionTimestamp = 5;
+	optional MessageKey requestMessageKey = 6;
+	optional uint64 expiryTimestamp = 7;
+	optional bool futureproofed = 8;
+	optional string currency = 9;
+	optional TxnStatus txnStatus = 10;
+	optional bool useNoviFiatFormat = 11;
+	optional Money primaryAmount = 12;
+	optional Money exchangeAmount = 13;
 
 	enum TxnStatus {
 		UNKNOWN = 0;
@@ -364,65 +367,65 @@ message PaymentInfo {
 }
 
 message WebNotificationsInfo {
-	uint64 timestamp = 2;
-	uint32 unreadChats = 3;
-	uint32 notifyMessageCount = 4;
+	optional uint64 timestamp = 2;
+	optional uint32 unreadChats = 3;
+	optional uint32 notifyMessageCount = 4;
 	repeated WebMessageInfo notifyMessages = 5;
 }
 
 message NotificationMessageInfo {
-	MessageKey key = 1;
-	Message message = 2;
-	uint64 messageTimestamp = 3;
-	string participant = 4;
+	optional MessageKey key = 1;
+	optional Message message = 2;
+	optional uint64 messageTimestamp = 3;
+	optional string participant = 4;
 }
 
 message WebFeatures {
-	Flag labelsDisplay = 1;
-	Flag voipIndividualOutgoing = 2;
-	Flag groupsV3 = 3;
-	Flag groupsV3Create = 4;
-	Flag changeNumberV2 = 5;
-	Flag queryStatusV3Thumbnail = 6;
-	Flag liveLocations = 7;
-	Flag queryVname = 8;
-	Flag voipIndividualIncoming = 9;
-	Flag quickRepliesQuery = 10;
-	Flag payments = 11;
-	Flag stickerPackQuery = 12;
-	Flag liveLocationsFinal = 13;
-	Flag labelsEdit = 14;
-	Flag mediaUpload = 15;
-	Flag mediaUploadRichQuickReplies = 18;
-	Flag vnameV2 = 19;
-	Flag videoPlaybackUrl = 20;
-	Flag statusRanking = 21;
-	Flag voipIndividualVideo = 22;
-	Flag thirdPartyStickers = 23;
-	Flag frequentlyForwardedSetting = 24;
-	Flag groupsV4JoinPermission = 25;
-	Flag recentStickers = 26;
-	Flag catalog = 27;
-	Flag starredStickers = 28;
-	Flag voipGroupCall = 29;
-	Flag templateMessage = 30;
-	Flag templateMessageInteractivity = 31;
-	Flag ephemeralMessages = 32;
-	Flag e2ENotificationSync = 33;
-	Flag recentStickersV2 = 34;
-	Flag recentStickersV3 = 36;
-	Flag userNotice = 37;
-	Flag support = 39;
-	Flag groupUiiCleanup = 40;
-	Flag groupDogfoodingInternalOnly = 41;
-	Flag settingsSync = 42;
-	Flag archiveV2 = 43;
-	Flag ephemeralAllowGroupMembers = 44;
-	Flag ephemeral24HDuration = 45;
-	Flag mdForceUpgrade = 46;
-	Flag disappearingMode = 47;
-	Flag externalMdOptInAvailable = 48;
-	Flag noDeleteMessageTimeLimit = 49;
+	optional Flag labelsDisplay = 1;
+	optional Flag voipIndividualOutgoing = 2;
+	optional Flag groupsV3 = 3;
+	optional Flag groupsV3Create = 4;
+	optional Flag changeNumberV2 = 5;
+	optional Flag queryStatusV3Thumbnail = 6;
+	optional Flag liveLocations = 7;
+	optional Flag queryVname = 8;
+	optional Flag voipIndividualIncoming = 9;
+	optional Flag quickRepliesQuery = 10;
+	optional Flag payments = 11;
+	optional Flag stickerPackQuery = 12;
+	optional Flag liveLocationsFinal = 13;
+	optional Flag labelsEdit = 14;
+	optional Flag mediaUpload = 15;
+	optional Flag mediaUploadRichQuickReplies = 18;
+	optional Flag vnameV2 = 19;
+	optional Flag videoPlaybackUrl = 20;
+	optional Flag statusRanking = 21;
+	optional Flag voipIndividualVideo = 22;
+	optional Flag thirdPartyStickers = 23;
+	optional Flag frequentlyForwardedSetting = 24;
+	optional Flag groupsV4JoinPermission = 25;
+	optional Flag recentStickers = 26;
+	optional Flag catalog = 27;
+	optional Flag starredStickers = 28;
+	optional Flag voipGroupCall = 29;
+	optional Flag templateMessage = 30;
+	optional Flag templateMessageInteractivity = 31;
+	optional Flag ephemeralMessages = 32;
+	optional Flag e2ENotificationSync = 33;
+	optional Flag recentStickersV2 = 34;
+	optional Flag recentStickersV3 = 36;
+	optional Flag userNotice = 37;
+	optional Flag support = 39;
+	optional Flag groupUiiCleanup = 40;
+	optional Flag groupDogfoodingInternalOnly = 41;
+	optional Flag settingsSync = 42;
+	optional Flag archiveV2 = 43;
+	optional Flag ephemeralAllowGroupMembers = 44;
+	optional Flag ephemeral24HDuration = 45;
+	optional Flag mdForceUpgrade = 46;
+	optional Flag disappearingMode = 47;
+	optional Flag externalMdOptInAvailable = 48;
+	optional Flag noDeleteMessageTimeLimit = 49;
 
 	enum Flag {
 		NOT_STARTED = 0;
@@ -433,72 +436,72 @@ message WebFeatures {
 }
 
 message ReportingTokenInfo {
-	bytes reportingTag = 1;
+	optional bytes reportingTag = 1;
 }
 
 message MediaData {
-	string localPath = 1;
+	optional string localPath = 1;
 }
 
 message PhotoChange {
-	bytes oldPhoto = 1;
-	bytes newPhoto = 2;
-	uint32 newPhotoId = 3;
+	optional bytes oldPhoto = 1;
+	optional bytes newPhoto = 2;
+	optional uint32 newPhotoId = 3;
 }
 
 message StatusPSA {
 	required uint64 campaignId = 44;
-	uint64 campaignExpirationTimestamp = 45;
+	optional uint64 campaignExpirationTimestamp = 45;
 }
 
 message UserReceipt {
 	required string userJid = 1;
-	int64 receiptTimestamp = 2;
-	int64 readTimestamp = 3;
-	int64 playedTimestamp = 4;
+	optional int64 receiptTimestamp = 2;
+	optional int64 readTimestamp = 3;
+	optional int64 playedTimestamp = 4;
 	repeated string pendingDeviceJid = 5;
 	repeated string deliveredDeviceJid = 6;
 }
 
 message Reaction {
-	MessageKey key = 1;
-	string text = 2;
-	string groupingKey = 3;
-	int64 senderTimestampMs = 4;
-	bool unread = 5;
+	optional MessageKey key = 1;
+	optional string text = 2;
+	optional string groupingKey = 3;
+	optional int64 senderTimestampMs = 4;
+	optional bool unread = 5;
 }
 
 message PollUpdate {
-	MessageKey pollUpdateMessageKey = 1;
-	Message.PollVoteMessage vote = 2;
-	int64 senderTimestampMs = 3;
-	int64 serverTimestampMs = 4;
-	bool unread = 5;
+	optional MessageKey pollUpdateMessageKey = 1;
+	optional Message.PollVoteMessage vote = 2;
+	optional int64 senderTimestampMs = 3;
+	optional int64 serverTimestampMs = 4;
+	optional bool unread = 5;
 }
 
 message PollAdditionalMetadata {
-	bool pollInvalidated = 1;
+	optional bool pollInvalidated = 1;
 }
 
 message EventAdditionalMetadata {
-	bool isStale = 1;
+	optional bool isStale = 1;
 }
 
 message KeepInChat {
-	KeepType keepType = 1;
-	int64 serverTimestamp = 2;
-	MessageKey key = 3;
-	string deviceJid = 4;
-	int64 clientTimestampMs = 5;
-	int64 serverTimestampMs = 6;
+	optional KeepType keepType = 1;
+	optional int64 serverTimestamp = 2;
+	optional MessageKey key = 3;
+	optional string deviceJid = 4;
+	optional int64 clientTimestampMs = 5;
+	optional int64 serverTimestampMs = 6;
 }
 
 message PinInChat {
-	Type type = 1;
-	MessageKey key = 2;
-	int64 senderTimestampMs = 3;
-	int64 serverTimestampMs = 4;
-	MessageAddOnContextInfo messageAddOnContextInfo = 5;
+	optional Type type = 1;
+	optional MessageKey key = 2;
+	optional int64 senderTimestampMs = 3;
+	optional int64 serverTimestampMs = 4;
+	optional MessageAddOnContextInfo messageAddOnContextInfo = 5;
 
 	enum Type {
 		UNKNOWN_TYPE = 0;
@@ -508,28 +511,28 @@ message PinInChat {
 }
 
 message MessageAddOnContextInfo {
-	uint32 messageAddOnDurationInSecs = 1;
-	MessageContextInfo.MessageAddonExpiryType messageAddOnExpiryType = 2;
+	optional uint32 messageAddOnDurationInSecs = 1;
+	optional MessageContextInfo.MessageAddonExpiryType messageAddOnExpiryType = 2;
 }
 
 message PremiumMessageInfo {
-	string serverCampaignId = 1;
+	optional string serverCampaignId = 1;
 }
 
 message EventResponse {
-	MessageKey eventResponseMessageKey = 1;
-	int64 timestampMs = 2;
-	Message.EventResponseMessage eventResponseMessage = 3;
-	bool unread = 4;
+	optional MessageKey eventResponseMessageKey = 1;
+	optional int64 timestampMs = 2;
+	optional Message.EventResponseMessage eventResponseMessage = 3;
+	optional bool unread = 4;
 }
 
 message MessageAddOn {
-	MessageAddOnType messageAddOnType = 1;
-	Message messageAddOn = 2;
-	int64 senderTimestampMs = 3;
-	int64 serverTimestampMs = 4;
-	WebMessageInfo.Status status = 5;
-	MessageAddOnContextInfo addOnContextInfo = 6;
+	optional MessageAddOnType messageAddOnType = 1;
+	optional Message messageAddOn = 2;
+	optional int64 senderTimestampMs = 3;
+	optional int64 serverTimestampMs = 4;
+	optional WebMessageInfo.Status status = 5;
+	optional MessageAddOnContextInfo addOnContextInfo = 6;
 
 	enum MessageAddOnType {
 		UNDEFINED = 0;

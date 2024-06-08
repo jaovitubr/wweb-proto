@@ -3,14 +3,24 @@
   "description": "WhatsApp Web Protocol Buffers",
   "version": "{{WA_VERSION}}",
   "private": false,
-  "main": "./index.js",
-  "module": "./index.mjs",
+  "main": "./cjs/index.js",
+  "module": "./esm/index.js",
+  "types": "./types/index.d.ts",
   "exports": {
     ".": {
-      "require": "./index.js",
-      "import": "./index.mjs"
+      "require": "./cjs/*.js",
+      "import": "./esm/*.js",
+      "types": "./types/*.d.ts",
+      "default": "./esm/*.js"
     }
   },
+  "files": [
+    "./cjs/*.js",
+    "./esm/*.js",
+    "./types/*.js",
+    "./package.json",
+    "./readme.md"
+  ],
   "keywords": [
     "whatsapp",
     "protobuf",
