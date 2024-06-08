@@ -54,7 +54,7 @@ jobs:
       - name: Install dependencies
         if: env.update_needed == 'true'
         run: |
-          apt install -y protobuf-compiler
+          sudo apt-get install -y protobuf-compiler
           npm i -g @bufbuild/protoc-gen-es typescript uglify-js
           cd tools/scraper && npm i
 
