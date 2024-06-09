@@ -31,6 +31,8 @@ compile_proto() {
     
     (
         echo "" > $tsIndexPath
+        echo "export const HASH = '$NEWEST_WA_PROTO_MD5';" >> $tsIndexPath
+        echo "export const VERSION = '$NEWEST_WA_VERSION';" >> $tsIndexPath
         
         for filePath in $protoFiles; do
             fileName=$(basename $filePath .proto)_pb.js
