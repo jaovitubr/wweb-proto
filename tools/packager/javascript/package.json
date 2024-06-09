@@ -18,6 +18,9 @@
       "types": "./*_pb.d.ts"
     }
   },
+  "engines": {
+    "node": ">=16.13.2"
+  },
   "keywords": [
     "whatsapp",
     "protobuf",

@@ -60,12 +60,12 @@ compile_ts() {
     ) &
     
     (
-        tsc $tsIndexPath --module commonjs --outdir $OUT
+        tsc $tsIndexPath --module commonjs --target es2022 --outdir $OUT
         echo "Compiled commonjs"
     ) &
     
     (
-        tsc $tsIndexPath --module esnext --outdir $ESM_OUT
+        tsc $tsIndexPath --module esnext --target es2022 --outdir $ESM_OUT
         
         for file in $ESM_OUT/*.js; do
             baseName=$(basename $file)
@@ -79,7 +79,7 @@ compile_ts() {
     ) &
     
     wait
-    rm -rf $TS_OUT
+    # rm -rf $TS_OUT
 }
 
 minify() {
