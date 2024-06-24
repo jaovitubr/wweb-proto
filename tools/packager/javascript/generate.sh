@@ -49,7 +49,7 @@ compile_proto() {
 
 compile_ts() {
     tsFilesArray=($TS_OUT/*.ts)
-    tsFilesStr=${tsFiles[@]}
+    tsFilesStr=${tsFilesArray[@]}
 
     (
         tsc $tsFilesStr --declaration --emitDeclarationOnly --outdir $OUT
