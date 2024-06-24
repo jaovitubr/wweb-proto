@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# OUT_DIR=../../../out
-# NEWEST_WA_VERSION=1.0.0
-
 PROTO_DIR=$OUT_DIR/proto
 OUT=$OUT_DIR/packages/javascript
 TS_OUT=$OUT/ts
@@ -34,11 +31,6 @@ compile_proto() {
         echo "export const HASH = '$NEWEST_WA_PROTO_MD5';" >> $tsIndexPath
         echo "export const VERSION = '$NEWEST_WA_VERSION';" >> $tsIndexPath
         
-        for filePath in $protoFiles; do
-            fileName=$(basename $filePath .proto)_pb.js
-            echo "export * from './$fileName';" >> $tsIndexPath
-        done
-        
         echo "Generated index $tsIndexPath"
     ) &
     
@@ -56,18 +48,20 @@ compile_proto() {
 }
 
 compile_ts() {
+    tsFiles=($TS_OUT/*.ts)
+
     (
-        tsc $tsIndexPath --declaration --emitDeclarationOnly --outdir $OUT
+        tsc $tsFiles --declaration --emitDeclarationOnly --outdir $OUT
         echo "Compiled types"
     ) &
     
     (
-        tsc $tsIndexPath --module commonjs --target es2022 --outdir $OUT
+        tsc $tsFiles --module commonjs --target es2022 --outdir $OUT
         echo "Compiled commonjs"
     ) &
     
     (
-        tsc $tsIndexPath --module esnext --target es2022 --outdir $ESM_OUT
+        tsc $tsFiles --module esnext --target es2022 --outdir $ESM_OUT
         
         for file in $ESM_OUT/*.js; do
             baseName=$(basename $file)
