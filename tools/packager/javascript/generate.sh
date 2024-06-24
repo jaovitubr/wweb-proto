@@ -48,20 +48,21 @@ compile_proto() {
 }
 
 compile_ts() {
-    tsFiles=($TS_OUT/*.ts)
+    tsFilesArray=($TS_OUT/*.ts)
+    tsFilesStr=${tsFiles[@]}
 
     (
-        tsc $tsFiles --declaration --emitDeclarationOnly --outdir $OUT
+        tsc $tsFilesStr --declaration --emitDeclarationOnly --outdir $OUT
         echo "Compiled types"
     ) &
     
     (
-        tsc $tsFiles --module commonjs --target es2022 --outdir $OUT
+        tsc $tsFilesStr --module commonjs --target es2022 --outdir $OUT
         echo "Compiled commonjs"
     ) &
     
     (
-        tsc $tsFiles --module esnext --target es2022 --outdir $ESM_OUT
+        tsc $tsFilesStr --module esnext --target es2022 --outdir $ESM_OUT
         
         for file in $ESM_OUT/*.js; do
             baseName=$(basename $file)
