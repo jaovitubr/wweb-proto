@@ -5,8 +5,5 @@
   "type": "module",
   "main": "index.js",
   "author": "João Vitor Machado",
-  "license": "ISC",
-  "dependencies": {
-    "puppeteer": "^22.10.0"
-  }
+  "license": "ISC"
 }

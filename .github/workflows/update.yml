@@ -20,7 +20,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "20"
-          cache: "npm"
           registry-url: "https://registry.npmjs.org"
 
       - name: Set up environment
@@ -51,6 +50,15 @@ jobs:
             echo "Versions are different."
             echo "update_needed=true" >> $GITHUB_ENV
           fi
+
+      - name: Cache node modules
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.npm
+            tools/scraper/node_modules
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-npm-
 
       - name: Install dependencies
         if: env.update_needed == 'true'
