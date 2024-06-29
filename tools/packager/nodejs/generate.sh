@@ -76,7 +76,7 @@ compile_ts() {
     ) &
     
     wait
-    # rm -rf $TS_OUT
+    rm -rf $TS_OUT
 }
 
 minify() {
