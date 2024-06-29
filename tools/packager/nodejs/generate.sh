@@ -1,7 +1,7 @@
 #!/bin/bash
 
 PROTO_DIR=$OUT_DIR/proto
-OUT=$OUT_DIR/packages/javascript
+OUT=$OUT_DIR/packages/nodejs
 TS_OUT=$OUT/ts
 ESM_OUT=$OUT/esm
 

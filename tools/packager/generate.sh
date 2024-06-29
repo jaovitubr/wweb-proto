@@ -1,3 +1,3 @@
 #!/bin/bash
 
-( cd javascript && ./generate.sh )
+( cd nodejs && ./generate.sh )

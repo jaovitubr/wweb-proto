@@ -1,3 +1,3 @@
 #!/bin/bash
 
-( cd javascript && ./publish.sh )
+( cd nodejs && ./publish.sh )
