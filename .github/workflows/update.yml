@@ -51,15 +51,6 @@ jobs:
             echo "update_needed=true" >> $GITHUB_ENV
           fi
 
-      - name: Cache node modules
-        uses: actions/cache@v3
-        with:
-          path: |
-            ~/.npm
-            tools/scraper/node_modules
-          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: ${{ runner.os }}-npm-
-
       - name: Install dependencies
         if: env.update_needed == 'true'
         run: |
