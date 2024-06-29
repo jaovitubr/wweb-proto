@@ -19,12 +19,23 @@ npm install wweb-proto
 To access the compiled ProtoBuffer objects, you can use the following code:
 
 ```javascript
-const { Message, MessageKey, ... } = require('wweb-proto');
+const { User } = require('wweb-proto');
 
-const message = Message.create({ awesomeField: "AwesomeString" });
+let user = new User({
+  firstName: "Homer",
+  lastName: "Simpson",
+  active: true,
+  locations: ["Springfield"],
+  projects: { SPP: "Springfield Power Plant" },
+  manager: {
+    firstName: "Montgomery",
+    lastName: "Burns",
+  },
+});
 
-const buffer = Message.encode(message).finish();
-const decodedMessage = Message.decode(buffer);
+const bytes = user.toBinary();
+user = User.fromBinary(bytes);
+user = User.fromJsonString('{"firstName": "Homer", "lastName": "Simpson"}');
 ```
 
 The extracted and compiled ProtoBuffer definitions are ready to be used. To learn how to work with these definitions, please refer to the [`bufbuild/protobuf-es` documentation](https://github.com/bufbuild/protobuf-es).
