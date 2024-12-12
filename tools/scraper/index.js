@@ -30,10 +30,9 @@ await page.goto("https://web.whatsapp.com/", {
 });
 
 const SCRAP_SCRIPT_PATH = path.join(__dirname, "./utils/protoScraper.js");
-const scrapScript = await fs.readFile(SCRAP_SCRIPT_PATH, "utf8");
+const SCRAP_SCRIPT = await fs.readFile(SCRAP_SCRIPT_PATH, "utf8");
 
-await page.evaluate(moduleRaidScript);
-const protos = await page.evaluate(new Function("scrap", scrapScript));
+const protos = await page.evaluate(new Function("scrap", SCRAP_SCRIPT));
 const WWEB_VERSION = await page.evaluate(() => window.Debug.VERSION);
 
 if (!IS_DEBUG) await browser.close();
