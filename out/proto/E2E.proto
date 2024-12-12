@@ -369,7 +369,7 @@ message Message {
 		repeated Option options = 3;
 		optional uint32 selectableOptionsCount = 4;
 		optional ContextInfo contextInfo = 5;
-		optional Message.PollContentType pollMediaType = 6;
+		optional Message.PollContentType pollContentType = 6;
 		optional PollType pollType = 7;
 		optional Option correctAnswer = 8;
 	
