@@ -33,6 +33,7 @@ message MsgOpaqueData {
 	optional string pollUpdateParentKey = 23;
 	optional PollEncValue encPollVote = 24;
 	optional bool isSentCagPollCreation = 28;
+	optional PollVotesSnapshot pollVotesSnapshot = 41;
 	optional string encReactionTargetMessageKey = 25;
 	optional bytes encReactionEncPayload = 26;
 	optional bytes encReactionEncIv = 27;
@@ -46,6 +47,7 @@ message MsgOpaqueData {
 	optional string eventJoinLink = 36;
 	optional int64 eventStartTime = 37;
 	optional EventLocation eventLocation = 38;
+	optional int64 eventEndTime = 40;
 
 	message EventLocation {
 		optional double degreesLatitude = 1;
@@ -54,6 +56,15 @@ message MsgOpaqueData {
 		optional string address = 4;
 		optional string url = 5;
 		optional bytes jpegThumbnail = 6;
+	}
+
+	message PollVotesSnapshot {
+		repeated MsgOpaqueData.PollVoteSnapshot pollVotes = 1;
+	}
+
+	message PollVoteSnapshot {
+		optional MsgOpaqueData.PollOption option = 1;
+		optional int32 optionVoteCount = 2;
 	}
 
 	message PollOption {

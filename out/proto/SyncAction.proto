@@ -112,6 +112,19 @@ message SyncActionValue {
 	optional FavoritesAction favoritesAction = 56;
 	optional MerchantPaymentPartnerAction merchantPaymentPartnerAction = 57;
 	optional WaffleAccountLinkStateAction waffleAccountLinkStateAction = 58;
+	optional UsernameChatStartModeAction usernameChatStartMode = 59;
+	optional NotificationActivitySettingAction notificationActivitySettingAction = 60;
+
+	message NotificationActivitySettingAction {
+		optional NotificationActivitySetting notificationActivitySetting = 1;
+	
+		enum NotificationActivitySetting {
+			DEFAULT_ALL_MESSAGES = 0;
+			ALL_MESSAGES = 1;
+			HIGHLIGHTS = 2;
+			DEFAULT_HIGHLIGHTS = 3;
+		}
+	}
 
 	message WaffleAccountLinkStateAction {
 		optional AccountLinkState linkState = 2;
@@ -240,6 +253,15 @@ message SyncActionValue {
 		}
 	}
 
+	message UsernameChatStartModeAction {
+		optional ChatStartMode chatStartMode = 1;
+	
+		enum ChatStartMode {
+			LID = 1;
+			PN = 2;
+		}
+	}
+
 	message PnForLidChatAction {
 		optional string pnJid = 1;
 	}
@@ -358,6 +380,17 @@ message SyncActionValue {
 		optional int32 predefinedId = 3;
 		optional bool deleted = 4;
 		optional int32 orderIndex = 5;
+		optional bool isActive = 6;
+		optional ListType type = 7;
+	
+		enum ListType {
+			NONE = 0;
+			UNREAD = 1;
+			GROUPS = 2;
+			FAVORITES = 3;
+			PREDEFINED = 4;
+			CUSTOM = 5;
+		}
 	}
 
 	message LabelAssociationAction {
@@ -434,5 +467,7 @@ message PatchDebugData {
 		WEB = 4;
 		UWP = 5;
 		DARWIN = 6;
+		IPAD = 7;
+		WEAROS = 8;
 	}
 }

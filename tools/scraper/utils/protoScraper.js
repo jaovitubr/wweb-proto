@@ -1,4 +1,4 @@
-const protoConstants = moduleRaid["WAProtoConst"];
+const protoConstants = require("WAProtoConst");
 const protoFiles = loadProtoFiles();
 
 console.log({
@@ -8,20 +8,17 @@ console.log({
 
 function loadProtoFiles() {
     const protoModuleFiles = {};
+    const modulesIDs = Object.keys(require('__debug')?.modulesMap || {})
+        .filter(moduleId => moduleId.endsWith(".pb"))
 
-    for (const moduleId in moduleRaid) {
-        if (moduleId.endsWith(".pb")) {
-            const protoFileName = moduleId
-                .replace(/^(WAWebProtobufs|WAWebProtobuf|WAProtobufs|WA)/g, "")
-                .replace(".pb", "");
+    for (const moduleId of modulesIDs) {
+        const protoFileName = moduleId
+            .replace(/^(WAWebProtobufs|WAWebProtobuf|WAProtobufs|WA)/g, "")
+            .replace(".pb", "");
 
-            if (
-                !moduleId.startsWith("WAWeb") &&
-                protoFileName in protoModuleFiles
-            ) continue;
+        if (!moduleId.startsWith("WAWeb") && protoFileName in protoModuleFiles) continue;
 
-            protoModuleFiles[protoFileName] = moduleRaid[moduleId];
-        }
+        protoModuleFiles[protoFileName] = require(moduleId);
     }
 
     const protoFiles = {};
@@ -318,4 +315,5 @@ for (const protoName in protoFiles) {
     protoBufDefinitions[protoName] = protoContent;
 }
 
+console.log(protoBufDefinitions);
 return protoBufDefinitions;

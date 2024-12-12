@@ -29,13 +29,8 @@ await page.goto("https://web.whatsapp.com/", {
     waitUntil: "networkidle0",
 });
 
-const [
-    moduleRaidScript,
-    scrapScript,
-] = await Promise.all([
-    fs.readFile(path.join(__dirname, "./utils/moduleRaid.js"), "utf8"),
-    fs.readFile(path.join(__dirname, "./utils/protoScraper.js"), "utf8"),
-]);
+const SCRAP_SCRIPT_PATH = path.join(__dirname, "./utils/protoScraper.js");
+const scrapScript = await fs.readFile(SCRAP_SCRIPT_PATH, "utf8");
 
 await page.evaluate(moduleRaidScript);
 const protos = await page.evaluate(new Function("scrap", scrapScript));
@@ -52,8 +47,8 @@ await fs.rm(OUT_DIR, { recursive: true })
     .then(() => fs.mkdir(OUT_DIR))
     .catch(() => fs.mkdir(OUT_DIR));
 
-await fs.writeFile(protosMd5FilePath, protosMd5);
 await fs.writeFile(wwebVersionFilePath, WWEB_VERSION);
+await fs.writeFile(protosMd5FilePath, protosMd5);
 
 await Promise.all(
     Object.entries(protos).map(([protoName, proto]) => {

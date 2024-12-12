@@ -1,9 +1,0 @@
-{
-  "name": "wweb-proto-version-checker",
-  "version": "1.0.0",
-  "description": "",
-  "type": "module",
-  "main": "index.js",
-  "author": "João Vitor Machado",
-  "license": "ISC"
-}

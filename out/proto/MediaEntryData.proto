@@ -17,6 +17,7 @@ message MediaEntry {
 	optional string filename = 14;
 	optional ProgressiveJpegDetails progressiveJpegDetails = 15;
 	optional int64 size = 16;
+	optional int64 lastDownloadAttemptTimestamp = 17;
 
 	message ProgressiveJpegDetails {
 		repeated uint32 scanLengths = 1;

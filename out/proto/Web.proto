@@ -61,6 +61,9 @@ message WebMessageInfo {
 	repeated string statusMentions = 66;
 	optional MessageKey targetMessageId = 67;
 	repeated MessageAddOn messageAddOns = 68;
+	optional StatusMentionMessage statusMentionMessageInfo = 69;
+	optional bool isSupportAiMessage = 70;
+	repeated string statusMentionSources = 71;
 
 	enum BizPrivacyStatus {
 		E2EE = 0;
@@ -279,6 +282,9 @@ message WebMessageInfo {
 		EVENT_CANCELED = 206;
 		COMMUNITY_OWNER_UPDATED = 207;
 		COMMUNITY_SUB_GROUP_VISIBILITY_HIDDEN = 208;
+		CAPI_GROUP_NE2EE_SYSTEM_MESSAGE = 209;
+		STATUS_MENTION = 210;
+		USER_CONTROLS_SYSTEM_MESSAGE = 211;
 	}
 
 	enum Status {
@@ -527,6 +533,11 @@ message EventResponse {
 	optional bool unread = 4;
 }
 
+message LegacyMessage {
+	optional Message.EventResponseMessage eventResponseMessage = 1;
+	optional Message.PollVoteMessage pollVote = 2;
+}
+
 message MessageAddOn {
 	optional MessageAddOnType messageAddOnType = 1;
 	optional Message messageAddOn = 2;
@@ -535,6 +546,7 @@ message MessageAddOn {
 	optional WebMessageInfo.Status status = 5;
 	optional MessageAddOnContextInfo addOnContextInfo = 6;
 	optional MessageKey messageAddOnKey = 7;
+	optional LegacyMessage legacyMessage = 8;
 
 	enum MessageAddOnType {
 		UNDEFINED = 0;
@@ -543,4 +555,8 @@ message MessageAddOn {
 		POLL_UPDATE = 3;
 		PIN_IN_CHAT = 4;
 	}
+}
+
+message StatusMentionMessage {
+	optional Message quotedStatus = 1;
 }
