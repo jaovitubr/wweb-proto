@@ -1,7 +1,5 @@
 #!/bin/bash
 
-OUT_DIR=/mnt/c/Users/joaov/Documents/wweb-proto/out
-
 PROTO_DIR=$OUT_DIR/proto
 OUT=$OUT_DIR/packages/nodejs
 TS_OUT=$OUT/ts
