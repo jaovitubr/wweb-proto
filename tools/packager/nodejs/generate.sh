@@ -1,5 +1,7 @@
 #!/bin/bash
 
+OUT_DIR=/mnt/c/Users/joaov/Documents/wweb-proto/out
+
 PROTO_DIR=$OUT_DIR/proto
 OUT=$OUT_DIR/packages/nodejs
 TS_OUT=$OUT/ts
@@ -12,7 +14,7 @@ setup() {
     
     rm -rf $OUT
     
-    mkdir $OUT
+    mkdir -p $OUT
     mkdir $TS_OUT
     mkdir $ESM_OUT
     
@@ -50,19 +52,25 @@ compile_proto() {
 compile_ts() {
     tsFilesArray=($TS_OUT/*.ts)
     tsFilesStr=${tsFilesArray[@]}
-
+    pids=()
+    
     (
-        tsc $tsFilesStr --declaration --emitDeclarationOnly --outdir $OUT
+        set -e
+        tsc $tsFilesStr --declaration --emitDeclarationOnly --noCheck --outdir $OUT
         echo "Compiled types"
     ) &
+    pids+=($!)
     
     (
-        tsc $tsFilesStr --module commonjs --target es2022 --outdir $OUT
+        set -e
+        tsc $tsFilesStr --module commonjs --target es2022 --noCheck --outdir $OUT
         echo "Compiled commonjs"
     ) &
+    pids+=($!)
     
     (
-        tsc $tsFilesStr --module esnext --target es2022 --outdir $ESM_OUT
+        set -e
+        tsc $tsFilesStr --module esnext --target es2022 --noCheck --outdir $ESM_OUT
         
         for file in $ESM_OUT/*.js; do
             baseName=$(basename $file)
@@ -74,8 +82,15 @@ compile_ts() {
         rm -rf $ESM_OUT
         echo "Compiled esnext"
     ) &
+    pids+=($!)
     
-    wait
+    for pid in "${pids[@]}"; do
+        wait $pid || {
+            echo "A task in compile_ts failed!"
+            exit 1
+        }
+    done
+    
     rm -rf $TS_OUT
 }
 
@@ -98,4 +113,4 @@ set -e
 setup
 compile_proto
 compile_ts
-minify
+# minify

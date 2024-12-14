@@ -72,7 +72,7 @@ jobs:
         if: env.package_update_needed == 'true'
         run: |
           sudo apt-get install -y protobuf-compiler
-          npm install -g @bufbuild/protobuf@2.2.3 @bufbuild/protoc-gen-es typescript uglify-js
+          npm install -g typescript uglify-js @bufbuild/protoc-gen-es@1.10.0
 
       - name: Generate packages
         if: env.package_update_needed == 'true'
