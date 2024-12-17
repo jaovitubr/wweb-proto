@@ -550,16 +550,6 @@ message Message {
 			CarouselMessage carouselMessage = 7;
 		}
 	
-		message UrlTrackingMap {
-			repeated UrlTrackingMapElement urlTrackingMapElements = 1;
-		
-			message UrlTrackingMapElement {
-				optional string originalUrl = 1;
-				optional string unconsentedUsersUrl = 2;
-				optional string consentedUsersUrl = 3;
-			}
-		}
-	
 		message CarouselMessage {
 			repeated Message.InteractiveMessage cards = 1;
 			optional int32 messageVersion = 2;
@@ -1497,6 +1487,7 @@ message ContextInfo {
 	optional bytes ctwaPayload = 55;
 	optional ForwardedAIBotMessageInfo forwardedAiBotMessageInfo = 56;
 	optional StatusAttributionType statusAttributionType = 57;
+	optional UrlTrackingMap urlTrackingMap = 58;
 
 	enum StatusAttributionType {
 		NONE = 0;
@@ -2060,5 +2051,16 @@ message ProcessedVideo {
 		LOW = 1;
 		MID = 2;
 		HIGH = 3;
+	}
+}
+
+message UrlTrackingMap {
+	repeated UrlTrackingMapElement urlTrackingMapElements = 1;
+
+	message UrlTrackingMapElement {
+		optional string originalUrl = 1;
+		optional string unconsentedUsersUrl = 2;
+		optional string consentedUsersUrl = 3;
+		optional uint32 cardIndex = 4;
 	}
 }
