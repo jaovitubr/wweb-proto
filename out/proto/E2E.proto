@@ -1495,12 +1495,14 @@ message ContextInfo {
 	enum StatusAttributionType {
 		NONE = 0;
 		RESHARED_FROM_MENTION = 1;
+		RESHARED_FROM_POST = 2;
 	}
 
 	message FeatureEligibilities {
 		optional bool cannotBeReactedTo = 1;
 		optional bool cannotBeRanked = 2;
 		optional bool canRequestFeedback = 3;
+		optional bool canBeReshared = 4;
 	}
 
 	message DataSharingContext {
@@ -1746,6 +1748,7 @@ message AIRichResponseMessage {
 	message AIRichResponseImageURL {
 		optional string imagePreviewUrl = 1;
 		optional string imageHighResUrl = 2;
+		optional string sourceUrl = 3;
 	}
 }
 
