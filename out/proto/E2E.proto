@@ -1505,6 +1505,15 @@ message ContextInfo {
 	optional ForwardedAIBotMessageInfo forwardedAiBotMessageInfo = 56;
 	optional StatusAttributionType statusAttributionType = 57;
 	optional UrlTrackingMap urlTrackingMap = 58;
+	optional PairedMediaType pairedMediaType = 59;
+
+	enum PairedMediaType {
+		NOT_PAIRED_MEDIA = 0;
+		SD_VIDEO_PARENT = 1;
+		HD_VIDEO_CHILD = 2;
+		SD_IMAGE_PARENT = 3;
+		HD_IMAGE_CHILD = 4;
+	}
 
 	enum StatusAttributionType {
 		NONE = 0;
@@ -1710,6 +1719,11 @@ message AIRichResponseMessage {
 		optional AIRichResponseMessage.AIRichResponseCodeMetadata codeMetadata = 5;
 		optional AIRichResponseMessage.AIRichResponseTableMetadata tableMetadata = 6;
 		optional AIRichResponseMessage.AIRichResponseDynamicMetadata dynamicMetadata = 7;
+		optional AIRichResponseMessage.AIRichResponseAbstractData abstractData = 8;
+	}
+
+	message AIRichResponseAbstractData {
+		optional bytes data = 1;
 	}
 
 	message AIRichResponseDynamicMetadata {
@@ -1940,6 +1954,8 @@ message MessageAssociation {
 		MEDIA_POLL = 7;
 		STATUS_ADD_YOURS = 8;
 		STATUS_NOTIFICATION = 9;
+		HD_IMAGE_DUAL_UPLOAD = 10;
+		STICKER_ANNOTATION = 11;
 	}
 }
 
