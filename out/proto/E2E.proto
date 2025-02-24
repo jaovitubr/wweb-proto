@@ -1125,6 +1125,7 @@ message Message {
 		optional MediaNotifyMessage mediaNotifyMessage = 21;
 		optional Message.CloudAPIThreadControlNotification cloudApiThreadControlNotification = 22;
 		optional LIDMigrationMappingSyncMessage lidMigrationMappingSyncMessage = 23;
+		optional LimitSharing limitSharing = 24;
 	
 		enum Type {
 			REVOKE = 0;
@@ -1149,6 +1150,7 @@ message Message {
 			BOT_MEMU_ONBOARDING_MESSAGE = 24;
 			STATUS_MENTION_MESSAGE = 25;
 			STOP_GENERATION_MESSAGE = 26;
+			LIMIT_SHARING = 27;
 		}
 	}
 
@@ -1508,6 +1510,7 @@ message ContextInfo {
 	optional StatusAttributionType statusAttributionType = 57;
 	optional UrlTrackingMap urlTrackingMap = 58;
 	optional PairedMediaType pairedMediaType = 59;
+	optional uint32 rankingVersion = 60;
 
 	enum PairedMediaType {
 		NOT_PAIRED_MEDIA = 0;
@@ -1933,6 +1936,7 @@ message BotProgressIndicatorMetadata {
 		optional bool isEnhancedSearch = 6;
 	
 		enum PlanningStepStatus {
+			UNKNOWN = 0;
 			PLANNED = 1;
 			EXECUTING = 2;
 			FINISHED = 3;
@@ -1944,6 +1948,7 @@ message BotProgressIndicatorMetadata {
 			optional string sourceUrl = 3;
 		
 			enum BotPlanningSearchSourceProvider {
+				UNKNOWN = 0;
 				OTHER = 1;
 				GOOGLE = 2;
 				BING = 3;
@@ -1956,6 +1961,7 @@ message BotCapabilityMetadata {
 	repeated BotCapabilityType capabilities = 1;
 
 	enum BotCapabilityType {
+		UNKNOWN = 0;
 		PROGRESS_INDICATOR = 1;
 		RICH_RESPONSE_HEADING = 2;
 		RICH_RESPONSE_NESTED_LIST = 3;
@@ -1982,6 +1988,7 @@ message BotCapabilityMetadata {
 		RICH_RESPONSE_LATEX = 24;
 		RICH_RESPONSE_MAPS = 25;
 		RICH_RESPONSE_INLINE_REELS = 26;
+		AGENTIC_PLANNING = 27;
 	}
 }
 
