@@ -1713,7 +1713,7 @@ message AIRichResponseMessage {
 		AI_RICH_RESPONSE_DYNAMIC = 6;
 		AI_RICH_RESPONSE_MAP = 7;
 		AI_RICH_RESPONSE_LATEX = 8;
-		AI_RICH_RESPONSE_INLINE_REELS = 9;
+		AI_RICH_RESPONSE_CONTENT_ITEMS = 9;
 	}
 
 	enum AIRichResponseMessageType {
@@ -1731,16 +1731,28 @@ message AIRichResponseMessage {
 		optional AIRichResponseMessage.AIRichResponseDynamicMetadata dynamicMetadata = 7;
 		optional AIRichResponseMessage.AIRichResponseLatexMetadata latexMetadata = 8;
 		optional AIRichResponseMessage.AIRichResponseMapMetadata mapMetadata = 9;
-		optional AIRichResponseMessage.AIRichResponseReelsMetadata reelsMetadata = 10;
+		optional AIRichResponseMessage.AIRichResponseContentItemsMetadata contentItemsMetadata = 10;
 	}
 
-	message AIRichResponseReelsMetadata {
-		repeated AIRichResponseReelMetadata reelsMetadata = 1;
+	message AIRichResponseContentItemsMetadata {
+		repeated AIRichResponseContentItemMetadata itemsMetadata = 1;
+		optional ContentType contentType = 2;
 	
-		message AIRichResponseReelMetadata {
+		enum ContentType {
+			DEFAULT = 0;
+			CAROUSEL = 1;
+		}
+	
+		message AIRichResponseContentItemMetadata {
+			oneof aIRichResponseContentItem {
+				AIRichResponseMessage.AIRichResponseContentItemsMetadata.AIRichResponseReelItem reelItem = 1;
+			}
+		}
+	
+		message AIRichResponseReelItem {
 			optional string title = 1;
 			optional string profileIconUrl = 2;
-			optional string previewUrl = 3;
+			optional string thumbnailUrl = 3;
 			optional string videoUrl = 4;
 		}
 	}
@@ -1990,6 +2002,7 @@ message BotCapabilityMetadata {
 		RICH_RESPONSE_MAPS = 25;
 		RICH_RESPONSE_INLINE_REELS = 26;
 		AGENTIC_PLANNING = 27;
+		ACCOUNT_LINKING = 28;
 	}
 }
 
