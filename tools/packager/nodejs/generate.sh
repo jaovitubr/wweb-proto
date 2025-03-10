@@ -106,4 +106,4 @@ set -e
 setup
 compile_proto
 compile_js
-minify
+# minify
