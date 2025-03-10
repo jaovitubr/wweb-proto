@@ -16,6 +16,7 @@ if (!OUT_DIR) throw new Error("missing OUT_DIR");
 const browser = await puppeteer.launch({
     headless: !IS_DEBUG,
     devtools: IS_DEBUG,
+    args: ["--no-sandbox", "--disable-setuid-sandbox"],
 });
 
 const [page] = await browser.pages();

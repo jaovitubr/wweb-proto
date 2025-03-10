@@ -64,6 +64,8 @@ message WebMessageInfo {
 	optional StatusMentionMessage statusMentionMessageInfo = 69;
 	optional bool isSupportAiMessage = 70;
 	repeated string statusMentionSources = 71;
+	repeated Citation supportAiCitations = 72;
+	optional string botTargetId = 73;
 
 	enum BizPrivacyStatus {
 		E2EE = 0;
@@ -285,6 +287,10 @@ message WebMessageInfo {
 		CAPI_GROUP_NE2EE_SYSTEM_MESSAGE = 209;
 		STATUS_MENTION = 210;
 		USER_CONTROLS_SYSTEM_MESSAGE = 211;
+		SUPPORT_SYSTEM_MESSAGE = 212;
+		CHANGE_LID = 213;
+		BIZ_CUSTOMER_3PD_DATA_SHARING_OPT_IN_MESSAGE = 214;
+		BIZ_CUSTOMER_3PD_DATA_SHARING_OPT_OUT_MESSAGE = 215;
 	}
 
 	enum Status {
@@ -559,4 +565,11 @@ message MessageAddOn {
 
 message StatusMentionMessage {
 	optional Message quotedStatus = 1;
+}
+
+message Citation {
+	required string title = 1;
+	required string subtitle = 2;
+	required string cmsId = 3;
+	required string imageUrl = 4;
 }

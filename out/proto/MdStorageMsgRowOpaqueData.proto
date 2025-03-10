@@ -76,5 +76,6 @@ message MsgOpaqueData {
 
 	message PollOption {
 		optional string name = 1;
+		optional string hash = 2;
 	}
 }

@@ -34,6 +34,7 @@ message HistorySync {
 	repeated PhoneNumberToLIDMapping phoneNumberToLidMappings = 15;
 	optional string companionMetaNonce = 16;
 	optional bytes shareableChatIdentifierEncryptionKey = 17;
+	repeated Account accounts = 18;
 
 	enum BotAIWaitListState {
 		IN_WAITLIST = 0;
@@ -101,6 +102,8 @@ message Conversation {
 	optional PrivacySystemMessage systemMessageToInsert = 47;
 	optional bool capiCreatedGroup = 48;
 	optional string accountLid = 49;
+	optional bool limitSharing = 50;
+	optional int64 limitSharingSettingTimestamp = 51;
 
 	enum EndOfHistoryTransferType {
 		COMPLETE_BUT_MORE_MESSAGES_REMAIN_ON_PRIMARY = 0;
@@ -112,6 +115,13 @@ message Conversation {
 message PhoneNumberToLIDMapping {
 	optional string pnJid = 1;
 	optional string lidJid = 2;
+}
+
+message Account {
+	optional string lid = 1;
+	optional string username = 2;
+	optional string countryCode = 3;
+	optional bool isUsernameDeleted = 4;
 }
 
 message HistorySyncMsg {
