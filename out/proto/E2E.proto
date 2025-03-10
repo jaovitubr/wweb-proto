@@ -1954,17 +1954,37 @@ message BotProgressIndicatorMetadata {
 
 	message BotPlanningStepMetadata {
 		optional string statusTitle = 1;
-		optional string statusBody = 2;
 		repeated BotPlanningSearchSourcesMetadata sourcesMetadata = 3;
 		optional PlanningStepStatus status = 4;
 		optional bool isReasoning = 5;
 		optional bool isEnhancedSearch = 6;
+		repeated BotPlanningStepSectionMetadata sections = 7;
+	
+		enum BotSearchSourceProvider {
+			UNKNOWNPROVIDER = 0;
+			OTHER = 1;
+			GOOGLE = 2;
+			BING = 3;
+		}
 	
 		enum PlanningStepStatus {
 			UNKNOWN = 0;
 			PLANNED = 1;
 			EXECUTING = 2;
 			FINISHED = 3;
+		}
+	
+		message BotPlanningStepSectionMetadata {
+			optional string sectionTitle = 1;
+			optional string sectionBody = 2;
+			repeated BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotPlanningSearchSourceMetadata sourcesMetadata = 3;
+		}
+	
+		message BotPlanningSearchSourceMetadata {
+			optional string title = 1;
+			optional BotProgressIndicatorMetadata.BotPlanningStepMetadata.BotSearchSourceProvider provider = 2;
+			optional string sourceUrl = 3;
+			optional string favIconUrl = 4;
 		}
 	
 		message BotPlanningSearchSourcesMetadata {
