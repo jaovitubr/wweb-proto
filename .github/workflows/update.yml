@@ -89,17 +89,18 @@ jobs:
           path: |
             out
             !node_modules
-      # - name: Publish packages
-      #   if: env.package_update_needed == 'true'
-      #   run: bash publish.sh
-      #   working-directory: tools/packager
-      #   env:
-      #     OUT_DIR: ${{ github.workspace }}/out/packages
-      #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      # - name: Commit changes
-      #   if: env.package_update_needed == 'true'
-      #   uses: stefanzweifel/git-auto-commit-action@v5
-      #   with:
-      #     commit_message: "WhatsApp Web v${{ env.NEWEST_WA_VERSION }}"
-      #     tagging_message: "v${{ env.NEWEST_WA_VERSION }}"
+      - name: Publish packages
+        if: env.package_update_needed == 'true'
+        run: bash publish.sh
+        working-directory: tools/packager
+        env:
+          OUT_DIR: ${{ github.workspace }}/out/packages
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Commit changes
+        if: env.package_update_needed == 'true'
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "WhatsApp Web v${{ env.NEWEST_WA_VERSION }}"
+          tagging_message: "v${{ env.NEWEST_WA_VERSION }}"
