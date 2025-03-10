@@ -3,19 +3,19 @@
   "description": "WhatsApp Web Protocol Buffers",
   "version": "{{WA_VERSION}}",
   "private": false,
-  "main": "./index.js",
-  "module": "./index.mjs",
-  "types": "./index.d.ts",
+  "main": "./cjs/index.js",
+  "module": "./esm/index.js",
+  "types": "./types/index.d.ts",
   "exports": {
     ".": {
-      "import": "./index.mjs",
-      "require": "./index.js",
-      "types": "./index.d.ts"
+      "import": "./cjs/index.js",
+      "require": "./mjs/index.js",
+      "types": "./types/index.d.ts"
     },
     "./*_pb": {
-      "import": "./*_pb.mjs",
-      "require": "./*_pb.js",
-      "types": "./*_pb.d.ts"
+      "import": "./cjs/*_pb.js",
+      "require": "./mjs/*_pb.js",
+      "types": "./types/*_pb.d.ts"
     }
   },
   "engines": {
