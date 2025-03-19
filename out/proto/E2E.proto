@@ -1375,7 +1375,12 @@ message Message {
 	
 		message LinkPreviewMetadata {
 			optional Message.PaymentLinkMetadata paymentLinkMetadata = 1;
+			optional Message.URLMetadata urlMetadata = 2;
 		}
+	}
+
+	message URLMetadata {
+		optional uint32 fbExperimentId = 1;
 	}
 
 	message PaymentLinkMetadata {
