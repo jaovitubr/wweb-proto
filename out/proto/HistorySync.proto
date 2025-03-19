@@ -3,6 +3,7 @@ syntax = "proto2";
 import "Web.proto";
 import "SyncAction.proto";
 import "E2E.proto";
+import "Protocol.proto";
 import "ChatLockSettings.proto";
 
 enum MediaVisibility {
@@ -104,6 +105,8 @@ message Conversation {
 	optional string accountLid = 49;
 	optional bool limitSharing = 50;
 	optional int64 limitSharingSettingTimestamp = 51;
+	optional LimitSharing.Trigger limitSharingTrigger = 52;
+	optional bool limitSharingInitiatedByMe = 53;
 
 	enum EndOfHistoryTransferType {
 		COMPLETE_BUT_MORE_MESSAGES_REMAIN_ON_PRIMARY = 0;
