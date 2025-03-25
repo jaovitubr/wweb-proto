@@ -1344,7 +1344,8 @@ message Message {
 		optional uint32 videoHeight = 31;
 		optional uint32 videoWidth = 32;
 		optional Message.MMSThumbnailMetadata faviconMMSMetadata = 33;
-		optional LinkPreviewMetadata linkPreviewMetadata = 34;
+		optional Message.LinkPreviewMetadata linkPreviewMetadata = 34;
+		optional Message.PaymentLinkMetadata paymentLinkMetadata = 35;
 	
 		enum InviteLinkGroupType {
 			DEFAULT = 0;
@@ -1372,11 +1373,12 @@ message Message {
 			EXO2_EXTRABOLD = 9;
 			COURIERPRIME_BOLD = 10;
 		}
-	
-		message LinkPreviewMetadata {
-			optional Message.PaymentLinkMetadata paymentLinkMetadata = 1;
-			optional Message.URLMetadata urlMetadata = 2;
-		}
+	}
+
+	message LinkPreviewMetadata {
+		optional Message.PaymentLinkMetadata paymentLinkMetadata = 1;
+		optional Message.URLMetadata urlMetadata = 2;
+		optional uint32 fbExperimentId = 3;
 	}
 
 	message URLMetadata {
