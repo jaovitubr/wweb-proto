@@ -53,10 +53,16 @@ message ClientPayload {
 	optional InteropData interopData = 38;
 	optional TrafficAnonymization trafficAnonymization = 40;
 	optional bool lidDbMigrated = 41;
+	optional AccountType accountType = 42;
 
 	enum TrafficAnonymization {
 		OFF = 0;
 		STANDARD = 1;
+	}
+
+	enum AccountType {
+		DEFAULT = 0;
+		GUEST = 1;
 	}
 
 	enum Product {
@@ -64,6 +70,7 @@ message ClientPayload {
 		MESSENGER = 1;
 		INTEROP = 2;
 		INTEROP_MSGR = 3;
+		WHATSAPP_LID = 4;
 	}
 
 	enum ConnectType {
