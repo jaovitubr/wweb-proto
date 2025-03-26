@@ -136,6 +136,7 @@ message Message {
 	optional AIRichResponseMessage richResponseMessage = 97;
 	optional StatusNotificationMessage statusNotificationMessage = 98;
 	optional FutureProofMessage limitSharingMessage = 99;
+	optional FutureProofMessage botTaskMessage = 100;
 
 	enum PollContentType {
 		UNKNOWN = 0;
