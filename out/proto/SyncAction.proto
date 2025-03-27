@@ -114,6 +114,14 @@ message SyncActionValue {
 	optional WaffleAccountLinkStateAction waffleAccountLinkStateAction = 58;
 	optional UsernameChatStartModeAction usernameChatStartMode = 59;
 	optional NotificationActivitySettingAction notificationActivitySettingAction = 60;
+	optional LidContactAction lidContactAction = 61;
+
+	message LidContactAction {
+		optional string fullName = 1;
+		optional string firstName = 2;
+		optional string username = 3;
+		optional bool saveOnPrimaryAddressbook = 4;
+	}
 
 	message NotificationActivitySettingAction {
 		optional NotificationActivitySetting notificationActivitySetting = 1;
@@ -432,6 +440,8 @@ message SyncActionValue {
 		optional string firstName = 2;
 		optional string lidJid = 3;
 		optional bool saveOnPrimaryAddressbook = 4;
+		optional string pnJid = 5;
+		optional string username = 6;
 	}
 
 	message StarAction {
