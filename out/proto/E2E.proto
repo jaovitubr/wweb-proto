@@ -1140,6 +1140,8 @@ message Message {
 		optional Message.CloudAPIThreadControlNotification cloudApiThreadControlNotification = 22;
 		optional LIDMigrationMappingSyncMessage lidMigrationMappingSyncMessage = 23;
 		optional LimitSharing limitSharing = 24;
+		optional bytes aiPsiMetadata = 25;
+		optional AIQueryFanout aiQueryFanout = 26;
 	
 		enum Type {
 			REVOKE = 0;
@@ -1165,6 +1167,8 @@ message Message {
 			STATUS_MENTION_MESSAGE = 25;
 			STOP_GENERATION_MESSAGE = 26;
 			LIMIT_SHARING = 27;
+			AI_PSI_METADATA = 28;
+			AI_QUERY_FANOUT = 29;
 		}
 	}
 
@@ -2079,6 +2083,8 @@ message BotCapabilityMetadata {
 		STREAMING_DISAGGREGATION = 29;
 		RICH_RESPONSE_GRID_IMAGE_3P = 30;
 		RICH_RESPONSE_LATEX_INLINE = 31;
+		QUERY_PLAN = 32;
+		PROACTIVE_MESSAGE = 33;
 	}
 }
 
@@ -2134,6 +2140,7 @@ message BotMetadata {
 	optional BotMetricsMetadata botMetricsMetadata = 17;
 	optional BotLinkedAccountsMetadata botLinkedAccountsMetadata = 18;
 	optional BotSourcesMetadata richResponseSourcesMetadata = 19;
+	optional bytes aiConversationContext = 20;
 }
 
 message MessageAssociation {
@@ -2422,4 +2429,10 @@ message UrlTrackingMap {
 		optional string consentedUsersUrl = 3;
 		optional uint32 cardIndex = 4;
 	}
+}
+
+message AIQueryFanout {
+	optional MessageKey messageKey = 1;
+	optional Message message = 2;
+	optional int64 timestamp = 3;
 }
