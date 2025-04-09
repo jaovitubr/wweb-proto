@@ -49,6 +49,7 @@ message MsgOpaqueData {
 	optional int64 eventStartTime = 37;
 	optional EventLocation eventLocation = 38;
 	optional int64 eventEndTime = 40;
+	optional bytes plainProtobufBytes = 43;
 
 	enum PollContentType {
 		UNKNOWN = 0;
