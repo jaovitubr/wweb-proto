@@ -115,6 +115,11 @@ message SyncActionValue {
 	optional UsernameChatStartModeAction usernameChatStartMode = 59;
 	optional NotificationActivitySettingAction notificationActivitySettingAction = 60;
 	optional LidContactAction lidContactAction = 61;
+	optional CtwaPerCustomerDataSharingAction ctwaPerCustomerDataSharingAction = 62;
+
+	message CtwaPerCustomerDataSharingAction {
+		optional bool isCtwaPerCustomerDataSharingEnabled = 1;
+	}
 
 	message LidContactAction {
 		optional string fullName = 1;

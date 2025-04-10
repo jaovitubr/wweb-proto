@@ -2184,6 +2184,7 @@ message MessageContextInfo {
 	optional bool capiCreatedGroup = 11;
 	optional string supportPayload = 12;
 	optional LimitSharing limitSharing = 13;
+	optional LimitSharing limitSharingV2 = 14;
 
 	enum MessageAddonExpiryType {
 		STATIC = 1;
