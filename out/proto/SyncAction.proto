@@ -395,7 +395,7 @@ message SyncActionValue {
 		optional int32 orderIndex = 5;
 		optional bool isActive = 6;
 		optional ListType type = 7;
-		optional ListType isImmutable = 8;
+		optional bool isImmutable = 8;
 	
 		enum ListType {
 			NONE = 0;

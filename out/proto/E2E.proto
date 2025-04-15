@@ -137,6 +137,7 @@ message Message {
 	optional StatusNotificationMessage statusNotificationMessage = 98;
 	optional FutureProofMessage limitSharingMessage = 99;
 	optional FutureProofMessage botTaskMessage = 100;
+	optional FutureProofMessage questionMessage = 101;
 
 	enum PollContentType {
 		UNKNOWN = 0;
@@ -1564,6 +1565,7 @@ message ContextInfo {
 	optional PairedMediaType pairedMediaType = 59;
 	optional uint32 rankingVersion = 60;
 	optional MemberLabel memberLabel = 62;
+	optional bool isQuestion = 63;
 
 	enum PairedMediaType {
 		NOT_PAIRED_MEDIA = 0;
