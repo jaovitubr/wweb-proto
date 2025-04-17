@@ -1758,7 +1758,7 @@ message BotMemoryFact {
 message AIRichResponseMessage {
 	optional AIRichResponseMessageType messageType = 1;
 	repeated AIRichResponseSubMessage submessages = 2;
-	optional AIRichResponseAbstractData abstractData = 3;
+	optional AIRichResponseUnifiedResponse unifiedResponse = 3;
 
 	enum AIRichResponseSubMessageType {
 		AI_RICH_RESPONSE_UNKNOWN = 0;
@@ -1848,7 +1848,7 @@ message AIRichResponseMessage {
 		}
 	}
 
-	message AIRichResponseAbstractData {
+	message AIRichResponseUnifiedResponse {
 		optional bytes data = 1;
 	}
 
@@ -2091,6 +2091,7 @@ message BotCapabilityMetadata {
 		RICH_RESPONSE_LATEX_INLINE = 31;
 		QUERY_PLAN = 32;
 		PROACTIVE_MESSAGE = 33;
+		RICH_RESPONSE_UNIFIED_RESPONSE = 34;
 	}
 }
 
