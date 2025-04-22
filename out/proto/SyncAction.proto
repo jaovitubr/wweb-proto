@@ -404,7 +404,8 @@ message SyncActionValue {
 			FAVORITES = 3;
 			PREDEFINED = 4;
 			CUSTOM = 5;
-			SERVER_ASSIGNED = 6;
+			COMMUNITY = 6;
+			SERVER_ASSIGNED = 7;
 		}
 	}
 
