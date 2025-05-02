@@ -500,6 +500,7 @@ message Message {
 		enum SecretEncType {
 			UNKNOWN = 0;
 			EVENT_EDIT = 1;
+			MESSAGE_EDIT = 2;
 		}
 	}
 
@@ -720,6 +721,7 @@ message Message {
 		optional ContextInfo contextInfo = 17;
 		optional int32 messageVersion = 12;
 		optional MessageKey orderRequestMessageId = 13;
+		optional string catalogType = 15;
 	
 		enum OrderSurface {
 			CATALOG = 1;
