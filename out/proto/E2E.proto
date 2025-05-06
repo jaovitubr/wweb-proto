@@ -138,6 +138,7 @@ message Message {
 	optional FutureProofMessage limitSharingMessage = 99;
 	optional FutureProofMessage botTaskMessage = 100;
 	optional FutureProofMessage questionMessage = 101;
+	optional MessageHistoryNotice messageHistoryNotice = 102;
 
 	enum PollContentType {
 		UNKNOWN = 0;
@@ -1277,6 +1278,7 @@ message Message {
 		optional uint32 conversionDelaySeconds = 4;
 		optional string ctwaSignals = 5;
 		optional bytes ctwaPayload = 6;
+		optional ContextInfo contextInfo = 7;
 	}
 
 	message VideoMessage {
