@@ -27,6 +27,9 @@ enum BotMetricsEntryPoint {
 	AI_HOME = 19;
 	AI_DEEPLINK_IMMERSIVE = 20;
 	AI_DEEPLINK = 21;
+	META_AI_CHAT_SHORTCUT_AI_STUDIO = 22;
+	UGC_CHAT_SHORTCUT_AI_STUDIO = 23;
+	NEW_CHAT_AI_STUDIO = 24;
 }
 
 enum BotMetricsThreadEntryPoint {
@@ -1039,7 +1042,7 @@ message Message {
 		optional SyncDCollectionFatalRecoveryRequest syncdCollectionFatalRecoveryRequest = 7;
 	
 		message SyncDCollectionFatalRecoveryRequest {
-			repeated string collectionNames = 1;
+			optional string collectionName = 1;
 			optional int64 timestamp = 2;
 		}
 	
@@ -1599,6 +1602,15 @@ message ContextInfo {
 	optional uint32 rankingVersion = 60;
 	optional MemberLabel memberLabel = 62;
 	optional bool isQuestion = 63;
+	optional StatusSourceType statusType = 64;
+
+	enum StatusSourceType {
+		IMAGE = 0;
+		VIDEO = 1;
+		GIF = 2;
+		AUDIO = 3;
+		TEXT = 4;
+	}
 
 	enum PairedMediaType {
 		NOT_PAIRED_MEDIA = 0;
