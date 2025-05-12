@@ -1610,7 +1610,7 @@ message ContextInfo {
 		GIF = 2;
 		AUDIO = 3;
 		TEXT = 4;
-		MUSIC_FIRST = 5;
+		MUSIC_STANDALONE = 5;
 	}
 
 	enum PairedMediaType {
@@ -2194,6 +2194,11 @@ message BotImagineMetadata {
 	}
 }
 
+message BotAgeCollectionMetadata {
+	optional bool ageCollectionEligible = 1;
+	optional bool shouldTriggerAgeCollectionOnClient = 2;
+}
+
 message BotSourcesMetadata {
 	repeated BotSourceItem sources = 1;
 
@@ -2238,6 +2243,7 @@ message BotMetadata {
 	optional BotPromotionMessageMetadata botPromotionMessageMetadata = 21;
 	optional BotModeSelectionMetadata botModeSelectionMetadata = 22;
 	optional BotQuotaMetadata botQuotaMetadata = 23;
+	optional BotAgeCollectionMetadata botAgeCollectionMetadata = 24;
 }
 
 message MessageAssociation {
