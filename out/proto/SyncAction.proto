@@ -116,6 +116,16 @@ message SyncActionValue {
 	optional NotificationActivitySettingAction notificationActivitySettingAction = 60;
 	optional LidContactAction lidContactAction = 61;
 	optional CtwaPerCustomerDataSharingAction ctwaPerCustomerDataSharingAction = 62;
+	optional PaymentTosAction paymentTosAction = 63;
+
+	message PaymentTosAction {
+		required PaymentNotice paymentNotice = 1;
+		required bool accepted = 2;
+	
+		enum PaymentNotice {
+			BR_PAY_PRIVACY_POLICY = 0;
+		}
+	}
 
 	message CtwaPerCustomerDataSharingAction {
 		optional bool isCtwaPerCustomerDataSharingEnabled = 1;
