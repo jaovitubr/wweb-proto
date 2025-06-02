@@ -1234,7 +1234,8 @@ message Message {
 		optional ReportKind kindReport = 6;
 	
 		enum ReportKind {
-			GENERIC = 0;
+			NONE = 0;
+			GENERIC = 1;
 		}
 	
 		enum BotFeedbackKindMultiplePositive {
@@ -2275,6 +2276,16 @@ message MessageAssociation {
 	}
 }
 
+message ThreadID {
+	optional ThreadType threadType = 1;
+	optional MessageKey threadKey = 2;
+
+	enum ThreadType {
+		UNKNOWN = 0;
+		VIEW_REPLIES = 1;
+	}
+}
+
 message MessageContextInfo {
 	optional DeviceListMetadata deviceListMetadata = 1;
 	optional int32 deviceListMetadataVersion = 2;
@@ -2290,6 +2301,7 @@ message MessageContextInfo {
 	optional string supportPayload = 12;
 	optional LimitSharing limitSharing = 13;
 	optional LimitSharing limitSharingV2 = 14;
+	repeated ThreadID threadId = 15;
 
 	enum MessageAddonExpiryType {
 		STATIC = 1;
