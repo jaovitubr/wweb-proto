@@ -117,6 +117,7 @@ message SyncActionValue {
 	optional LidContactAction lidContactAction = 61;
 	optional CtwaPerCustomerDataSharingAction ctwaPerCustomerDataSharingAction = 62;
 	optional PaymentTosAction paymentTosAction = 63;
+	optional PrivacySettingChannelsPersonalisedRecommendationAction privacySettingChannelsPersonalisedRecommendationAction = 64;
 
 	message PaymentTosAction {
 		required PaymentNotice paymentNotice = 1;
@@ -188,6 +189,10 @@ message SyncActionValue {
 			UNSTRUCTURED = 1;
 			STRUCTURED = 2;
 		}
+	}
+
+	message PrivacySettingChannelsPersonalisedRecommendationAction {
+		optional bool isUserOptedOut = 1;
 	}
 
 	message PrivacySettingDisableLinkPreviewsAction {

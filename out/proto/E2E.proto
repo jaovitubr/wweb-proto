@@ -3,6 +3,7 @@ syntax = "proto2";
 import "Protocol.proto";
 import "MmsRetry.proto";
 import "CompanionReg.proto";
+import "StatusAttributions.proto";
 import "Adv.proto";
 
 enum BotMetricsEntryPoint {
@@ -143,6 +144,8 @@ message Message {
 	optional FutureProofMessage botTaskMessage = 100;
 	optional FutureProofMessage questionMessage = 101;
 	optional MessageHistoryNotice messageHistoryNotice = 102;
+	optional FutureProofMessage groupStatusMessageV2 = 103;
+	optional FutureProofMessage botForwardedMessage = 104;
 
 	enum PollContentType {
 		UNKNOWN = 0;
@@ -1316,6 +1319,14 @@ message Message {
 		optional string accessibilityLabel = 26;
 		repeated ProcessedVideo processedVideos = 27;
 		optional uint32 externalShareFullVideoDurationInSeconds = 28;
+		optional uint64 motionPhotoPresentationOffsetMs = 29;
+		optional string metadataUrl = 30;
+		optional VideoSourceType videoSourceType = 31;
+	
+		enum VideoSourceType {
+			USER_VIDEO = 0;
+			AI_GENERATED = 1;
+		}
 	
 		enum Attribution {
 			NONE = 0;
@@ -1438,6 +1449,11 @@ message Message {
 	message PaymentLinkMetadata {
 		optional PaymentLinkButton button = 1;
 		optional PaymentLinkHeader header = 2;
+		optional PaymentLinkProvider provider = 3;
+	
+		message PaymentLinkProvider {
+			optional string paramsJson = 1;
+		}
 	
 		message PaymentLinkHeader {
 			optional PaymentLinkHeaderType headerType = 1;
@@ -1607,6 +1623,7 @@ message ContextInfo {
 	optional MemberLabel memberLabel = 62;
 	optional bool isQuestion = 63;
 	optional StatusSourceType statusSourceType = 64;
+	repeated StatusAttribution statusAttributions = 65;
 
 	enum StatusSourceType {
 		IMAGE = 0;
@@ -2250,6 +2267,7 @@ message BotMetadata {
 	optional BotModeSelectionMetadata botModeSelectionMetadata = 22;
 	optional BotQuotaMetadata botQuotaMetadata = 23;
 	optional BotAgeCollectionMetadata botAgeCollectionMetadata = 24;
+	optional string conversationStarterPromptId = 25;
 }
 
 message MessageAssociation {
