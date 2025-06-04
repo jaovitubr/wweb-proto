@@ -1942,6 +1942,7 @@ message AIRichResponseMessage {
 
 	message AIRichResponseTableMetadata {
 		repeated AIRichResponseTableRow rows = 1;
+		optional string title = 2;
 	
 		message AIRichResponseTableRow {
 			repeated string items = 1;
