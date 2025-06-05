@@ -8,12 +8,19 @@ message StatusAttribution {
 		StatusReshare statusReshare = 3;
 		ExternalShare externalShare = 4;
 		Music music = 5;
+		GroupStatus groupStatus = 6;
 	}
 
 	enum Type {
 		RESHARE = 0;
 		EXTERNAL_SHARE = 1;
 		MUSIC = 2;
+		STATUS_MENTION = 3;
+		GROUP_STATUS = 4;
+	}
+
+	message GroupStatus {
+		optional string authorJid = 1;
 	}
 
 	message Music {

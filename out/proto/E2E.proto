@@ -1834,6 +1834,7 @@ message AIRichResponseMessage {
 	optional AIRichResponseMessageType messageType = 1;
 	repeated AIRichResponseSubMessage submessages = 2;
 	optional AIRichResponseUnifiedResponse unifiedResponse = 3;
+	optional ContextInfo contextInfo = 4;
 
 	enum AIRichResponseSubMessageType {
 		AI_RICH_RESPONSE_UNKNOWN = 0;
