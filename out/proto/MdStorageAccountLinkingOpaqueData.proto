@@ -1,0 +1,7 @@
+syntax = "proto2";
+
+message AccountLinkingOpaqueData {
+	optional string accesstoken = 1;
+	optional string fbid = 2;
+	optional string nonce = 3;
+}
