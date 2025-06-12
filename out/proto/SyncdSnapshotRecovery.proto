@@ -1,0 +1,20 @@
+syntax = "proto2";
+
+import "SyncAction.proto";
+
+message SyncdSnapshotRecovery {
+	optional SyncdVersion version = 1;
+	optional string collectionName = 2;
+	repeated SyncdPlainTextRecord mutationRecords = 3;
+	optional bytes collectionLthash = 4;
+}
+
+message SyncdPlainTextRecord {
+	optional SyncActionData value = 1;
+	optional bytes keyId = 2;
+	optional bytes mac = 3;
+}
+
+message SyncdVersion {
+	optional uint64 version = 1;
+}
