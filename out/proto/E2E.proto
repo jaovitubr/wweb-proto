@@ -163,6 +163,7 @@ message Message {
 		FULL_HISTORY_SYNC_ON_DEMAND = 6;
 		COMPANION_META_NONCE_FETCH = 7;
 		COMPANION_SYNCD_SNAPSHOT_FATAL_RECOVERY = 8;
+		COMPANION_CANONICAL_USER_NONCE_FETCH = 9;
 	}
 
 	message StickerPackMessage {
@@ -980,6 +981,7 @@ message Message {
 			optional FullHistorySyncOnDemandRequestResponse fullHistorySyncOnDemandRequestResponse = 6;
 			optional CompanionMetaNonceFetchResponse companionMetaNonceFetchRequestResponse = 7;
 			optional SyncDSnapshotFatalRecoveryResponse syncdSnapshotFatalRecoveryResponse = 8;
+			optional CompanionCanonicalUserNonceFetchResponse companionCanonicalUserNonceFetchRequestResponse = 9;
 		
 			enum FullHistorySyncOnDemandResponseCode {
 				REQUEST_SUCCESS = 0;
@@ -994,6 +996,10 @@ message Message {
 			message SyncDSnapshotFatalRecoveryResponse {
 				optional bytes collectionSnapshot = 1;
 				optional bool isCompressed = 2;
+			}
+		
+			message CompanionCanonicalUserNonceFetchResponse {
+				optional string nonce = 1;
 			}
 		
 			message CompanionMetaNonceFetchResponse {
@@ -1841,6 +1847,21 @@ message BotMemoryFact {
 	optional string factId = 2;
 }
 
+message BotSignatureVerificationMetadata {
+	repeated BotSignatureVerificationUseCaseProof proofs = 1;
+}
+
+message BotSignatureVerificationUseCaseProof {
+	optional int32 version = 1;
+	optional BotSignatureUseCase useCase = 2;
+	optional bytes signature = 3;
+	optional bytes certificateChain = 4;
+
+	enum BotSignatureUseCase {
+		WA_BOT_MSG = 0;
+	}
+}
+
 message AIRichResponseMessage {
 	optional AIRichResponseMessageType messageType = 1;
 	repeated AIRichResponseSubMessage submessages = 2;
@@ -2191,6 +2212,7 @@ message BotCapabilityMetadata {
 		PROACTIVE_MESSAGE = 33;
 		RICH_RESPONSE_UNIFIED_RESPONSE = 34;
 		PROMOTION_MESSAGE = 35;
+		SIMPLIFIED_PROFILE_PAGE = 36;
 	}
 }
 
@@ -2281,6 +2303,8 @@ message BotMetadata {
 	optional BotQuotaMetadata botQuotaMetadata = 23;
 	optional BotAgeCollectionMetadata botAgeCollectionMetadata = 24;
 	optional string conversationStarterPromptId = 25;
+	optional string botResponseId = 26;
+	optional BotSignatureVerificationMetadata verificationMetadata = 27;
 }
 
 message MessageAssociation {
