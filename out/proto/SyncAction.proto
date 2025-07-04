@@ -119,6 +119,18 @@ message SyncActionValue {
 	optional PaymentTosAction paymentTosAction = 63;
 	optional PrivacySettingChannelsPersonalisedRecommendationAction privacySettingChannelsPersonalisedRecommendationAction = 64;
 	optional BusinessBroadcastAssociationAction businessBroadcastAssociationAction = 65;
+	optional DetectedOutcomesStatusAction detectedOutcomesStatusAction = 66;
+	optional MaibaAIFeaturesControlAction maibaAiFeaturesControlAction = 67;
+
+	message MaibaAIFeaturesControlAction {
+		optional MaibaAIFeatureStatus aiFeatureStatus = 1;
+	
+		enum MaibaAIFeatureStatus {
+			ENABLED = 0;
+			ENABLED_HAS_LEARNING = 1;
+			DISABLED = 2;
+		}
+	}
 
 	message BusinessBroadcastAssociationAction {
 		optional bool deleted = 1;
@@ -261,6 +273,10 @@ message SyncActionValue {
 	}
 
 	message PrivacySettingRelayAllCalls {
+		optional bool isEnabled = 1;
+	}
+
+	message DetectedOutcomesStatusAction {
 		optional bool isEnabled = 1;
 	}
 
