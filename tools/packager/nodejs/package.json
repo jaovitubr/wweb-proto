@@ -28,13 +28,13 @@
   ],
   "license": "MIT",
   "author": "João Vitor Machado <joaovmachado10@gmail.com>",
-  "homepage": "https://github.com/jaovitubr/wweb-proto",
+  "homepage": "https://github.com/zapctl/wweb-proto",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jaovitubr/wweb-proto.git"
+    "url": "git+https://github.com/zapctl/wweb-proto.git"
   },
   "bugs": {
-    "url": "https://github.com/jaovitubr/wweb-proto/issues"
+    "url": "https://github.com/zapctl/wweb-proto/issues"
   },
   "dependencies": {
     "@bufbuild/protobuf": "1.10.0"
