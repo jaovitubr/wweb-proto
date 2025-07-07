@@ -33,6 +33,8 @@ enum BotMetricsEntryPoint {
 	NEW_CHAT_AI_STUDIO = 24;
 	AIVOICE_FAVICON_CALL_HISTORY = 25;
 	ASK_META_AI_CONTEXT_MENU = 26;
+	ASK_META_AI_CONTEXT_MENU_1ON1 = 27;
+	ASK_META_AI_CONTEXT_MENU_GROUP = 28;
 }
 
 enum BotMetricsThreadEntryPoint {
@@ -148,6 +150,7 @@ message Message {
 	optional MessageHistoryNotice messageHistoryNotice = 102;
 	optional FutureProofMessage groupStatusMessageV2 = 103;
 	optional FutureProofMessage botForwardedMessage = 104;
+	optional StatusQuestionAnswerMessage statusQuestionAnswerMessage = 105;
 
 	enum PollContentType {
 		UNKNOWN = 0;
@@ -374,6 +377,11 @@ message Message {
 		optional MessageKey key = 1;
 		optional KeepType keepType = 2;
 		optional int64 timestampMs = 3;
+	}
+
+	message StatusQuestionAnswerMessage {
+		optional MessageKey key = 1;
+		optional string text = 2;
 	}
 
 	message PollResultSnapshotMessage {
@@ -1030,6 +1038,12 @@ message Message {
 				optional string matchText = 6;
 				optional string previewType = 7;
 				optional LinkPreviewHighQualityThumbnail hqThumbnail = 8;
+				optional PaymentLinkPreviewMetadata previewMetadata = 9;
+			
+				message PaymentLinkPreviewMetadata {
+					optional bool isBusinessVerified = 1;
+					optional string providerName = 2;
+				}
 			
 				message LinkPreviewHighQualityThumbnail {
 					optional string directPath = 1;
@@ -1652,6 +1666,7 @@ message ContextInfo {
 	optional bool isQuestion = 63;
 	optional StatusSourceType statusSourceType = 64;
 	repeated StatusAttribution statusAttributions = 65;
+	optional bool isGroupStatus = 66;
 
 	enum StatusSourceType {
 		IMAGE = 0;
@@ -1676,6 +1691,7 @@ message ContextInfo {
 		NONE = 0;
 		RESHARED_FROM_MENTION = 1;
 		RESHARED_FROM_POST = 2;
+		FORWARDED_FROM_STATUS = 3;
 	}
 
 	message FeatureEligibilities {
@@ -2343,6 +2359,7 @@ message MessageAssociation {
 		STATUS_LINK_ACTION = 13;
 		VIEW_ALL_REPLIES = 14;
 		STATUS_ADD_YOURS_AI_IMAGINE = 15;
+		STATUS_QUESTION = 16;
 	}
 }
 
