@@ -27,7 +27,7 @@ await page.setUserAgent(
 );
 
 await page.goto("https://web.whatsapp.com/", {
-    waitUntil: "networkidle0",
+    waitUntil: "networkidle2",
 });
 
 const SCRAP_SCRIPT_PATH = path.join(__dirname, "./utils/protoScraper.js");
