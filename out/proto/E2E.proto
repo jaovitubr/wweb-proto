@@ -151,6 +151,7 @@ message Message {
 	optional FutureProofMessage groupStatusMessageV2 = 103;
 	optional FutureProofMessage botForwardedMessage = 104;
 	optional StatusQuestionAnswerMessage statusQuestionAnswerMessage = 105;
+	optional QuestionAdminReplyMessage questionAdminReplyMessage = 106;
 
 	enum PollContentType {
 		UNKNOWN = 0;
@@ -382,6 +383,17 @@ message Message {
 	message StatusQuestionAnswerMessage {
 		optional MessageKey key = 1;
 		optional string text = 2;
+	}
+
+	message QuestionAdminReplyMessage {
+		optional Message adminReplyMessage = 1;
+		optional QuotedQuestionAdminReplyMessage quotedMessage = 2;
+	
+		message QuotedQuestionAdminReplyMessage {
+			optional int32 serverQuestionId = 1;
+			optional Message quotedQuestion = 2;
+			optional Message quotedFollowerResponse = 3;
+		}
 	}
 
 	message PollResultSnapshotMessage {
@@ -2303,6 +2315,7 @@ message BotSourcesMetadata {
 			BING = 1;
 			GOOGLE = 2;
 			SUPPORT = 3;
+			OTHER = 4;
 		}
 	}
 }
@@ -2335,6 +2348,15 @@ message BotMetadata {
 	optional string conversationStarterPromptId = 25;
 	optional string botResponseId = 26;
 	optional BotSignatureVerificationMetadata verificationMetadata = 27;
+	optional BotUnifiedResponseMutation unifiedResponseMutation = 28;
+}
+
+message BotUnifiedResponseMutation {
+	optional SideBySideMetadata sbsMetadata = 1;
+
+	message SideBySideMetadata {
+		optional string primaryResponseId = 1;
+	}
 }
 
 message MessageAssociation {
