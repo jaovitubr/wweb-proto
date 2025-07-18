@@ -154,6 +154,7 @@ message Message {
 	optional FutureProofMessage botForwardedMessage = 104;
 	optional StatusQuestionAnswerMessage statusQuestionAnswerMessage = 105;
 	optional QuestionAdminReplyMessage questionAdminReplyMessage = 106;
+	optional QuestionResponseMessage questionResponseMessage = 107;
 
 	enum PollContentType {
 		UNKNOWN = 0;
@@ -388,6 +389,11 @@ message Message {
 		optional MessageKey key = 1;
 		optional KeepType keepType = 2;
 		optional int64 timestampMs = 3;
+	}
+
+	message QuestionResponseMessage {
+		optional MessageKey key = 1;
+		optional string text = 2;
 	}
 
 	message StatusQuestionAnswerMessage {
