@@ -28,27 +28,25 @@ setup() {
 }
 
 compile_proto() {
-    protoFiles=$PROTO_DIR/*.proto
-    
-    (
-        echo "" > $tsIndexPath
-        echo "export const HASH = '$NEWEST_WA_PROTO_MD5';" >> $tsIndexPath
-        echo "export const VERSION = '$NEWEST_WA_VERSION';" >> $tsIndexPath
+    echo "" > $tsIndexPath
+    echo "export const HASH = '$NEWEST_WA_PROTO_MD5';" >> $tsIndexPath
+    echo "export const VERSION = '$NEWEST_WA_VERSION';" >> $tsIndexPath
         
-        echo "Generated index $tsIndexPath"
-    ) &
+    echo "Generated index"
     
-    (
-        protoc \
-        --es_out $TS_OUT \
-        --es_opt target=ts \
-        --proto_path $OUT_DIR/proto/ \
-        $protoFiles
-        
-        echo "Compiled protocol buffer files $protoFiles"
-    ) &
+    for protoFile in $PROTO_DIR/*.proto; do
+        (
+            protoc \
+            --es_out $TS_OUT \
+            --es_opt target=ts \
+            --proto_path $OUT_DIR/proto/ \
+            "$protoFile"
+        ) &
+    done
     
     wait
+
+    echo "Compiled protocol buffers"
 }
 
 compile_js() {
