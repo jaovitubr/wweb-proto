@@ -140,6 +140,7 @@ message Pushname {
 message GroupParticipant {
 	required string userJid = 1;
 	optional Rank rank = 2;
+	optional MemberLabel memberLabel = 3;
 
 	enum Rank {
 		REGULAR = 0;
@@ -196,6 +197,7 @@ message StickerMetadata {
 	optional float weight = 10;
 	optional int64 lastStickerSentTs = 11;
 	optional bool isLottie = 12;
+	optional bool isAvatarSticker = 13;
 }
 
 message PastParticipants {

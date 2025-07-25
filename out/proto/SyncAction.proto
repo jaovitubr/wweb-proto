@@ -120,7 +120,7 @@ message SyncActionValue {
 	optional PrivacySettingChannelsPersonalisedRecommendationAction privacySettingChannelsPersonalisedRecommendationAction = 64;
 	optional BusinessBroadcastAssociationAction businessBroadcastAssociationAction = 65;
 	optional DetectedOutcomesStatusAction detectedOutcomesStatusAction = 66;
-	optional MaibaAIFeaturesControlAction maibaAiFeaturesControlAction = 67;
+	optional MaibaAIFeaturesControlAction maibaAiFeaturesControlAction = 68;
 
 	message MaibaAIFeaturesControlAction {
 		optional MaibaAIFeatureStatus aiFeatureStatus = 1;
@@ -335,6 +335,7 @@ message SyncActionValue {
 		optional bool isFavorite = 9;
 		optional uint32 deviceIdHint = 10;
 		optional bool isLottie = 11;
+		optional bool isAvatarSticker = 12;
 	}
 
 	message RemoveRecentStickerAction {

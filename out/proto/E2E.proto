@@ -153,7 +153,6 @@ message Message {
 	optional FutureProofMessage groupStatusMessageV2 = 103;
 	optional FutureProofMessage botForwardedMessage = 104;
 	optional StatusQuestionAnswerMessage statusQuestionAnswerMessage = 105;
-	optional QuestionAdminReplyMessage questionAdminReplyMessage = 106;
 	optional QuestionResponseMessage questionResponseMessage = 107;
 
 	enum PollContentType {
@@ -399,17 +398,6 @@ message Message {
 	message StatusQuestionAnswerMessage {
 		optional MessageKey key = 1;
 		optional string text = 2;
-	}
-
-	message QuestionAdminReplyMessage {
-		optional Message adminReplyMessage = 1;
-		optional QuotedQuestionAdminReplyMessage quotedMessage = 2;
-	
-		message QuotedQuestionAdminReplyMessage {
-			optional int32 serverQuestionId = 1;
-			optional Message quotedQuestion = 2;
-			optional Message quotedFollowerResponse = 3;
-		}
 	}
 
 	message PollResultSnapshotMessage {
@@ -1463,7 +1451,6 @@ message Message {
 		optional Message.LinkPreviewMetadata linkPreviewMetadata = 34;
 		optional Message.PaymentLinkMetadata paymentLinkMetadata = 35;
 		repeated Message.VideoEndCard endCardTiles = 36;
-		optional Message.MediaKeyDomain mediaKeyDomain = 37;
 	
 		enum InviteLinkGroupType {
 			DEFAULT = 0;
@@ -1703,6 +1690,16 @@ message ContextInfo {
 	optional StatusSourceType statusSourceType = 64;
 	repeated StatusAttribution statusAttributions = 65;
 	optional bool isGroupStatus = 66;
+	optional ForwardOrigin forwardOrigin = 67;
+	optional QuestionReplyQuotedMessage questionReplyQuotedMessage = 68;
+	optional StatusAudienceMetadata statusAudienceMetadata = 69;
+
+	enum ForwardOrigin {
+		UNKNOWN = 0;
+		CHAT = 1;
+		STATUS = 2;
+		CHANNELS = 3;
+	}
 
 	enum StatusSourceType {
 		IMAGE = 0;
@@ -1727,7 +1724,17 @@ message ContextInfo {
 		NONE = 0;
 		RESHARED_FROM_MENTION = 1;
 		RESHARED_FROM_POST = 2;
-		FORWARDED_FROM_STATUS = 3;
+		RESHARED_FROM_POST_MANY_TIMES = 3;
+		FORWARDED_FROM_STATUS = 4;
+	}
+
+	message StatusAudienceMetadata {
+		optional AudienceType audienceType = 1;
+	
+		enum AudienceType {
+			UNKNOWN = 0;
+			CLOSE_FRIENDS = 1;
+		}
 	}
 
 	message FeatureEligibilities {
@@ -1741,6 +1748,12 @@ message ContextInfo {
 		optional bool showMmDisclosure = 1;
 		optional string encryptedSignalTokenConsented = 2;
 		repeated Parameters parameters = 3;
+		optional int32 dataSharingFlags = 4;
+	
+		enum DataSharingFlags {
+			SHOW_MM_DISCLOSURE_ON_CLICK = 1;
+			SHOW_MM_DISCLOSURE_ON_READ = 2;
+		}
 	
 		message Parameters {
 			optional string key = 1;
@@ -1755,6 +1768,12 @@ message ContextInfo {
 		optional string botName = 1;
 		optional string botJid = 2;
 		optional string creatorName = 3;
+	}
+
+	message QuestionReplyQuotedMessage {
+		optional int32 serverQuestionId = 1;
+		optional Message quotedQuestion = 2;
+		optional Message quotedResponse = 3;
 	}
 
 	message ForwardedNewsletterMessageInfo {
@@ -2344,6 +2363,18 @@ message BotSourcesMetadata {
 	}
 }
 
+message BotMessageOriginMetadata {
+	repeated BotMessageOrigin origins = 1;
+}
+
+message BotMessageOrigin {
+	optional BotMessageOriginType type = 1;
+
+	enum BotMessageOriginType {
+		BOT_MESSAGE_ORIGIN_TYPE_AI_INITIATED = 0;
+	}
+}
+
 message BotMetadata {
 	optional BotAvatarMetadata avatarMetadata = 1;
 	optional string personaId = 2;
@@ -2373,6 +2404,7 @@ message BotMetadata {
 	optional string botResponseId = 26;
 	optional BotSignatureVerificationMetadata verificationMetadata = 27;
 	optional BotUnifiedResponseMutation unifiedResponseMutation = 28;
+	optional BotMessageOriginMetadata botMessageOriginMetadata = 29;
 }
 
 message BotUnifiedResponseMutation {
